@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Angular';
+  src: local('fonts/nevis.ttf');
+}
+
+#nf {
+  font-family: 'Angular';
+  font-weight: 550;
+}
