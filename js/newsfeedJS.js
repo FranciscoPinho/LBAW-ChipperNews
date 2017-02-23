@@ -17,7 +17,7 @@ function fullStory(snipID){
 		 case '2':
 		 $(element).append(`<p>Let's have a look at a few different benchmarks people have done.</p>
 			<div class="container" style=" width: 30%; height: 20%;">
-			<img src=".\img\graphphpnode.png" alt="" style=" width: 100%; height: auto;">
+			<img src="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2015/03/nodejs-vs-php-performance-requests-per-second.png" alt="" style=" width: 100%; height: auto;">
 			</div>
 			<p>We can see that PHP is at a clear disadvantage in these types of requests</p>`);
 		 break;
