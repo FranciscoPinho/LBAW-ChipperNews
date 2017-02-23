@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -10,8 +11,34 @@
     <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
 </head>
 <body>
-    <h1>Hello, world!</h1>
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+<div id="apply_collab">
+    <form id="form_apply_collab" method="post">
+        <ul>
+            <li><label> Full name: <br>
+                <input type="text" id="fullname" placeholder="Full name" name="fullname">
+                </label></li>
+            <li><label> Date of birth: <br>
+             <input type="date" id="birthdate" placeholder="Date of birth" name="birthdate">
+                </label></li>
+            <li><label> Describe yourself and your achievements briefly: <br>
+                <input type="<textarea rows="100" cols="200"></textarea>" id="description" placeholder="Brief description" name="description">
+                </label></li>
+            <li><label> What is your motivation for applying to this position: <br>
+                <input type="<textarea rows="100" cols="200"></textarea>" id="motivation" placeholder="Your motivation" name="motivation">
+            </label></li>
+            <li><label> References from previous employers: <br>
+                <input type="<textarea rows="100" cols="200"></textarea>" id="refs" placeholder="Your references" name="refs">
+            </label></li>
+            <li><label> News outlets you're currently associated with: <br>
+                <input type="<textarea rows="100" cols="200"></textarea>" id="assoc" placeholder="Associated outlets" name="assoc">
+            </label></li>
+            <!--><li><input type="hidden"  id="user_id" value="<?=$user_id?>"></li>-->
+            <!--<li><label> Image <input type="file" id="uploadImage" name="pic" accept="image/id"></label></li>-->
+        </ul>
+        <button class="css_btn_class" type="button" id="submit_restaurant">Submit application</button>
+    </form>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
