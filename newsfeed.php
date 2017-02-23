@@ -9,9 +9,17 @@
     <!-- Optional Bootstrap theme -->
     <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
 </head>
+<header>
+<?php
+include('header.php')
+?>
+</header>
 <body>
-    <h1>Hello, world!</h1>
+    <h1>Hello, w!</h1>
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
+<?php
+include('footer.php')
+?>
