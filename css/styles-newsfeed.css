@@ -1,13 +1,54 @@
 @font-face {
-  font-family: 'Angular';
-  src: local('fonts/nevis.ttf');
+    font-family: 'webfontbold';
+    src: url('../fonts/nevis-webfont.woff2') format('woff2'),
+         url('../fonts/nevis-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+body .allcontent{
+	background:#FFFAF0;
 }
 
-#nf {
-  font-family: 'Angular';
-  font-weight: 550;
+#headerbar {
+	margin-bottom: 0px
 }
 
-#subheader{
-	background:green;
+#feedheader {
+	background-image: url("../img/circuitbanner.jpg");
+	background-size: cover;
 }
+.nf {
+  font-family: 'webfontbold';
+  font-size: 60px;
+  font-weight: 600;
+  color:#890f0f;
+}
+
+.caret.caret-reversed {
+  width: 10px;
+  height: 10px;
+  background: #000000;
+  transform: rotate(45deg);
+}
+	
+#dropdownbutton{
+  background:#FFFAF0;
+  border:none;
+}
+.droptext
+ {
+  font-family: 'webfontbold';
+  font-size: 20px;
+  color: black;
+ }
+#headline{
+  font-family: 'webfontbold';
+  font-size: 30px;
+  color:#101010;
+}
+
+#feedpreferences{
+	position:relative;
+}
+
