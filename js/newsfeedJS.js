@@ -27,7 +27,10 @@ function fullStory(snipID){
 			<li><p>Workplace. any project where performance is a constraint will likely use C++. Even all the parallel programming languages/techniques (Cuda, MPI, etc) rely on your knowledge of C++ (pointer, dereferencing, arithmetic, etc) to accomplish a task. In my field of computer architecture, for instance, every famous simulator out there is written in C++.  Embedded systems (an area that keeps growing) is highly biased towards C.  Operating Systems, Computer Networks, Graphics.. yeap, most projects are coded in C++.</p></li>
 			<li><p>Interviewing.  Most programming interview questions are meant to be written in C++ given they often focus on Linked list, BST, Heaps.  Although you can code all these in other languages, doing pointer arithmetic in C++ is highly beneficial and many interviewers explicitly ask you to program it in C/C++.</p></li>
 			<li><p>In general, there is absolutely no other language more worthwhile learning than C/C++ (even though it might not be BEST language). Every field has its preferred language (web-> PHP, database->mySQL, scripting->Perl,Python, Computational->matlab, etc) but in general you just can't go wrong with C++.</p></li>
-			</ul>`);
+			</ul>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/NvWTnIoQZj4" frameborder="0" allowfullscreen></iframe>
+			<p id="vid">Related: C++ Creator Bjarne Stroustrup names the top 5 relevant languages to know</p>`);
+		
 		 break;
 	 }
 	 

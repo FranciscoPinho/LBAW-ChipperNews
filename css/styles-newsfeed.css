@@ -52,3 +52,11 @@ body .allcontent{
 	position:relative;
 }
 
+iframe {
+    display: block;
+    margin: auto;
+}
+
+p#vid {
+    text-align: center;
+}
