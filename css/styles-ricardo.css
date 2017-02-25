@@ -1,4 +1,10 @@
 .jumbotron {
-background-image: url("../img/apple2.png");
+background-image: url("../img/techHeader.jpg");
 background-size: cover;
+}
+body div.jumbotron div h1{
+    color: white;
+}
+body div.jumbotron div p{
+    color: white;
 }
