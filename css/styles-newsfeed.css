@@ -60,3 +60,10 @@ iframe {
 p#vid {
     text-align: center;
 }
+
+.container.article-snip {
+  outline: thin solid #f0f0f0;
+  width: 60%; 
+  height: auto;
+
+}

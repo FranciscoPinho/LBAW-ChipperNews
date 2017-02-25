@@ -1,130 +1,147 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Basic Bootstrap Template</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Basic Bootstrap Template</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/styles-newsfeed.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://www.w3schools.com/lib/w3data.js"></script>	
+	<script src="https://www.w3schools.com/lib/w3data.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/newsfeedJS.js"></script>
-    <!-- Optional Bootstrap theme -->
-    <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+	<!-- Optional Bootstrap theme -->
+	<!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
 </head>
+
 <body>
-<header>
-<!--<div w3-include-html="header.html"></div>
+	<header>
+		<!--<div w3-include-html="header.html"></div>
 <script>
 w3IncludeHTML();
 </script>
 -->
-<!--using ricardo header as placeover>-->
- <nav class="navbar navbar-default" id="headerbar">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-        
-        <a class="navbar-brand" href="#">Chipper News</a>
-        </div>
+		<!--using ricardo header as placeover>-->
+		<nav class="navbar navbar-default" id="headerbar">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
 
-        
-    
-        <form class="navbar-form navbar-left">
-            <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-        
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Register</a></li>
-            <li><a href="#">Login</a></li>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-    </nav>
-</header>
+					<a class="navbar-brand" href="#">Chipper News</a>
+				</div>
 
-<div class=allcontent>
-<div class="container-fluid" id="feedheader">
-	<h1 class="nf"> Newsfeed </h1>
-	<div class="dropdown" id="feedpreferences">
-		<button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton"><span class="droptext">Mixed</span>
+
+
+				<form class="navbar-form navbar-left">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Register</a></li>
+					<li><a href="#">Login</a></li>
+			</div>
+			<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+	</header>
+
+	<div class=allcontent>
+		<div class="container-fluid" id="feedheader">
+			<h1 class="nf"> Newsfeed </h1>
+			<div class="dropdown" id="feedpreferences">
+				<button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton"><span class="droptext">Mixed</span>
 		<span class="caret caret-reversed"></span> 
 		</button>
-		<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">
-			<li><a href="#" onclick="changeDropdown('Mixed')">Mixed</a></li>
-			<li><a href="#" onclick="changeDropdown('Friends')">Friends</a></li>
-			<li><a href="#" onclick="changeDropdown('Me')">Me</a></li>
-		</ul>
-	</div>
-</div>
-<br>
-<a href=# style="color:black">
-<div class="thumbnail">
-<div class="container" id="article-snip-1">
-      
-		<div class="container" style=" width: 40%; height: 30%;">
-			<img src="img\transistor.jpg" alt="..." style=" width: 100%; height: auto;">
-		</div>
-      
-            <h3 id="headline">Are processors pushing up against the limits of physics?</h3>
-			<h6 style="font-style:italic;">By <a style="color:black">Theodore Reesevolts Moronson</a></h6>
-			<h5>Tags: <font color="red">Electrical Engineering</font>, <font color="black">Hardware</font>, <font color="LightSlateGray">Industry</font></h5>
-            <h4>A perspective on whether Moore's law will hold, as well as whether it matters.</h4>
-			<p class="fullstory" style="font-style:italic;text-decoration: underline;font-size:20px"> <a onclick="fullStory(`1`)" style="color:black">Full Story</a> </p>
-		
-</div>
-</div>
-</a>
-
-<a href=# style="color:black">
-<div class="thumbnail">
-<div class="container" id="article-snip-2">
-      
-		<div class="container" style=" width: 40%; height: 30%;">
-			<img src="img\nodephp.jpg" alt="..." style=" width: 100%; height: auto;">
-		</div>
-      
-            <h3 id="headline">Performance Beatdown</h3>
-			<h6 style="font-style:italic;">By <a style="color:black">Justice Idiotson</a></h6>
-			<h5>Tags: <font color="blue">Programming</font>, <font color=#33A8FF>Software</font>, <font color="green">Tech Comparison</font></h5>
-            <h4>Node.js vs PHP Performance Benchmarks</h4>
-			<p class="fullstory" style="font-style:italic;text-decoration: underline;font-size:20px"> <a onclick="fullStory(`2`)" style="color:black">Full Story</a> </p>
-			<!--
-			-->
-			
-</div>
-</div>
-</a>
-
-<a href=# style="color:black">
-<div class="thumbnail">
-<div class="container article-snip" id="article-snip-3">  
-		
-			<div class="container" style=" width: 40%; height: 30%;">
-				<img src="img\c++.jpg" alt="..." style=" width: 100%; height: auto;">
+				<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">
+					<li><a href="#" onclick="changeDropdown('Mixed')">Mixed</a></li>
+					<li><a href="#" onclick="changeDropdown('Friends')">Friends</a></li>
+					<li><a href="#" onclick="changeDropdown('Me')">Me</a></li>
+				</ul>
 			</div>
-      
-            <h3 id="headline">C++ is alive and kicking</h3>
-			<h6 style="font-style:italic;">By <a style="color:black">Justice Idiotson</a></h6>
-			<h5>Tags: <font color="blue">Programming</font>, <font color=#33A8FF>Software</font>, <font color="LightSlateGray">Industry</font></h5>
-            <h4>Despite recent drop, C++ usage is still relevant.</h4>
-			<p class="fullstory" style="font-style:italic;text-decoration: underline;font-size:20px"> <a onclick="fullStory(`3`)" style="color:black">Full Story</a> </p>	
-			<!---->
-</div>
-</div>
-</a> 
+		</div>
+		<br>
+		<a href=# style="color:black">
+
+			<div class="container article-snip" id="article-snip-1">
+				<br>
+				<div class="container" style=" width: 40%; height: 30%;">
+					<img src="img\transistor.jpg" alt="..." style=" width: 100%; height: auto;">
+				</div>
+
+				<h3 id="headline">Are processors pushing up against the limits of physics?</h3>
+				<h6 style="font-style:italic;">By <a style="color:black">Theodore Reesevolts Moronson</a></h6>
+				<h5>Tags:
+					<font color="red">Electrical Engineering</font>,
+					<font color="black">Hardware</font>,
+					<font color="LightSlateGray">Industry</font>
+				</h5>
+				<h4>A perspective on whether Moore's law will hold, as well as whether it matters.</h4>
+				<p class="fullstory" style="font-style:italic;text-decoration: underline;font-size:20px"> <a onclick="fullStory(`1`)" style="color:black">Full Story</a> </p>
+
+
+			</div>
+		</a>
+		<br>
+		<br>
+		<a href=# style="color:black">
+
+			<div class="container article-snip" id="article-snip-2">
+				<br>
+				<div class="container" style=" width: 40%; height: 30%;">
+					<img src="img\nodephp.jpg" alt="..." style=" width: 100%; height: auto;">
+				</div>
+
+				<h3 id="headline">Performance Beatdown</h3>
+				<h6 style="font-style:italic;">By <a style="color:black">Justice Idiotson</a></h6>
+				<h5>Tags:
+					<font color="blue">Programming</font>,
+					<font color=#33A8FF>Software</font>,
+					<font color="green">Tech Comparison</font>
+				</h5>
+				<h4>Node.js vs PHP Performance Benchmarks</h4>
+				<p class="fullstory" style="font-style:italic;text-decoration: underline;font-size:20px"> <a onclick="fullStory(`2`)" style="color:black">Full Story</a> </p>
+				<!--
+			-->
+
+
+			</div>
+		</a>
+		<br>
+		<br>
+		<a href=# style="color:black">
+
+			<div class="container article-snip" id="article-snip-3">
+				<br>
+				<div class="container" style=" width: 40%; height: 30%;">
+					<img src="img\c++.jpg" alt="..." style=" width: 100%; height: auto;">
+				</div>
+
+				<h3 id="headline">C++ is alive and kicking</h3>
+				<h6 style="font-style:italic;">By <a style="color:black">Justice Idiotson</a></h6>
+				<h5>Tags:
+					<font color="blue">Programming</font>,
+					<font color=#33A8FF>Software</font>,
+					<font color="LightSlateGray">Industry</font>
+				</h5>
+				<h4>Despite recent drop, C++ usage is still relevant.</h4>
+				<p class="fullstory" style="font-style:italic;text-decoration: underline;font-size:20px"> <a onclick="fullStory(`3`)" style="color:black">Full Story</a> </p>
+				<!---->
+
+			</div>
+		</a>
 </body>
 
 <footer class="footer">
-<div w3-include-html="footer.html"></div>
-<script>
-w3IncludeHTML();
-</script>
+	<div w3-include-html="footer.html"></div>
+	<script>
+		w3IncludeHTML();
+	</script>
 </footer>
 
 </html>
-	
