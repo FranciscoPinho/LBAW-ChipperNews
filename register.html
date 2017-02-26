@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Register Form</title>
+    <title>Register Page</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles-forms.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://www.w3schools.com/lib/w3data.js"></script>	
 	<script src="js/bootstrap.min.js"></script>
@@ -14,30 +14,39 @@
     <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
 </head>
 <body>
-<div id="register">
+<div class="form_div" id="register">
+    <h1>Register Page</h1>
     <form id="form_register" method="post">
-        <ul>
-            <li><label> Full name: <br>
+        <div class="form-group">
+            <label> Full name: <br>
                 <input type="text" id="fullname" placeholder="Full name" name="fullname">
-                </label></li>
-            <li><label> Date of birth: <br>
-             <input type="date" id="birthdate" placeholder="Date of birth" name="birthdate">
-                </label></li>
-            <li><label> Describe yourself and your achievements briefly: <br>
+            </label>
+        </div>
+        <div class="form-group">
+            <label> Date of birth: <br>
+             <input type="date" id="birthdate" placeholder="Date of birth" name="birthdate">                </label>
+        </div>
+        <div class="form-group">
+            <label> Describe yourself and your achievements briefly: <br>
                 <textarea rows="15" cols="50" id="description" placeholder="Brief description" name="description"></textarea> 
-                </label></li>
-            <li><label> What is your motivation for applying to this position: <br>
+            </label>
+        </div>
+        <div class="form-group">
+            <label> What is your motivation for applying to this position: <br>
                 <textarea rows="15" cols="50" id="motivation" placeholder="Your motivation" name="motivation"></textarea>
-            </label></li>
-            <li><label> References from previous employers: <br>
+            </label>
+        </div>
+        <div class="form-group">
+            <label> References from previous employers: <br>
                 <textarea rows="15" cols="50" id="refs" placeholder="Your references" name="refs"></textarea>
-            </label></li>
-            <li><label> News outlets you're currently associated with: <br>
+            </label>
+        </div>
+        <div class="form-group">
+            <label> News outlets you're currently associated with: <br>
                 <textarea rows="15" cols="50" id="assoc" placeholder="Associated outlets" name="assoc"></textarea>
-            </label></li>
-            <!--><li><input type="hidden"  id="user_id" value="<?=$user_id?>"></li>-->
-            <!--<li><label> Image <input type="file" id="uploadImage" name="pic" accept="image/id"></label></li>-->
-        </ul>
+            </label>
+        </div>
+            <!--<label> Image <input type="file" id="uploadImage" name="pic" accept="image/id"></label>-->
         <button class="css_btn_class" type="button" id="submit_restaurant">Submit application</button>
     </form>
 </div>
