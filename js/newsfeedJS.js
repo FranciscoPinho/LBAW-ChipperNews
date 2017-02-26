@@ -1,19 +1,19 @@
 function changeDropdown(option) {
 	$('span.droptext').empty();
 	$('span.droptext').append(option);
-	switch(option){
+	switch (option) {
 		case 'Me':
-		$('.container.article-snip').show();
-		$('.container.article-snip.friend').hide();
-		break;
+			$('.container.article-snip').show();
+			$('.container.article-snip.friend').hide();
+			break;
 		case 'Mixed':
-		$('.container.article-snip.friend').show();
-		$('.container.article-snip').show();
-		break;
+			$('.container.article-snip.friend').show();
+			$('.container.article-snip').show();
+			break;
 		case 'Friends':
-		$('.container.article-snip').hide();
-		$('.container.article-snip.friend').show();
-		break;
+			$('.container.article-snip').hide();
+			$('.container.article-snip.friend').show();
+			break;
 	}
 }
 
@@ -26,12 +26,39 @@ function fullStory(snipID) {
 			$(element).append(`<p>Recently, the number of processing cores per CPU has rapidly scaled up, but they quickly reached the point of diminishing returns. Now, getting the most processing power for each Watt seems to be the key measure of performance.</p>
 				<p>None of these things happened because the companies making processors ran up against hard physical limits. Rather, computing power ended up being constrained because progress in certain areas-primarily energy efficiency-was slow compared to progress in others, such as feature size. But could we be approaching physical limits in processing power? In this week's edition of Nature, The University of Michigan's Igor Markov takes a look at the sorts of limits we might face.</p>
 				<p>Markov notes that, based on purely physical limitations, some academics have estimated that Moore's law had hundreds of years left in it. In contrast, the International Technology Roadmap for Semiconductors (ITRS), a group sponsored by the major semiconductor manufacturing nations, gives it a couple of decades. And the ITRS can be optimistic; it once expected that we would have 10GHz CPUs back in the Core2 days. The reason for this discrepancy is that a lot of hard physical limits never come into play.</p>
+				<br>
 				<div class="rate">
-					<button class="btn btn-default" type="button" id="chip"><span id="posrating" style = "color:#357266">Chip!</span>	
+				<button class="btn btn-default" type="button" id="btnlike">
+					<img src="./img/chipart1.png" alt="" style="width:20%;height:20%;"> 
 				</button>
-					<button class="btn btn-default" type="button" id="fakenews"><span id="negrating" style="color:red">Fake!</span>	
+				<button class="btn btn-default" type="button" id="btndislike">
+					<img src="./img/chipart1.png" alt="" style="width:20%;height:20%;filter:hue-rotate(198deg);"> 
 				</button>
-				</div>`);
+				<script>
+				$('#btnlike').on("click",function(){
+				
+				if($('#btndislike').is(":disabled")){
+					$('#btndislike').prop("disabled",false);
+				}
+				else {
+					$('#btndislike').prop("disabled",true);
+				}
+				});
+
+				$('#btndislike').on("click",function(){
+				
+				if($('#btnlike').is(":disabled")){
+					$('#btnlike').prop("disabled",false);
+				}
+				else {
+					$('#btnlike').prop("disabled",true);
+				}
+				});
+			
+				</script>
+
+				</div>
+				<br>`);
 			break;
 
 		case '2':
@@ -42,11 +69,37 @@ function fullStory(snipID) {
 			<p>We can see that PHP is at a clear disadvantage in these types of requests</p>
 			<br>
 			<div class="rate">
-					<button class="btn btn-default" type="button" id="chip"><span id="posrating" style = "color:#357266">Chip!</span>	
+				<button class="btn btn-default" type="button" id="btnlike">
+					<img src="./img/chipart1.png" alt="" style="width:20%;height:20%;"> 
 				</button>
-					<button class="btn btn-default" type="button" id="fakenews"><span id="negrating" style="color:red">Fake!</span>	
+				<button class="btn btn-default" type="button" id="btndislike">
+					<img src="./img/chipart1.png" alt="" style="width:20%;height:20%;filter:hue-rotate(198deg);"> 
 				</button>
-				</div>`);
+				<script>
+				$('#btnlike').on("click",function(){
+				
+				if($('#btndislike').is(":disabled")){
+					$('#btndislike').prop("disabled",false);
+				}
+				else {
+					$('#btndislike').prop("disabled",true);
+				}
+				});
+
+				$('#btndislike').on("click",function(){
+				
+				if($('#btnlike').is(":disabled")){
+					$('#btnlike').prop("disabled",false);
+				}
+				else {
+					$('#btnlike').prop("disabled",true);
+				}
+				});
+			
+				</script>
+			</div>
+	
+			<br>`);
 			break;
 
 		case '3':
@@ -59,14 +112,40 @@ function fullStory(snipID) {
 			<p id="vid">Related: C++ Creator Bjarne Stroustrup names the top 5 relevant languages to know</p>
 			<br>
 			<div class="rate">
-					<button class="btn btn-default" type="button" id="chip"><span id="posrating" style = "color:#357266">Chip!</span>	
+				<button class="btn btn-default" type="button" id="btnlike">
+					<img src="./img/chipart1.png" alt="" style="width:20%;height:20%;"> 
 				</button>
-					<button class="btn btn-default" type="button" id="fakenews"><span id="negrating" style="color:red">Fake!</span>	
+				<button class="btn btn-default" type="button" id="btndislike">
+					<img src="./img/chipart1.png" alt="" style="width:20%;height:20%;filter:hue-rotate(198deg);"> 
 				</button>
-				</div>`);
+				<script>
+				$('#btnlike').on("click",function(){
+				
+				if($('#btndislike').is(":disabled")){
+					$('#btndislike').prop("disabled",false);
+				}
+				else {
+					$('#btndislike').prop("disabled",true);
+				}
+				});
+
+				$('#btndislike').on("click",function(){
+				
+				if($('#btnlike').is(":disabled")){
+					$('#btnlike').prop("disabled",false);
+				}
+				else {
+					$('#btnlike').prop("disabled",true);
+				}
+				});
+			
+				</script>
+		</div>
+			
+				<br>`);
 			break;
 
-			case'4':
+		case '4':
 			$(element).append(`
 				<p>Python as a Programming Language is a very great resource for programmers and Python is also an Open Source Programming Language , so it is very updated as million’s of minds are operating or using the language, there are many updates on the language and with each update it becomes more powerful and more robust.</p>
 			
@@ -92,12 +171,36 @@ def about():
 				<p>This code isn’t trivial but is readable by students after only a few sessions. Knowing how to route web applications in even the most basic way is a huge step forward in terms of confidence and curiosity.</p>
 				<br>
 				<div class="rate">
-					<button class="btn btn-default" type="button" id="chip"><span id="posrating" style = "color:#357266">Chip!</span>	
-				</button>
-					<button class="btn btn-default" type="button" id="fakenews"><span id="negrating" style="color:red">Fake!</span>	
-				</button>
-				</div>`);
+					<button class="btn btn-default" type="button" id="btnlike">
+						<img src="./img/chipart1.png" alt="" style="width:20%;height:20%;"> 
+					</button>
+					<button class="btn btn-default" type="button" id="btndislike">
+						<img src="./img/chipart1.png" alt="" style="width:20%;height:20%;filter:hue-rotate(198deg);"> 
+					</button>
+				<script>
+					$('#btnlike').on("click",function(){
+						if($('#btndislike').is(":disabled")){
+							$('#btndislike').prop("disabled",false);
+						}
+						else {
+							$('#btndislike').prop("disabled",true);
+						}
+					});
+
+					$('#btndislike').on("click",function(){
+						if($('#btnlike').is(":disabled")){
+							$('#btnlike').prop("disabled",false);
+						}
+						else {
+							$('#btnlike').prop("disabled",true);
+						}
+					});
+				</script>
+				</div>
+			
+				<br>`);
 			break;
 	}
 
 }
+
