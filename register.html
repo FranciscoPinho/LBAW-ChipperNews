@@ -1,54 +1,77 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Register Page</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/styles-forms.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://www.w3schools.com/lib/w3data.js"></script>	
-	<script src="js/bootstrap.min.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="css/styles-forms.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://www.w3schools.com/lib/w3data.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <!-- Optional Bootstrap theme -->
     <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
 </head>
+
 <body>
-<div class="form_div" id="register">
-    <h1>Register Page</h1>
-    <form id="form_register" method="post">
-        <div class="form-group">
-            <label> Full name: <br>
-                <input type="text" id="fullname" placeholder="Full name" name="fullname">
+    <div class="form_div" id="register">
+        <form class="form-horizontal" id="form_register" method="post">
+            <fieldset>
+                <legend>Register Page</legend>
+                <div class="form-group">
+                    <label> Full name: <br>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="fullname" placeholder="Full name" name="fullname">
+            </div>
             </label>
-        </div>
-        <div class="form-group">
-            <label> Date of birth: <br>
-             <input type="date" id="birthdate" placeholder="Date of birth" name="birthdate">                </label>
-        </div>
-        <div class="form-group">
-            <label> Describe yourself and your achievements briefly: <br>
-                <textarea rows="15" cols="50" id="description" placeholder="Brief description" name="description"></textarea> 
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label> Date of birth: <br>
+             <input type="date" class="form-control" id="birthdate" placeholder="Date of birth" name="birthdate">                </label>
+                </div>
+                <div class="form-group">
+                    <label> Short Bio: <br>
+             <div class="col-lg-10">
+                <textarea class="form-control" rows="15" cols="50" id="description" name="description"></textarea> 
+                <span class="help-block">Brief description</span>
+             </div>
             </label>
-        </div>
-        <div class="form-group">
-            <label> What is your motivation for applying to this position: <br>
-                <textarea rows="15" cols="50" id="motivation" placeholder="Your motivation" name="motivation"></textarea>
+                </div>
+                <div class="form-group">
+                    <label> Interests: <br>
+            <div class="col-lg-10">
+                <textarea class="form-control" rows="15" cols="50" id="motivation" placeholder="Your motivation" name="motivation"></textarea>
+            </div>
             </label>
-        </div>
-        <div class="form-group">
-            <label> References from previous employers: <br>
-                <textarea rows="15" cols="50" id="refs" placeholder="Your references" name="refs"></textarea>
-            </label>
-        </div>
-        <div class="form-group">
-            <label> News outlets you're currently associated with: <br>
-                <textarea rows="15" cols="50" id="assoc" placeholder="Associated outlets" name="assoc"></textarea>
-            </label>
-        </div>
-            <!--<label> Image <input type="file" id="uploadImage" name="pic" accept="image/id"></label>-->
-        <button class="css_btn_class" type="button" id="submit_restaurant">Submit application</button>
-    </form>
-</div>
+                </div>
+                <label for="select" class="col-lg-2 control-label">Select your country: </label>
+                <div class="col-lg-10">
+                    <select class="form-control" id="select">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+                </div>
+                <!--<label> Image <input type="file" id="uploadImage" name="pic" accept="image/id"></label>-->
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button type="reset" class="btn btn-default">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
 </body>
+
 </html>
