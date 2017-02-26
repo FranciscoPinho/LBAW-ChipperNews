@@ -40,6 +40,7 @@ function fullStory(snipID) {
 			<img src="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2015/03/nodejs-vs-php-performance-requests-per-second.png" alt="" style=" width: 100%; height: auto;">
 			</div>
 			<p>We can see that PHP is at a clear disadvantage in these types of requests</p>
+			<br>
 			<div class="rate">
 					<button class="btn btn-default" type="button" id="chip"><span id="posrating" style = "color:#357266">Chip!</span>	
 				</button>
@@ -56,13 +57,46 @@ function fullStory(snipID) {
 			</ul>
 			<iframe width="560" height="315" src="https://www.youtube.com/embed/NvWTnIoQZj4" frameborder="0" allowfullscreen></iframe>
 			<p id="vid">Related: C++ Creator Bjarne Stroustrup names the top 5 relevant languages to know</p>
+			<br>
 			<div class="rate">
 					<button class="btn btn-default" type="button" id="chip"><span id="posrating" style = "color:#357266">Chip!</span>	
 				</button>
 					<button class="btn btn-default" type="button" id="fakenews"><span id="negrating" style="color:red">Fake!</span>	
 				</button>
 				</div>`);
+			break;
 
+			case'4':
+			$(element).append(`
+				<p>Python as a Programming Language is a very great resource for programmers and Python is also an Open Source Programming Language , so it is very updated as million’s of minds are operating or using the language, there are many updates on the language and with each update it becomes more powerful and more robust.</p>
+			
+				<p>The Python Language may be one of the most used and powerful language in the agonizing future. The reasons for Python to be an emerging language</p>
+			
+				<h4 style="font-weight:bold">1. Easy-to-Learn<h5>
+				<p>Let’s face it. Learning a programming language doesn’t sound as exciting as a breakdance competition on an aircraft carrier. Luckily, Python was designed with the newcomer in mind. Python reads like kindergarten math and is easy on the layman’s eye. The use of white space and common expressions has eliminated the need for tedious variable declarations and unattractive curly brackets. Python also requires less code to complete basic tasks, making it an economical language to learn. Python code is often 3-5 times shorter than Java, and 5-10 times shorter than C++. But while Python is easy to learn in itself, we all know the peril of studying alone and unprepared. Homer Simpson did that in college and look where it got him. Fortunately, the Python community has amassed an <a href="https://wiki.python.org/moin/BeginnersGuide/Programmers" target="_blank" style="color:blue; text-decoration:none;">ample collection of resources</a> to keep you safe and productive.</p>
+				<h4 style="font-weight:bold">2. Your Stepping Stone<h5>
+				<p>Python can be your stepping stone into the programming universe. Employers are looking for fully stacked programmers and Python will help you get there. Python is an object-oriented language, just like Javascript, C++, C#, Perl, Ruby, and other key programming languages. For people planning to become software developers, learning this type of programming in one area will help you adapt easily in other environments.</p>
+				<br>
+				<p>Specifically, a working knowledge of Python can be a solid foundation because Python’s methodologies can be used in a broad range of applications. For example, Python’s inherent organization and architecture can act as your Rosetta Stone when trying to decipher more cryptic programming languages. Here’s a brief comparison of Python with two other languages: Ruby and PHP. Ruby has a similar structure to Python while PHP has a very different syntax.</p>
+				<br>
+				<p>A “for” loop on a list [Python]:</p>
+				<div class="container" style=" width: 70%; height: 30%;">
+				<img src="https://qph.ec.quoracdn.net/main-qimg-7e16f22db479695d687158c34db6c000-p" alt="..." style=" width: 100%; height: auto;">
+				</div>
+				<br>
+				<h4 style="font-weight:bold">3. Web programming</h5>
+				<p>Python is at home on the web, unlike a low-level language like C. Frameworks like Django, Pyramid, and Flask give students the ability to create real web applications that have the same power as the sites they use every day. Flask is my personal favorite for teaching because, in combination with a free Heroku account, students can have their own Simple blog deployed in under an hour. And adding their first route to a web app is simple as well:
+				<pre><code>@app.route("/about")	
+def about():
+	return render_template("about.html", now=datetime.datetime.now())</code></pre>
+				<p>This code isn’t trivial but is readable by students after only a few sessions. Knowing how to route web applications in even the most basic way is a huge step forward in terms of confidence and curiosity.</p>
+				<br>
+				<div class="rate">
+					<button class="btn btn-default" type="button" id="chip"><span id="posrating" style = "color:#357266">Chip!</span>	
+				</button>
+					<button class="btn btn-default" type="button" id="fakenews"><span id="negrating" style="color:red">Fake!</span>	
+				</button>
+				</div>`);
 			break;
 	}
 

@@ -57,7 +57,7 @@ body .allcontent {
 
 #headline {
   font-family: 'webfontbold';
-  font-size: 30px;
+  font-size: 28px;
   color: #101010;
 }
 
@@ -75,4 +75,14 @@ p#vid {
   width: 60%;
   height: auto;
 
+}
+
+.container.article-snip #articleAnchor:hover{
+ text-decoration: none;
+ font-size: 29px; 
+}
+
+p {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 16px;
 }
