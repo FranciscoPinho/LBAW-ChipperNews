@@ -17,7 +17,7 @@ body .allcontent {
  /* background-image: url("../img/circuitbanner.jpg");*/
  background:#C5C9A4;
   background-size: cover;
-  margin: 0px;
+  margin-bottom:10px;
 }
 
 .nf {
@@ -26,7 +26,17 @@ body .allcontent {
   font-weight: 600;
   color: #1E352F;
 }
+ 
+.ratings {
+  font-family: 'webfontbold';
+  font-size: 15px;
+  font-weight: 600;
+}
 
+#posrating {
+  margin-right:30px;
+
+}
 .caret.caret-reversed {
   width: 10px;
   height: 10px;
@@ -49,10 +59,6 @@ body .allcontent {
   font-family: 'webfontbold';
   font-size: 30px;
   color: #101010;
-}
-
-#feedpreferences {
-  position: relative;
 }
 
 iframe {

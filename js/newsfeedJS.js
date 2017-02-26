@@ -25,7 +25,13 @@ function fullStory(snipID) {
 		case '1':
 			$(element).append(`<p>Recently, the number of processing cores per CPU has rapidly scaled up, but they quickly reached the point of diminishing returns. Now, getting the most processing power for each Watt seems to be the key measure of performance.</p>
 				<p>None of these things happened because the companies making processors ran up against hard physical limits. Rather, computing power ended up being constrained because progress in certain areas-primarily energy efficiency-was slow compared to progress in others, such as feature size. But could we be approaching physical limits in processing power? In this week's edition of Nature, The University of Michigan's Igor Markov takes a look at the sorts of limits we might face.</p>
-				<p>Markov notes that, based on purely physical limitations, some academics have estimated that Moore's law had hundreds of years left in it. In contrast, the International Technology Roadmap for Semiconductors (ITRS), a group sponsored by the major semiconductor manufacturing nations, gives it a couple of decades. And the ITRS can be optimistic; it once expected that we would have 10GHz CPUs back in the Core2 days. The reason for this discrepancy is that a lot of hard physical limits never come into play.</p>`);
+				<p>Markov notes that, based on purely physical limitations, some academics have estimated that Moore's law had hundreds of years left in it. In contrast, the International Technology Roadmap for Semiconductors (ITRS), a group sponsored by the major semiconductor manufacturing nations, gives it a couple of decades. And the ITRS can be optimistic; it once expected that we would have 10GHz CPUs back in the Core2 days. The reason for this discrepancy is that a lot of hard physical limits never come into play.</p>
+				<div class="rate">
+					<button class="btn btn-default" type="button" id="chip"><span id="posrating" style = "color:#357266">Chip!</span>	
+				</button>
+					<button class="btn btn-default" type="button" id="fakenews"><span id="negrating" style="color:red">Fake!</span>	
+				</button>
+				</div>`);
 			break;
 
 		case '2':
@@ -33,7 +39,13 @@ function fullStory(snipID) {
 			<div class="container" style=" width: 50%; height: auto;">
 			<img src="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2015/03/nodejs-vs-php-performance-requests-per-second.png" alt="" style=" width: 100%; height: auto;">
 			</div>
-			<p>We can see that PHP is at a clear disadvantage in these types of requests</p>`);
+			<p>We can see that PHP is at a clear disadvantage in these types of requests</p>
+			<div class="rate">
+					<button class="btn btn-default" type="button" id="chip"><span id="posrating" style = "color:#357266">Chip!</span>	
+				</button>
+					<button class="btn btn-default" type="button" id="fakenews"><span id="negrating" style="color:red">Fake!</span>	
+				</button>
+				</div>`);
 			break;
 
 		case '3':
@@ -43,7 +55,13 @@ function fullStory(snipID) {
 			<li><p>In general, there is absolutely no other language more worthwhile learning than C/C++ (even though it might not be BEST language). Every field has its preferred language (web-> PHP, database->mySQL, scripting->Perl,Python, Computational->matlab, etc) but in general you just can't go wrong with C++.</p></li>
 			</ul>
 			<iframe width="560" height="315" src="https://www.youtube.com/embed/NvWTnIoQZj4" frameborder="0" allowfullscreen></iframe>
-			<p id="vid">Related: C++ Creator Bjarne Stroustrup names the top 5 relevant languages to know</p>`);
+			<p id="vid">Related: C++ Creator Bjarne Stroustrup names the top 5 relevant languages to know</p>
+			<div class="rate">
+					<button class="btn btn-default" type="button" id="chip"><span id="posrating" style = "color:#357266">Chip!</span>	
+				</button>
+					<button class="btn btn-default" type="button" id="fakenews"><span id="negrating" style="color:red">Fake!</span>	
+				</button>
+				</div>`);
 
 			break;
 	}
