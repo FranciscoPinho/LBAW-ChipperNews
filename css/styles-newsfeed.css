@@ -1,28 +1,30 @@
 @font-face {
-    font-family: 'webfontbold';
-    src: url('../fonts/nevis-webfont.woff2') format('woff2'),
-         url('../fonts/nevis-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: 'webfontbold';
+  src: url('../fonts/nevis-webfont.woff2') format('woff2'), url('../fonts/nevis-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
-body .allcontent{
-	background:#FFFAF0;
+
+body .allcontent {
+  background: #FFFAF0;
 }
 
 #headerbar {
-	margin-bottom: 0px
+  margin-bottom: 0px;
 }
 
 #feedheader {
-	background-image: url("../img/circuitbanner.jpg");
-	background-size: cover;
+ /* background-image: url("../img/circuitbanner.jpg");*/
+ background:#C5C9A4;
+  background-size: cover;
+  margin: 0px;
 }
+
 .nf {
   font-family: 'webfontbold';
   font-size: 60px;
   font-weight: 600;
-  color:#890f0f;
+  color: #1E352F;
 }
 
 .caret.caret-reversed {
@@ -31,39 +33,40 @@ body .allcontent{
   background: #000000;
   transform: rotate(45deg);
 }
-	
-#dropdownbutton{
-  background:#FFFAF0;
-  border:none;
+
+#dropdownbutton {
+  background: #7EB09B;
+  border: none;
 }
-.droptext
- {
+
+.droptext {
   font-family: 'webfontbold';
   font-size: 20px;
   color: black;
- }
-#headline{
-  font-family: 'webfontbold';
-  font-size: 30px;
-  color:#101010;
 }
 
-#feedpreferences{
-	position:relative;
+#headline {
+  font-family: 'webfontbold';
+  font-size: 30px;
+  color: #101010;
+}
+
+#feedpreferences {
+  position: relative;
 }
 
 iframe {
-    display: block;
-    margin: auto;
+  display: block;
+  margin: auto;
 }
 
 p#vid {
-    text-align: center;
+  text-align: center;
 }
 
 .container.article-snip {
   outline: thin solid #f0f0f0;
-  width: 60%; 
+  width: 60%;
   height: auto;
 
 }
