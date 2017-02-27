@@ -19,14 +19,9 @@ body {
 }
 
 #contact_box>div:hover {
-    background-color: red;
+    background-color: #e7e7e7;
 }
 
 .contact img {
     width: 40px;
-}
-
-.contact p {
-    padding-top: 10px;
-    float: right;
 }
