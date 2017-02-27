@@ -8,3 +8,8 @@ body div.jumbotron div h1{
 body div.jumbotron div p{
     color: white;
 }
+body {
+    padding-top: 0px; /* Whatever the height of your navbar is; the
+                             default is 50px */
+    padding-bottom: 0px;
+}
