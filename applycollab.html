@@ -16,14 +16,14 @@
 </head>
 
 <body>
-    <div class="form_div" id="apply_collab">
-        <form class="form-horizontal" id="form_apply_collab" method="post">
+    <div class="form-div" id="apply-collab">
+        <form class="form-horizontal" id="fapply-collab" method="post">
             <fieldset>
                 <legend>Apply for Collaborator</legend>
                 <div class="form-group">
                     <label> Full name: <br>
                <div class="col-lg-10">
-                    <input type="text" class="form-control" id="fullname" placeholder="Full name" name="fullname">
+                    <input type="text" class="form-control" id="fullname" placeholder="Full name" name="fullname" required>
                     </div>
                     </label>
                 </div>
@@ -33,15 +33,15 @@
                 <div class="form-group">
                     <label> Describe yourself and your achievements briefly: <br>
                 <div class="col-lg-10">
-                    <textarea class="form-control" rows="15" cols="50" id="description" name="description"></textarea> 
-                    <span class="help-block">Brief description</span>
+                    <textarea class="form-control" rows="15" cols="50" id="description" name="description" required></textarea> 
+                    <span class="help-block">Please do your best to summarise.</span>
                 </div>
                 </label>
                 </div>
                 <div class="form-group">
                     <label> What is your motivation for applying to this position: <br>
             <div class="col-lg-10">
-                <textarea class="form-control" rows="15" cols="50" id="motivation" placeholder="Your motivation" name="motivation"></textarea>
+                <textarea class="form-control" rows="15" cols="50" id="motivation" placeholder="Your motivation" name="motivation"  required></textarea>
             </div>
             </label>
                 </div>

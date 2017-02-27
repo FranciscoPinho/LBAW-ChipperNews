@@ -16,22 +16,19 @@
 </head>
 
 <body>
-    <div class="form_div" id="register">
-        <form class="form-horizontal" id="form_register" method="post">
+    <div class="form-div" id="register">
+        <form class="form-horizontal" id="fregister" method="post">
             <fieldset>
                 <legend>Register Page</legend>
                 <div class="form-group">
-                    <label> Full name: <br>
-            <div class="col-lg-10">
-                <input type="text" class="form-control" id="fullname" placeholder="Full name" name="fullname">
-            </div>
-            </label>
+                    <label> Full name:
+                        <input type="text" class="form-control" id="fullname" placeholder="Full name" name="fullname">
+                    </label>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-                    <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputEmail" placeholder="Email">
-                    </div>
+                    <label> Email:
+                        <input type="email" class="form-control" id="email" placeholder="your@email.com" name="email" required>
+                    </label>
                 </div>
                 <div class="form-group">
                     <label> Date of birth: <br>
@@ -40,28 +37,27 @@
                 <div class="form-group">
                     <label> Short Bio: <br>
              <div class="col-lg-10">
-                <textarea class="form-control" rows="15" cols="50" id="description" name="description"></textarea> 
-                <span class="help-block">Brief description</span>
+                <textarea class="form-control" rows="15" cols="50" id="bio" name="bio"></textarea> 
+                <span class="help-block">Tell everyone a bit about yourself!</span>
              </div>
             </label>
                 </div>
                 <div class="form-group">
                     <label> Interests: <br>
             <div class="col-lg-10">
-                <textarea class="form-control" rows="15" cols="50" id="motivation" placeholder="Your motivation" name="motivation"></textarea>
+                <textarea class="form-control" rows="15" cols="50" id="interests" placeholder="Reading, philosophy" name="interests" required></textarea>
             </div>
             </label>
                 </div>
-                <label for="select" class="col-lg-2 control-label">Select your country: </label>
-                <div class="col-lg-10">
-                    <select class="form-control" id="select">
+                <label> Select your country:
+                <select class="form-control" id="select">
           <option>1</option>
           <option>2</option>
           <option>3</option>
           <option>4</option>
           <option>5</option>
         </select>
-                </div>
+                </label>
                 <!--<label> Image <input type="file" id="uploadImage" name="pic" accept="image/id"></label>-->
                 <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
