@@ -27,11 +27,11 @@ function fullStory(snipID) {
 				<p>Markov notes that, based on purely physical limitations, some academics have estimated that Moore's law had hundreds of years left in it. In contrast, the International Technology Roadmap for Semiconductors (ITRS), a group sponsored by the major semiconductor manufacturing nations, gives it a couple of decades. And the ITRS can be optimistic; it once expected that we would have 10GHz CPUs back in the Core2 days. The reason for this discrepancy is that a lot of hard physical limits never come into play.</p>
 				<br>
 				<div class="rate">
-				<button class="btn btn-default" type="button" id="btnlike">
-					<img src="./img/chipart1.png" alt="" style="width:20%;height:20%;"> 
+				<button type="button" class="btn btn-default btn-circle"  id="btnlike">
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;"> 
 				</button>
-				<button class="btn btn-default" type="button" id="btndislike">
-					<img src="./img/chipart1.png" alt="" style="width:20%;height:20%;filter:hue-rotate(198deg);"> 
+				<button type="button" class="btn btn-default btn-circle"  id="btndislike">
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 				</button>
 				<script>
 				$('#btnlike').on("click",function(){
@@ -69,10 +69,10 @@ function fullStory(snipID) {
 			<br>
 			<div class="rate">
 				<button class="btn btn-default" type="button" id="btnlike">
-					<img src="./img/chipart1.png" alt="" style="width:20%;height:20%;"> 
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;"> 
 				</button>
 				<button class="btn btn-default" type="button" id="btndislike">
-					<img src="./img/chipart1.png" alt="" style="width:20%;height:20%;filter:hue-rotate(198deg);"> 
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 				</button>
 				<script>
 				$('#btnlike').on("click",function(){
@@ -112,10 +112,10 @@ function fullStory(snipID) {
 			<br>
 			<div class="rate">
 				<button class="btn btn-default" type="button" id="btnlike">
-					<img src="./img/chipart1.png" alt="" style="width:20%;height:20%;"> 
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;"> 
 				</button>
 				<button class="btn btn-default" type="button" id="btndislike">
-					<img src="./img/chipart1.png" alt="" style="width:20%;height:20%;filter:hue-rotate(198deg);"> 
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 				</button>
 				<script>
 				$('#btnlike').on("click",function(){
@@ -158,7 +158,7 @@ function fullStory(snipID) {
 				<p>Specifically, a working knowledge of Python can be a solid foundation because Python’s methodologies can be used in a broad range of applications. For example, Python’s inherent organization and architecture can act as your Rosetta Stone when trying to decipher more cryptic programming languages. Here’s a brief comparison of Python with two other languages: Ruby and PHP. Ruby has a similar structure to Python while PHP has a very different syntax.</p>
 				<br>
 				<p>A “for” loop on a list [Python]:</p>
-				<div class="container" style=" width: 70%; height: 30%;">
+				<div class="container" style=" width: 70%; height: 100%;">
 				<img src="https://qph.ec.quoracdn.net/main-qimg-7e16f22db479695d687158c34db6c000-p" alt="..." style=" width: 100%; height: auto;">
 				</div>
 				<br>
@@ -171,10 +171,10 @@ def about():
 				<br>
 				<div class="rate">
 					<button class="btn btn-default" type="button" id="btnlike">
-						<img src="./img/chipart1.png" alt="" style="width:20%;height:20%;"> 
+						<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;"> 
 					</button>
 					<button class="btn btn-default" type="button" id="btndislike">
-						<img src="./img/chipart1.png" alt="" style="width:20%;height:20%;filter:hue-rotate(198deg);"> 
+						<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 					</button>
 				<script>
 					$('#btnlike').on("click",function(){
