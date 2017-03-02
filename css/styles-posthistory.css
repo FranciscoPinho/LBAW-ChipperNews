@@ -6,6 +6,11 @@
   font-style: normal;
 }
 
+#headerbar {
+  margin-bottom: 0px;
+}
+
+
 #postheader{
  margin-bottom:20px;
  font-family: 'webfontbold';
