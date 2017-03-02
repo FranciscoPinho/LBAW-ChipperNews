@@ -1,17 +1,9 @@
-
-
 #headerbar {
   margin-bottom: 0px;
 }
 
-#feedheader {
-
+#feedheader{
  margin-bottom:10px;
- 
-}
-#feedpreferences{
-  height:auto;
- 
 }
 
 #dropdownbutton {
@@ -36,7 +28,7 @@ img.bg {
     position: fixed;
     top: 0;
     left: 0;
-    filter:opacity(90%);
+    filter:opacity(85%);
     z-index: -1;
    
 }
