@@ -83,7 +83,7 @@ p#vid {
 }
 
 p {
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family:Arial, Helvetica, sans-serif;
   font-size: 16px;
 }
 
@@ -103,6 +103,12 @@ p {
   width:20%;
   height:auto;
   background-color:#357266;
+}
+.fa.fa-chevron-circle-down.expand{
+  color:#357266;
+  padding-bottom:8px;
+  display:block;
+  text-align: center;
 }
 /*
 #btndislike:active, #btndislike:focus, #btndislike:hover{

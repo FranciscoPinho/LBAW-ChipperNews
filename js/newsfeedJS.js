@@ -19,8 +19,7 @@ function changeDropdown(option) {
 
 function fullStory(snipID) {
 	element = document.getElementById(`article-snip-${snipID}`);
-	console.log(element.getElementsByClassName("fullstory"));
-	$(element.getElementsByClassName("fullstory")).remove();
+	$(element.getElementsByClassName("expand")).remove();
 	switch (snipID) {
 		case '1':
 			$(element).append(`<p>Recently, the number of processing cores per CPU has rapidly scaled up, but they quickly reached the point of diminishing returns. Now, getting the most processing power for each Watt seems to be the key measure of performance.</p>
