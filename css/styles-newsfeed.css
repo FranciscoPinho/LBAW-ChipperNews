@@ -1,33 +1,76 @@
-@font-face {
-  font-family: 'webfontbold';
-  src: url('../fonts/nevis-webfont.woff2') format('woff2'), url('../fonts/nevis-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
 
-body .allcontent {
-  background: #FFFAF0;
-}
 
 #headerbar {
   margin-bottom: 0px;
 }
 
 #feedheader {
- /* background-image: url("../img/circuitbanner.jpg");*/
- background:#C5C9A4;
-  background-size: cover;
-  margin-bottom:10px;
+
+ margin-bottom:10px;
+ 
+}
+#feedpreferences{
+  height:auto;
+ 
 }
 
+#dropdownbutton {
+  background: #7EB09B;
+  border: none;
+}
+
+.droptext {
+  font-family: 'webfontbold';
+  font-size: 20px;
+  color: black;
+}
+
+img.bg {
+    /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+    filter:opacity(90%);
+    z-index: -1;
+   
+}
+
+@media screen and (max-width: 1024px) {
+    /* Specific to this particular image */
+    img.bg {
+        left: 50%;
+        margin-left: -512px;
+        /* 50% */
+    }
+}
+
+.container {
+   border: none;
+   background: #f8f8ff;
+  border-radius: 9px; 
+   z-index: 3;
+
+}
+.containerfluid{
+   border: none;
+   background: #f8f8ff;
+   border-radius: 9px;
+   z-index: 3;
+}
 .nf {
   font-family: 'webfontbold';
-  font-size: 60px;
+  font-size: 40px;
   font-weight: 600;
   color: #1E352F;
 }
  
-.ratings {
+#ratings, #ratings2, #ratings3, #ratings4 {
   font-family: 'webfontbold';
   font-size: 15px;
   font-weight: 600;
@@ -42,17 +85,6 @@ body .allcontent {
   height: 10px;
   background: #000000;
   transform: rotate(45deg);
-}
-
-#dropdownbutton {
-  background: #7EB09B;
-  border: none;
-}
-
-.droptext {
-  font-family: 'webfontbold';
-  font-size: 20px;
-  color: black;
 }
 
 #headline {
@@ -71,7 +103,6 @@ p#vid {
 }
 
 .container.article-snip {
-  outline: thin solid #f0f0f0;
   width: 60%;
   height: auto;
 
@@ -93,7 +124,7 @@ p {
   background-color:#357266;
 }
 
-#btndislike {
+.btn.btn-default.btn-circle.btndislike {
    width:5%;
   height:auto;
   background-color:#FFFAF0;
@@ -101,10 +132,10 @@ p {
   padding:0;
   border-radius: 50%;
 }
-a#btndlislike:hover{
+.btn.btn-default.btn-circle.btndislike:hover{
   background-color:#f11066
 }
-#btnlike{
+.btn.btn-default.btn-circle.btnlike {
   width:5%;
   height:auto;
   background-color:#FFFAF0;
@@ -112,7 +143,7 @@ a#btndlislike:hover{
   padding:0;
   border-radius: 50%;
 }
-a#btndlislike:hover{
+.btn.btn-default.btn-circle.btnlike:hover{
   background-color:#357266
 }
 .fa.fa-chevron-circle-down.expand{
@@ -121,6 +152,30 @@ a#btndlislike:hover{
   display:block;
   text-align: center;
 }
+
+.fa.fa-chevron-circle-down.expand{
+  color:#357266;
+  padding-bottom:8px;
+  display:block;
+  text-align: center;
+}
+
+.fa.fa-chevron-circle-up.deflate{
+  color:#357266;
+  padding-bottom:8px;
+  display:block;
+  text-align: center;
+}
+
+
+
+@font-face {
+  font-family: 'webfontbold';
+  src: url('../fonts/nevis-webfont.woff2') format('woff2'), url('../fonts/nevis-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /*
 #btndislike:active, #btndislike:focus, #btndislike:hover{
   filter:grayscale(80%)
