@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register Page</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles-forms.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://www.w3schools.com/lib/w3data.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Optional Bootstrap theme -->
+    <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+</head>
+
+<body>
+    <div id="bg">
+        <img class="bg" src="../LBAW-ChipperNews/img/circuit.jpg" alt="">
+    </div>
+    <div class="form-div" id="apply-collab">
+        <form class="form-horizontal" id="fapply-collab" method="post">
+            <fieldset>
+                <legend>Apply for Collaborator</legend>
+                <div class="logo">
+                    <img class="logo" src="../LBAW-ChipperNews/img/assets/logo_final.PNG" alt="Chipper News" align="middle">
+                </div>
+                <div class="form-group">
+                    <label> Full name: <br>
+               <div class="col-lg-10">
+                    <input type="text" class="form-control" id="fullname" placeholder="Full name" name="fullname" required>
+                    </div>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label> Date of birth: <br>
+                     <div class="col-lg-10">
+             <input type="date" id="birthdate" placeholder="Date of birth" name="birthdate">
+                     </div>
+            </label>
+                </div>
+                <div class="form-group">
+                    <label> Describe yourself and your achievements briefly: <br>
+                <div class="col-lg-10">
+                    <textarea class="form-control" rows="15" cols="50" id="description" name="description" required></textarea> 
+                    <span class="help-block">Please do your best to summarise.</span>
+                </div>
+                </label>
+                </div>
+                <div class="form-group">
+                    <label> What is your motivation for applying to this position: <br>
+            <div class="col-lg-10">
+                <textarea class="form-control" rows="15" cols="50" id="motivation" placeholder="Your motivation" name="motivation"  required></textarea>
+            </div>
+            </label>
+                </div>
+                <div class="form-group">
+                    <label> References from previous employers: <br>
+            <div class="col-lg-10">
+                <textarea class="form-control" rows="15" cols="50" id="refs" placeholder="Your references" name="refs"></textarea>
+            </div>
+            </label>
+                </div>
+                <div class="form-group">
+                    <label> News outlets you're currently associated with: <br>
+            <div class="col-lg-10">
+                <textarea class="form-control" rows="15" cols="50" id="assoc" placeholder="Associated outlets" name="assoc"></textarea>
+            </div>
+            </label>
+                </div>
+                <!--<label> Image <input type="file" id="uploadImage" name="pic" accept="image/id"></label>-->
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button type="reset" class="btn btn-default">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+</html>

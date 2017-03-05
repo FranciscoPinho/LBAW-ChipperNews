@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Newsfeed</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles-newsfeed.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="https://www.w3schools.com/lib/w3data.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/newsfeedJS.js"></script>
+	<!-- Optional Bootstrap theme -->
+	<!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+</head>
+
+<body>
+	 
+	<header>
+		<!--<div w3-include-html="header.html"></div>
+<script>
+w3IncludeHTML();
+</script>
+-->
+		<!--using ricardo header as placeover>-->
+		<nav class="navbar navbar-default" id="headerbar">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+
+					<a class="navbar-brand" href="#">Chipper News</a>
+				</div>
+
+
+
+				<form class="navbar-form navbar-left">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Register</a></li>
+					<li><a href="#">Login</a></li>
+			</div>
+			<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+	</header>
+
+	<div class=allcontent>
+		 <div id="bg">
+        <img class="bg" src="../LBAW-ChipperNews/img/circuit.jpg" alt="">
+    </div>
+		<div class="container-fluid" id="feedheader">
+			<h1 class="nf"> Newsfeed </h1>
+		<div class="dropdown" id="feedpreferences">
+				<button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton"><span class="droptext">Mixed</span>
+		<span class="caret caret-reversed"></span> 
+		</button>
+				<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">
+					<li><a href="#" onclick="changeDropdown('Mixed')">Mixed</a></li>
+					<li><a href="#" onclick="changeDropdown('Friends')">Friends</a></li>
+					<li><a href="#" onclick="changeDropdown('Me')">Me</a></li>
+				</ul>
+			</div>	
+		</div>
+
+
+
+		<div class="container article-snip friend" id="article-snip-1">
+
+			<br>
+			<p><a href=# style="color:#357266; font-weight:bold;">Buddy Nort</a> finds this article just chipper!</p>
+
+			<div class="container" style=" width: 40%; height: 30%;">
+				<img src="img\transistor.jpg" alt="..." style=" width: 100%; height: auto;">
+			</div>
+			<h2 id="headline"><a href=# style="color:black" id="articleAnchor">Are processors pushing up against the limits of physics?</a></h2>
+			<h6>By <a style="color:black;font-style:italic">Theodore Reesevolts Moronson</a> 21/2/2017</h6>
+
+			<span class="label label-primary">Electrical Engineering</span>
+			<span class="label label-warning">Hardware</span>
+			<span class="label label-default">Industry</span>
+
+			<h3>A perspective on whether Moore's law will hold, as well as whether it matters.</h3>
+			<div id="ratings">
+
+				<span id="postext" style="color:#357266">75</span>
+				<button type="button" class="btn btn-default btn-circle btnlike">
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;"> 
+				</button>
+				<span id="negtext" style="color:#f11066">0</span>
+				<button type="button" class="btn btn-default btn-circle btndislike">
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
+				</button>
+
+				<script>
+						$('#ratings').find('.btn.btn-default.btn-circle.btnlike').on("click", function () {
+
+						if ($('#ratings').find('.btn.btn-default.btn-circle.btndislike').is(":disabled")) {
+							$('#ratings').find('.btn.btn-default.btn-circle.btndislike').prop("disabled", false);
+							$('span#postext').empty();
+							$('span#postext').append('75');
+						} else {
+							$('#ratings').find('.btn.btn-default.btn-circle.btndislike').prop("disabled", true);
+							$('span#postext').empty();
+							$('span#postext').append('76');
+						}
+					});
+
+					$('#ratings').find('.btn.btn-default.btn-circle.btndislike').on("click", function () {
+
+						if ($('#ratings').find('.btn.btn-default.btn-circle.btnlike').is(":disabled")) {
+							$('#ratings').find('.btn.btn-default.btn-circle.btnlike').prop("disabled", false);
+							$('span#negtext').empty();
+							$('span#negtext').append('0');
+						} else {
+							$('#ratings').find('.btn.btn-default.btn-circle.btnlike').prop("disabled", true);
+							$('span#negtext').empty();
+							$('span#negtext').append('1');
+						}
+					});
+				</script>
+			</div>
+			<br>
+			<a onclick="fullStory(`1`)" style="text-decoration:none"><i class="fa fa-chevron-circle-down expand fa-2x" aria-hidden="true"></i></span></a>
+			<div id="article-body-1">
+			</div>
+
+		</div>
+
+		<br>
+		<br>
+
+		<div class="container article-snip" id="article-snip-2">
+			<br>
+			<div class="container" style=" width: 40%; height: 30%;">
+				<img src="img\nodephp.jpg" alt="..." style=" width: 100%; height: auto;">
+			</div>
+			<h2 id="headline"><a href=# style="color:black" id="articleAnchor">Performance Beatdown</a></h2>
+			<h6>By <a style="color:black; font-style:italic">Justice Idiotson</a> 10/1/2017</h6>
+			<span class="label label-info">Programming</span>
+			<span class="label label-success">Software</span>
+			<span class="label label-danger">Tech Comparison</span>
+			<h3>Node.js vs PHP Performance Benchmarks</h3>
+			<div id="ratings2">
+				<span id="postext2" style="color:#357266">352</span>
+				<button type="button" class="btn btn-default btn-circle btnlike">
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;"> 
+				</button>
+				<span id="negtext2" style="color:#f11066">42</span>
+				<button type="button" class="btn btn-default btn-circle btndislike">
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
+				</button>
+
+				<script>
+					$('#ratings2').find('.btn.btn-default.btn-circle.btnlike').on("click", function () {
+
+						if ($('#ratings2').find('.btn.btn-default.btn-circle.btndislike').is(":disabled")) {
+							$('#ratings2').find('.btn.btn-default.btn-circle.btndislike').prop("disabled", false);
+							$('span#postext2').empty();
+							$('span#postext2').append('352');
+						} else {
+							$('#ratings2').find('.btn.btn-default.btn-circle.btndislike').prop("disabled", true);
+							$('span#postext2').empty();
+							$('span#postext2').append('353');
+						}
+					});
+
+					$('#ratings2').find('.btn.btn-default.btn-circle.btndislike').on("click", function () {
+
+						if ($('#ratings2').find('.btn.btn-default.btn-circle.btnlike').is(":disabled")) {
+							$('#ratings2').find('.btn.btn-default.btn-circle.btnlike').prop("disabled", false);
+							$('span#negtext2').empty();
+							$('span#negtext2').append('42');
+						} else {
+							$('#ratings2').find('.btn.btn-default.btn-circle.btnlike').prop("disabled", true);
+							$('span#negtext2').empty();
+							$('span#negtext2').append('43');
+						}
+					});
+				</script>
+			</div>
+			<br>
+			<a onclick="fullStory(`2`)" style="text-decoration:none"><i class="fa fa-chevron-circle-down expand fa-2x" aria-hidden="true"></i></span></a>
+			<div id="article-body-2">
+			</div>
+
+		</div>
+
+		<br>
+		<br>
+
+
+		<div class="container article-snip friend" id="article-snip-3">
+
+			<br>
+			<p><a href=# style="color:#357266; font-weight:bold;">Friendson Maximus</a> finds this article just chipper!</p>
+
+			<div class="container" style=" width: 40%; height: 30%;">
+				<img src="img\c++.jpg" alt="..." style=" width: 100%; height: auto;">
+			</div>
+			<h2 id="headline"><a href=# style="color:black" id="articleAnchor">C++ is alive and kicking</a></h2>
+			<h6>By <a style="color:black; font-style:italic">Justice Idiotson</a> 5/1/2017</h6>
+			<h5>Tags:
+				<span class="label label-info">Programming</span>
+				<span class="label label-success">Software</span>
+				<span class="label label-warning">Industry</span>
+			</h5>
+			<h3>Despite recent drop, C++ usage is still relevant.</h3>
+			<div id="ratings3">
+
+				<span id="postext3" style="color:#357266">42</span>
+				<button type="button" class="btn btn-default btn-circle btnlike">
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;"> 
+				</button>
+				<span id="negtext3" style="color:#f11066">29</span>
+				<button type="button" class="btn btn-default btn-circle btndislike">
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
+				</button>
+				
+				<script>
+					$('#ratings3').find('.btn.btn-default.btn-circle.btnlike').on("click", function () {
+
+						if ($('#ratings3').find('.btn.btn-default.btn-circle.btndislike').is(":disabled")) {
+							$('#ratings3').find('.btn.btn-default.btn-circle.btndislike').prop("disabled", false);
+							$('span#postext3').empty();
+							$('span#postext3').append('42');
+						} else {
+							$('#ratings3').find('.btn.btn-default.btn-circle.btndislike').prop("disabled", true);
+							$('span#postext3').empty();
+							$('span#postext3').append('43');
+						}
+					});
+
+					$('#ratings3').find('.btn.btn-default.btn-circle.btndislike').on("click", function () {
+
+						if ($('#ratings3').find('.btn.btn-default.btn-circle.btnlike').is(":disabled")) {
+							$('#ratings3').find('.btn.btn-default.btn-circle.btnlike').prop("disabled", false);
+							$('span#negtext3').empty();
+							$('span#negtext3').append('29');
+						} else {
+							$('#ratings3').find('.btn.btn-default.btn-circle.btnlike').prop("disabled", true);
+							$('span#negtext3').empty();
+							$('span#negtext3').append('30');
+						}
+					});
+				</script>
+			</div>
+			<br>
+			<a onclick="fullStory(`3`) " style="text-decoration:none"><i class="fa fa-chevron-circle-down expand fa-2x" aria-hidden="true"></i></span></a>
+			<div id="article-body-3">
+			</div>
+		</div>
+		<br>
+		<br>
+		<div class="container article-snip" id="article-snip-4">
+
+			<br>
+
+			<div class="container" style=" width: 40%; height: 30%;">
+				<img src="img\Python.png" alt="..." style=" width: 100%; height: auto;">
+			</div>
+
+			<h2 id="headline"><a href=# style="color:black" id="articleAnchor">What is the future of Python programming language?</a></h3>
+				<h6>By <a style="color:black; font-style:italic">Viperius Soma</a> 29/12/2016</h6>
+				<span class="label label-info">Programming</span>
+				<h3>A language soaring in popularity, what does the future hold for such a prominent and widely used technology</h3>
+				<div id="ratings4">
+					<span id="postext4" style="color:#357266">1032</span>
+					<button type="button" class="btn btn-default btn-circle btnlike">
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;"> 
+					</button>
+					<span id="negtext4" style="color:#f11066">215</span>
+					<button type="button" class="btn btn-default btn-circle btndislike">
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
+					</button>
+
+					<script>
+					$('#ratings4').find('.btn.btn-default.btn-circle.btnlike').on("click", function () {
+
+						if ($('#ratings4').find('.btn.btn-default.btn-circle.btndislike').is(":disabled")) {
+							$('#ratings4').find('.btn.btn-default.btn-circle.btndislike').prop("disabled", false);
+							$('span#postext4').empty();
+							$('span#postext4').append('1032');
+						} else {
+							$('#ratings4').find('.btn.btn-default.btn-circle.btndislike').prop("disabled", true);
+							$('span#postext4').empty();
+							$('span#postext4').append('1033');
+						}
+					});
+
+					$('#ratings4').find('.btn.btn-default.btn-circle.btndislike').on("click", function () {
+
+						if ($('#ratings4').find('.btn.btn-default.btn-circle.btnlike').is(":disabled")) {
+							$('#ratings4').find('.btn.btn-default.btn-circle.btnlike').prop("disabled", false);
+							$('span#negtext4').empty();
+							$('span#negtext4').append('215');
+						} else {
+							$('#ratings4').find('.btn.btn-default.btn-circle.btnlike').prop("disabled", true);
+							$('span#negtext4').empty();
+							$('span#negtext4').append('216');
+						}
+					});
+					</script>
+				</div>
+				<br>
+				<a onclick="fullStory(`4`)" style="text-decoration:none"><i class="fa fa-chevron-circle-down expand fa-2x" aria-hidden="true"></i></span></a>
+				<div id="article-body-4">
+				</div>
+
+		</div>
+		
+</body>
+
+<footer class="footer">
+	<div w3-include-html="footer.html"></div>
+	<script>
+		w3IncludeHTML();
+	</script>
+</footer>
+
+</html>

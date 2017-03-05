@@ -1,0 +1,179 @@
+#headerbar {
+  margin-bottom: 0px;
+}
+
+#feedheader{
+ margin-bottom:10px;
+}
+
+#dropdownbutton {
+  background: #7EB09B;
+  border: none;
+}
+
+.droptext {
+  font-family: 'webfontbold';
+  font-size: 20px;
+  color: black;
+}
+
+img.bg {
+    /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+    filter:opacity(85%);
+    z-index: -1;
+   
+}
+
+@media screen and (max-width: 1024px) {
+    /* Specific to this particular image */
+    img.bg {
+        left: 50%;
+        margin-left: -512px;
+        /* 50% */
+    }
+}
+
+.container {
+   border: none;
+   background: #f8f8ff;
+  border-radius: 9px; 
+   z-index: 3;
+
+}
+.containerfluid{
+   border: none;
+   background: #f8f8ff;
+   border-radius: 9px;
+   z-index: 3;
+}
+.nf {
+  font-family: 'webfontbold';
+  font-size: 40px;
+  font-weight: 600;
+  color: #1E352F;
+}
+ 
+#ratings, #ratings2, #ratings3, #ratings4 {
+  font-family: 'webfontbold';
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#negrating {
+  margin-left:35px;
+
+}
+.caret.caret-reversed {
+  width: 10px;
+  height: 10px;
+  background: #000000;
+  transform: rotate(45deg);
+}
+
+#headline {
+  font-family: 'webfontbold';
+  font-size: 28px;
+  color: #101010;
+}
+
+iframe {
+  display: block;
+  margin: auto;
+}
+
+p#vid {
+  text-align: center;
+}
+
+.container.article-snip {
+  width: 60%;
+  height: auto;
+
+}
+
+.container.article-snip #articleAnchor:hover{
+ text-decoration: none;
+ font-size: 29px; 
+}
+
+p {
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+#btnlike{
+  width:30%;
+  height:auto;
+  background-color:#357266;
+}
+
+.btn.btn-default.btn-circle.btndislike {
+   width:5%;
+  height:auto;
+  background-color:#FFFAF0;
+  line-height: 35px; /* adjust line height to align vertically*/
+  padding:0;
+  border-radius: 50%;
+}
+.btn.btn-default.btn-circle.btndislike:hover{
+  background-color:#f11066
+}
+.btn.btn-default.btn-circle.btnlike {
+  width:5%;
+  height:auto;
+  background-color:#FFFAF0;
+  line-height: 35px; /* adjust line height to align vertically*/
+  padding:0;
+  border-radius: 50%;
+}
+.btn.btn-default.btn-circle.btnlike:hover{
+  background-color:#357266
+}
+.fa.fa-chevron-circle-down.expand{
+  color:#357266;
+  padding-bottom:8px;
+  display:block;
+  text-align: center;
+}
+
+.fa.fa-chevron-circle-down.expand{
+  color:#357266;
+  padding-bottom:8px;
+  display:block;
+  text-align: center;
+}
+
+.fa.fa-chevron-circle-up.deflate{
+  color:#357266;
+  padding-bottom:8px;
+  display:block;
+  text-align: center;
+}
+
+
+
+@font-face {
+  font-family: 'webfontbold';
+  src: url('../fonts/nevis-webfont.woff2') format('woff2'), url('../fonts/nevis-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*
+#btndislike:active, #btndislike:focus, #btndislike:hover{
+  filter:grayscale(80%)
+}
+
+#btnlike:active, #btnlike:focus, #btnlike:hover{
+   filter:grayscale(80%)
+}
+*/
