@@ -5,7 +5,7 @@
     padding: 0px;
     background: #f8f8ff;
     border-radius: 9px;
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .form-div fieldset {
@@ -39,7 +39,7 @@
 .form-div input[type="url"],
 .form-div textarea,
 .form-div select {
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     background: rgba(255, 255, 255, .1);
     border: none;
     border-radius: 4px;
