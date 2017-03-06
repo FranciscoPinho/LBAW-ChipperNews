@@ -19,6 +19,13 @@
   color: #1E352F;
 }
 
+.nf {
+  font-family: 'webfontbold';
+  font-size: 40px;
+  font-weight: 600;
+  color: #1E352F;
+}
+
 p {
   font-family:Arial, Helvetica, sans-serif;
   font-size: 16px;
@@ -58,6 +65,11 @@ img.bg {
     z-index: -1;
    
 }
+@media only screen and (min-width: 992px){
+   body{
+     zoom:85%;
+   }
+}
 
 @media screen and (max-width: 1024px) {
     /* Specific to this particular image */
@@ -69,8 +81,6 @@ img.bg {
 }
 .container.comment-snip{
      margin-bottom:10px;
-     padding-left:0px;
-     padding-right:0px;
      padding-bottom:10px;
 }
 
@@ -120,11 +130,11 @@ h6 > a{
     color:#395E66 !important;
 }
 
-.mycomment{
+/*.mycomment{
     background:#7EB09B;
     padding:5px;
     background-clip:padding-box;
-}
+}*/
 
 #dropdownbutton {
   background: #7EB09B;

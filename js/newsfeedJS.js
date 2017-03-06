@@ -79,6 +79,16 @@ def about():
 				<a onclick="deflateArticle('4')" style="text-decoration:none"><i class="fa fa-chevron-circle-up deflate fa-2x" aria-hidden="true"></i></span></a>
 				`);
 			break;
+			case '5':
+			$(document.getElementById(`article-body-${snipID}`)).append(`
+				<p>There are a couple of reasons:</p>
+				<p>	1.Web is the dominant platform and you can find web enabled devices everywhere. And as you know JavaScript is a vital part of it.</p>
+				<p> 2.Node.js helped to pave way towards JavaScript on the backend. It has become hugely popular.</p>
+				<p> 3.npm, Node's package manager, has contributed towards this development. As a result it has become the most popular package manager out there.</p>
+				<p>This isn't an exhaustive list but from my perspective these are the dominant factors. Just the fact that JavaScript is so popular keeps on making it more popular. As a result I expect it will sustain its popularity for a long time to come.</p>
+				<a onclick="deflateArticle('5')" style="text-decoration:none"><i class="fa fa-chevron-circle-up deflate fa-2x" aria-hidden="true"></i></span></a>
+				`);
+			break;
 	}
 
 }
@@ -102,6 +112,11 @@ function deflateArticle(snipID) {
 		$(element.getElementsByClassName("expand")).show();
 		break;
 		case '4':
+		$(element).empty();
+		element = document.getElementById(`article-snip-${snipID}`);
+		$(element.getElementsByClassName("expand")).show();
+		break;
+		case '5':
 		$(element).empty();
 		element = document.getElementById(`article-snip-${snipID}`);
 		$(element.getElementsByClassName("expand")).show();

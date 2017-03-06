@@ -33,6 +33,11 @@ img.bg {
    
 }
 
+@media only screen and (min-width: 992px){
+   body{
+     zoom:85%;
+   }
+}
 @media screen and (max-width: 1024px) {
     /* Specific to this particular image */
     img.bg {
@@ -81,12 +86,20 @@ img.bg {
 
 #headline {
   font-family: 'webfontbold';
+  text-align:center;
   font-size: 28px;
   color: #101010;
 }
 
+#archived {
+  font-family: 'webfontbold';
+  font-size: 28px;
+  color: #757575;
+}
+
 iframe {
   display: block;
+  width:60%;
   margin: auto;
 }
 
@@ -94,11 +107,6 @@ p#vid {
   text-align: center;
 }
 
-.container.article-snip {
-  width: 60%;
-  height: auto;
-
-}
 
 .container.article-snip #articleAnchor:hover{
  text-decoration: none;
@@ -110,12 +118,6 @@ p {
   font-size: 16px;
 }
 
-#btnlike{
-  width:30%;
-  height:auto;
-  background-color:#357266;
-}
-
 .btn.btn-default.btn-circle.btndislike {
    width:5%;
   height:auto;
@@ -124,6 +126,8 @@ p {
   padding:0;
   border-radius: 50%;
 }
+.btn.btn-default.btn-circle.btndislike:focus {outline:0;}
+.btn.btn-default.btn-circle.btnlike:focus {outline:0;}
 .btn.btn-default.btn-circle.btndislike:hover{
   background-color:#f11066
 }
@@ -138,12 +142,7 @@ p {
 .btn.btn-default.btn-circle.btnlike:hover{
   background-color:#357266
 }
-.fa.fa-chevron-circle-down.expand{
-  color:#357266;
-  padding-bottom:8px;
-  display:block;
-  text-align: center;
-}
+
 
 .fa.fa-chevron-circle-down.expand{
   color:#357266;
@@ -158,6 +157,12 @@ p {
   display:block;
   text-align: center;
 }
+#edit_article {
+    background: #1E352F;
+    border: 1px solid #7EB09B;
+    border-width: 1px 1px;
+    
+}
 
 
 
@@ -168,12 +173,3 @@ p {
   font-style: normal;
 }
 
-/*
-#btndislike:active, #btndislike:focus, #btndislike:hover{
-  filter:grayscale(80%)
-}
-
-#btnlike:active, #btnlike:focus, #btnlike:hover{
-   filter:grayscale(80%)
-}
-*/

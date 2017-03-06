@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>My Articles</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles-newsfeed-myarticles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="https://www.w3schools.com/lib/w3data.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/newsfeedJS.js"></script>
+	<!-- Optional Bootstrap theme -->
+	<!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+</head>
+
+<body>
+
+	<header>
+		<div w3-include-html="header.html"></div>
+		<script>
+			w3IncludeHTML();
+		</script>
+
+	</header>
+
+	<div class=allcontent>
+
+		<div id="bg">
+			<img class="bg" src="../LBAW-ChipperNews/img/circuit.jpg" alt="">
+		</div>
+		<div class="container-fluid" id="feedheader">
+			<h1 class="nf">My Articles</h1>
+			<div class="dropdown">
+				<button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton"><span class="droptext">Newest</span>
+		<span class="caret caret-reversed"></span> 
+		</button>
+				<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">
+					<li><a href="#" onclick="changeDropdown('Newest')">Newest</a></li>
+					<li><a href="#" onclick="changeDropdown('Oldest')">Oldest</a></li>
+					<li><a href="#" onclick="changeDropdown('Popular')">Popular</a></li>
+					<li><a href="#" onclick="changeDropdown('Controversial')">Controversial</a></li>
+				</ul>
+			</div>
+		</div>
+
+
+
+		<div class="container article-snip friend" id="article-snip-1">
+			<br>
+			<button type="default" class="btn btn-primary pull-right" id="edit_article">Edit Article</button
+			<br>
+			<div class="container" style=" width: 40%; height: 30%;">
+				<img src="img\transistor.jpg" alt="..." style=" width: 100%; height: auto;">
+			</div>
+			<h2 id="headline"><a href=# style="color:black" id="articleAnchor">Are processors pushing up against the limits of physics?</a></h2>
+			<h6>By <a style="color:black;font-style:italic">Theodore Reesevolts Moronson</a> 21/2/2017</h6>
+
+			<span class="label label-primary">Electrical Engineering</span>
+			<span class="label label-warning">Hardware</span>
+			<span class="label label-default">Industry</span>
+
+			<h3>A perspective on whether Moore's law will hold, as well as whether it matters.</h3>
+			<div id="ratings">
+
+				<span id="postext" style="color:#357266">75</span>
+				<button type="button" class="btn btn-default disabled btn-circle btnlike">
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;"> 
+				</button>
+			<span id="negtext" style="color:#f11066">0</span>
+			<button type="button" class="btn btn-default disabled btn-circle btndislike">
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
+				</button>
+
+		</div>
+		<br>
+		<a onclick="fullStory(`1`)" style="text-decoration:none"><i class="fa fa-chevron-circle-down expand fa-2x" aria-hidden="true"></i></span></a>
+		<div id="article-body-1">
+		</div>
+
+	</div>
+
+	<br>
+	<br>
+
+	<div class="container article-snip" id="article-snip-4">
+		<br>
+		<button type="default" class="btn btn-primary pull-right" id="edit_article">Edit Article</button
+			<br>
+
+			<div class="container" style=" width: 40%; height: 30%;">
+				<img src="img\Python.png" alt="..." style=" width: 100%; height: auto;">
+			</div>
+
+			<h2 id="headline"><a href=# style="color:black" id="articleAnchor">What is the future of Python programming language?</a></h3>
+				<h6>By <a style="color:black; font-style:italic">Theodore Reesevolts Moronson</a> 29/12/2016</h6>
+				<span class="label label-info">Programming</span>
+				<h3>A language soaring in popularity, what does the future hold for such a prominent and widely used technology</h3>
+				<div id="ratings4">
+					<span id="postext4" style="color:#357266">1032</span>
+					<button type="button" class="btn btn-default disabled btn-circle btnlike">
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;"> 
+					</button>
+		<span id="negtext4" style="color:#f11066">215</span>
+		<button type="button" class="btn btn-default disabled btn-circle btndislike">
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
+					</button>
+	</div>
+	<br>
+	<a onclick="fullStory(`4`)" style="text-decoration:none"><i class="fa fa-chevron-circle-down expand fa-2x" aria-hidden="true"></i></span></a>
+	<div id="article-body-4">
+	</div>
+
+	</div>
+	<br>
+	<br>
+	<div class="container article-snip" id="article-snip-5">
+
+		<br>
+
+		<div class="container" style=" width: 40%; height: 30%;">
+			<img src="img\javascript.jpg" alt="..." style=" width: 100%; height: auto;">
+		</div>
+
+		<h2 id="archived"><a href=# style="color:grey" id="articleAnchor">3 Reasons why Javascript is setting the world on fire</a></h3>
+			<h6>By <a style="color:black; font-style:italic">Theodore Reesevolts Moronson</a> 29/12/2016</h6>
+			<span class="label label-info" style="background-color:grey">Archived</span>
+			<span class="label label-info">Programming</span>
+			<h3>It may not be the cleanest language but it's surely useful</h3>
+			<div id="ratings4">
+				<span id="postext5" style="color:#357266">5023</span>
+				<button type="button" class="btn btn-default disabled btn-circle btnlike">
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;"> 
+					</button>
+				<span id="negtext5" style="color:#f11066">621</span>
+				<button type="button" class="btn btn-default disabled btn-circle btndislike">
+					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
+					</button>
+			</div>
+			<br>
+			<a onclick="fullStory(`5`)" style="text-decoration:none"><i class="fa fa-chevron-circle-down expand fa-2x" aria-hidden="true"></i></span></a>
+			<div id="article-body-5">
+			</div>
+
+	</div>
+</body>
+
+<footer class="footer">
+	<div w3-include-html="footer.html"></div>
+	<script>
+		w3IncludeHTML();
+	</script>
+</footer>
+
+</html>
