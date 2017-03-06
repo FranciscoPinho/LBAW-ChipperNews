@@ -8,6 +8,7 @@
     <title>Register Page</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/styles-forms.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://www.w3schools.com/lib/w3data.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -23,53 +24,54 @@
         <form class="form-horizontal" id="fregister" method="post">
             <fieldset>
                 <legend>Register Page</legend>
-                <div class="form-group">
-                    <label> Username: <br>
-                         <div class="col-lg-11">
+
+                <div class="form-group form-inline">
+                    <label> Username <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+                    <div class="col-lg-6">
                         <input type="text" class="form-control" id="username" placeholder="Unique username" name="username" required>
-                         </div>
-                    </label>
+                    </div>
+
                 </div>
                 <div class="form-group">
-                    <label> Full name: <br>
-                    <div class="col-lg-11">
+                    <label> Name <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+                    <div class="col-lg-6">
                         <input type="text" class="form-control" id="fullname" placeholder="Full name" name="fullname" required>
                     </div>
-                    </label>
+
                 </div>
                 <div class="form-group">
-                    <label> Email: <br>
-                        <div class="col-lg-11">
+                    <label> Email <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+                    <div class="col-lg-6">
                         <input type="email" class="form-control" id="email" placeholder="your@email.com" name="email" required>
-                        </div>
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label> Date of birth: <br>
-                    <div class="col-lg-11">
-             <input type="date" class="form-control" id="birthdate" placeholder="Date of birth" name="birthdate">               
                     </div>
-              </label>
+
                 </div>
                 <div class="form-group">
-                    <label> Short Bio: <br>
-             <div class="col-lg-11">
-                <textarea class="form-control" rows="10" cols="30" id="bio" name="bio"></textarea> 
-                <span class="help-block">Tell everyone a bit about yourself!</span>
-             </div>
-            </label>
+                    <label> Date of birth: </label>
+                    <div class="col-lg-6">
+                        <input type="date" class="form-control" id="birthdate" placeholder="Date of birth" name="birthdate">
+                    </div>
+
                 </div>
                 <div class="form-group">
-                    <label> Interests: <br>
-            <div class="col-lg-11">
-                <textarea class="form-control" rows="8" cols="50" id="interests" placeholder="Reading, philosophy" name="interests" required></textarea>
-            </div>
-            </label>
-                </div>
-                <div class="form-group">
-                    <label> Select your country: <br>
+                    <label> Short Bio: </label>
                     <div class="col-lg-11">
-                <select class="form-control" id="select">
+                        <textarea class="form-control" rows="10" cols="30" id="bio" name="bio"></textarea>
+                        <span class="help-block">Tell everyone a bit about yourself!</span>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label> Interests <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+                    <div class="col-lg-11">
+                        <textarea class="form-control" rows="8" cols="50" id="interests" placeholder="Reading, philosophy" name="interests" required></textarea>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label> Select your country: <br>  </label>
+                    <div class="col-lg-11">
+                        <select class="form-control" id="select">
           <option value="AF">Afghanistan</option>
 	<option value="AX">Åland Islands</option>
 	<option value="AL">Albania</option>
@@ -321,14 +323,17 @@
 	<option value="ZW">Zimbabwe</option>
         </select>
                     </div>
-                </label>
+
                 </div>
                 <div class="form-group">
-                    <label> Upload an avatar <br>
+                    <label> Upload an avatar  </label>
                     <div class="col-lg-8">
-                    <input type="file" id="uploadImage" name="pic" accept="image/*">
+                        <input type="file" id="uploadImage" name="pic" accept="image/*">
                     </div>
-                </label>
+
+                </div>
+                <div class="footnote">
+                    <small> Fields with an asterisk (<i class="fa fa-asterisk" aria-hidden="false"></i>) are mandatory. </small>
                 </div>
                 <div class="form-group">
                     <div class="col-lg-8 col-lg-offset-4">

@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/styles-forms.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://www.w3schools.com/lib/w3data.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- Optional Bootstrap theme -->
@@ -27,49 +28,46 @@
                     <img class="logo" src="../LBAW-ChipperNews/img/assets/logo_final.PNG" alt="Chipper News" align="middle">
                 </div>
                 <div class="form-group">
-                    <label> Full name: <br>
+                    <label> Full name <i class="fa fa-asterisk" aria-hidden="false"></i></label>
                <div class="col-lg-11">
                     <input type="text" class="form-control" id="fullname" placeholder="Full name" name="fullname" required>
                     </div>
-                    </label>
                 </div>
                 <div class="form-group">
-                    <label> Date of birth: <br>
+                    <label> Date of birth </label>
                      <div class="col-lg-11">
              <input type="date" id="birthdate" placeholder="Date of birth" name="birthdate">
                      </div>
-            </label>
                 </div>
                 <div class="form-group">
-                    <label> Describe yourself and your achievements briefly: <br>
+                    <label> Describe yourself and your achievements briefly <i class="fa fa-asterisk" aria-hidden="false"></i></label>
                 <div class="col-lg-11">
                     <textarea class="form-control" rows="15" cols="50" id="description" name="description" required></textarea> 
                     <span class="help-block">Please do your best to summarise.</span>
                 </div>
-                </label>
                 </div>
                 <div class="form-group">
-                    <label> What is your motivation for applying to this position: <br>
+                    <label> What is your motivation for applying to this position <i class="fa fa-asterisk" aria-hidden="false"></i></label>
             <div class="col-lg-11">
                 <textarea class="form-control" rows="15" cols="50" id="motivation" placeholder="Your motivation" name="motivation"  required></textarea>
             </div>
-            </label>
                 </div>
                 <div class="form-group">
-                    <label> References from previous employers: <br>
+                    <label> References from previous employers </label>
             <div class="col-lg-11">
                 <textarea class="form-control" rows="15" cols="50" id="refs" placeholder="Your references" name="refs"></textarea>
             </div>
-            </label>
                 </div>
                 <div class="form-group">
-                    <label> News outlets you're currently associated with: <br>
+                    <label> News outlets you're currently associated with </label>
             <div class="col-lg-11">
                 <textarea class="form-control" rows="15" cols="50" id="assoc" placeholder="Associated outlets" name="assoc"></textarea>
             </div>
-            </label>
                 </div>
                 <!--<label> Image <input type="file" id="uploadImage" name="pic" accept="image/id"></label>-->
+                 <div class="footnote">
+                    <small> Fields with an asterisk (<i class="fa fa-asterisk" aria-hidden="false"></i>) are mandatory. </small>
+                </div>
                 <div class="form-group">
                     <div class="col-lg-8 col-lg-offset-4">
                         <button type="reset" class="btn btn-default">Cancel</button>

@@ -1,3 +1,7 @@
+.form-inline .form-group input {
+ width: auto; 
+}
+
 .form-div {
     position: relative;
     max-width: 750px;
@@ -44,7 +48,7 @@
     border: none;
     border-radius: 4px;
     font-size: 16px;
-    margin: 0;
+    margin: none;
     outline: 0;
     padding: 7px;
     width: 100%;
@@ -55,7 +59,6 @@
     color: #8a97af;
     -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-    margin-bottom: 30px;
 }
 
 .form-div input[type="text"]:focus,
@@ -102,6 +105,11 @@
 .form-div input[type="button"]:hover,
 .form-div button[type="submit"]:hover {
     background: #7EB09B;
+}
+
+i.fa.fa-asterisk
+{
+    color:darkred;
 }
 
 img.logo {
