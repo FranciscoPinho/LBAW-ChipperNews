@@ -1,5 +1,5 @@
 .jumbotron {
-    background-image: url("../img/techHeader.jpg");
+    background-image: url("../img/circuit.jpg");
     background-size: cover;
 }
 
@@ -16,6 +16,7 @@ body {
     /* Whatever the height of your navbar is; the
                              default is 50px */
     padding-bottom: 0px;
+    background-color: #f8f8ff;
 }
 
 #contact_box>div:hover {
@@ -28,4 +29,22 @@ body {
 
 .table tbody tr td img {
     width: 40px;
+}
+
+.btn-primary {
+    background-color: #1E352F;
+    border-color: #C5C9A4
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open>.dropdown-toggle.btn-primary {
+    background-color: #C5C9A4;
+    border-color: #C5C9A4
+}
+
+.navbar-default {
+    background-color: #f8f8ff;
 }

@@ -21,6 +21,7 @@
             <div class="navbar-header">
 
                 <a class="navbar-brand" href="#">Chipper News</a>
+                <img src="img/assets/logo_final_icon.png" height="50" width="50">
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -49,10 +50,16 @@
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
 
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="#">Programming</a></li>
+                    <li><a href="#">Hardware</a></li>
+                    <li><a href="#">Software</a></li>
+                </ul>
+
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Register</a></li>
+                    <li><a href="register.html">Register</a></li>
                     <li><a data-toggle="modal" data-target="#myModal" href="#">Login</a></li>
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="userprofile_view.html">Profile</a></li>
                     <!--
             <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -66,6 +73,7 @@
             </li>
         </ul>
         -->
+                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -75,7 +83,7 @@
         <div class="container">
             <h1 style="color: 'white'">Chipper News</h1>
             <p>A community that brings you the latest news about tech.</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Become a colaborator</a></p>
+            <p><a class="btn btn-primary btn-lg" href="applycollab.html" role="button">Become a colaborator</a></p>
         </div>
     </div>
     <nav class="navbar navbar-default">
@@ -112,8 +120,12 @@
         </div>
 
     </div>
+    <h1 class="text-center" href="#"> News </h1>
     <nav class="navbar navbar-default">
-        <h1 class="text-center"> News </h1>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="newsfeed.html">Feed</a></li>
+            <li><a href="posthistory.html">History</a></li>
+        </ul>
     </nav>
     <div class="row">
         <div class="col-6 col-lg-4">
@@ -158,9 +170,6 @@
     </div>
 
     </div>
-    <footer>
-        <p> </p>
-    </footer>
     <!-- MODALS -->
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
