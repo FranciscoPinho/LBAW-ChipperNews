@@ -1,10 +1,16 @@
-.form-inline .form-group input {
- width: auto; 
+.form-inline, .form-group{
+   display:block;
+    margin-left: auto;
+    margin-right:auto;
+    padding-left:12%;
 }
 
+#note{
+    padding-left:12%;
+}
 .form-div {
     position: relative;
-    max-width: 750px;
+    max-width: 85%;
     margin: 20px auto;
     padding: 0px;
     background: #f8f8ff;
@@ -13,8 +19,9 @@
 }
 
 .form-div fieldset {
-    padding-right: 0px;
-    padding-left: 30px;
+    max-width: 100%;
+    padding-right: 0;
+    
     padding-top: 20px;
     border-bottom-left-radius: 9px;
     border-bottom-right-radius: 9px;
@@ -52,7 +59,7 @@
     margin: none;
     outline: 0;
     padding: 7px;
-    width: 100%;
+    width: 85%;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -81,20 +88,6 @@
     height: 35px;
 }
 
-.form-div .number {
-    background: #1abc9c;
-    color: #fff;
-    height: 30px;
-    width: 30px;
-    display: inline-block;
-    font-size: 0.8em;
-    margin-right: 4px;
-    line-height: 30px;
-    text-align: center;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
-    border-radius: 15px 15px 15px 0px;
-}
-
 .form-div input[type="submit"],
 .form-div input[type="button"],
 .form-div button[type="submit"] {
@@ -113,6 +106,8 @@ i.fa.fa-asterisk
 {
     color:darkred;
 }
+
+.responsive-fieldset {display:table-cell; width: 100%}
 
 img.logo {
     position: relative;
