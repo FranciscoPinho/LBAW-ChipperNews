@@ -40,6 +40,7 @@
 .form-div input[type="number"],
 .form-div input[type="search"],
 .form-div input[type="time"],
+.form-div input[type="password"],
 .form-div input[type="url"],
 .form-div textarea,
 .form-div select {
@@ -69,6 +70,7 @@
 .form-div input[type="search"]:focus,
 .form-div input[type="time"]:focus,
 .form-div input[type="url"]:focus,
+.form-div input[type="password"]:focus,
 .form-div textarea:focus,
 .form-div select:focus {
     background: #c5c9a4;
