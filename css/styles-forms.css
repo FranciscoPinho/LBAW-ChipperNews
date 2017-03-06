@@ -64,7 +64,7 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     background-color: #d3d3d3;
-    color: #8a97af;
+    color: #1e352f;
     -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
 }
@@ -113,9 +113,9 @@ img.logo {
     position: relative;
     display: block;
     margin: auto;
-    width: 50%;
-    opacity: 0.8;
-    border-radius: 30px;
+    max-width: 70%;
+    max-height:70%;
+    border-radius: 5%;
 }
 
 img.bg {
