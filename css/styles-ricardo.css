@@ -48,3 +48,14 @@ body {
 .navbar-default {
     background-color: #f8f8ff;
 }
+
+.navbar-brand {
+  float: left;
+  padding:4px;
+  font-size: 12px;
+  line-height: 1.0em;
+}
+
+.navbar-brand > img {
+ height: 40px;   
+}
