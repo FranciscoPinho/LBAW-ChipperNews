@@ -21,70 +21,43 @@
 
 <body>
 
-    <header>
-        <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-
-                <a class="navbar-brand" href="#"><img src="img/assets/logo_navigation.png"></a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <!--
-        <ul class="nav navbar-nav">
-            <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">One more separated link</a></li>
-            </ul>
-            </li>
-        </ul>
-        -->
-                <ul class="nav navbar-nav navbar-left">
+       <div class="jumbotron">
+            <img class="img-responsive" src="/LBAW-ChipperNews/img/assets/logo_navigation.png" alt"logo">
+           <ul class="nav navbar-nav">
                     <li><a href="#">Programming</a></li>
                     <li><a href="#">Hardware</a></li>
                     <li><a href="#">Software</a></li>
+                    <li><a href="#">Industry</a></li>
+                    <li><a href="#">Technology</a></li>
                 </ul>
-                <div class="navbar-right">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="register.html">Register</a></li>
+    </div>
+    <nav class="navbar navbar-default headernav">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              
+                <ul class="nav navbar-nav navbar-right">
+                      <li><a href="register.html">Register</a></li>
                         <li><a data-toggle="modal" data-target="#myModal" href="#">Login</a></li>
                         <li><a href="userprofile_view.html">Profile</a></li>
-                        <!--
-            <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-            </ul>
-            </li>
-        </ul>
-        -->
-                    </ul>
-                    <form class="navbar-form navbar-right">
+                         <li><a href="newsfeed.html">Feed</a></li>
+                          <li><a href="newsfeed.html">Logout</a></li>
+                         
+                </ul>          
+            </div>
+            <div class="navbar-right collapse navbar-collapse">
+                
+               <form class="navbar-form navbar-right">
                         <div class="form-group has-feedback">
 
-                            <input type="text" style="border-radius:16px" class="form-control" placeholder="Search">
+                            <input type="text" style="border-radius:16px;color:#C5C9A4" class="form-control" placeholder="Search">
                             <span class="glyphicon glyphicon-search form-control-feedback"></span>
                         </div>
 
-                    </form>
-                </div>
+                 </form>
             </div>
-        </div>
+            </div>     <!-- /.container-fluid -->
     </nav>
-    </header>
 
     <div class=allcontent>
         <div id="bg">
@@ -193,14 +166,14 @@
                                 too inefficient. I'd rather deal with the hassles of an uglier and messier language like
                                 C++ than trade-off performance</p>
                             <h5>Votes: <span class="posrating" style="font-weight:bold;color:#357266">+5</span>
-                                <h5>
+                                </h5>
                         </div>
                     </blockquote>
                     <h6>By <a style="color:black; font-style:italic">Winston Price</a> 29/12/2016</h6>
                     <p>Nowadays computers are so quick that it doesn't even matter, I'd rather have the ease of use of the Python
                         language</p>
                     <h5>Votes: <span class="posrating" style="font-weight:bold;color:#357266">+7</span>
-                        <h5>
+                        </h5>
                 </blockquote>
                 <div class="mycomment">
                     <h6>By <a style="color:black; font-style:italic">Viperius Soma</a> 31/12/2016</h6>
@@ -209,7 +182,7 @@
                         a very long history and the library support is much stronger, a cleaner syntax is only an interesting
                         feature for beginner developers. I don't know, it may sound elitist but Python is for absolute beginners</p>
                     <h5>Votes: <span class="negrating" style="font-weight:bold;color:#f11066">-1</span>
-                        <h5>
+                        </h5>
                 </div>
             </div>
         </div>
@@ -228,7 +201,7 @@
                     <p> Interesting analysis. I personally don't really like using python because I feel like it's way too inefficient.
                         I'd rather deal with the hassles of an uglier and messier language like C++ than trade-off performance</p>
                     <h5>Votes: <span class="posrating" style="font-weight:bold;color:#357266">+5</span>
-                        <h5>
+                        </h5>
                 </div>
             </div>
         </div>
@@ -236,11 +209,6 @@
     </div>
 </body>
 
-<footer class="footer">
-    <div w3-include-html="footer.html"></div>
-    <script>
-        w3IncludeHTML();
-    </script>
-</footer>
+
 
 </html>
