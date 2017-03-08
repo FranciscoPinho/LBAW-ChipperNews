@@ -8,6 +8,7 @@
 	<title>My Articles</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/styles-newsfeed-myarticles.css">
+	<link rel="stylesheet" type="text/css" href="css/styles-header.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato|Lora|Playfair+Display:700" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -19,14 +20,43 @@
 </head>
 
 <body>
+   <div class="jumbotron">
+            <img class="img-responsive" src="/LBAW-ChipperNews/img/assets/logo_navigation.png" alt"logo">
+           <ul class="nav navbar-nav">
+                    <li><a href="#">Programming</a></li>
+                    <li><a href="#">Hardware</a></li>
+                    <li><a href="#">Software</a></li>
+                    <li><a href="#">Industry</a></li>
+                    <li><a href="#">Technology</a></li>
+                </ul>
+    </div>
+    <nav class="navbar navbar-default headernav">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              
+                <ul class="nav navbar-nav navbar-right">
+                      <li><a href="register.html">Register</a></li>
+                        <li><a data-toggle="modal" data-target="#myModal" href="#">Login</a></li>
+                        <li><a href="userprofile_view.html">Profile</a></li>
+                         <li><a href="newsfeed.html">Feed</a></li>
+                          <li><a href="newsfeed.html">Logout</a></li>
+                         
+                </ul>          
+            </div>
+            <div class="navbar-right collapse navbar-collapse">
+                
+               <form class="navbar-form navbar-right">
+                        <div class="form-group has-feedback">
 
-	<header>
-		<div w3-include-html="header.html"></div>
-		<script>
-			w3IncludeHTML();
-		</script>
+                            <input type="text" style="border-radius:16px;color:#C5C9A4" class="form-control" placeholder="Search">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
 
-	</header>
+                 </form>
+            </div>
+            </div>     <!-- /.container-fluid -->
+    </nav>
 
 	<div class=allcontent>
 
@@ -137,11 +167,6 @@
 	<br>
 </body>
 
-<footer class="footer">
-	<div w3-include-html="footer.html"></div>
-	<script>
-		w3IncludeHTML();
-	</script>
-</footer>
+
 
 </html>
