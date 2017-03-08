@@ -1,11 +1,3 @@
-.jumbotron {
-    background-image: url("../img/circuit.jpg");
-    background-size: cover;
-}
-
-body div.jumbotron div p {
-    color: #1E352F;
-}
 
 body {
     padding-top: 0px;
