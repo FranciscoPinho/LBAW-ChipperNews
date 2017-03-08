@@ -1,5 +1,64 @@
 /****** Searchable container */
 
+
+img.bg {
+    /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    /* Specific to this particular image */
+    img.bg {
+        left: 50%;
+        margin-left: -512px;
+        /* 50% */
+    }
+}
+
+.btn.btn-default.btn-circle.btndislike {
+  width: 3%;
+  height: auto;
+  background-color: #FFFAF0;
+  line-height: 0px;
+  /* adjust line height to align vertically*/
+  padding: 0;
+  border-radius: 50%;
+}
+
+.btn.btn-default.btn-circle.btndislike:focus {
+  outline: 0;
+}
+
+.btn.btn-default.btn-circle.btnlike:focus {
+  outline: 0;
+}
+
+.btn.btn-default.btn-circle.btndislike:hover {
+  background-color: #f11066
+}
+
+.btn.btn-default.btn-circle.btnlike {
+  width: 3%;
+  height: auto;
+  background-color: #FFFAF0;
+  line-height: 0px;
+  /* adjust line height to align vertically*/
+  padding: 0;
+  border-radius: 50%;
+}
+
+.btn.btn-default.btn-circle.btnlike:hover {
+  background-color: #357266
+}
+
 .title{
  margin-left:20px
 }
@@ -42,19 +101,14 @@
 
 /*   */
 
-body{margin-top:20px;
-background:#eee;
+body
+{
+  background:#eee;
 }
 
 .btn-compose-email {
     padding: 10px 0px;
     margin-bottom: 20px;
-}
-
-.btn-danger {
-    background-color: #E9573F;
-    border-color: #E9573F;
-    color: white;
 }
 
 .panel-teal .panel-heading {
@@ -304,10 +358,6 @@ form .form-group {
 
 
 
-
-
-
-
 /*font Awesome http://fontawesome.io*/
 @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
 /*Comment List styles*/
@@ -415,6 +465,7 @@ form .form-group {
     border-width: 1px 1px 1px 5px;
     margin-bottom: 5px;
     padding: 20px;
+    background-color:#c5c9a4;
 }
 .bs-callout:last-child {
     margin-bottom: 0px;
@@ -425,11 +476,11 @@ form .form-group {
 }
 
 .bs-callout-danger {
-    border-left-color: #d9534f;
+    border-left-color: #395e66;
 }
 
 .bs-callout-danger h4{
-    color: #d9534f;
+    color: #395e66;
 }
 
 .resume .list-group-item:first-child, .resume .list-group-item:last-child{
