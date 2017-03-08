@@ -1,10 +1,12 @@
 .navbar-default.headernav {
+    background-color: #357266;
     margin-bottom:3%;
     margin-top:0;
     border-top:solid 1px #1E352F;
     border-bottom:solid 1px #1E352F;
 }
 .jumbotron{
+  background-color: #7EB09B;
   margin-bottom:0;
   padding-bottom:0;
   padding-top:10px;
