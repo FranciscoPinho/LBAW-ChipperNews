@@ -136,6 +136,7 @@ h3{
   color: #436060;
   font-size: 160%;
 }
+
 #archived {
   font-family: 'Playfair Display', serif;
   text-align: left;
@@ -287,7 +288,14 @@ img.bg {
  
   border: none;
 }
-
+#ratings,
+#ratings2,
+#ratings3,
+#ratings4 {
+  font-family: 'webfontbold';
+  font-size: 15px;
+  font-weight: 600;
+}
 .droptext {
   font-family: 'webfontbold';
   font-size: 20px;
