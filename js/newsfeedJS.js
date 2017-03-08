@@ -54,7 +54,7 @@ function fullStory(snipID) {
 			<li><p>Interviewing.  Most programming interview questions are meant to be written in C++ given they often focus on Linked list, BST, Heaps.  Although you can code all these in other languages, doing pointer arithmetic in C++ is highly beneficial and many interviewers explicitly ask you to program it in C/C++.</p></li>
 			<li><p>In general, there is absolutely no other language more worthwhile learning than C/C++ (even though it might not be BEST language). Every field has its preferred language (web-> PHP, database->mySQL, scripting->Perl,Python, Computational->matlab, etc) but in general you just can't go wrong with C++.</p></li>
 			</ul>
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/NvWTnIoQZj4" frameborder="0" allowfullscreen></iframe>
+			<div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/NvWTnIoQZj4" frameborder="0" allowfullscreen></iframe></div>
 			<p id="vid">Related: C++ Creator Bjarne Stroustrup names the top 5 relevant languages to know</p>	
 			<br>
 				<a onclick="deflateArticle('3')" style="text-decoration:none"><i class="fa fa-chevron-circle-up deflate fa-2x" aria-hidden="true"></i></span></a>`);
