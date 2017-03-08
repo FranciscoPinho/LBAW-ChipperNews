@@ -70,3 +70,8 @@ h1 {
 .list-group-item:hover {
     background-color: grey;
 }
+
+.list-group-item {
+    cursor: pointer;
+    cursor: hand;
+}
