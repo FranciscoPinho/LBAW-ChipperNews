@@ -4,11 +4,10 @@
 
 .navbar-brand {
   float: left;
-  padding:4px;
-  font-size: 12px;
+  padding:5%;
   line-height: 1.0em;
 }
 
 .navbar-brand > img {
- height: 40px;   
+ height: 95%;   
 }
