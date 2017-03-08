@@ -7,6 +7,7 @@
     <title>New Article Page</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/styles-forms.css">
+	<link rel="stylesheet" type="text/css" href="css/styles-header.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://www.w3schools.com/lib/w3data.js"></script>	
 	<script src="js/bootstrap.min.js"></script>
@@ -32,9 +33,50 @@
 </head>
 
 <body>
+	
 	<div id="bg">
         <img class="bg" src="img/circuit.jpg" alt="">
     </div>
+	
+       <div class="jumbotron">
+            <a href="./frontPage.html">
+            <img class="img-responsive" src="./img/assets/logo_navigation.png" alt"logo">
+		</a>
+           <ul class="nav navbar-nav">
+                    <li><a href="#">Programming</a></li>
+                    <li><a href="#">Hardware</a></li>
+                    <li><a href="#">Software</a></li>
+                    <li><a href="#">Industry</a></li>
+                    <li><a href="#">Technology</a></li>
+                </ul>
+    </div>
+    <nav class="navbar navbar-default headernav">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              
+                <ul class="nav navbar-nav navbar-right">
+                      <li><a href="register.html">Register</a></li>
+                        <li><a data-toggle="modal" data-target="#myModal" href="#">Login</a></li>
+                        <li><a href="userprofile_view.html">Profile</a></li>
+                         <li><a href="newsfeed.html">Feed</a></li>
+                          <li><a href="newsfeed.html">Logout</a></li>
+                         
+                </ul>          
+            </div>
+            <div class="navbar-right collapse navbar-collapse">
+                
+               <form class="navbar-form navbar-right">
+                        <div class="form-group has-feedback">
+
+                            <input type="text" style="border-radius:16px;color:#C5C9A4" class="form-control" placeholder="Search">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+
+                 </form>
+            </div>
+            </div>     <!-- /.container-fluid -->
+    </nav>
     <div class="form-div" id="new_article">
 		<form class="form-horizontal" id="form-new-article" method="post">
 			<fieldset>
