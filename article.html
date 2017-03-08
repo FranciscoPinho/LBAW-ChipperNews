@@ -9,10 +9,25 @@
 	<link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato|Lora|Playfair+Display:700" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/styles-header.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Editor.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Sanitizer.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/styles-article.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://www.w3schools.com/lib/w3data.js"></script>	
 	<script src="js/bootstrap.min.js"></script>
+
+	<style>
+    .wmd-button > span {
+        background-image: 
+          url('//cdn.rawgit.com/derobins/wmd/master/images/wmd-buttons.png');
+        background-repeat: no-repeat;
+        background-position: 0px 0px;
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+    }
+	</style>
 </head>
 
 
@@ -205,13 +220,20 @@
 					</div>
 				</div>
 
+
+	
+		
+			
     <div class="row">
     
     <div class="col-md-6 col-md-offset-3">
     						<div class="widget-area no-padding blank">
 								<div class="status-upload">
 									<form >
-										<textarea ></textarea>
+										<div id="wmd-button-bar"></div>
+							<textarea id="wmd-input" class="wmd-input"></textarea>
+							
+							
 										<ul>
 											<li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Picture"><i class="fa fa-picture-o"></i></a></li>
 										</ul>
@@ -220,8 +242,15 @@
 								</div><!-- Status Upload  -->
 							</div><!-- Widget Area -->
 	</div>
-        
-    
-
+     
+    <div class="container comment-main-level"style="height:20%; margin-top:15%">
+		<div id="wmd-preview" class="wmd-panel wmd-preview" style="width:100%; margin:0;"></div>
+		</div>
+  			
+<script>
+    						var converter = Markdown.getSanitizingConverter();
+    						var editor = new Markdown.Editor(converter);
+   	   						editor.run();
+							</script>
 </body>
 </html>

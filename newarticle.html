@@ -10,48 +10,72 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://www.w3schools.com/lib/w3data.js"></script>	
 	<script src="js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Editor.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Sanitizer.js"></script>
     <!-- Optional Bootstrap theme -->
     <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+	<link rel="stylesheet" 
+      href="//cdn.rawgit.com/balpha/pagedown/master/demo/browser/demo.css" />
+
+<style>
+    .wmd-button > span {
+        background-image: 
+          url('//cdn.rawgit.com/derobins/wmd/master/images/wmd-buttons.png');
+        background-repeat: no-repeat;
+        background-position: 0px 0px;
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+    }
+</style>
 </head>
 
 <body>
 	<div id="bg">
-        <img class="bg" src="/img/circuit.jpg" alt="">
+        <img class="bg" src="img/circuit.jpg" alt="">
     </div>
     <div class="form-div" id="new_article">
 		<form class="form-horizontal" id="form-new-article" method="post">
 			<fieldset>
 				<legend>New Article</legend>
 				<div class="form-group">
-					<label>Title:<br>
+					<label>Title:</label>
 						<div class="col-lg-10">
 							<input type="text" class="form-control" required id="title" placeholder="Title" name="title">
 						</div>
-					</label>
+					
 				</div>
 				<div class="form-group">
-					<label>Article Headline:<br>
+					<label>Article Headline:</label>
 						<div class="col-lg-10">
 							<textarea class="form-control" required rows="4" cols="50" id="headline" placeholder="Article Headline" name="headline"></textarea>
 						</div>
-					</label>
+					
 				</div>
 				<div class="form-group">
-					<label>Article Body:<br>
-						<div class="col-lg-10">
-							<textarea class="form-control" required rows="15" cols="50" id="body" placeholder="Article Text" name="body"></textarea>
+					<label>Article Body:</label>
+					<div class="col-lg-10">
+						
+							<div id="wmd-button-bar"></div>
+							<textarea id="wmd-input" class="wmd-input"></textarea>
+							<div id="wmd-preview" class="wmd-panel wmd-preview" style="width:100%; margin:0;"></div>
+							<script>
+    						var converter = Markdown.getSanitizingConverter();
+    						var editor = new Markdown.Editor(converter);
+   	   						editor.run();
+							</script>
 						</div>
-					</label>
 				</div>
 				<div class="form-group">
-					<label>Tags:<br>
+					<label>Tags:</label>
 						<div class="col-lg-10">
 							<textarea class="form-control" required id="tags" placeholder="Tags" name="tags"></textarea>
 						</div>
-					</label>
+					
 				</div>
 				<div class="form-group">
-					<label>Image:<br>
+					<label>Image:</label>
 						<div class="col-lg-10">
 							<form action="upload.php" method="post" enctype="multipart/form-data">
 								<input type="file" name="fileToUpload" id="fileToUpload">
@@ -62,11 +86,11 @@
 				<div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
                         <button type="reset" class="btn btn-default">Cancel</button>
-						<button type="reset" class="btn btn-default">Preview</button>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
 			</fieldset>
+			
 		</form>
 	</div>
 </body>
