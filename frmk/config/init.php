@@ -4,7 +4,7 @@
 
   error_reporting(E_ERROR | E_WARNING); // E_NOTICE by default
 
-  $BASE_DIR = '/opt/lbaw/lbaw1642/public_html/LBAW-ChipperNews/frmk/'; //FIXME
+  $BASE_DIR = '/opt/lbaw/lbaw1642/public_html/frmk/'; //FIXME
   $BASE_URL = '/~lbaw1642/frmk/'; //FIXME
 
   $conn = new PDO('pgsql:host=dbm;dbname=lbaw1642', 'lbaw1642', 'ry37uc01'); //FIXME
