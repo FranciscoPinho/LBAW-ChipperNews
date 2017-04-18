@@ -1,0 +1,53 @@
+.navbar-default.headernav {
+    background-color: #357266;
+    margin-bottom:3%;
+    margin-top:0;
+    border-top:solid 1px #1E352F;
+    border-bottom:solid 1px #1E352F;
+}
+.jumbotron{
+  background-color: #7EB09B;
+  margin-bottom:0;
+  padding-bottom:0;
+  padding-top:10px;
+}
+.img-responsive{
+  margin: 0 auto;
+  width:25%;
+  height:25%;
+}
+ul.nav.navbar-nav > li > a{
+   color:#1E352F !important;
+   font-family: 'webfontbold';
+   font-size:110%;
+   font-weight: 500;  
+}
+.nav.navbar-nav {
+    float:none;
+    margin:0 auto;
+    display: block;
+    text-align: center;
+}
+@media screen and (max-width: 1024px) { 
+   .img-responsive{
+  margin: 0 auto;
+  width:50%;
+  height:50%;
+  }
+}
+
+.navbar-nav > li {
+    display: inline-block;
+    float:none;
+}
+.navbar-brand > img {
+ height: 95%;   
+}
+
+
+@font-face {
+  font-family: 'webfontbold';
+  src: url('../fonts/nevis-webfont.woff2') format('woff2'), url('../fonts/nevis-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

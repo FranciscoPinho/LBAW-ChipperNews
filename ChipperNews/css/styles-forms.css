@@ -1,0 +1,152 @@
+.form-inline, .form-group{
+   display:block;
+    margin-left: auto;
+    margin-right:auto;
+    padding-left:12%;
+}
+
+#note{
+    padding-left:12%;
+}
+.form-div {
+    position: relative;
+    max-width: 85%;
+    margin: 20px auto;
+    padding: 0px;
+    background: #f8f8ff;
+    border-radius: 9px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-div fieldset {
+    max-width: 100%;
+    padding-right: 0;
+    
+    padding-top: 20px;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+
+.form-div legend {
+    text-align: center;
+    font-size: 1.4em;
+    padding-top: 15px;
+    margin-bottom: 10px;
+}
+
+.form-div label {
+    display: block;
+    padding-left: 20px;
+    margin-bottom: 0px;
+}
+
+.form-div input[type="text"],
+.form-div input[type="date"],
+.form-div input[type="datetime"],
+.form-div input[type="email"],
+.form-div input[type="number"],
+.form-div input[type="search"],
+.form-div input[type="time"],
+.form-div input[type="password"],
+.form-div input[type="url"],
+.form-div textarea,
+.form-div select {
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgba(255, 255, 255, .1);
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    margin: none;
+    outline: 0;
+    padding: 7px;
+    width: 85%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background-color: #d3d3d3;
+    color: #1e352f;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+}
+
+.form-div input[type="text"]:focus,
+.form-div input[type="date"]:focus,
+.form-div input[type="datetime"]:focus,
+.form-div input[type="email"]:focus,
+.form-div input[type="number"]:focus,
+.form-div input[type="search"]:focus,
+.form-div input[type="time"]:focus,
+.form-div input[type="url"]:focus,
+.form-div input[type="password"]:focus,
+.form-div textarea:focus,
+.form-div select:focus {
+    background: #c5c9a4;
+}
+
+.input-group .input-group-btn > .btn {
+    background-color: #d3d3d3;
+}
+/* stop the glowing blue shadow */
+.input-group .form-control:focus {
+    -webkit-box-shadow: none; 
+            box-shadow: none;
+    border-color:#d3d3d3; 
+}
+
+.form-div select {
+    -webkit-appearance: menulist-button;
+    height: 35px;
+}
+
+.form-div input[type="submit"],
+.form-div input[type="button"],
+.form-div button[type="submit"] {
+    background: #1E352F;
+    border: 1px solid #7EB09B;
+    border-width: 1px 1px;
+}
+
+.form-div input[type="submit"]:hover,
+.form-div input[type="button"]:hover,
+.form-div button[type="submit"]:hover {
+    background: #7EB09B;
+}
+
+i.fa.fa-asterisk
+{
+    color:darkred;
+}
+
+.responsive-fieldset {display:table-cell; width: 100%}
+
+img.logo {
+    position: relative;
+    display: block;
+    margin: auto;
+    max-width: 70%;
+    max-height:70%;
+    border-radius: 5%;
+}
+
+img.bg {
+    /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index:-1;
+}
+
+@media screen and (max-width: 1024px) {
+    /* Specific to this particular image */
+    img.bg {
+        left: 50%;
+        margin-left: -512px;
+        /* 50% */
+    }
+}

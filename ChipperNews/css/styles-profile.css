@@ -1,0 +1,220 @@
+/****** Searchable container */
+
+
+img.bg {
+    /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+@media screen and (max-width: 1024px) {
+    /* Specific to this particular image */
+    img.bg {
+        left: 50%;
+        margin-left: -512px;
+        /* 50% */
+    }
+}
+
+#profilepic
+{
+  width:100%;
+  height: 100%;
+}
+
+.btn.btn-default.btn-circle.btndislike {
+  width: 3%;
+  height: auto;
+  background-color: #FFFAF0;
+  line-height: 0px;
+  /* adjust line height to align vertically*/
+  padding: 0;
+  border-radius: 50%;
+}
+
+.btn.btn-default.btn-circle.btndislike:focus {
+  outline: 0;
+}
+
+.btn.btn-default.btn-circle.btnlike:focus {
+  outline: 0;
+}
+
+.btn.btn-default.btn-circle.btndislike:hover {
+  background-color: #f11066
+}
+
+.btn.btn-default.btn-circle.btnlike {
+  width: 3%;
+  height: auto;
+  background-color: #FFFAF0;
+  line-height: 0px;
+  /* adjust line height to align vertically*/
+  padding: 0;
+  border-radius: 50%;
+}
+
+.btn.btn-default.btn-circle.btnlike:hover {
+  background-color: #357266
+}
+
+.title{
+ margin-left:20px
+}
+
+.fa-user{
+ font-size:80px   
+}
+
+.searchable-container{
+    margin-top:40px;
+}
+
+.glyphicon-lg{
+    font-size:4em
+}
+
+
+/*   */
+
+body
+{
+  background:#c5c9a4;
+}
+
+.btn-compose-email {
+    padding: 10px 0px;
+    margin-bottom: 20px;
+}
+
+.panel .panel-heading {
+    padding: 5px;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-bottom: 1px solid #c5c9a4;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.panel .panel-heading .panel-title {
+    padding: 10px;
+    font-size: 17px;
+}
+
+form .form-group {
+    position: relative;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.inner-all {
+    padding: 10px;
+}
+
+/* ========================================================================
+ * MAIL
+ * ======================================================================== */
+.nav-email > li:first-child + li:active {
+  margin-top: 0px;
+}
+.nav-email > li + li {
+  margin-top: 1px;
+}
+
+.nav-email > li.active
+{
+  background-color: #395e66 !important;
+}
+.nav-email li {
+  background-color: #c5c9a4;
+}
+.nav-email li.active {
+  background-color: transparent;
+}
+.nav-email li.active .label {
+  background-color: #c5c9a4;
+  color: black;
+}
+.nav-email li a {
+  color: black;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+.nav-email li a:hover {
+  background-color: #EEEEEE;
+}
+.nav-email li a i {
+  margin-right: 5px;
+}
+.nav-email li a .label {
+  margin-top: -1px;
+}
+
+.page-header{
+  text-align: center;    
+}
+
+.bs-callout {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color:#c5c9a4;
+    border-image: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px 1px 1px 5px;
+    margin-bottom: 5px;
+    padding: 20px;
+    background-color:#c5c9a4;
+}
+.bs-callout:last-child {
+    margin-bottom: 0px;
+}
+.bs-callout h4 {
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.bs-callout-danger {
+    border-left-color: #395e66;
+}
+
+.bs-callout-danger h4{
+    color: #395e66;
+}
+
+.resume .list-group-item:first-child, .resume .list-group-item:last-child{
+  border-radius:0;
+}
+
+/*makes an anchor inactive(not clickable)*/
+.inactive-link {
+   pointer-events: none;
+   cursor: default;
+}
+
+.resume-heading .social-btns{
+  margin-top:15px;
+}
+.resume-heading .social-btns i.fa{
+  margin-left:-5px;
+}
+
+
+
+@media (max-width: 992px) {
+  .resume-heading .social-btn-holder{
+    padding:5px;
+  }
+}
