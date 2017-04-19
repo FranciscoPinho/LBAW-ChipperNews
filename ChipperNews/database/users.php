@@ -4,7 +4,7 @@
   {
 
     global $conn;
-    $stmt = $conn->prepare("INSERT INTO users(name,username,password,local_id,email,permission_level, bio, birthdate) 
+    $stmt = $conn->prepare("INSERT INTO users(username,name,password,local_id,email,permission_level, bio, birthdate) 
     VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->execute(array($username, $name, password_hash($password,PASSWORD_DEFAULT), $local_id, $email, '0', $bio, $birthdate));
   }
