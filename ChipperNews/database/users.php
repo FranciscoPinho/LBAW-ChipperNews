@@ -21,4 +21,11 @@
     $stmt->execute();
     return $stmt->fetchAll();
   }
+   function getAllCountries()
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM localization");
+    $stmt->execute();
+    return $stmt->fetchAll();
+  }
 ?>

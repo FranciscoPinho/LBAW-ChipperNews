@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 10:38:20
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 16:17:42
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\register.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:99458f68e110fca77-59367740%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b8bdb20c84491cce795cb8192d7512ce84cc1628' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\register.tpl',
-      1 => 1492598199,
+      1 => 1492618022,
       2 => 'file',
     ),
     'c5a51a8eb83d205c2f8fb9256bad303bf7b032ed' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\register-form.tpl',
-      1 => 1492598282,
+      1 => 1492618397,
       2 => 'file',
     ),
   ),
@@ -51,15 +51,6 @@ js/bootstrap.min.js"></script>
   <img class="bg" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/circuit.jpg" alt="">
 </div>
-<div class="container form-div" id="register">
-
-  <div class="logo">
-    <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/search/frontpage.php">
-      <img class="logo" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-images/assets/logo_navigation.png" alt="Chipper News" align="middle">
-    </a>
-  </div>
 
 
   
@@ -70,113 +61,120 @@ actions/users/register.php" class="ink-form ink-formvalidator xlarge-60 large-70
       <?php /*  Call merged included template "users/register-form.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate('users/register-form.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '99458f68e110fca77-59367740');
-content_58f73e1cc58914_47154596($_smarty_tpl);
+content_58f78da6b218f4_58084909($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "users/register-form.tpl" */?>
     </form>
   </div>
     <?php }} ?>
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 10:38:20
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 16:17:42
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\register-form.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_58f73e1cc58914_47154596')) {function content_58f73e1cc58914_47154596($_smarty_tpl) {?>
-<form class="form-horizontal" id="fregister" method="post">
-	<fieldset class="responsive-fieldset">
-		<legend>Register Page</legend>
-		<div class="form-group">
-			<label> Username <i class="fa fa-asterisk" aria-hidden="false"></i></label>
-			<div class="container col-sm-12">
-				<div class="input-group">
-					<div class="input-group-btn">
-						<button class="btn btn-default"><i class="fa fa-user"></i></button>
-					</div>
-					<?php if ($_smarty_tpl->tpl_vars['FORM_VALUES']->value['username']) {?>
-					<input type="text" class="form-control" id="username" placeholder="Please input a unique, valid username" name="username"
-					    value="<?php echo $_smarty_tpl->tpl_vars['FORM_VALUES']->value['username'];?>
+<?php if ($_valid && !is_callable('content_58f78da6b218f4_58084909')) {function content_58f78da6b218f4_58084909($_smarty_tpl) {?><div class="container form-div" id="register">
+	<div class="logo">
+		<a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/search/frontpage.php">
+			<img class="logo" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+images/assets/logo_navigation.png" alt="Chipper News" align="middle">
+		</a>
+	</div>
+	<form class="form-horizontal" id="fregister" method="post">
+		<fieldset class="responsive-fieldset">
+			<legend>Register Page</legend>
+			<div class="form-group">
+				<label> Username <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+				<div class="container col-sm-12">
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button class="btn btn-default"><i class="fa fa-user"></i></button>
+						</div>
+						<?php if ($_smarty_tpl->tpl_vars['FORM_VALUES']->value['username']) {?>
+						<input type="text" class="form-control" id="username" placeholder="Please input a unique, valid username" name="username"
+						    value="<?php echo $_smarty_tpl->tpl_vars['FORM_VALUES']->value['username'];?>
 " data-rules="required|alpha_numeric"> 
-						<?php } else { ?>
-					<input type="text" class="form-control" id="username" placeholder="Please input a unique, valid username" name="username"
-					    data-rules="required|alpha_numeric"> 
-						<?php }?>
+							<?php } else { ?>
+						<input type="text" class="form-control" id="username" placeholder="Please input a unique, valid username" name="username"
+						    data-rules="required|alpha_numeric"> 
+							<?php }?>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label>Name <i class="fa fa-asterisk" aria-hidden="false"></i></label>
-			<div class="col-sm-12">
-				<div class="input-group">
-					<div class="input-group-btn">
-						<button class="btn btn-default"><i class="fa fa-id-card-o"></i></button>
-					</div>
-					<input type="text" class="form-control" id="fullname" placeholder="Jane Doe" name="fullname" required>
-				</div>
-			</div>
-		</div>
-		<div class="form-group">
-			<label>Email <i class="fa fa-asterisk" aria-hidden="false"></i></label>
-			<div class="col-sm-12">
-				<div class="input-group">
-					<div class="input-group-btn">
-						<button class="btn btn-default"><i class="fa fa-envelope-o"></i></button>
-					</div>
-					<input type="email" class="form-control" id="email" placeholder="your@email.com" name="email" required>
-				</div>
-			</div>
-		</div>
-		<div class="form-group">
-			<label>Password <i class="fa fa-asterisk" aria-hidden="false"></i></label>
-			<div class="col-sm-12">
-				<div class="input-group">
-					<div class="input-group-btn">
-						<button class="btn btn-default"><i class="fa fa-unlock-alt"></i></button>
-					</div>
-					<input type="password" class="form-control" id="passw" placeholder="Password" name="passw" required>
-				</div>
+			<div class="form-group">
+				<label>Name <i class="fa fa-asterisk" aria-hidden="false"></i></label>
 				<div class="col-sm-12">
-					<p class="help-block">Should be at least 8 characters long.</p>
-				</div>
-			</div>
-		</div>
-		<div class="form-group">
-			<label> Confirm Password <i class="fa fa-asterisk" aria-hidden="false"></i></label>
-			<div class="col-sm-12">
-				<div class="input-group">
-					<div class="input-group-btn">
-						<button class="btn btn-default"><i class="fa fa-unlock-alt"></i></button>
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button class="btn btn-default"><i class="fa fa-id-card-o"></i></button>
+						</div>
+						<input type="text" class="form-control" id="fullname" placeholder="Jane Doe" name="fullname" required>
 					</div>
-					<input type="password" class="form-control" id="passw2" placeholder="Confirm password" name="passw2" required>
 				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label> Date of birth </label>
-			<div class="col-sm-12">
-				<div class="input-group">
-					<div class="input-group-btn">
-						<button class="btn btn-default"><i class="fa fa-calendar"></i></button>
+			<div class="form-group">
+				<label>Email <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+				<div class="col-sm-12">
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button class="btn btn-default"><i class="fa fa-envelope-o"></i></button>
+						</div>
+						<input type="email" class="form-control" id="email" placeholder="your@email.com" name="email" required>
 					</div>
-					<input type="date" class="form-control" id="birthdate" placeholder="Date of birth" name="birthdate">
 				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label> Short Bio </label>
-			<div class="col-sm-12">
-				<textarea class="form-control" rows="10" cols="30" id="bio" name="bio"></textarea>
-				<p class="help-block">Tell everyone a bit about yourself!</p>
+			<div class="form-group">
+				<label>Password <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+				<div class="col-sm-12">
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button class="btn btn-default"><i class="fa fa-unlock-alt"></i></button>
+						</div>
+						<input type="password" class="form-control" id="passw" placeholder="Password" name="passw" required>
+					</div>
+					<div class="col-sm-12">
+						<p class="help-block">Should be at least 8 characters long.</p>
+					</div>
+				</div>
 			</div>
-
-		</div>
-		<div class="form-group">
-			<label> Interests <i class="fa fa-asterisk" aria-hidden="false"></i></label>
-			<div class="col-sm-12">
-				<textarea class="form-control" rows="8" cols="50" id="interests" placeholder="Reading, philosophy" name="interests" required></textarea>
+			<div class="form-group">
+				<label> Confirm Password <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+				<div class="col-sm-12">
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button class="btn btn-default"><i class="fa fa-unlock-alt"></i></button>
+						</div>
+						<input type="password" class="form-control" id="passw2" placeholder="Confirm password" name="passw2" required>
+					</div>
+				</div>
 			</div>
+			<div class="form-group">
+				<label> Date of birth </label>
+				<div class="col-sm-12">
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button class="btn btn-default"><i class="fa fa-calendar"></i></button>
+						</div>
+						<input type="date" class="form-control" id="birthdate" placeholder="Date of birth" name="birthdate">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label> Short Bio </label>
+				<div class="col-sm-12">
+					<textarea class="form-control" rows="10" cols="30" id="bio" name="bio"></textarea>
+					<p class="help-block">Tell everyone a bit about yourself!</p>
+				</div>
 
-		</div>
-		<div class="form-group">
-			<label> Select your country <br>  </label>
-			<div class="col-sm-12">
-				<select class="form-control" id="select">
+			</div>
+			<div class="form-group">
+				<label> Interests <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+				<div class="col-sm-12">
+					<textarea class="form-control" rows="8" cols="50" id="interests" placeholder="Reading, philosophy" name="interests" required></textarea>
+				</div>
+
+			</div>
+			<div class="form-group">
+				<label> Select your country <br>  </label>
+				<div class="col-sm-12">
+					<select class="form-control" id="select">
           <option value="AF">Afghanistan</option>
 	<option value="AX">Åland Islands</option>
 	<option value="AL">Albania</option>
@@ -427,28 +425,29 @@ $_smarty_tpl = array_pop($_tpl_stack);
 	<option value="ZM">Zambia</option>
 	<option value="ZW">Zimbabwe</option>
         </select>
-			</div>
+				</div>
 
-		</div>
-		<div class="form-group">
-			<label for="inputFile">Upload an avatar</label>
-			<div class="col-sm-8">
-				<input type="file" id="inputFile" name="pic" accept="image/*">
 			</div>
-			<div class="col-sm-8">
-				<p class="help-block">Accepted files consist of all image formats.</p>
+			<div class="form-group">
+				<label for="inputFile">Upload an avatar</label>
+				<div class="col-sm-8">
+					<input type="file" id="inputFile" name="pic" accept="image/*">
+				</div>
+				<div class="col-sm-8">
+					<p class="help-block">Accepted files consist of all image formats.</p>
+				</div>
 			</div>
-		</div>
-		<div class="container" id="note">
-			<div class="footnote">
-				<small> Fields with an asterisk (<i class="fa fa-asterisk" aria-hidden="false"></i>) are mandatory. </small>
+			<div class="container" id="note">
+				<div class="footnote">
+					<small> Fields with an asterisk (<i class="fa fa-asterisk" aria-hidden="false"></i>) are mandatory. </small>
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<div class="col-sm-4 col-sm-offset-4">
-				<button type="reset" class="btn btn-default">Cancel</button>
-				<button type="submit" class="btn btn-primary">Submit</button>
+			<div class="form-group">
+				<div class="col-sm-4 col-sm-offset-4">
+					<button type="reset" class="btn btn-default">Cancel</button>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
 			</div>
-		</div>
-	</fieldset>
-</form><?php }} ?>
+		</fieldset>
+	</form>
+</div><?php }} ?>

@@ -16,13 +16,6 @@
 <div id="bg">
   <img class="bg" src="{$BASE_URL}images/assets/circuit.jpg" alt="">
 </div>
-<div class="container form-div" id="register">
-
-  <div class="logo">
-    <a href="{$BASE_URL}pages/search/frontpage.php">
-      <img class="logo" src="{$BASE_URL}images/assets/logo_navigation.png" alt="Chipper News" align="middle">
-    </a>
-  </div>
 
 
   {block name=content}
