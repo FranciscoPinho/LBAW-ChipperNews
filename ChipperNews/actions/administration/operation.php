@@ -7,7 +7,13 @@
   $users = $_POST['users'];
 
   foreach ($users as $user) {
-    upgradeUser($user);
+    switch($operation)
+    {
+      case "user": permissionToUser($user);break;
+      case "colaborator": permissionToColaborator($user);break;
+      case "moderator": permissionToModerator($user);break;
+      default: break;
+    }
   }
   debug_to_console($users);
   header("Location: $BASE_URL" . 'pages/admin/sysadmin.php');
