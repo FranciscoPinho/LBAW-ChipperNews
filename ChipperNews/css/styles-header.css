@@ -11,6 +11,10 @@
   padding-bottom:0;
   padding-top:10px;
 }
+.close {
+  float: right;
+  text-decoration: none;
+}
 .img-responsive{
   margin: 0 auto;
   width:25%;
