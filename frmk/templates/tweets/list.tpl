@@ -6,7 +6,7 @@
   <div id="new_tweets"></div>
 
   {foreach $tweets as $tweet}
-
+  {if}
   <article class="tweet-data">
     <img src="{$BASE_URL}{$tweet.photo}">
     <span class="realname">{$tweet.realname}</span>
@@ -15,7 +15,7 @@
     <span class="time">{$tweet.time}</span>
     <div class="tweet-text">{$tweet.text}</div>
   </article>
-
+  {/if}
   {/foreach}
 
 </section>
