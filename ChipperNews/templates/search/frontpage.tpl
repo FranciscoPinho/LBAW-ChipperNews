@@ -6,67 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chipper News</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/bootstrap.min.css">
     <!-- Optional Bootstrap theme -->
     <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{$BASE_URL}js/bootstrap.min.js"></script>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-social.css">
-    <link rel="stylesheet" type="text/css" href="css/styles-ricardo.css">
-    <link rel="stylesheet" type="text/css" href="css/styles-header.css">
+    <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/bootstrap-social.css">
+    <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-ricardo.css">
     <link href="https://fonts.googleapis.com/css?family=Lato|Lora|Playfair+Display:700" rel="stylesheet">
 
 </head>
-
+{include file='common/header.tpl'}
 <body>
-    <div class="jumbotron">
-        <a href="./frontpage.html">
-            <img class="img-responsive" src="./img/assets/logo_navigation.png" alt "logo">
-        </a>
-        <ul class="nav navbar-nav">
-            <li><a href="#">Programming</a></li>
-            <li><a href="#">Hardware</a></li>
-            <li><a href="#">Software</a></li>
-            <li><a href="#">Industry</a></li>
-            <li><a href="#">Technology</a></li>
-        </ul>
-    </div>
-    <nav class="navbar navbar-default headernav ">
-        <div class="container-fluid ">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header ">
-
-                <ul class="nav navbar-nav navbar-right ">
-                    <li><a href="register.html">Register</a></li>
-                    <li><a data-toggle="modal" data-target="#myModal" href="#">Login</a></li>
-                    <li><a href="userprofile_view.html ">Profile</a></li>
-                    <li><a href="newsfeed.html ">Feed</a></li>
-                    <li><a href="newsfeed.html ">Logout</a></li>
-
-                </ul>
-            </div>
-            <div class="navbar-right collapse navbar-collapse ">
-
-                <form class="navbar-form navbar-right ">
-                    <div class="form-group has-feedback ">
-
-                        <input type="text " style="border-radius:16px;color:#C5C9A4 " class="form-control " placeholder="Search ">
-                        <span class="glyphicon glyphicon-search form-control-feedback "></span>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
+   
     <nav class="navbar navbar-default ">
         <h1 class="text-center "> Featured </h1>
     </nav>
     <div class="row " style="padding-left:4%;padding-right:4% ">
         <div class="col-sm-6 col-md-4 ">
             <a class="thumbnail " href="article.html" style="text-decoration:none ">
-                <img src="img\news1.jpg " alt="... ">
+                <img src="{$BASE_URL}images\articles\news1.jpg " alt="... ">
                 <div class="caption ">
                     <h3>Researchers critique security in messaging app Confide</h3>
                     <p>Confide, a messaging app that’s raised millions in venture capital and promises “military-grade encryption” to its users, has surged in popularity among D.C. insiders who want to keep their communications secret under the Trump administration.</p>
@@ -78,7 +38,7 @@
         </div>
         <div class="col-sm-6 col-md-4 ">
             <a class="thumbnail " href="article.html" style="text-decoration:none ">
-                <img href=" " src="img\news2.jpg " alt="... ">
+                <img href=" " src="{$BASE_URL}images\articles\news2.jpg " alt="... ">
                 <div class="caption ">
                     <h3>Gobi raises $500K to take on Snapchat</h3>
                     <p>Norwegian startup Gobi raised $500,000 at a $15 million valuation to take on Snapchat with its “Stories” communication tool. The platform enables users to create public and private groups where users can share photos and videos that
@@ -91,7 +51,7 @@
         </div>
         <div class="col-sm-6 col-md-4 ">
             <a class="thumbnail " href="article.html" style="text-decoration:none ">
-                <img href="# " src="img\news3.jpg " alt="... ">
+                <img href="# " src="{$BASE_URL}images\articles\news3.jpg " alt="... ">
                 <div class="caption ">
                     <h3>Google-led Accelerated Mobile Pages project expands in Asia, with support from Baidu</h3>
                     <p>Google just announced that search results in Baidu, Sogou and Yahoo Japan will be connecting directly to Accelerated Mobile Pages.</p>
@@ -181,14 +141,14 @@
                     <h4 class="modal-title">Login</h4>
                 </div>
                 <div class="modal-body ">
-                    <form class="form-signin ">
+                    <form class="form-signin">
                         <label for="inputEmail " class="sr-only ">Email address</label>
                         <input type="email " id="inputEmail " class="form-control " placeholder="Email address " required=" " autofocus=" ">
                         <label for="inputPassword " class="sr-only ">Password</label>
                         <input type="password " id="inputPassword " class="form-control " placeholder="Password " required=" ">
-                        <div class="checkbox ">
+                        <div class="checkbox">
                             <label>
-                        <input type="checkbox " value="remember-me "> Remember me
+                        <input type="checkbox" value="remember-me "> Remember me
                     </label>
                         </div>
                         <button class="btn btn-lg btn-primary btn-block " type="submit ">Sign in</button>
@@ -202,16 +162,7 @@
         </div>
     </div>
 
-    <footer>
-        <div class="jumbotron">
-
-            <ul class="nav navbar-nav">
-                <li><a href="./applycollab.html">Become a Collaborator</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Info</a></li>
-            </ul>
-        </div>
-    </footer>
+   {include file='common/footer.tpl'}
 </body>
 
 </html>
