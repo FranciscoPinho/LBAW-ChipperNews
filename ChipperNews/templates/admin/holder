@@ -1,0 +1,39 @@
+<h1> Users </h1>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> User Options <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Promote to Moderator</a></li>
+                    <li><a href="#">Promote to Collaborator</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Freeze Account</a></li>
+                    <li><a href="#">Ban</a></li>
+                </ul>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Icon</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach $users as $user}
+                    {if $user.permission_level == 0}
+                    <tr>
+                        <td>{$user.user_id}</td>
+                        <td><img class="media-object" src="{$BASE_URL}images/assets/pepe.jpg" alt="..."></td>
+                        <td>{$user.username}</td>
+                        <td> {$user.email}</td>
+                        <td>
+                            <form action="">
+                                <input type="checkbox" name="check" value="checked"><br>
+                            </form>
+                        </td>  
+                    </tr>
+                    {/if}
+                    {/foreach}
+                </tbody>
+            </table>
+        </div>

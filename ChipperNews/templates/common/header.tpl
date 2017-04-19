@@ -11,6 +11,7 @@
     <script src="https://www.w3schools.com/lib/w3data.js"></script>
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-header.css">
     <script src="{$BASE_URL}js/bootstrap.min.js"></script>
+    <script src="{$BASE_URL}js/main.js"></script>
     <!-- Animals graphic by -->
     <!--a href="http://www.flaticon.com/authors/zlatko-najdenovski">Zlatko Najdenovski</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>-->
     <!-- Optional Bootstrap theme -->
@@ -37,12 +38,12 @@
               
                 <ul class="nav navbar-nav navbar-right">
                     {if $USERNAME}
-                    <li><a href="{$BASE_URL}actions/users/logout">Logout</a></li>
-                    <li><a href="{$BASE_URL}pages/users/profile">Profile</a></li>
-                    <li><a href="{$BASE_URL}pages/articles/newsfeed">Feed</a></li>
+                    <li><a href="{$BASE_URL}actions/users/logout.php">Logout</a></li>
+                    <li><a href="{$BASE_URL}pages/users/profile.php">Profile</a></li>
+                    <li><a href="{$BASE_URL}pages/articles/newsfeed.php">Feed</a></li>
                     {else}
                      <li><a data-toggle="modal" data-target="#myModal" href="">Login</a></li>     
-                     <li><a href="{$BASE_URL}pages/users/register">Register</a></li>
+                     <li><a href="{$BASE_URL}pages/users/register.php">Register</a></li>
                     {/if}          
                 </ul>          
             </div>
@@ -58,6 +59,16 @@
                  </form>
             </div>
             </div>     <!-- /.container-fluid -->
+                            <div id="error_messages">
+                            {foreach $ERROR_MESSAGES as $error}
+                            <div class="error">{$error}<a class="close" href="#">X</a></div>
+                            {/foreach}
+                            </div>
+                            <div id="success_messages">
+                            {foreach $SUCCESS_MESSAGES as $success}
+                            <div class="success">{$success}<a class="close" href="#">X</a></div>
+                            {/foreach}
+                            </div>
     </nav>
 </body>
 

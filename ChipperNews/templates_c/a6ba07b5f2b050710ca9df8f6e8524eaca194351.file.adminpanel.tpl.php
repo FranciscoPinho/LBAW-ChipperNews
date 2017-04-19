@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 10:09:59
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 17:04:25
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\admin\adminpanel.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1225958f7353a0d4b52-69720337%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a6ba07b5f2b050710ca9df8f6e8524eaca194351' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\admin\\adminpanel.tpl',
-      1 => 1492596497,
+      1 => 1492621446,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'BASE_URL' => 0,
+    'users' => 0,
+    'user' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -33,12 +35,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <title>Chipper News</title>
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 css/bootstrap.min.css">
-    <!-- Optional Bootstrap theme -->
-    <!--<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-css/bootstrap-theme.min.css">-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-javascript/bootstrap.min.js"></script>
+js/bootstrap.min.js"></script>
+    
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 css/styles-ricardo.css">
 </head>
@@ -76,20 +76,21 @@ css/styles-ricardo.css">
         </div>
         <!-- /.container-fluid -->
     </nav>
+    <div class="container">
     <row>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
+        <span class="pull-right">
             <h1> Users </h1>
-            <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> User Options <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Promote to Moderator</a></li>
-                    <li><a href="#">Promote to Collaborator</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Freeze Account</a></li>
-                    <li><a href="#">Ban</a></li>
-                </ul>
-            </div>
-            <table class="table table-hover">
+            <form action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/administration/operation.php" method="post">
+             <button type="submit" class="btn btn-default">Submit</button>
+                <div class="radio">
+                    <label class="radio-inline"><input type="radio" name="operation" value="ban" >Ban</label>
+                    <label class="radio-inline"><input type="radio" name="operation" value="freeze">Freeze</label>
+                    <label class="radio-inline"><input type="radio" name="operation" value="promote">Promote</label>
+                    <label class="radio-inline"><input type="radio" name="operation" value="demote">Demote</label>
+                </div>
+                <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -99,139 +100,42 @@ css/styles-ricardo.css">
                     </tr>
                 </thead>
                 <tbody>
+                    <?php  $_smarty_tpl->tpl_vars['user'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['user']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['users']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['user']->key => $_smarty_tpl->tpl_vars['user']->value) {
+$_smarty_tpl->tpl_vars['user']->_loop = true;
+?>
+                    <?php if ($_smarty_tpl->tpl_vars['user']->value['permission_level']==0) {?>
                     <tr>
-                        <td>1</td>
+                        <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
+</td>
                         <td><img class="media-object" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/pepe.jpg" alt="..."></td>
-                        <td>Pepe 1</td>
-                        <td>pepe1@frog.com
-                        </td>
+                        <td><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
+</td>
+                        <td> <?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
+</td>
                         <td>
-                            <form action="">
-                                <input type="checkbox" name="check" value="checked"><br>
-                            </form>
-                        </td>
+                            <input type="checkbox" name="users[]" value=<?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
+><br>
+                        </td>  
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><img class="media-object" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-images/assets/pepe.jpg" alt="..."></td>
-                        <td>Pepe 2</td>
-                        <td>pepe2@frog.com</td>
-                        <td>
-                            <form action="">
-                                <input type="checkbox" name="check" value="checked"><br>
-                            </form>
-                        </td>
-                    </tr>
+                    <?php }?>
+                    <?php } ?>
                 </tbody>
-            </table>
+                </table>
+            </form>
+            </span>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <h1> Collaborators </h1>
-            <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Collaborator Options <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Promote to Moderator</a></li>
-                    <li><a href="#">Promote to Collaborator</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Freeze Account</a></li>
-                    <li><a href="#">Ban</a></li>
-                </ul>
-            </div>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Icon</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                    </tr>
-
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td><img class="media-object" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-images/assets/pepe.jpg" alt="..."></td>
-                        <td>Pepe 1</td>
-                        <td>pepe1@frog.com</td>
-                        <td>
-                            <form action="">
-                                <input type="checkbox" name="check" value="checked"><br>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><img class="media-object" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-images/assets/pepe.jpg" alt="..."></td>
-                        <td>Pepe 2</td>
-                        <td>pepe2@frog.com</td>
-                        <td>
-                            <form action="">
-                                <input type="checkbox" name="check" value="checked"><br>
-                            </form>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
         </div>
 
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <h1> Moderators </h1>
-            <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Moderator Options <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Promote to Moderator</a></li>
-                    <li><a href="#">Promote to Collaborator</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Freeze Account</a></li>
-                    <li><a href="#">Ban</a></li>
-                </ul>
-            </div>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Icon</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td><img class="media-object" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-images/assets/pepe.jpg" alt="..."></td>
-                        <td>Pepe 1</td>
-                        <td>pepe1@frog.com</td>
-                        <td>
-                            <form action="">
-                                <input type="checkbox" name="check" value="checked"><br>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><img class="media-object" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-images/assets/pepe.jpg" alt="..."></td>
-                        <td>Pepe 2</td>
-                        <td>pepe2@frog.com</td>
-                        <td>
-                            <form action="">
-                                <input type="checkbox" name="check" value="checked"><br>
-                            </form>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </row>
-    <footer>
-        <p> </p>
-    </footer>
+    </div>
 </body>
 
 </html><?php }} ?>
