@@ -19,6 +19,16 @@
     return password_verify($password,$retrieved_password);
   }
 
+  function getCredentials($username){
+    global $conn;
+    $stmt = $conn->prepare("SELECT permission_level as permissions 
+                            FROM users 
+                            WHERE username = ?");
+    $stmt->execute(array($username));
+    $permission = $stmt->fetchColumn();
+    return $permission;
+  }
+
   function getAllUsers()
   {
     global $conn;

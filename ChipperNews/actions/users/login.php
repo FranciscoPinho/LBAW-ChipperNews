@@ -12,6 +12,7 @@
   $password = $_POST['password'];
 
   if (isLoginCorrect($username, $password)) {
+    $_SESSION['permission'] = getCredentials($username);
     $_SESSION['username'] = $username;
     $_SESSION['success_messages'][] = 'Hello '. $username . ', you have successfully logged in';  
   } else {
