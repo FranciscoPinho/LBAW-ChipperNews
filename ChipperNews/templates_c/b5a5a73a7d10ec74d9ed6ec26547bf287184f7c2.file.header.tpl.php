@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 08:53:40
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 09:36:23
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\common\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1750558f72594d9ddc0-53438670%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b5a5a73a7d10ec74d9ed6ec26547bf287184f7c2' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\header.tpl',
-      1 => 1492592018,
+      1 => 1492594582,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_58f72594df9575_74919065',
   'variables' => 
   array (
     'BASE_URL' => 0,
     'USERNAME' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_58f72594df9575_74919065',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_58f72594df9575_74919065')) {function content_58f72594df9575_74919065($_smarty_tpl) {?><!DOCTYPE html>
 <html>
@@ -48,7 +48,8 @@ js/bootstrap.min.js"></script>
 
 <body>
    <div class="jumbotron">
-            <a href="./frontpage.html">
+            <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/search/frontpage.php">
             <img class="img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/logo_navigation.png" alt"logo">
 		    </a>
@@ -74,7 +75,7 @@ pages/users/profile">Profile</a></li>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/articles/newsfeed">Feed</a></li>
                     <?php } else { ?>
-                     <li><a data-toggle="modal" data-target="#myModal" href="#">Login</a></li>     
+                     <li><a data-toggle="modal" data-target="#myModal" href="">Login</a></li>     
                      <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/register">Register</a></li>
                     <?php }?>          
