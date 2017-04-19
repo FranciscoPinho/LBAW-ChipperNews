@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 12:35:50
-         compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\common\header.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1750558f72594d9ddc0-53438670%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 13:35:44
+         compiled from "C:\wamp64\www\LBAW-ChipperNews\chippernews\templates\common\header.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:1333458f75bbe373d59-79391860%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    'b5a5a73a7d10ec74d9ed6ec26547bf287184f7c2' => 
+    'fea9d6dd329556361d3e03008f432630895f1b6f' => 
     array (
-      0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\header.tpl',
-      1 => 1492605348,
+      0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\chippernews\\templates\\common\\header.tpl',
+      1 => 1492608942,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1750558f72594d9ddc0-53438670',
+  'nocache_hash' => '1333458f75bbe373d59-79391860',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_58f72594df9575_74919065',
+  'unifunc' => 'content_58f75bbe3dbb95_81335964',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -28,7 +28,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_58f72594df9575_74919065')) {function content_58f72594df9575_74919065($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_58f75bbe3dbb95_81335964')) {function content_58f75bbe3dbb95_81335964($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 
 <head>
@@ -44,6 +44,8 @@ css/bootstrap.min.css">
 css/styles-header.css">
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/bootstrap.min.js"></script>
+    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/main.js"></script>
     <!-- Animals graphic by -->
     <!--a href="http://www.flaticon.com/authors/zlatko-najdenovski">Zlatko Najdenovski</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>-->
     <!-- Optional Bootstrap theme -->
@@ -97,7 +99,7 @@ pages/users/register">Register</a></li>
                  </form>
             </div>
             </div>     <!-- /.container-fluid -->
-            <div id="error_messages">
+                            <div id="error_messages">
                             <?php  $_smarty_tpl->tpl_vars['error'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['error']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['ERROR_MESSAGES']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['error']->key => $_smarty_tpl->tpl_vars['error']->value) {
@@ -116,7 +118,7 @@ $_smarty_tpl->tpl_vars['success']->_loop = true;
                             <div class="success"><?php echo $_smarty_tpl->tpl_vars['success']->value;?>
 <a class="close" href="#">X</a></div>
                             <?php } ?>
-                        </div>
+                            </div>
     </nav>
 </body>
 
