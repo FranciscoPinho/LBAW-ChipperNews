@@ -16,9 +16,9 @@
 						</div>
 						{if $FORM_VALUES.username}
 						<input type="text" class="form-control" id="username" placeholder="Please input a unique, valid username" name="username"
-						    value="{$FORM_VALUES.username}" data-rules="required|alpha_numeric"> {else}
+						    value="{$FORM_VALUES.username}" required> {else}
 						<input type="text" class="form-control" id="username" placeholder="Please input a unique, valid username" name="username"
-						    data-rules="required|alpha_numeric"> {/if}
+						    required> {/if}
 					</div>
 				</div>
 			</div>
@@ -30,9 +30,10 @@
 							<button class="btn btn-default"><i class="fa fa-id-card-o"></i></button>
 						</div>
 						{if $FORM_VALUES.name}
-						<input type="text" class="form-control" id="fullname" placeholder="Jane Doe" name="fullname" value="{$FORM_VALUES.name}"
-						    data-rules="required"> {else}
-						<input type="text" class="form-control" id="fullname" placeholder="Jane Doe" name="fullname" data-rules="required">						{/if}
+						<input type="text" class="form-control" id="name" placeholder="Jane Doe" name="name" value="{$FORM_VALUES.name}"
+						    required> 
+							{else}
+						<input type="text" class="form-control" id="name" placeholder="Jane Doe" name="name" required>						{/if}
 					</div>
 				</div>
 			</div>
@@ -45,8 +46,9 @@
 						</div>
 						{if $FORM_VALUES.email}
 						<input type="email" class="form-control" id="email" placeholder="your@email.com" name="email" value="{$FORM_VALUES.email}"
-						    data-rules="required|email"> {else}
-						<input type="email" class="form-control" id="email" placeholder="your@email.com" name="email" data-rules="required|email">						{/if}
+						    required> {else}
+						<input type="email" class="form-control" id="email" placeholder="your@email.com" name="email" required>
+						{/if}
 					</div>
 				</div>
 			</div>
@@ -57,7 +59,7 @@
 						<div class="input-group-btn">
 							<button class="btn btn-default"><i class="fa fa-unlock-alt"></i></button>
 						</div>
-						<input type="password" class="form-control" id="passw" placeholder="Password" name="passw" data-rules="required|min_length[8]">
+						<input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
 					</div>
 					<div class="col-sm-12">
 						<p class="help-block">Should be at least 8 characters long.</p>
@@ -71,7 +73,7 @@
 						<div class="input-group-btn">
 							<button class="btn btn-default"><i class="fa fa-unlock-alt"></i></button>
 						</div>
-						<input type="password" class="form-control" id="passw2" placeholder="Confirm password" name="passw2" data-rules="required|min_length[8]">
+						<input type="password" class="form-control" id="passw2" placeholder="Confirm password" name="password2" required>
 					</div>
 				</div>
 			</div>
@@ -92,30 +94,21 @@
 					<textarea class="form-control" rows="10" cols="30" id="bio" name="bio"></textarea>
 					<p class="help-block">Tell everyone a bit about yourself!</p>
 				</div>
-
-			</div>
-			<div class="form-group">
-				<label> Interests <i class="fa fa-asterisk" aria-hidden="false"></i></label>
-				<div class="col-sm-12">
-					<textarea class="form-control" rows="8" cols="50" id="interests" placeholder="Reading, philosophy" name="interests" required></textarea>
-				</div>
-
 			</div>
 			<div class="form-group">
 				<label> Select your country <br>  </label>
 				<div class="col-sm-12">
-					<select class="form-control" name="codigo_pais" id="codigo_pais">
-						<option label="(nenhum)" value="null">(nenhum)</option>
-       			 	{foreach from=$paises item=nomepais key=codigopais}
-         			 {if $codigopais eq $FORM_VALUES.codigo_pais}
-          				<option label="{$nomepais}" value="{$codigopais}" selected>{$nomepais}</option>
+					<select class="form-control" name="local_id" id="local">
+						<option label="(none)" value="null">Pick one...</option>
+       			 	{foreach from=$countries item=name key=id}
+         			 {if $id eq $FORM_VALUES.id}
+          				<option label="{$name}" value="{$id}" selected>{$name}</option>
          			 {else}
-         			 <option label="{$nomepais}" value="{$codigopais}">{$nomepais}</option>
+         			 <option label="{$name}" value="{$id}">{$name}</option>
          			 {/if}
         			{/foreach}
      				 </select>
 				</div>
-
 			</div>
 			<div class="form-group">
 				<label for="inputFile">Upload an avatar</label>

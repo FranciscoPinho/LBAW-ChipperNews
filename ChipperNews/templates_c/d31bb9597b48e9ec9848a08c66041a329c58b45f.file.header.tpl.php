@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 10:18:31
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 20:24:33
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\common\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1317158f68e1116e296-06793157%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd31bb9597b48e9ec9848a08c66041a329c58b45f' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\header.tpl',
-      1 => 1492597108,
+      1 => 1492625432,
       2 => 'file',
     ),
   ),
@@ -21,6 +21,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'BASE_URL' => 0,
     'USERNAME' => 0,
+    'ERROR_MESSAGES' => 0,
+    'error' => 0,
+    'SUCCESS_MESSAGES' => 0,
+    'success' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -40,6 +44,8 @@ css/bootstrap.min.css">
 css/styles-header.css">
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/bootstrap.min.js"></script>
+    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/main.js"></script>
     <!-- Animals graphic by -->
     <!--a href="http://www.flaticon.com/authors/zlatko-najdenovski">Zlatko Najdenovski</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>-->
     <!-- Optional Bootstrap theme -->
@@ -48,7 +54,8 @@ js/bootstrap.min.js"></script>
 
 <body>
    <div class="jumbotron">
-            <a href="./frontpage.html">
+            <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/search/frontpage.php">
             <img class="img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/logo_navigation.png" alt"logo">
 		    </a>
@@ -68,15 +75,15 @@ images/assets/logo_navigation.png" alt"logo">
                 <ul class="nav navbar-nav navbar-right">
                     <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value) {?>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-actions/users/logout">Logout</a></li>
+actions/users/logout.php">Logout</a></li>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/profile">Profile</a></li>
+pages/users/profile.php">Profile</a></li>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/articles/newsfeed">Feed</a></li>
+pages/articles/newsfeed.php">Feed</a></li>
                     <?php } else { ?>
-                     <li><a data-toggle="modal" data-target="#myModal" href="#">Login</a></li>     
+                     <li><a data-toggle="modal" data-target="#myModal" href="">Login</a></li>     
                      <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/register">Register</a></li>
+pages/users/register.php">Register</a></li>
                     <?php }?>          
                 </ul>          
             </div>
@@ -92,6 +99,26 @@ pages/users/register">Register</a></li>
                  </form>
             </div>
             </div>     <!-- /.container-fluid -->
+                            <div id="error_messages">
+                            <?php  $_smarty_tpl->tpl_vars['error'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['error']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['ERROR_MESSAGES']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['error']->key => $_smarty_tpl->tpl_vars['error']->value) {
+$_smarty_tpl->tpl_vars['error']->_loop = true;
+?>
+                            <div class="error"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
+<a class="close" href="#">X</a></div>
+                            <?php } ?>
+                            </div>
+                            <div id="success_messages">
+                            <?php  $_smarty_tpl->tpl_vars['success'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['success']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['SUCCESS_MESSAGES']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['success']->key => $_smarty_tpl->tpl_vars['success']->value) {
+$_smarty_tpl->tpl_vars['success']->_loop = true;
+?>
+                            <div class="success"><?php echo $_smarty_tpl->tpl_vars['success']->value;?>
+<a class="close" href="#">X</a></div>
+                            <?php } ?>
+                            </div>
     </nav>
 </body>
 

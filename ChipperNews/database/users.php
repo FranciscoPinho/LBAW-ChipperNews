@@ -1,11 +1,14 @@
 <?php
   
-  function createUser($realname, $username, $password) {
-    global $conn;
-    $stmt = $conn->prepare("INSERT INTO users VALUES (?, ?, ?)");
-    $stmt->execute(array($username, $realname,  password_hash($password ,PASSWORD_DEFAULT)));
-  }
+  function createUser($username, $name, $password, $local_id, $email, $bio, $birthdate) 
+  {
 
+    global $conn;
+    $stmt = $conn->prepare("INSERT INTO users(name,username,password,local_id,email,permission_level, bio, birthdate) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->execute(array($username, $name, password_hash($password,PASSWORD_DEFAULT), $local_id, $email, '0', $bio, $birthdate));
+  }
+  
   function isLoginCorrect($username, $password) {
     global $conn;
     $stmt = $conn->prepare("SELECT password 
@@ -27,9 +30,9 @@
    function getAllCountries()
   {
     global $conn;
-    $stmt = $conn->prepare("SELECT * FROM localization");
+    $stmt = $conn->prepare("SELECT local_id as id, name as name FROM localization");
     $stmt->execute();
-    return $stmt->fetchAll();
+    return $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
   }
 
   //useful for debugging
