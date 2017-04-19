@@ -38,12 +38,12 @@
               
                 <ul class="nav navbar-nav navbar-right">
                     {if $USERNAME}
-                    <li><a href="{$BASE_URL}actions/users/logout">Logout</a></li>
-                    <li><a href="{$BASE_URL}pages/users/profile">Profile</a></li>
-                    <li><a href="{$BASE_URL}pages/articles/newsfeed">Feed</a></li>
+                    <li><a href="{$BASE_URL}actions/users/logout.php">Logout</a></li>
+                    <li><a href="{$BASE_URL}pages/users/profile.php">Profile</a></li>
+                    <li><a href="{$BASE_URL}pages/articles/newsfeed.php">Feed</a></li>
                     {else}
                      <li><a data-toggle="modal" data-target="#myModal" href="">Login</a></li>     
-                     <li><a href="{$BASE_URL}pages/users/register">Register</a></li>
+                     <li><a href="{$BASE_URL}pages/users/register.php">Register</a></li>
                     {/if}          
                 </ul>          
             </div>
