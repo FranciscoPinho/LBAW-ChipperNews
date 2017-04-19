@@ -3,15 +3,14 @@
   session_start();
 
   error_reporting(E_ERROR | E_WARNING); // E_NOTICE by default
-
-  $BASE_DIR = 'C:/wamp64/www/LBAW/LBAW-ChipperNews/frmk/'; //FIXME
-  $BASE_URL = '/LBAW/LBAW-ChipperNews/frmk/'; //FIXME
-
-  $conn = new PDO('pgsql:host=localhost;dbname=lbaw1642', 'postgres', 'postgres'); //FIXME
+  $BASE_DIR = '/opt/lbaw/lbaw1642/public_html/frmk/'; //FIXME
+  $BASE_URL = '/~lbaw1642/frmk/'; //FIXME
+  
+  $conn = new PDO('pgsql:host=dbm;dbname=lbaw1642', 'lbaw1642', 'ry37uc01'); //FIXME
   $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $conn->exec('SET SCHEMA \'frmk\''); //FIXME?
+  $conn->exec('SET SCHEMA \'public\''); //FIXME?
 
   include_once($BASE_DIR . 'lib/smarty/Smarty.class.php');
   
