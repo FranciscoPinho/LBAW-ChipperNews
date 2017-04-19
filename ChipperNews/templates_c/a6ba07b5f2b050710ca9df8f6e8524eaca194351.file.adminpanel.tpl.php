@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 14:24:40
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 15:29:40
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\admin\adminpanel.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1225958f7353a0d4b52-69720337%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a6ba07b5f2b050710ca9df8f6e8524eaca194351' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\admin\\adminpanel.tpl',
-      1 => 1492611879,
+      1 => 1492615777,
       2 => 'file',
     ),
   ),
@@ -76,6 +76,8 @@ css/styles-ricardo.css">
         </div>
         <!-- /.container-fluid -->
     </nav>
+    <div class="container">
+    <row>
         <div class="col-sm-4">
             <h1> Users </h1>
             <div class="btn-group">
@@ -130,7 +132,7 @@ images/assets/pepe.jpg" alt="..."></td>
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Collaborator Options <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                     <li><a href="#">Promote to Moderator</a></li>
-                    <li><a href="#">Promote to Collaborator</a></li>
+                    <li><a href="#">Demote to User</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Freeze Account</a></li>
                     <li><a href="#">Ban</a></li>
@@ -180,8 +182,7 @@ images/assets/pepe.jpg" alt="..."></td>
             <div class="btn-group">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Moderator Options <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Promote to Moderator</a></li>
-                    <li><a href="#">Promote to Collaborator</a></li>
+                    <li><a href="#">Demote to Collaborator</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Freeze Account</a></li>
                     <li><a href="#">Ban</a></li>
@@ -223,6 +224,8 @@ images/assets/pepe.jpg" alt="..."></td>
                     </tbody>
             </table>
         </div>
+    </row>
+    </div>
 </body>
 
 </html><?php }} ?>

@@ -46,6 +46,7 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+    <div class="container">
     <row>
         <div class="col-sm-4">
             <h1> Users </h1>
@@ -93,7 +94,7 @@
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Collaborator Options <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                     <li><a href="#">Promote to Moderator</a></li>
-                    <li><a href="#">Promote to Collaborator</a></li>
+                    <li><a href="#">Demote to User</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Freeze Account</a></li>
                     <li><a href="#">Ban</a></li>
@@ -135,8 +136,7 @@
             <div class="btn-group">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Moderator Options <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Promote to Moderator</a></li>
-                    <li><a href="#">Promote to Collaborator</a></li>
+                    <li><a href="#">Demote to Collaborator</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Freeze Account</a></li>
                     <li><a href="#">Ban</a></li>
@@ -171,6 +171,7 @@
             </table>
         </div>
     </row>
+    </div>
 </body>
 
 </html>
