@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 10:35:15
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 10:38:20
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\register.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:99458f68e110fca77-59367740%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b8bdb20c84491cce795cb8192d7512ce84cc1628' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\register.tpl',
-      1 => 1492598111,
+      1 => 1492598199,
       2 => 'file',
     ),
     'c5a51a8eb83d205c2f8fb9256bad303bf7b032ed' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\register-form.tpl',
-      1 => 1492597932,
+      1 => 1492598282,
       2 => 'file',
     ),
   ),
@@ -70,15 +70,15 @@ actions/users/register.php" class="ink-form ink-formvalidator xlarge-60 large-70
       <?php /*  Call merged included template "users/register-form.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate('users/register-form.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '99458f68e110fca77-59367740');
-content_58f73d63d48273_84973568($_smarty_tpl);
+content_58f73e1cc58914_47154596($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "users/register-form.tpl" */?>
     </form>
   </div>
     <?php }} ?>
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 10:35:15
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 10:38:20
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\register-form.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_58f73d63d48273_84973568')) {function content_58f73d63d48273_84973568($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_58f73e1cc58914_47154596')) {function content_58f73e1cc58914_47154596($_smarty_tpl) {?>
 <form class="form-horizontal" id="fregister" method="post">
 	<fieldset class="responsive-fieldset">
 		<legend>Register Page</legend>
