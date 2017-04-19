@@ -14,4 +14,11 @@
     $stmt->execute(array($username, sha1($password)));
     return $stmt->fetch() == true;
   }
+  function getAllUsers()
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM users");
+    $stmt->execute();
+    return $stmt->fetchAll();
+  }
 ?>
