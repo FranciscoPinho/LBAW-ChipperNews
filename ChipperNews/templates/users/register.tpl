@@ -1,4 +1,4 @@
-{extends file='common/header.tpl'}
+{include file='common/header.tpl'}
 {block name=content}
 <div class="ink-grid content-drawer">
   <form action="{$BASE_URL}actions/users/register.php"
