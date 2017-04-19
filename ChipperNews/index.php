@@ -1,3 +1,3 @@
 <?php
-  header('Location: pages/search/frontpage.html');
+  header('Location: pages/search/frontpage.php');
 ?>
