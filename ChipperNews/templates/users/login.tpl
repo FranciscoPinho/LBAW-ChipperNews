@@ -8,7 +8,7 @@
                     <h4 class="modal-title">Login</h4>
                 </div>
                 <div class="modal-body ">
-                    <form class="form-signin" action="http://localhost/LBAW-ChipperNews/ChipperNews/actions/users/login.php" method="post">
+                    <form class="form-signin" action="{$BASE_URL}actions/users/login.php" method="post">
                         <label for="inputUser " class="sr-only ">Username</label>
                         <input type="text" id="inputUser" class="form-control" placeholder="Username" name="username" required=" " autofocus=" ">
                         <label for="inputPassword" class="sr-only ">Password</label>

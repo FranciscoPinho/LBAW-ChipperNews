@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 13:43:50
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 14:26:24
          compiled from "C:\wamp64\www\LBAW-ChipperNews\chippernews\templates\users\login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:450358f75bbe51c1f6-73991852%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1d58ea8e806db343f3641b85c8c2b5fb57ab4ded' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\chippernews\\templates\\users\\login.tpl',
-      1 => 1492609074,
+      1 => 1492611977,
       2 => 'file',
     ),
   ),
@@ -17,6 +17,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'version' => 'Smarty-3.1.15',
   'unifunc' => 'content_58f75bbe51ef37_19946270',
+  'variables' => 
+  array (
+    'BASE_URL' => 0,
+  ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_58f75bbe51ef37_19946270')) {function content_58f75bbe51ef37_19946270($_smarty_tpl) {?>    <div id="myModal" class="modal fade" role="dialog">
@@ -29,7 +33,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <h4 class="modal-title">Login</h4>
                 </div>
                 <div class="modal-body ">
-                    <form class="form-signin" action="http://localhost/LBAW-ChipperNews/ChipperNews/actions/users/login.php" method="post">
+                    <form class="form-signin" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/users/login.php" method="post">
                         <label for="inputUser " class="sr-only ">Username</label>
                         <input type="text" id="inputUser" class="form-control" placeholder="Username" name="username" required=" " autofocus=" ">
                         <label for="inputPassword" class="sr-only ">Password</label>
