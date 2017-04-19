@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 09:36:23
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 09:59:39
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\common\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1750558f72594d9ddc0-53438670%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b5a5a73a7d10ec74d9ed6ec26547bf287184f7c2' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\header.tpl',
-      1 => 1492594582,
+      1 => 1492595871,
       2 => 'file',
     ),
   ),

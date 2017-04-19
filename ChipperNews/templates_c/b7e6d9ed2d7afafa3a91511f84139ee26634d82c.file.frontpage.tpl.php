@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 09:36:08
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 10:11:41
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\search\frontpage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2433158f72d270d3af3-97788597%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b7e6d9ed2d7afafa3a91511f84139ee26634d82c' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\search\\frontpage.tpl',
-      1 => 1492594410,
+      1 => 1492596653,
       2 => 'file',
     ),
   ),
@@ -164,36 +164,7 @@ images\articles\news3.jpg " alt="... ">
 
     </div>
     <!-- MODALS -->
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close " data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Login</h4>
-                </div>
-                <div class="modal-body ">
-                    <form class="form-signin">
-                        <label for="inputEmail " class="sr-only ">Email address</label>
-                        <input type="email " id="inputEmail " class="form-control " placeholder="Email address " required=" " autofocus=" ">
-                        <label for="inputPassword " class="sr-only ">Password</label>
-                        <input type="password " id="inputPassword " class="form-control " placeholder="Password " required=" ">
-                        <div class="checkbox">
-                            <label>
-                        <input type="checkbox" value="remember-me "> Remember me
-                    </label>
-                        </div>
-                        <button class="btn btn-lg btn-primary btn-block " type="submit ">Sign in</button>
-                        <a class="btn btn-block btn-social btn-facebook ">
-                            <span class="fa fa-facebook "></span> Sign in with Facebook
-                        </a>
-                    </form>
-                </div>
-            </div>
-
-        </div>
-    </div>
+   <?php echo $_smarty_tpl->getSubTemplate ('users/login.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
    <?php echo $_smarty_tpl->getSubTemplate ('common/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
