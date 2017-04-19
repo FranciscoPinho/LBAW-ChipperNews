@@ -1,17 +1,3 @@
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Register Page</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/styles-forms.css">
-	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://www.w3schools.com/lib/w3data.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Optional Bootstrap theme -->
-	<!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
-</head>
 
 <form class="form-horizontal" id="fregister" method="post">
 	<fieldset class="responsive-fieldset">

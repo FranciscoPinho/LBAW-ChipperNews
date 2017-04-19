@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 10:17:15
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 10:35:15
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\register.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:99458f68e110fca77-59367740%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b8bdb20c84491cce795cb8192d7512ce84cc1628' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\register.tpl',
-      1 => 1492595928,
+      1 => 1492598111,
       2 => 'file',
     ),
     'c5a51a8eb83d205c2f8fb9256bad303bf7b032ed' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\register-form.tpl',
-      1 => 1492597030,
+      1 => 1492597932,
       2 => 'file',
     ),
   ),
@@ -29,43 +29,56 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_58f68e11164101_56914399')) {function content_58f68e11164101_56914399($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('common/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
-
-
-<div class="ink-grid content-drawer">
-  <form action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-actions/users/register.php"
-        class="ink-form ink-formvalidator xlarge-60 large-70 medium-90 all-100 push-center quarter-vertical-padding"
-        enctype="multipart/form-data" method="post" data-lang="en_GB">
-    <?php /*  Call merged included template "users/register-form.tpl" */
-$_tpl_stack[] = $_smarty_tpl;
- $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate('users/register-form.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '99458f68e110fca77-59367740');
-content_58f7392b44fe96_50411091($_smarty_tpl);
-$_smarty_tpl = array_pop($_tpl_stack); 
-/*  End of included template "users/register-form.tpl" */?>
-  </form>
-</div>
-
-
-
-<?php }} ?>
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 10:17:15
-         compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\register-form.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_58f7392b44fe96_50411091')) {function content_58f7392b44fe96_50411091($_smarty_tpl) {?><head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Register Page</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/styles-forms.css">
-	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://www.w3schools.com/lib/w3data.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Optional Bootstrap theme -->
-	<!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+<?php if ($_valid && !is_callable('content_58f68e11164101_56914399')) {function content_58f68e11164101_56914399($_smarty_tpl) {?><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register Page</title>
+  <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+css/styles-forms.css">
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://www.w3schools.com/lib/w3data.js"></script>
+  <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/bootstrap.min.js"></script>
+  <!-- Optional Bootstrap theme -->
+  <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
 </head>
 
+<div id="bg">
+  <img class="bg" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+images/assets/circuit.jpg" alt="">
+</div>
+<div class="container form-div" id="register">
+
+  <div class="logo">
+    <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/search/frontpage.php">
+      <img class="logo" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+images/assets/logo_navigation.png" alt="Chipper News" align="middle">
+    </a>
+  </div>
+
+
+  
+  <div class="ink-grid content-drawer">
+    <form action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/users/register.php" class="ink-form ink-formvalidator xlarge-60 large-70 medium-90 all-100 push-center quarter-vertical-padding"
+      enctype="multipart/form-data" method="post" data-lang="en_GB">
+      <?php /*  Call merged included template "users/register-form.tpl" */
+$_tpl_stack[] = $_smarty_tpl;
+ $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate('users/register-form.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '99458f68e110fca77-59367740');
+content_58f73d63d48273_84973568($_smarty_tpl);
+$_smarty_tpl = array_pop($_tpl_stack); 
+/*  End of included template "users/register-form.tpl" */?>
+    </form>
+  </div>
+    <?php }} ?>
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 10:35:15
+         compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\register-form.tpl" */ ?>
+<?php if ($_valid && !is_callable('content_58f73d63d48273_84973568')) {function content_58f73d63d48273_84973568($_smarty_tpl) {?>
 <form class="form-horizontal" id="fregister" method="post">
 	<fieldset class="responsive-fieldset">
 		<legend>Register Page</legend>
