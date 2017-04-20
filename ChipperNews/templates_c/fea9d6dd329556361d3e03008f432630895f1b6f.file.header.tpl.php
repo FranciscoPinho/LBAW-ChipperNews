@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 20:24:33
-         compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\common\header.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1317158f68e1116e296-06793157%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 20:54:25
+         compiled from "C:\wamp64\www\LBAW-ChipperNews\chippernews\templates\common\header.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:1058458f784a060cae5-44382530%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    'd31bb9597b48e9ec9848a08c66041a329c58b45f' => 
+    'fea9d6dd329556361d3e03008f432630895f1b6f' => 
     array (
-      0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\header.tpl',
-      1 => 1492625432,
+      0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\chippernews\\templates\\common\\header.tpl',
+      1 => 1492635251,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1317158f68e1116e296-06793157',
+  'nocache_hash' => '1058458f784a060cae5-44382530',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_58f68e111fbca6_45794886',
+  'unifunc' => 'content_58f784a0670e77_40687689',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -28,7 +28,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_58f68e111fbca6_45794886')) {function content_58f68e111fbca6_45794886($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_58f784a0670e77_40687689')) {function content_58f784a0670e77_40687689($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 
 <head>
@@ -80,6 +80,10 @@ actions/users/logout.php">Logout</a></li>
 pages/users/profile.php">Profile</a></li>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/articles/newsfeed.php">Feed</a></li>
+                     <?php if ($_SESSION['permission']==3) {?>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/admin/sysadmin.php">Admin Panel</a></li>
+                     <?php }?>
                     <?php } else { ?>
                      <li><a data-toggle="modal" data-target="#myModal" href="">Login</a></li>     
                      <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
