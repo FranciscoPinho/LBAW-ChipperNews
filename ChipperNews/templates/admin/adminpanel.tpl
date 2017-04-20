@@ -49,7 +49,6 @@
     <div class="container">
     <row>
         <div class="col-sm-4">
-        <span class="pull-right">
             <h1> Users </h1>
             <form action="{$BASE_URL}actions/administration/operation.php" method="post">
              <button type="submit" class="btn btn-default">Submit</button>
@@ -57,6 +56,43 @@
                     <label class="radio-inline"><input type="radio" name="operation" value="ban" >Ban</label>
                     <label class="radio-inline"><input type="radio" name="operation" value="freeze">Freeze</label>
                     <label class="radio-inline"><input type="radio" name="operation" value="colaborator">Promote</label>
+                </div>
+                <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Icon</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach $users as $user}
+                    {if $user.permission_level == 0}
+                    <tr>
+                        <td>{$user.user_id}</td>
+                        <td><img class="media-object" src="{$BASE_URL}images/assets/pepe.jpg" alt="..."></td>
+                        <td>{$user.username}</td>
+                        <td> {$user.email}</td>
+                        <td>
+                            <input type="checkbox" name="users[]" value={$user.user_id}><br>
+                        </td>  
+                    </tr>
+                    {/if}
+                    {/foreach}
+                </tbody>
+                </table>
+            </form>
+        </div>
+            <div class="col-sm-4">
+            <h1> Colaborators </h1>
+            <form action="{$BASE_URL}actions/administration/operation.php" method="post">
+             <button type="submit" class="btn btn-default">Submit</button>
+                <div class="radio">
+                    <label class="radio-inline"><input type="radio" name="operation" value="ban" >Ban</label>
+                    <label class="radio-inline"><input type="radio" name="operation" value="freeze">Freeze</label>
+                    <label class="radio-inline"><input type="radio" name="operation" value="moderator">Promote</label>
+                    <label class="radio-inline"><input type="radio" name="operation" value="user">Demote</label>
                 </div>
                 <table class="table table-hover">
                 <thead>
@@ -84,49 +120,11 @@
                 </tbody>
                 </table>
             </form>
-            </span>
-        </div>
-               <div class="col-sm-4">
-            <h1> Colaborators </h1>
-            <form action="{$BASE_URL}actions/administration/operation.php" method="post">
-             <button type="submit" class="btn btn-default">Submit</button>
-                <div class="radio">
-                    <label class="radio-inline"><input type="radio" name="operation" value="ban" >Ban</label>
-                    <label class="radio-inline"><input type="radio" name="operation" value="freeze">Freeze</label>
-                    <label class="radio-inline"><input type="radio" name="operation" value="moderator">Promote</label>
-                    <label class="radio-inline"><input type="radio" name="operation" value="user">Demote</label>
-                </div>
-                <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Icon</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {foreach $users as $user}
-                    {if $user.permission_level == 2}
-                    <tr>
-                        <td>{$user.user_id}</td>
-                        <td><img class="media-object" src="{$BASE_URL}images/assets/pepe.jpg" alt="..."></td>
-                        <td>{$user.username}</td>
-                        <td> {$user.email}</td>
-                        <td>
-                            <input type="checkbox" name="users[]" value={$user.user_id}><br>
-                        </td>  
-                    </tr>
-                    {/if}
-                    {/foreach}
-                </tbody>
-                </table>
-            </form>
         </div>
 
         <div class="col-sm-4">
         <span class="pull-right">
-            <h1> Users </h1>
+            <h1> Moderators </h1>
             <form action="{$BASE_URL}actions/administration/operation.php" method="post">
              <button type="submit" class="btn btn-default">Submit</button>
                 <div class="radio">
@@ -145,7 +143,7 @@
                 </thead>
                 <tbody>
                     {foreach $users as $user}
-                    {if $user.permission_level == 3}
+                    {if $user.permission_level == 2}
                     <tr>
                         <td>{$user.user_id}</td>
                         <td><img class="media-object" src="{$BASE_URL}images/assets/pepe.jpg" alt="..."></td>
