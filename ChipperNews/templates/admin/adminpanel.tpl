@@ -54,7 +54,7 @@
              <button type="submit" class="btn btn-default">Submit</button>
                 <div class="radio">
                     <label class="radio-inline"><input type="radio" name="operation" value="ban" >Ban</label>
-                    <label class="radio-inline"><input type="radio" name="operation" value="freeze">Freeze</label>
+                    <label class="radio-inline"><input type="radio" name="operation" value="delete">Delete</label>
                     <label class="radio-inline"><input type="radio" name="operation" value="colaborator">Promote</label>
                 </div>
                 <table class="table table-hover">
@@ -85,12 +85,12 @@
             </form>
         </div>
             <div class="col-sm-4">
-            <h1> Colaborators </h1>
+            <h1> Collaborators </h1>
             <form action="{$BASE_URL}actions/administration/operation.php" method="post">
              <button type="submit" class="btn btn-default">Submit</button>
                 <div class="radio">
                     <label class="radio-inline"><input type="radio" name="operation" value="ban" >Ban</label>
-                    <label class="radio-inline"><input type="radio" name="operation" value="freeze">Freeze</label>
+                    <label class="radio-inline"><input type="radio" name="operation" value="delete">Delete</label>
                     <label class="radio-inline"><input type="radio" name="operation" value="moderator">Promote</label>
                     <label class="radio-inline"><input type="radio" name="operation" value="user">Demote</label>
                 </div>
@@ -129,7 +129,7 @@
              <button type="submit" class="btn btn-default">Submit</button>
                 <div class="radio">
                     <label class="radio-inline"><input type="radio" name="operation" value="ban" >Ban</label>
-                    <label class="radio-inline"><input type="radio" name="operation" value="freeze">Freeze</label>
+                    <label class="radio-inline"><input type="radio" name="operation" value="delete">Delete</label>
                     <label class="radio-inline"><input type="radio" name="operation" value="colaborator">Demote</label>
                 </div>
                 <table class="table table-hover">
