@@ -46,9 +46,7 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <div class="container">
-    <row>
-        <div class="col-sm-4">
+        <div>
             <h1> Users </h1>
             <form action="{$BASE_URL}actions/administration/operation.php" method="post">
              <button type="submit" class="btn btn-default">Submit</button>
@@ -64,6 +62,9 @@
                         <th>Icon</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Banned?</th>
+                        <th>Deleted?</th>
+                        <th>Last Login</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -75,6 +76,21 @@
                         <td>{$user.username}</td>
                         <td> {$user.email}</td>
                         <td>
+                            {if $user.is_banned == TRUE}
+                                TRUE
+                            {else}
+                                FALSE
+                            {/if}
+                        </td>
+                        <td> 
+                            {if $user.is_deleted == TRUE}
+                                TRUE
+                            {else}
+                                FALSE
+                            {/if}
+                        </td>
+                        <td> {$user.last_login}</td>
+                        <td>
                             <input type="checkbox" name="users[]" value={$user.user_id}><br>
                         </td>  
                     </tr>
@@ -84,7 +100,7 @@
                 </table>
             </form>
         </div>
-            <div class="col-sm-4">
+        <div>
             <h1> Collaborators </h1>
             <form action="{$BASE_URL}actions/administration/operation.php" method="post">
              <button type="submit" class="btn btn-default">Submit</button>
@@ -101,6 +117,9 @@
                         <th>Icon</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Banned?</th>
+                        <th>Deleted?</th>
+                        <th>Last Login</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -112,8 +131,23 @@
                         <td>{$user.username}</td>
                         <td> {$user.email}</td>
                         <td>
+                            {if $user.is_banned == TRUE}
+                                TRUE
+                            {else}
+                                FALSE
+                            {/if}
+                        </td>
+                        <td> 
+                            {if $user.is_deleted == TRUE}
+                                TRUE
+                            {else}
+                                FALSE
+                            {/if}
+                        </td>
+                        <td> {$user.last_login}</td>
+                        <td>
                             <input type="checkbox" name="users[]" value={$user.user_id}><br>
-                        </td>  
+                        </td>    
                     </tr>
                     {/if}
                     {/foreach}
@@ -122,8 +156,7 @@
             </form>
         </div>
 
-        <div class="col-sm-4">
-        <span class="pull-right">
+        <div>
             <h1> Moderators </h1>
             <form action="{$BASE_URL}actions/administration/operation.php" method="post">
              <button type="submit" class="btn btn-default">Submit</button>
@@ -139,6 +172,9 @@
                         <th>Icon</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Banned?</th>
+                        <th>Deleted?</th>
+                        <th>Last Login</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -150,6 +186,21 @@
                         <td>{$user.username}</td>
                         <td> {$user.email}</td>
                         <td>
+                            {if $user.is_banned == TRUE}
+                                TRUE
+                            {else}
+                                FALSE
+                            {/if}
+                        </td>
+                        <td> 
+                            {if $user.is_deleted == TRUE}
+                                TRUE
+                            {else}
+                                FALSE
+                            {/if}
+                        </td>
+                        <td> {$user.last_login}</td>
+                        <td>
                             <input type="checkbox" name="users[]" value={$user.user_id}><br>
                         </td>  
                     </tr>
@@ -158,10 +209,7 @@
                 </tbody>
                 </table>
             </form>
-            </span>
         </div>
-    </row>
-    </div>
 </body>
 
 </html>
