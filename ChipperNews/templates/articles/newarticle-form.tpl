@@ -1,7 +1,6 @@
 
-   
-    <div class="form-div" id="new_article">
-		<form class="form-horizontal" id="form-new-article" method="post">
+  <div class="form-div" id="new_article">
+		<form  method="post">
 			<fieldset>
 				<legend>New Article</legend>
 				<div class="form-group">
@@ -22,18 +21,13 @@
                 	<label>Article Body:</label>
                  <div id="editor-container" style="width: 85%">
                         <textarea rows="15" cols="50" placeholder="Article Text" ></textarea>
+				 </div>
+				    <input class="form-control"  id="body" type="hidden" name="body" required>
                 </div>
-                	</div>
-				<div class="form-group">
-				
-					<div class="col-lg-10">
+		
 						
-                         <input class="form-control"  id="body" type="hidden" name="body" required>
-                        
-					</div>
-                    
-				</div>
-               
+                     
+                   
                 <script>
                 var quill = new Quill('#editor-container', {
                 modules: {
