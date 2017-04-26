@@ -36,4 +36,4 @@
                             <div class="success">{$success}<a class="close" href="#">X</a></div>
                             {/foreach}
                             </div>
-  {/block} {block name=footer} {/block}
+  {/block}
