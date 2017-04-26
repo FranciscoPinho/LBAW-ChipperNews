@@ -29,6 +29,16 @@
     return $permission;
   }
 
+  function getUserID($username){
+    global $conn;
+    $stmt = $conn->prepare("SELECT user_id as id 
+                            FROM users 
+                            WHERE username = ?");
+    $stmt->execute(array($username));
+    $permission = $stmt->fetchColumn();
+    return $permission;
+  }
+
   function getAllUsers()
   {
     global $conn;

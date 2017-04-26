@@ -3,9 +3,13 @@
   include_once($BASE_DIR .'database/posthistory.php');
   include_once($BASE_DIR .'database/articles.php');
 
-  //We should be getting the currently logged in user, but at the moment its hardcoded to 9.
-  $comments = getComments(9);
-  $user = getUser(9);
+  if (!$_SESSION['username'] || !$_SESSION['user_id']) {
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit;
+  }
+
+  $comments = getComments($_SESSION['user_id']);
+  $user = getUser($_SESSION['user_id']);
 
   $smarty->assign('comments', $comments);
   $smarty->assign('user', $user);

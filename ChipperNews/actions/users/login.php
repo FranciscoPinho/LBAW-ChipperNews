@@ -13,6 +13,7 @@
 
   if (isLoginCorrect($username, $password)) {
     $_SESSION['permission'] = getCredentials($username);
+    $_SESSION['user_id'] = getUserID($username);
     $_SESSION['username'] = $username;
     $_SESSION['success_messages'][] = 'Hello '. $username . ', you have successfully logged in';  
   } else {
