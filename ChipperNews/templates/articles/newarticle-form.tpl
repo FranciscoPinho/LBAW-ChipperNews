@@ -10,17 +10,26 @@
 						</div>
 					
 				</div>
-				<div class="form-group">
+				<div class="form-group" id="some">
 					<label>Article Lead:</label>
 						<div class="col-lg-10">
 							<textarea class="form-control" required rows="4" cols="50" id="headline" placeholder="Article Headline" name="lead"></textarea>
 						</div>
 					
 				</div>
-                <div class="form-group">
-                	<label>Article Body:</label>
-                 <div id="editor-container" style="width: 85%">
-                        <textarea rows="15" cols="50" placeholder="Article Text" ></textarea>
+				
+                <div class="form-group" id="bodybox" style="
+												max-width:75%;
+												
+												margin-left:0;">
+                	<label style="display: block;
+								 padding-left:0;
+ 								 margin-left:0;
+								 margin-bottom: 0px;">Article Body:</label>
+                 <div id="editor-container" style=" min-height: 100px;
+  display: block;
+  clear: both;">
+                        <textarea id="contentstuff"></textarea>
 				 </div>
 				    <input class="form-control"  id="body" type="hidden" name="body" required>
                 </div>
@@ -46,7 +55,7 @@
                   var content = document.getElementById('body');
                   content.value = html;
                  });
-
+			
                 </script>
 
 				<div class="form-group">

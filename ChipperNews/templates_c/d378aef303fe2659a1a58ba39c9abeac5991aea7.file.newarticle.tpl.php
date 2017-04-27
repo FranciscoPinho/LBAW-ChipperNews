@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-26 21:31:19
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-27 08:20:47
          compiled from "C:\wamp64\www\LBAW-ChipperNews\chippernews\templates\articles\newarticle.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:190635900b7dea01a76-79165625%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -13,7 +13,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '196265ee1603edfd62c9f16160df34e80c2d6479' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\chippernews\\templates\\articles\\newarticle-form.tpl',
-      1 => 1493242269,
+      1 => 1493281247,
       2 => 'file',
     ),
   ),
@@ -60,7 +60,7 @@ actions/articles/newarticle.php" class="form-horizontal" id="form-new-article"
       <?php /*  Call merged included template "articles/newarticle-form.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate('articles/newarticle-form.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '190635900b7dea01a76-79165625');
-content_590111a722e5c4_84556957($_smarty_tpl);
+content_5901a9dfc39087_98479309($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "articles/newarticle-form.tpl" */?>
     </form>
@@ -68,9 +68,9 @@ $_smarty_tpl = array_pop($_tpl_stack);
    
   </body>
 <?php }} ?>
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-26 21:31:19
+<?php /* Smarty version Smarty-3.1.15, created on 2017-04-27 08:20:47
          compiled from "C:\wamp64\www\LBAW-ChipperNews\chippernews\templates\articles\newarticle-form.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_590111a722e5c4_84556957')) {function content_590111a722e5c4_84556957($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5901a9dfc39087_98479309')) {function content_5901a9dfc39087_98479309($_smarty_tpl) {?>
   <div class="form-div" id="new_article">
 		<form  method="post">
 			<fieldset>
@@ -82,17 +82,26 @@ $_smarty_tpl = array_pop($_tpl_stack);
 						</div>
 					
 				</div>
-				<div class="form-group">
+				<div class="form-group" id="some">
 					<label>Article Lead:</label>
 						<div class="col-lg-10">
 							<textarea class="form-control" required rows="4" cols="50" id="headline" placeholder="Article Headline" name="lead"></textarea>
 						</div>
 					
 				</div>
-                <div class="form-group">
-                	<label>Article Body:</label>
-                 <div id="editor-container" style="width: 85%">
-                        <textarea rows="15" cols="50" placeholder="Article Text" ></textarea>
+				
+                <div class="form-group" id="bodybox" style="
+												max-width:75%;
+												
+												margin-left:0;">
+                	<label style="display: block;
+								 padding-left:0;
+ 								 margin-left:0;
+								 margin-bottom: 0px;">Article Body:</label>
+                 <div id="editor-container" style=" min-height: 100px;
+  display: block;
+  clear: both;">
+                        <textarea id="contentstuff"></textarea>
 				 </div>
 				    <input class="form-control"  id="body" type="hidden" name="body" required>
                 </div>
@@ -118,7 +127,7 @@ $_smarty_tpl = array_pop($_tpl_stack);
                   var content = document.getElementById('body');
                   content.value = html;
                  });
-
+			
                 </script>
 
 				<div class="form-group">
