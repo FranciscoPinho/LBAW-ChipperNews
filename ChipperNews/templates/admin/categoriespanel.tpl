@@ -33,8 +33,8 @@
             <button type="submit" class="btn btn-default">Add Subcategory</button>
         </form>
         <div>
-            <form action="{$BASE_URL}actions/administration/operation.php" method="post">
-             <button type="submit" class="btn btn-default">Submit</button>
+            <form action="{$BASE_URL}actions/administration/categoriesAction.php" method="post">
+                 <button type="submit" class="btn btn-default">Delete Subcategories</button>
                 <table class="table table-hover">
                 <thead>
                     <tr>
@@ -44,9 +44,18 @@
                         <th>Delete</th>
                     </tr>
                 </thead>
+                {foreach $subcategories as $sub}
                 <tbody>
-                   
+                    <td>{$sub.sub_id}</td>
+                    <td>{$sub.name}</td>
+                    {$parentCategory = fetchCategory($sub.category)}
+                    <td>{$parentCategory.name}</td>
+                     <td>
+                        <input type="checkbox" name="subs[]" value={$sub.sub_id}><br>
+                    </td>                
                 </tbody>
+                {/foreach}
+                   
                 </table>
             </form>
         </div>
