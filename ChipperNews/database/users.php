@@ -9,6 +9,14 @@
     $stmt->execute(array($username, $name, password_hash($password,PASSWORD_DEFAULT), $local_id, $email, '0', $bio, $birthdate));
   }
   
+  function createCollabApplication($fullname, $description, $motivation, $refs, $assoc)
+  {
+	 
+	global $conn;
+	$stmt = $conn->prepare("INSERT INTO collaborator_application(applicantname, achievements, motivation, references, associations) VALUES (?, ?, ?, ?, ?)");
+	$stmt->execute(array($fullname, $description, $motivation, $refs, $assoc));
+	}
+  
   function isLoginCorrect($username, $password) {
     global $conn;
     $stmt = $conn->prepare("SELECT password 
