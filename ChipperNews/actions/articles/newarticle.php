@@ -18,13 +18,13 @@
 
 
 
-  $photo = $_FILES['pic'];
+  $photo = $_FILES['pic']; 
   $extension = end(explode(".", $photo["name"]));
 
   try {
     $ar_id=createArticle($title,$lead,$body);
- //   move_uploaded_file($photo["tmp_name"], $BASE_DIR . "images/articles/" . $ar_id . '.' . $extension); // this is dangerous
- //   chmod($BASE_DIR . "images/articles/" . $title . '.' . $extension, 0644);
+    move_uploaded_file($photo["tmp_name"], $BASE_DIR . "images/articles/" . $ar_id[0]['id'] . '.' . $extension); // this is dangerous
+    chmod($BASE_DIR . "images/articles/" . $ar_id[0]['id'] . '.' . $extension, 0644);
   } catch (PDOException $e) {
   
      $_SESSION['error_messages'][] = $e->getMessage();
@@ -33,7 +33,7 @@
     exit;
   }
   $_SESSION['success_messages'][] = 'Article created';   //send to article page when done
-   header('Location: ' . $_SERVER['HTTP_REFERER']);
+  header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>
 
 
