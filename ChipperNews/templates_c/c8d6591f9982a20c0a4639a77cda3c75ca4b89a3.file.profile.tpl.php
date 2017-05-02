@@ -1,4 +1,29 @@
-<!DOCTYPE html>
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-01 18:37:34
+         compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:619859077a3c36c607-44707552%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'c8d6591f9982a20c0a4639a77cda3c75ca4b89a3' => 
+    array (
+      0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
+      1 => 1493663844,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '619859077a3c36c607-44707552',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_59077a3cdd76a8_40960347',
+  'variables' => 
+  array (
+    'BASE_URL' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_59077a3cdd76a8_40960347')) {function content_59077a3cdd76a8_40960347($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 
 <head>
@@ -6,14 +31,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Basic Bootstrap Template</title>
-    <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-profile.css">
-    <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-header.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+css/styles-profile.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+css/styles-header.css">
     <link href="https://fonts.googleapis.com/css?family=Lora|Oswald|Slabo+27px" rel="stylesheet">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://www.w3schools.com/lib/w3data.js"></script>
-    <script src="{$BASE_URL}js/bootstrap.min.js"></script>
+    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/bootstrap.min.js"></script>
     <!-- Optional Bootstrap theme -->
     <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
 </head>
@@ -21,7 +50,8 @@
 <body>
     <div class="jumbotron">
         <a href="./frontpage.html">
-            <img class="img-responsive" src="{$BASE_URL}images/assets/logo_navigation.png" alt="logo">
+            <img class="img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+images/assets/logo_navigation.png" alt="logo">
         </a>
         <ul class="nav navbar-nav">
             <li><a href="#">Programming</a></li>
@@ -63,21 +93,24 @@
 
     <div class="container">
         <div id="bg">
-            <img class="bg" src="{$BASE_URL}images/assets/circuit.jpg" alt="">
+            <img class="bg" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+images/assets/circuit.jpg" alt="">
         </div>
         <div class="row">
             <div class="col-sm-3">
                 <ul class="nav nav-pills nav-stacked nav-email shadow mb-20">
                     <li>
-                        <a href="{$BASE_URL}pages/users/chatbox.php">
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/chatbox.php">
                             <i class="fa fa-envelope-o"></i> Inbox <span class="label label-info pull-right inbox-notification">3</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{$BASE_URL}pages/users/posthistory.php"><i class="fa fa-book"></i> Comment History </a>
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/posthistory.php"><i class="fa fa-book"></i> Comment Log </a>
                     </li>
                     <li>
-                        <a href="{$BASE_URL}pages/users/friendlist.php">
+                        <a href="#">
                             <i class="fa fa-users"></i> Friends <span class="label label-info pull-right inbox-notification">23</span>
                         </a>
                     </li>
@@ -170,11 +203,13 @@
 
                             <span id="postext3" style="color:#357266">42</span>
                             <button type="button" class="btn btn-default btn-circle btnlike">
-					<img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
+					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
 				</button>
                             <span id="negtext3" style="color:#f11066">29</span>
                             <button type="button" class="btn btn-default btn-circle btndislike">
-					<img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
+					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 				</button>
 
                             <script>
@@ -220,4 +255,4 @@
     <br>
 </body>
 
-</html>
+</html><?php }} ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 15:39:12
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-01 19:06:47
          compiled from "C:\wamp64\www\LBAW-ChipperNews\chippernews\templates\common\footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3163858f784a07fdce9-34286917%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f59571695b1e05adb903c6e086e4423329692ccb' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\chippernews\\templates\\common\\footer.tpl',
-      1 => 1492608605,
+      1 => 1493664803,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_58f784a080f5b8_53592221',
   'variables' => 
   array (
     'BASE_URL' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_58f784a080f5b8_53592221',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_58f784a080f5b8_53592221')) {function content_58f784a080f5b8_53592221($_smarty_tpl) {?><!DOCTYPE html>
 <html>
@@ -45,7 +45,8 @@ js/bootstrap.min.js"></script>
      <div class="jumbotron">
           
            <ul class="nav navbar-nav">
-                    <li><a href="./applycollab.html">Become a Collaborator</a></li>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/users/applycollab.php">Become a Collaborator</a></li>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Info</a></li>
                 </ul>

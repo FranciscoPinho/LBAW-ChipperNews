@@ -28,7 +28,7 @@
 
 
         <div class="container-fluid" id="postheader">
-            <h1 class="nf"> My Post History </h1>
+            <h1 class="nf"> My Comment History </h1>
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton"><span class="droptext">Newest</span>
 		<span class="caret caret-reversed"></span> 
