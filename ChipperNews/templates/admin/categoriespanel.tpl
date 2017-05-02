@@ -15,10 +15,10 @@
 
 <body>
         <h1> Categories </h1>
-        <form class="form-inline">
+        <form class="form-inline" action="{$BASE_URL}actions/administration/addCategory.php" method="post">
             <div class="form-group">
                 <label for="text">Create Category: </label>
-                <input type="text" class="form-control" id="email" placeholder="Category name">
+                <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="Category name">
             </div>
             <button type="submit" class="btn btn-default">Add Category</button>
         </form>
