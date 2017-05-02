@@ -63,6 +63,17 @@
     return $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
   }
 
+  function getCurrName()
+  {
+
+  }
+
+  function editUser($user_id, $username, $name, $local_id, $email, $bio, $birthdate)
+  {
+    //usar concatenacao strings?
+
+  }
+
   //useful for debugging
   function debug_to_console( $data ) {
     $output = $data;

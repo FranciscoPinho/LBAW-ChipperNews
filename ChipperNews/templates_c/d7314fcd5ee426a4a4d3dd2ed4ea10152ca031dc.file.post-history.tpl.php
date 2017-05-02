@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-01 18:37:37
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-01 18:53:54
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\post-history.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2809059078071dc8b87-01118705%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd7314fcd5ee426a4a4d3dd2ed4ea10152ca031dc' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\post-history.tpl',
-      1 => 1493217558,
+      1 => 1493664734,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_590780721e2483_49574300',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -25,8 +27,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'votes' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_590780721e2483_49574300',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_590780721e2483_49574300')) {function content_590780721e2483_49574300($_smarty_tpl) {?><!DOCTYPE html>
 <html>
@@ -64,7 +64,7 @@ images/assets/circuit.jpg" alt="">
 
 
         <div class="container-fluid" id="postheader">
-            <h1 class="nf"> My Post History </h1>
+            <h1 class="nf"> My Comment History </h1>
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton"><span class="droptext">Newest</span>
 		<span class="caret caret-reversed"></span> 

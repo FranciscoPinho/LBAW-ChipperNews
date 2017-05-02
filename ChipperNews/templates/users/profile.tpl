@@ -19,48 +19,6 @@
 </head>
 
 <body>
-    <div class="jumbotron">
-        <a href="./frontpage.html">
-            <img class="img-responsive" src="{$BASE_URL}images/assets/logo_navigation.png" alt="logo">
-        </a>
-        <ul class="nav navbar-nav">
-            <li><a href="#">Programming</a></li>
-            <li><a href="#">Hardware</a></li>
-            <li><a href="#">Software</a></li>
-            <li><a href="#">Industry</a></li>
-            <li><a href="#">Technology</a></li>
-        </ul>
-    </div>
-    <nav class="navbar navbar-default headernav">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="userprofile_view.html">Profile</a></li>
-                    <li><a href="newsfeed.html">Feed</a></li>
-                    <li><a href="newsfeed.html">Logout</a></li>
-
-                </ul>
-            </div>
-            <div class="navbar-right collapse navbar-collapse">
-
-                <form class="navbar-form navbar-right">
-                    <div class="form-group has-feedback">
-
-                        <input type="text" style="border-radius:16px;color:#C5C9A4" class="form-control" placeholder="Search">
-                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-    <!-- nav bar -->
-
-
     <div class="container">
         <div id="bg">
             <img class="bg" src="{$BASE_URL}images/assets/circuit.jpg" alt="">
@@ -70,7 +28,7 @@
                 <ul class="nav nav-pills nav-stacked nav-email shadow mb-20">
                     <li>
                         <a href="{$BASE_URL}pages/users/chatbox.php">
-                            <i class="fa fa-envelope-o"></i> Inbox <span class="label label-info pull-right inbox-notification">3</span>
+                            <i class="fa fa-envelope-o"></i> Inbox <span class="label label-info pull-right inbox-notification"></span>
                         </a>
                     </li>
                     <li>
@@ -87,23 +45,19 @@
                 <h5 class="nav-email-subtitle" style="color:black"><b>More Actions</b></h5>
                 <ul class="nav nav-pills nav-stacked nav-email mb-20 rounded shadow">
                     <li>
-                        <a href="newarticle.html">
+                        <a href="{$BASE_URL}pages/articles/newarticle.php">
                             <i class="fa fa-file-text-o"></i> Write New Article
                         </a>
                     </li>
                     <li>
-                        <a href="myarticles.html">
-                            <i class="fa fa-file-text-o"></i> Article Log <span class="label label-info pull-right inbox-notification">6</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="sysadmin.html">
-                            <i class="fa fa-cogs"></i> Admin Panel <span class="label label-info pull-right inbox-notification">6</span>
+                        <a href="{$BASE_URL}pages/users/myarticles.php">
+                            <i class="fa fa-file-text-o"></i> Article History <span class="label label-info pull-right inbox-notification">6</span>
                         </a>
                     </li>
                 </ul>
                 <!-- /.nav -->
             </div>
+
             <div class="col-sm-9">
                 <div class="panel panel-default">
                     <div class="panel-heading resume-heading">
@@ -117,7 +71,6 @@
                                     <figure>
                                         <img class="img-responsive" id="profilepic" alt="" src="http://www.unipromo.com.au/Images/Articles/SaveYourSanity/BoxGuy_Small.jpg">
                                     </figure>
-
                                     <div class="text-content">
                                         <div class="col-lg-12">
                                             <div class="col-xs-12 col-sm-8">
@@ -143,7 +96,6 @@
                                                 <li class="list-group-item"><b>Bio: </b> Tech savvy and bad friends with trees. <i class="fa fa-pencil"></i></li>
                                                 <li class="list-group-item"><b>Last logged in: </b> 2017-03-01, 22h03 <i class="fa fa-pencil"></i></li>
                                                 <li class="list-group-item"><b>Associated newspapers or publications: </b>New York Times <i class="fa fa-pencil"></i></li>
-                                                <li class="list-group-item"><b>Password: </b>********** <i class="fa fa-pencil"></i></li>
                                             </ul>
                                         </div>
                                         <div class="tab-pane fade" id="interests">

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-01 18:37:34
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-01 19:54:02
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:619859077a3c36c607-44707552%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c8d6591f9982a20c0a4639a77cda3c75ca4b89a3' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
-      1 => 1493663844,
+      1 => 1493668436,
       2 => 'file',
     ),
   ),
@@ -48,49 +48,6 @@ js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <div class="jumbotron">
-        <a href="./frontpage.html">
-            <img class="img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-images/assets/logo_navigation.png" alt="logo">
-        </a>
-        <ul class="nav navbar-nav">
-            <li><a href="#">Programming</a></li>
-            <li><a href="#">Hardware</a></li>
-            <li><a href="#">Software</a></li>
-            <li><a href="#">Industry</a></li>
-            <li><a href="#">Technology</a></li>
-        </ul>
-    </div>
-    <nav class="navbar navbar-default headernav">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="userprofile_view.html">Profile</a></li>
-                    <li><a href="newsfeed.html">Feed</a></li>
-                    <li><a href="newsfeed.html">Logout</a></li>
-
-                </ul>
-            </div>
-            <div class="navbar-right collapse navbar-collapse">
-
-                <form class="navbar-form navbar-right">
-                    <div class="form-group has-feedback">
-
-                        <input type="text" style="border-radius:16px;color:#C5C9A4" class="form-control" placeholder="Search">
-                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-    <!-- nav bar -->
-
-
     <div class="container">
         <div id="bg">
             <img class="bg" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -102,15 +59,16 @@ images/assets/circuit.jpg" alt="">
                     <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/chatbox.php">
-                            <i class="fa fa-envelope-o"></i> Inbox <span class="label label-info pull-right inbox-notification">3</span>
+                            <i class="fa fa-envelope-o"></i> Inbox <span class="label label-info pull-right inbox-notification"></span>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/posthistory.php"><i class="fa fa-book"></i> Comment Log </a>
+pages/users/posthistory.php"><i class="fa fa-book"></i> Comment History </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/friendlist.php">
                             <i class="fa fa-users"></i> Friends <span class="label label-info pull-right inbox-notification">23</span>
                         </a>
                     </li>
@@ -120,23 +78,21 @@ pages/users/posthistory.php"><i class="fa fa-book"></i> Comment Log </a>
                 <h5 class="nav-email-subtitle" style="color:black"><b>More Actions</b></h5>
                 <ul class="nav nav-pills nav-stacked nav-email mb-20 rounded shadow">
                     <li>
-                        <a href="newarticle.html">
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/articles/newarticle.php">
                             <i class="fa fa-file-text-o"></i> Write New Article
                         </a>
                     </li>
                     <li>
-                        <a href="myarticles.html">
-                            <i class="fa fa-file-text-o"></i> Article Log <span class="label label-info pull-right inbox-notification">6</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="sysadmin.html">
-                            <i class="fa fa-cogs"></i> Admin Panel <span class="label label-info pull-right inbox-notification">6</span>
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/myarticles.php">
+                            <i class="fa fa-file-text-o"></i> Article History <span class="label label-info pull-right inbox-notification">6</span>
                         </a>
                     </li>
                 </ul>
                 <!-- /.nav -->
             </div>
+            
             <div class="col-sm-9">
                 <div class="panel panel-default">
                     <div class="panel-heading resume-heading">
@@ -150,7 +106,6 @@ pages/users/posthistory.php"><i class="fa fa-book"></i> Comment Log </a>
                                     <figure>
                                         <img class="img-responsive" id="profilepic" alt="" src="http://www.unipromo.com.au/Images/Articles/SaveYourSanity/BoxGuy_Small.jpg">
                                     </figure>
-
                                     <div class="text-content">
                                         <div class="col-lg-12">
                                             <div class="col-xs-12 col-sm-8">

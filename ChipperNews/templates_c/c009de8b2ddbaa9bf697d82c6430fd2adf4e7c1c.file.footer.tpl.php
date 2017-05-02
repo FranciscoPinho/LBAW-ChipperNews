@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 10:20:42
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-01 18:53:55
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\common\footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2423358f68e11220851-23495046%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c009de8b2ddbaa9bf697d82c6430fd2adf4e7c1c' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\footer.tpl',
-      1 => 1492595460,
+      1 => 1493664732,
       2 => 'file',
     ),
   ),
@@ -45,7 +45,8 @@ js/bootstrap.min.js"></script>
      <div class="jumbotron">
           
            <ul class="nav navbar-nav">
-                    <li><a href="./applycollab.html">Become a Collaborator</a></li>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/users/applycollab.php">Become a Collaborator</a></li>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Info</a></li>
                 </ul>

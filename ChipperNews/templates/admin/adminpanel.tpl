@@ -8,6 +8,7 @@
     <title>Chipper News</title>
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="{$BASE_URL}js/bootstrap.min.js"></script>
     
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-ricardo.css">
@@ -26,7 +27,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Options <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cogs"></i>Admin Options <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Shut down for maintenance</a></li>
                         </ul>
