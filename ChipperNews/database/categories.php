@@ -26,4 +26,10 @@
         $stmt = $conn->prepare("INSERT INTO category (name) VALUES (?)");
         $stmt->execute(array($categoryName));
     }
+    function addSubcategory($subcategoryName,$parentID)
+    {
+        global $conn;
+        $stmt = $conn->prepare("INSERT INTO subcategory (category,name) VALUES (?,?)");
+        $stmt->execute(array($parentID,$subcategoryName));
+    }
 ?>
