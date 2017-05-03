@@ -48,6 +48,7 @@
   }
   function getUserInfo($username){
     global $conn;
+    $stmt = $conn->prepare("SELECT user_id,users.name,permission_level,localization.name AS local,email,bio,birthdate,last_login,assoc_publications,hide_posthistory,hide_local,hide_birthdate,hide_email
                             FROM users 
                             LEFT JOIN localization ON users.local_id=localization.local_id
                             WHERE username = ?");
