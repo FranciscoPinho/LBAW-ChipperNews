@@ -1,8 +1,18 @@
 .form-inline, .form-group{
-   display:block;
+    display:block;
     margin-left: auto;
     margin-right:auto;
     padding-left:12%;
+}
+th:hover{
+    background-color: #d3d3d3;
+}
+div#tagselection.form-group{
+    display:block;
+    margin-left: auto;
+    margin-right:auto;
+    padding-left:2%;
+    padding-right:2%;
 }
 
 #note{
