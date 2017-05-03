@@ -1,11 +1,18 @@
 <?php
-function getArticle($article_id)
+  function getArticle($article_id)
   {
     global $conn;
     $stmt = $conn->prepare("SELECT * FROM article WHERE article_id = ?");
     $stmt->execute(array($article_id));
     return $stmt->fetchAll();
   }
+   function getArticles()
+    {
+      global $conn;
+      $stmt = $conn->prepare("SELECT * FROM article ORDER BY published_date");
+      $stmt->execute();
+      return $stmt->fetchAll();
+    }
   function createArticle($title, $lead, $content) 
   {
 

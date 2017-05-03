@@ -6,6 +6,20 @@
         $stmt->execute();
         return $stmt->fetchAll();
     }
+    function getSubcategory($sub_id)
+    {
+        global $conn;
+        $stmt = $conn->prepare("SELECT * FROM subcategory WHERE sub_id = ?");
+        $stmt->execute(array($sub_id));
+        return $stmt->fetchAll();
+    }
+    function getArticleSubcategories($article_id)
+    {
+        global $conn;
+        $stmt = $conn->prepare("SELECT * FROM article_category WHERE article_id = ?");
+        $stmt->execute(array($article_id));
+        return $stmt->fetchAll();
+    }
     function getCategory($category)
     {
         global $conn;
