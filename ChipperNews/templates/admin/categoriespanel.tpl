@@ -22,13 +22,13 @@
             </div>
             <button type="submit" class="btn btn-default">Add Category</button>
         </form>
-        <form class="form-inline">
+        <form class="form-inline" action="{$BASE_URL}actions/administration/addSubcategory.php" method="post">
             <div class="form-group">
                 <label for="text">Create Subcategory: </label>
-                <input type="text" class="form-control" id="email" placeholder="Subcategory name">
+                <input type="text" class="form-control" id="subcategoryName" name="subcategoryName" placeholder="Subcategory name">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="email" placeholder="Parent-category name">
+                <input type="text" class="form-control" id="parentID" name="parentID" placeholder="Parent category id">
             </div>
             <button type="submit" class="btn btn-default">Add Subcategory</button>
         </form>

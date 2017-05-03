@@ -2,7 +2,7 @@
     function getSubcategories()
     {
         global $conn;
-        $stmt = $conn->prepare("SELECT * FROM subcategory");
+        $stmt = $conn->prepare("SELECT * FROM subcategory ORDER BY category");
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -26,7 +26,7 @@
         $stmt = $conn->prepare("INSERT INTO category (name) VALUES (?)");
         $stmt->execute(array($categoryName));
     }
-    function addSubcategory($subcategoryName,$parentID)
+    function addSubcategory($parentID,$subcategoryName)
     {
         global $conn;
         $stmt = $conn->prepare("INSERT INTO subcategory (category,name) VALUES (?,?)");
