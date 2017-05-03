@@ -10,7 +10,7 @@
 						</div>
 					
 				</div>
-				<div class="form-group" id="some">
+				<div class="form-group">
 					<label>Article Lead:</label>
 						<div class="col-lg-10">
 							<textarea class="form-control" required rows="4" cols="50" id="headline" placeholder="Article Headline" name="lead"></textarea>
@@ -58,13 +58,78 @@
 			
                 </script>
 
-				<div class="form-group">
-					<label>Tags:</label>
-						<div class="col-lg-10">
-							<textarea class="form-control" required id="tags" placeholder="Tags" name="tags"></textarea>
-						</div>
+				<div class="form-group" id="tagselection">
+					<div class="table-responsive">
+					<table class="table">
+					<thead>
+					<tr>	
+						<th onclick="columnClick("1")">Programming</th>
+						<th onclick="columnClick("2")">Hardware</th>
+						<th onclick="columnClick("3")">Software</th>
+						<th onclick="columnClick("4")">Industry</th>
+						<th onclick="columnClick("5")">Technology</th>
+						<th onclick="columnClick("6")">Others</th>
+					</tr>
+    				</thead>
+					<tbody>
+					<tr>
+
+					<td id="progtable">
+					<table class="table">
+						{foreach from=$programming item=progcat}
+						<tr><input type="checkbox" name="tags" value={$progcat['sub_id']}>{$progcat['name']}</tr><br>
+						{/foreach}
+					</table>
+					</td>
+
+					<td  id="hardtable">
+					<table class="table">
+						{foreach from=$hardware item=hardcat}
+						<tr><input type="checkbox" name="tags" value={$hardcat['sub_id']}>{$hardcat['name']}</tr><br>
+						{/foreach}
+					</table>
+					</td>
+
+					<td id="softtable">
+					<table class="table">
+						{foreach from=$software item=softcat}
+						<tr><input type="checkbox" name="tags" value={$softcat['sub_id']}>{$softcat['name']}</tr><br>
+						{/foreach}
+					</table>
+					</td>
+
+					<td id="indtable">
+					<table class="table">
+						{foreach from=$industry item=indcat}
+						<tr><input type="checkbox" name="tags" value={$indcat['sub_id']}>{$indcat['name']}</tr><br>
+						{/foreach}
+					</table>
+					</td>
+
+					<td id="softtable">
+					<table class="table">
+						{foreach from=$technology item=techcat}
+						<tr><input type="checkbox" name="tags" value={$techcat['sub_id']}>{$techcat['name']}</tr><br>
+						{/foreach}
+					</table>
+					</td>
+
+					<td id="othertable">
+					<table class="table">
+						{foreach from=$others item=othercat}
+						<tr><input type="checkbox" name="tags" value={$othercat['sub_id']}>{$othercat['name']}</tr><br>
+						{/foreach}
+					</table>
+					</td>
+
+					</tr>
+					</tbody>
+					</table>
+					
+					</div>
 					
 				</div>
+
 				<div class="form-group">
 					<label>Image:</label>
 						<div class="col-lg-10">

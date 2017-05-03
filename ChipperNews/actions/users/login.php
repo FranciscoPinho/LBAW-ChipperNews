@@ -15,6 +15,7 @@
     $_SESSION['permission'] = getCredentials($username);
     $_SESSION['user_id'] = getUserID($username);
     $_SESSION['username'] = $username;
+    $_SESSION['userinfo'] = getUserInfo($username)[0];
     $_SESSION['success_messages'][] = 'Hello '. $username . ', you have successfully logged in';  
   } else {
     $_SESSION['error_messages'][] = 'Login failed';  

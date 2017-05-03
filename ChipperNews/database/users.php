@@ -46,7 +46,26 @@
     $permission = $stmt->fetchColumn();
     return $permission;
   }
-
+  function getUserInfo($username){
+    global $conn;
+    $stmt = $conn->prepare("SELECT user_id,users.name,permission_level,localization.name AS local,email,bio,birthdate,last_login,assoc_publications,hide_posthistory,hide_local,hide_birthdate,hide_email
+                            FROM users 
+                            LEFT JOIN localization ON users.local_id=localization.local_id
+                            WHERE username = ?");
+    $stmt->execute(array($username));
+    $userinfo = $stmt->fetchAll();
+    return $userinfo;
+  }
+  function getUserInterests($username){
+    global $conn;
+    $stmt = $conn->prepare("SELECT name
+                            FROM subcategory 
+                            LEFT JOIN user_interests ON subcategory.sub_id=user_interests.sub_id   
+                            WHERE USER.interests.user_id=?");
+    $stmt->execute(array($username));
+    $userinterests = $stmt->fetchColumn();
+    return $userinterests;
+  }
   function getAllUsers()
   {
     global $conn;
