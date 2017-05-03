@@ -28,7 +28,7 @@
             {$subcategories = fetchSubcategories($art.article_id)}
             <div class="col-sm-6 col-md-4 ">
                 <a class="thumbnail " href="article.html" style="text-decoration:none ">
-                    <img src="{$BASE_URL}images\articles\{$art.image}" alt="... ">
+                    <img src="{$BASE_URL}images\articles\{$art.article_id}" alt="... ">
                     <div class="caption ">
                         <h3>{$art.title}</h3>
                         <p>{$art.lead}</p>
