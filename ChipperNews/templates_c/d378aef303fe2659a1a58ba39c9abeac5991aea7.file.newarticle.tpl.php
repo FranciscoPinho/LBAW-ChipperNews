@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-03 11:26:36
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-03 17:13:29
          compiled from "C:\wamp64\www\LBAW-ChipperNews\chippernews\templates\articles\newarticle.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:190635900b7dea01a76-79165625%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd378aef303fe2659a1a58ba39c9abeac5991aea7' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\chippernews\\templates\\articles\\newarticle.tpl',
-      1 => 1493810795,
+      1 => 1493825893,
       2 => 'file',
     ),
     '196265ee1603edfd62c9f16160df34e80c2d6479' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\chippernews\\templates\\articles\\newarticle-form.tpl',
-      1 => 1493810680,
+      1 => 1493831607,
       2 => 'file',
     ),
   ),
@@ -62,7 +62,7 @@ actions/articles/newarticle.php" class="form-horizontal" id="form-new-article"
       <?php /*  Call merged included template "articles/newarticle-form.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate('articles/newarticle-form.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '190635900b7dea01a76-79165625');
-content_5909be6c9aa335_57255396($_smarty_tpl);
+content_590a0fb999b553_64581709($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "articles/newarticle-form.tpl" */?>
     </form>
@@ -70,9 +70,9 @@ $_smarty_tpl = array_pop($_tpl_stack);
    
   </body>
 <?php }} ?>
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-03 11:26:36
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-03 17:13:29
          compiled from "C:\wamp64\www\LBAW-ChipperNews\chippernews\templates\articles\newarticle-form.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_5909be6c9aa335_57255396')) {function content_5909be6c9aa335_57255396($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_590a0fb999b553_64581709')) {function content_590a0fb999b553_64581709($_smarty_tpl) {?>
   <div class="form-div" id="new_article">
 		<form  method="post">
 			<fieldset>
@@ -135,103 +135,114 @@ $_smarty_tpl = array_pop($_tpl_stack);
 				<div class="form-group" id="tagselection">
 					<div class="table-responsive">
 					<table class="table">
-					<thead>
-					<tr>
-						<th onclick="columnClick("1")">Programming</th>
-						<th onclick="columnClick("2")">Hardware</th>
-						<th onclick="columnClick("3")">Software</th>
-						<th onclick="columnClick("4")">Industry</th>
-						<th onclick="columnClick("5")">Technology</th>
-						<th onclick="columnClick("6")">Others</th>
-					</tr>
-    				</thead>
+						<thead>
+						<tr>	
+							<th onclick="columnClick('1')">Programming</th>
+							<th onclick="columnClick('2')">Hardware</th>
+							<th onclick="columnClick('3')">Software</th>
+							<th onclick="columnClick('4')">Industry</th>
+							<th onclick="columnClick('5')">Technology</th>
+							<th onclick="columnClick('6')">Others</th>
+						</tr>
+						</thead>
 					<tbody>
 					<tr>
 
-					<td id="progtable">
-					<table class="table">
-						<?php  $_smarty_tpl->tpl_vars['progcat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['progcat']->_loop = false;
+					<td>
+						<div id="progtable" hidden>
+							<table class="table">
+								<?php  $_smarty_tpl->tpl_vars['progcat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['progcat']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['programming']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['progcat']->key => $_smarty_tpl->tpl_vars['progcat']->value) {
 $_smarty_tpl->tpl_vars['progcat']->_loop = true;
 ?>
-						<tr><input type="checkbox" name="tags" value=<?php echo $_smarty_tpl->tpl_vars['progcat']->value['sub_id'];?>
+								<tr><input type="checkbox" name="tags" value=<?php echo $_smarty_tpl->tpl_vars['progcat']->value['sub_id'];?>
 ><?php echo $_smarty_tpl->tpl_vars['progcat']->value['name'];?>
 </tr><br>
-						<?php } ?>
-					</table>
+								<?php } ?>
+							</table>
+						</div>
 					</td>
 
-					<td  id="hardtable">
-					<table class="table">
-						<?php  $_smarty_tpl->tpl_vars['hardcat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['hardcat']->_loop = false;
+					<td>
+						<div  id="hardtable" hidden>
+							<table class="table">
+								<?php  $_smarty_tpl->tpl_vars['hardcat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['hardcat']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['hardware']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['hardcat']->key => $_smarty_tpl->tpl_vars['hardcat']->value) {
 $_smarty_tpl->tpl_vars['hardcat']->_loop = true;
 ?>
-						<tr><input type="checkbox" name="tags" value=<?php echo $_smarty_tpl->tpl_vars['hardcat']->value['sub_id'];?>
+								<tr><input type="checkbox" name="tags" value=<?php echo $_smarty_tpl->tpl_vars['hardcat']->value['sub_id'];?>
 ><?php echo $_smarty_tpl->tpl_vars['hardcat']->value['name'];?>
 </tr><br>
-						<?php } ?>
-					</table>
+								<?php } ?>
+							</table>
+						</div>
 					</td>
 
-					<td id="softtable">
-					<table class="table">
-						<?php  $_smarty_tpl->tpl_vars['softcat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['softcat']->_loop = false;
+					<td>
+						<div id="softtable" hidden>
+							<table class="table">
+								<?php  $_smarty_tpl->tpl_vars['softcat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['softcat']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['software']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['softcat']->key => $_smarty_tpl->tpl_vars['softcat']->value) {
 $_smarty_tpl->tpl_vars['softcat']->_loop = true;
 ?>
-						<tr><input type="checkbox" name="tags" value=<?php echo $_smarty_tpl->tpl_vars['softcat']->value['sub_id'];?>
+								<tr><input type="checkbox" name="tags" value=<?php echo $_smarty_tpl->tpl_vars['softcat']->value['sub_id'];?>
 ><?php echo $_smarty_tpl->tpl_vars['softcat']->value['name'];?>
 </tr><br>
-						<?php } ?>
-					</table>
+								<?php } ?>
+							</table>
+						</div>
 					</td>
 
-					<td id="indtable">
-					<table class="table">
-						<?php  $_smarty_tpl->tpl_vars['indcat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['indcat']->_loop = false;
+					<td>
+						<div id="indtable" hidden>
+							<table class="table">
+								<?php  $_smarty_tpl->tpl_vars['indcat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['indcat']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['industry']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['indcat']->key => $_smarty_tpl->tpl_vars['indcat']->value) {
 $_smarty_tpl->tpl_vars['indcat']->_loop = true;
 ?>
-						<tr><input type="checkbox" name="tags" value=<?php echo $_smarty_tpl->tpl_vars['indcat']->value['sub_id'];?>
+								<tr><input type="checkbox" name="tags" value=<?php echo $_smarty_tpl->tpl_vars['indcat']->value['sub_id'];?>
 ><?php echo $_smarty_tpl->tpl_vars['indcat']->value['name'];?>
 </tr><br>
-						<?php } ?>
-					</table>
+								<?php } ?>
+							</table>
+						</div>
 					</td>
 
-					<td id="softtable">
-					<table class="table">
-						<?php  $_smarty_tpl->tpl_vars['techcat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['techcat']->_loop = false;
+					<td>
+						<div id="techtable" hidden>
+							<table class="table">
+								<?php  $_smarty_tpl->tpl_vars['techcat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['techcat']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['technology']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['techcat']->key => $_smarty_tpl->tpl_vars['techcat']->value) {
 $_smarty_tpl->tpl_vars['techcat']->_loop = true;
 ?>
-						<tr><input type="checkbox" name="tags" value=<?php echo $_smarty_tpl->tpl_vars['techcat']->value['sub_id'];?>
+								<tr><input type="checkbox" name="tags" value=<?php echo $_smarty_tpl->tpl_vars['techcat']->value['sub_id'];?>
 ><?php echo $_smarty_tpl->tpl_vars['techcat']->value['name'];?>
 </tr><br>
-						<?php } ?>
-					</table>
+								<?php } ?>
+							</table>
+						</div>
 					</td>
 
-					<td id="othertable">
-					<table class="table">
-						<?php  $_smarty_tpl->tpl_vars['othercat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['othercat']->_loop = false;
+					<td>
+						<div id="othertable" hidden>
+							<table class="table">
+								<?php  $_smarty_tpl->tpl_vars['othercat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['othercat']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['others']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['othercat']->key => $_smarty_tpl->tpl_vars['othercat']->value) {
 $_smarty_tpl->tpl_vars['othercat']->_loop = true;
 ?>
-						<tr><input type="checkbox" name="tags" value=<?php echo $_smarty_tpl->tpl_vars['othercat']->value['sub_id'];?>
+								<tr><input type="checkbox" name="tags" value=<?php echo $_smarty_tpl->tpl_vars['othercat']->value['sub_id'];?>
 ><?php echo $_smarty_tpl->tpl_vars['othercat']->value['name'];?>
 </tr><br>
-						<?php } ?>
-					</table>
+								<?php } ?>
+							</table>
+						</div>
 					</td>
-
 					</tr>
 					</tbody>
 					</table>

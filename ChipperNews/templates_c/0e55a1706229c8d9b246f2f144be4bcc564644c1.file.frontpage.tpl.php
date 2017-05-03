@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-19 15:39:12
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-03 15:41:48
          compiled from "C:\wamp64\www\LBAW-ChipperNews\chippernews\templates\search\frontpage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1593158f784a049f8e2-33786435%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0e55a1706229c8d9b246f2f144be4bcc564644c1' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\chippernews\\templates\\search\\frontpage.tpl',
-      1 => 1492608556,
+      1 => 1493825892,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_58f784a0500c98_51119928',
   'variables' => 
   array (
     'BASE_URL' => 0,
+    'i' => 0,
+    'articles' => 0,
+    'art' => 0,
+    'subcategories' => 0,
+    'subart' => 0,
+    'sub' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_58f784a0500c98_51119928',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_58f784a0500c98_51119928')) {function content_58f784a0500c98_51119928($_smarty_tpl) {?><!DOCTYPE html>
 <html>
@@ -46,114 +52,71 @@ css/styles-ricardo.css">
     <link href="https://fonts.googleapis.com/css?family=Lato|Lora|Playfair+Display:700" rel="stylesheet">
 
 </head>
-<?php echo $_smarty_tpl->getSubTemplate ('common/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
-
 <body>
    
     <nav class="navbar navbar-default ">
         <h1 class="text-center "> Featured </h1>
     </nav>
     <div class="row " style="padding-left:4%;padding-right:4% ">
-        <div class="col-sm-6 col-md-4 ">
-            <a class="thumbnail " href="article.html" style="text-decoration:none ">
-                <img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-images\articles\news1.jpg " alt="... ">
-                <div class="caption ">
-                    <h3>Researchers critique security in messaging app Confide</h3>
-                    <p>Confide, a messaging app that’s raised millions in venture capital and promises “military-grade encryption” to its users, has surged in popularity among D.C. insiders who want to keep their communications secret under the Trump administration.</p>
-                    <span class="label label-info ">Security</span>
-                    <span class="label label-success ">Mobile</span>
-                    <span class="label label-danger ">Politics</span>
-                </div>
-            </a>
-        </div>
-        <div class="col-sm-6 col-md-4 ">
-            <a class="thumbnail " href="article.html" style="text-decoration:none ">
-                <img href=" " src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-images\articles\news2.jpg " alt="... ">
-                <div class="caption ">
-                    <h3>Gobi raises $500K to take on Snapchat</h3>
-                    <p>Norwegian startup Gobi raised $500,000 at a $15 million valuation to take on Snapchat with its “Stories” communication tool. The platform enables users to create public and private groups where users can share photos and videos that
-                        stay around for three days before vanishing into digital pixel-dust.</p>
-                    <span class="label label-info ">Startup</span>
-                    <span class="label label-success ">Mobile</span>
-                    <span class="label label-danger ">App</span>
-                </div>
-            </a>
-        </div>
-        <div class="col-sm-6 col-md-4 ">
-            <a class="thumbnail " href="article.html" style="text-decoration:none ">
-                <img href="# " src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-images\articles\news3.jpg " alt="... ">
-                <div class="caption ">
-                    <h3>Google-led Accelerated Mobile Pages project expands in Asia, with support from Baidu</h3>
-                    <p>Google just announced that search results in Baidu, Sogou and Yahoo Japan will be connecting directly to Accelerated Mobile Pages.</p>
-                    <span class="label label-info ">App</span>
-                    <span class="label label-success ">Mobile</span>
-                    <span class="label label-danger ">Google</span>
-                </div>
-            </a>
-        </div>
-
+       <?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? 2+1 - (0) : 0-(2)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = 0, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
+            <?php $_smarty_tpl->tpl_vars['art'] = new Smarty_variable($_smarty_tpl->tpl_vars['articles']->value[$_smarty_tpl->tpl_vars['i']->value], null, 0);?>
+            <?php $_smarty_tpl->tpl_vars['subcategories'] = new Smarty_variable(fetchSubcategories($_smarty_tpl->tpl_vars['art']->value['article_id']), null, 0);?>
+            <div class="col-sm-6 col-md-4 ">
+                <a class="thumbnail " href="article.html" style="text-decoration:none ">
+                    <img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+images\articles\<?php echo $_smarty_tpl->tpl_vars['art']->value['article_id'];?>
+" alt="... ">
+                    <div class="caption ">
+                        <h3><?php echo $_smarty_tpl->tpl_vars['art']->value['title'];?>
+</h3>
+                        <p><?php echo $_smarty_tpl->tpl_vars['art']->value['lead'];?>
+</p>
+                        <?php  $_smarty_tpl->tpl_vars['subart'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['subart']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['subcategories']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['subart']->key => $_smarty_tpl->tpl_vars['subart']->value) {
+$_smarty_tpl->tpl_vars['subart']->_loop = true;
+?>
+                            <?php $_smarty_tpl->tpl_vars['sub'] = new Smarty_variable(fetchSubcategory($_smarty_tpl->tpl_vars['subart']->value['sub_id']), null, 0);?>
+                            <span class="label label-success "><?php echo $_smarty_tpl->tpl_vars['sub']->value['name'];?>
+</span>
+                        <?php } ?>
+                    </div>
+                </a>
+            </div>
+        <?php }} ?>
     </div>
 
     <nav class="navbar navbar-default ">
         <h1 class="text-center " href="# "> News </h1>
     </nav>
     <div class="row " style="padding-left:4%;padding-right:4% ">
-        <div class="col-6 col-lg-4 ">
-            <h2>Performance Beatdown</h2>
-            <p>Node.js vs PHP Performance Benchmarks</p>
-            <span class="label label-info ">App</span>
-            <span class="label label-success ">News</span>
-            <span class="label label-danger ">Tech</span>
+        <?php  $_smarty_tpl->tpl_vars['art'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['art']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['articles']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['art']->key => $_smarty_tpl->tpl_vars['art']->value) {
+$_smarty_tpl->tpl_vars['art']->_loop = true;
+?>
+            <?php $_smarty_tpl->tpl_vars['subcategories'] = new Smarty_variable(fetchSubcategories($_smarty_tpl->tpl_vars['art']->value['article_id']), null, 0);?>
+            <div class="col-6 col-lg-4 ">
+            <h2><?php echo $_smarty_tpl->tpl_vars['art']->value['title'];?>
+</h2>
+            <p><?php echo $_smarty_tpl->tpl_vars['art']->value['lead'];?>
+</p>
+            <?php  $_smarty_tpl->tpl_vars['subart'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['subart']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['subcategories']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['subart']->key => $_smarty_tpl->tpl_vars['subart']->value) {
+$_smarty_tpl->tpl_vars['subart']->_loop = true;
+?>
+                <?php $_smarty_tpl->tpl_vars['sub'] = new Smarty_variable(fetchSubcategory($_smarty_tpl->tpl_vars['subart']->value['sub_id']), null, 0);?>
+                <span class="label label-success "><?php echo $_smarty_tpl->tpl_vars['sub']->value['name'];?>
+</span>
+            <?php } ?>
             <p><a class="btn btn-secondary " href="article.html" role="button ">View details »</a></p>
-        </div>
-        <!--/span-->
-        <div class="col-6 col-lg-4 ">
-            <h2>C++ is alive and kicking</h2>
-            <p>Despite recent drop, C++ usage is still relevant.</p>
-            <span class="label label-info ">App</span>
-            <span class="label label-success ">News</span>
-            <span class="label label-danger ">Tech</span>
-            <p><a class="btn btn-secondary " href="article.html" role="button ">View details »</a></p>
-        </div>
-        <!--/span-->
-        <div class="col-6 col-lg-4 ">
-            <h2>What is the future of Python programming language?</h2>
-            <p>A language soaring in popularity, what does the future hold for such a prominent and widely used technology.</p>
-            <span class="label label-info ">App</span>
-            <span class="label label-success ">News</span>
-            <span class="label label-danger ">Tech</span>
-            <p><a class="btn btn-secondary " href="article.html" role="button ">View details »</a></p>
-        </div>
-        <!--/span-->
-        <div class="col-6 col-lg-4 ">
-            <h2>Veem, formerly Align Commerce, gets $24M from GV, others for its Venmo for SMBs</h2>
-            <p>Remittances — the business of money transfers — is a fragmented and huge market, currently estimated to be worth some $25 trillion annually. </p>
-            <span class="label label-info ">App</span>
-            <span class="label label-success ">News</span>
-            <span class="label label-danger ">Tech</span>
-            <p><a class="btn btn-secondary " href="article.html" role="button ">View details »</a></p>
-        </div>
-        <!--/span-->
-        <div class="col-6 col-lg-4 ">
-            <h2>These magical (robotic) socks teach you to dance (robotically)</h2>
-            <p>As humans find themselves forced to mate with our robotic overlords I suspect there will be some dancing. </p>
-            <span class="label label-info ">App</span>
-            <span class="label label-success ">News</span>
-            <span class="label label-danger ">Tech</span>
-            <p><a class="btn btn-secondary " href="article.html" role="button ">View details »</a></p>
-        </div>
-        <!--/span-->
-        <div class="col-6 col-lg-4 ">
-            <h2>Pebby makes long-distance pet relationships more fun</h2>
-            <p>I’m convinced that if humans could find fun in simple games as easily as pets, our world would be a healthier place. </p>
-            <span class="label label-info ">App</span>
-            <span class="label label-success ">News</span>
-            <span class="label label-danger ">Tech</span>
-            <p><a class="btn btn-secondary " href="article.html" role="button ">View details »</a></p>
-        </div>
+            </div>
+        <?php } ?>
+        
         <!--/span-->
         <div class="col-md-12 text-center" style="margin-bottom:10px">
             <button id="moreNews " name="singlebutton " class="btn btn-primary ">More News</button>
@@ -163,11 +126,6 @@ images\articles\news3.jpg " alt="... ">
 
 
     </div>
-    <!-- MODALS -->
-   <?php echo $_smarty_tpl->getSubTemplate ('users/login.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
-
-   <?php echo $_smarty_tpl->getSubTemplate ('common/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
-
 </body>
 
 </html><?php }} ?>
