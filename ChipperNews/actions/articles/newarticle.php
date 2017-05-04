@@ -15,16 +15,16 @@
   $title = strip_tags($_POST['title']);
   $lead = strip_tags($_POST['lead']);
   $body = $_POST['body'];
-
-
+  $tags = $_POST['tags'];
+  debug_to_console($tags);
 
   $photo = $_FILES['pic']; 
   $extension = end(explode(".", $photo["name"]));
 
   try {
-    $ar_id=createArticle($title,$lead,$body);
-    move_uploaded_file($photo["tmp_name"], $BASE_DIR . "images/articles/" . $ar_id[0]['id'] . '.' . $extension); // this is dangerous
-    chmod($BASE_DIR . "images/articles/" . $ar_id[0]['id'] . '.' . $extension, 0644);
+    $ar_id=createArticleTransaction($title,$lead,$body,$tags);
+    move_uploaded_file($photo["tmp_name"], $BASE_DIR . "images/articles/" . $ar_id . '.' . $extension); // this is dangerous
+    chmod($BASE_DIR . "images/articles/" . $ar_id . '.' . $extension, 0644);
   } catch (PDOException $e) {
   
      $_SESSION['error_messages'][] = $e->getMessage();

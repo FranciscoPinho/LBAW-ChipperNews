@@ -78,7 +78,7 @@
 						<div id="progtable" hidden>
 							<table class="table">
 								{foreach from=$programming item=progcat}
-								<tr><input type="checkbox" name="tags" value={$progcat['sub_id']}>{$progcat['name']}</tr><br>
+								<tr><input type="checkbox" name="tags[]" value={$progcat['sub_id']}>{$progcat['name']}</tr><br>
 								{/foreach}
 							</table>
 						</div>
@@ -88,7 +88,7 @@
 						<div  id="hardtable" hidden>
 							<table class="table">
 								{foreach from=$hardware item=hardcat}
-								<tr><input type="checkbox" name="tags" value={$hardcat['sub_id']}>{$hardcat['name']}</tr><br>
+								<tr><input type="checkbox" name="tags[]" value={$hardcat['sub_id']}>{$hardcat['name']}</tr><br>
 								{/foreach}
 							</table>
 						</div>
@@ -98,7 +98,7 @@
 						<div id="softtable" hidden>
 							<table class="table">
 								{foreach from=$software item=softcat}
-								<tr><input type="checkbox" name="tags" value={$softcat['sub_id']}>{$softcat['name']}</tr><br>
+								<tr><input type="checkbox" name="tags[]" value={$softcat['sub_id']}>{$softcat['name']}</tr><br>
 								{/foreach}
 							</table>
 						</div>
@@ -108,7 +108,7 @@
 						<div id="indtable" hidden>
 							<table class="table">
 								{foreach from=$industry item=indcat}
-								<tr><input type="checkbox" name="tags" value={$indcat['sub_id']}>{$indcat['name']}</tr><br>
+								<tr><input type="checkbox" name="tags[]" value={$indcat['sub_id']}>{$indcat['name']}</tr><br>
 								{/foreach}
 							</table>
 						</div>
@@ -118,7 +118,7 @@
 						<div id="techtable" hidden>
 							<table class="table">
 								{foreach from=$technology item=techcat}
-								<tr><input type="checkbox" name="tags" value={$techcat['sub_id']}>{$techcat['name']}</tr><br>
+								<tr><input type="checkbox" name="tags[]" value={$techcat['sub_id']}>{$techcat['name']}</tr><br>
 								{/foreach}
 							</table>
 						</div>
@@ -128,7 +128,7 @@
 						<div id="othertable" hidden>
 							<table class="table">
 								{foreach from=$others item=othercat}
-								<tr><input type="checkbox" name="tags" value={$othercat['sub_id']}>{$othercat['name']}</tr><br>
+								<tr><input type="checkbox" name="tags[]" value={$othercat['sub_id']}>{$othercat['name']}</tr><br>
 								{/foreach}
 							</table>
 						</div>

@@ -27,5 +27,29 @@
     $stmt->execute(array($_SESSION['user_id'],$title,$lead,$content));
     return $stmt->fetchAll();
   }
-  
+ 
+  function createArticleTransaction($title, $lead, $content, $tags) 
+  {
+    try{
+     global $conn;
+      $conn->beginTransaction();
+      $stmt = $conn->prepare("INSERT INTO article(author,title,lead,content) 
+      VALUES (?, ?, ?, ?) RETURNING article_id AS id");
+      $stmt->execute(array($_SESSION['user_id'],$title,$lead,$content));
+      $res=$stmt->fetchAll();
+      foreach($tags as &$tag){
+            $stmt = $conn->prepare("INSERT INTO article_category(article_id,sub_id) 
+            VALUES (?, ?)");
+            print($tag);
+            $stmt->execute(array($res[0]['id'],$tag));
+      }
+      
+      $conn->commit();
+    return $res[0]['id'];
+    }
+    catch (PDOException $e) {
+      $conn->rollBack();
+      throw $e;
+    }
+  }
 ?>
