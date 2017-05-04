@@ -17,7 +17,18 @@
     $_SESSION['username'] = $username;
     $_SESSION['userinfo'] = getUserInfo($username)[0];
     $_SESSION['success_messages'][] = 'Hello '. $username . ', you have successfully logged in';  
-  } else {
+  } 
+   elseif(isUserBanned($username))
+  {
+    $_SESSION['error_messages'][] = 'Sorry '. $username . ', but you have been banned';
+  }
+ 
+  elseif(isUserDeleted($username))
+  {
+    $_SESSION['error_messages'][] = 'Sorry but '. $username . "'s account has been deleted";
+  }
+  
+  else {
     $_SESSION['error_messages'][] = 'Login failed';  
   }
   header('Location: ' . $_SERVER['HTTP_REFERER']);

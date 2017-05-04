@@ -21,10 +21,32 @@
     global $conn;
     $stmt = $conn->prepare("SELECT password 
                             FROM users 
-                            WHERE username = ?");
+                            WHERE username = ? AND is_banned=FALSE AND is_deleted=FALSE");
     $stmt->execute(array($username));
     $retrieved_password = $stmt->fetchColumn();
     return password_verify($password,$retrieved_password);
+  }
+
+  function isUserBanned($username)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT is_banned
+                           FROM users
+                           WHERE username = ?");
+    $stmt->execute(array($username));
+    $status = $stmt->fetchColumn();
+    return $status;
+  }
+ 
+  function isUserDeleted($username)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT is_deleted
+                           FROM users
+                           WHERE username = ?");
+    $stmt->execute(array($username));
+    $status = $stmt->fetchColumn();
+    return $status;
   }
 
   function getCredentials($username){
