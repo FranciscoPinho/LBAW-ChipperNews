@@ -1,6 +1,11 @@
 <?php
   include_once('../../config/init.php');
   include_once($BASE_DIR .'database/users.php');
+
+  if (!$_SESSION['username'] || !$_SESSION['user_id']) {
+    header('Location: ' . $BASE_URL);
+    exit;
+  }
   $countries=getAllCountries();
 
  

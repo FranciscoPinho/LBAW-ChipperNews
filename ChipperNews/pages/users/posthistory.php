@@ -4,7 +4,7 @@
   include_once($BASE_DIR .'database/articles.php');
 
   if (!$_SESSION['username'] || !$_SESSION['user_id']) {
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    header('Location: ' . $BASE_URL);
     exit;
   }
 

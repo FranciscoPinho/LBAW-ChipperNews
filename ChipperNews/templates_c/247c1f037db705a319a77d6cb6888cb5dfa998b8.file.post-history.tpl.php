@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-26 09:20:25
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-04 13:59:59
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\post-history.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2786558fe43e57bc2a4-81144832%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '247c1f037db705a319a77d6cb6888cb5dfa998b8' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\post-history.tpl',
-      1 => 1493198389,
+      1 => 1493664803,
       2 => 'file',
     ),
   ),
@@ -64,7 +64,7 @@ images/assets/circuit.jpg" alt="">
 
 
         <div class="container-fluid" id="postheader">
-            <h1 class="nf"> My Post History </h1>
+            <h1 class="nf"> My Comment History </h1>
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton"><span class="droptext">Newest</span>
 		<span class="caret caret-reversed"></span> 
