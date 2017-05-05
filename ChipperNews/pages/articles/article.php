@@ -3,7 +3,7 @@
   include_once($BASE_DIR .'database/articles.php');
   include_once($BASE_DIR .'database/categories.php');
 
-  $articles = getRecentArticles();
+  $articles = getArticles();
   $smarty->assign('articles', $articles);
 
    function fetchSubcategories($article_id)
@@ -18,7 +18,8 @@
    }
 
   $smarty->display('common/header.tpl');
-  $smarty->display('search/frontpage.tpl');
+  $smarty->display('articles/article.tpl');
+  $smarty->display('articles/article-comments.tpl');
   $smarty->display('users/login.tpl');
   $smarty->display('common/footer.tpl');
 ?>

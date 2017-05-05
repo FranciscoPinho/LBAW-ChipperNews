@@ -27,7 +27,7 @@
             {$art = $articles[$i] }
             {$subcategories = fetchSubcategories($art.article_id)}
             <div class="col-sm-6 col-md-4 ">
-                <a class="thumbnail " href="article.html" style="text-decoration:none ">
+                <a class="thumbnail " href="{$BASE_URL}pages/articles/article?id={$art.article_id}" style="text-decoration:none ">
                     <img src="{$BASE_URL}images\articles\{$art.article_id}" alt="... ">
                     <div class="caption ">
                         <h3>{$art.title}</h3>
@@ -55,15 +55,9 @@
                 {$sub = fetchSubcategory($subart.sub_id)}
                 <span class="label label-success ">{$sub.name}</span>
             {/foreach}
-            <p><a class="btn btn-secondary " href="article.html" role="button ">View details »</a></p>
+            <p><a class="btn btn-secondary " href="{$BASE_URL}pages/articles/article?id={$art.article_id}" role="button ">View details »</a></p>
             </div>
         {/foreach}
-        
-        <!--/span-->
-        <div class="col-md-12 text-center" style="margin-bottom:10px">
-            <button id="moreNews " name="singlebutton " class="btn btn-primary ">More News</button>
-        </div>
-
     </div>
 
 
