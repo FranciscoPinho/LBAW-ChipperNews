@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-05 20:49:33
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-05 22:21:33
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\article-comments.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3114590ce55d5822d2-61564544%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '03240d0d0b54748aaf652b284f5c27eb8237b74f' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article-comments.tpl',
-      1 => 1494015192,
+      1 => 1494022890,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.15',
   'unifunc' => 'content_590ce55d58ae96_27027198',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_590ce55d58ae96_27027198')) {function content_590ce55d58ae96_27027198($_smarty_tpl) {?><h1 class="nf">Comments</h1>
 	  
@@ -91,8 +91,4 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					</div>
 				</div>
 
-				<script>
-					var converter = Markdown.getSanitizingConverter();
-    				var editor = new Markdown.Editor(converter);
-   	   				editor.run();
-				</script>  					<?php }} ?>
+			  					<?php }} ?>

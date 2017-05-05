@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chipper News</title>
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/bootstrap.min.css">
-    <!-- Optional Bootstrap theme -->
-    <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="{$BASE_URL}js/bootstrap.min.js"></script>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -34,7 +32,24 @@
                         <p>{$art.lead}</p>
                         {foreach $subcategories as $subart}
                             {$sub = fetchSubcategory($subart.sub_id)}
-                            <span class="label label-success ">{$sub.name}</span>
+                            {if $sub.category==1}
+                                <span class="label label-primary ">{$sub.name}</span>
+                            {/if}
+                            {if $sub.category==2}
+                                <span class="label label-warning ">{$sub.name}</span>
+                            {/if}
+                            {if $sub.category==3}
+                                <span class="label label-info ">{$sub.name}</span>
+                            {/if}
+                            {if $sub.category==4}
+                                <span class="label label-default ">{$sub.name}</span>
+                            {/if}
+                            {if $sub.category==5}
+                                <span class="label label-danger ">{$sub.name}</span>
+                            {/if}
+                            {if $sub.category==6}
+                                <span class="label label-success ">{$sub.name}</span>
+                            {/if}     
                         {/foreach}
                     </div>
                 </a>
@@ -53,7 +68,24 @@
             <p>{$art.lead}</p>
             {foreach $subcategories as $subart}
                 {$sub = fetchSubcategory($subart.sub_id)}
-                <span class="label label-success ">{$sub.name}</span>
+               {if $sub.category==1}
+                 <span class="label label-primary ">{$sub.name}</span>
+               {/if}
+               {if $sub.category==2}
+                  <span class="label label-warning ">{$sub.name}</span>
+               {/if}
+               {if $sub.category==3}
+                  <span class="label label-info ">{$sub.name}</span>
+               {/if}
+               {if $sub.category==4}
+                  <span class="label label-default ">{$sub.name}</span>
+               {/if}
+               {if $sub.category==5}
+                  <span class="label label-danger ">{$sub.name}</span>
+               {/if}
+               {if $sub.category==6}
+                  <span class="label label-success ">{$sub.name}</span>
+               {/if}     
             {/foreach}
             <p><a class="btn btn-secondary " href="{$BASE_URL}pages/articles/article?id={$art.article_id}" role="button ">View details »</a></p>
             </div>

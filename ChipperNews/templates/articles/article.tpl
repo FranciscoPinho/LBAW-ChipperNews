@@ -6,92 +6,71 @@
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/bootstrap.min.css">
 	<link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato|Lora|Playfair+Display:700" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-header.css">
-	<script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Editor.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Sanitizer.js"></script>
+    <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/bootstrap-social.css">
 	<link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-article.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://www.w3schools.com/lib/w3data.js"></script>	
 	<script src="{$BASE_URL}js/bootstrap.min.js"></script>
 
-	<style>
-    .wmd-button > span {
-        background-image: 
-          url('//cdn.rawgit.com/derobins/wmd/master/images/wmd-buttons.png');
-        background-repeat: no-repeat;
-        background-position: 0px 0px;
-        width: 20px;
-        height: 20px;
-        display: inline-block;
-    }
-	</style>
+
 </head>
 
-	<div id="bg">
-			<img class="bg" src="{$BASE_URL}images/assets/circuit.jpg" alt="">
-		</div>
+
+<div id="bg">
+	<img class="bg" src="{$BASE_URL}images/assets/circuit.jpg" alt="">
+</div>
+
 <div class="container article-snip" id="article-snip-5">
 		<br>
-		<h2 id="archived"><a href=# style="color:grey;text-decoration:none;" id="articleAnchor">3 Reasons why Javascript is setting the world on fire</a></h3>
+		<h2 id="headline">{$article.title}</h2>
 			<h6>By <a style="color:black; font-style:italic">Theodore Reesevolts Moronson</a> 2/5/2013</h6>
-			<span class="label label-info" style="background-color:grey">Archived</span>
-			<span class="label label-info">Programming</span>
-			<h3>It may not be the cleanest language but it's surely useful</h3>
-			<div id="ratings4">
-					<span id="postext4" style="color:#357266">5023</span>
+            {$subcategories = fetchSubcategories($article.article_id)}
+			 {foreach $subcategories as $subart}
+                            {$sub = fetchSubcategory($subart.sub_id)}
+                            {if $sub.category==1}
+                                <span class="label label-primary ">{$sub.name}</span>
+                            {/if}
+                            {if $sub.category==2}
+                                <span class="label label-warning ">{$sub.name}</span>
+                            {/if}
+                            {if $sub.category==3}
+                                <span class="label label-info ">{$sub.name}</span>
+                            {/if}
+                            {if $sub.category==4}
+                                <span class="label label-default ">{$sub.name}</span>
+                            {/if}
+                            {if $sub.category==5}
+                                <span class="label label-danger ">{$sub.name}</span>
+                            {/if}
+                            {if $sub.category==6}
+                                <span class="label label-success ">{$sub.name}</span>
+                            {/if}     
+            {/foreach}
+			<h3 id="lead">{$article.lead}</h3>
+			<div id="ratings">
+					<span id="postext4" style="color:#357266">{$article.posratings}</span>
 					<button type="button" class="btn btn-default btn-circle btnlike">
-					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;"> 
+					<img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
 					</button>
-					<span id="negtext4" style="color:#f11066">621</span>
+					<span id="negtext4" style="color:#f11066">{$article.negratings}</span>
 					<button type="button" class="btn btn-default btn-circle btndislike">
-					<img src="./img/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
+					<img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 					</button>
 
-					<script>
-						$('#ratings4').find('.btn.btn-default.btn-circle.btnlike').on("click", function () {
-
-							if ($('#ratings4').find('.btn.btn-default.btn-circle.btndislike').is(":disabled")) {
-								$('#ratings4').find('.btn.btn-default.btn-circle.btndislike').prop("disabled", false);
-								$('span#postext4').empty();
-								$('span#postext4').append('5023');
-							} else {
-								$('#ratings4').find('.btn.btn-default.btn-circle.btndislike').prop("disabled", true);
-								$('span#postext4').empty();
-								$('span#postext4').append('5024');
-							}
-						});
-
-						$('#ratings4').find('.btn.btn-default.btn-circle.btndislike').on("click", function () {
-
-							if ($('#ratings4').find('.btn.btn-default.btn-circle.btnlike').is(":disabled")) {
-								$('#ratings4').find('.btn.btn-default.btn-circle.btnlike').prop("disabled", false);
-								$('span#negtext4').empty();
-								$('span#negtext4').append('621');
-							} else {
-								$('#ratings4').find('.btn.btn-default.btn-circle.btnlike').prop("disabled", true);
-								$('span#negtext4').empty();
-								$('span#negtext4').append('622');
-							}
-						});
-					</script>
 			</div>
 			<br>
 			<div id="article-body-5">
-						<div class="container" style=" width: 40%; height: 30%; margin-bottom:5%">
-			<img src="img\javascript.jpg" alt="..." style=" width: 100%; height: auto; border-radius:5%">
-		</div>
-				<p>There are a couple of reasons:</p>
-				<p>&emsp;1.Web is the dominant platform and you can find web enabled devices everywhere. And as you know JavaScript is a vital part of it.</p>
-				<p>&emsp;2.Node.js helped to pave way towards JavaScript on the backend. It has become hugely popular.</p>
-				<p>&emsp;3.npm, Node's package manager, has contributed towards this development. As a result it has become the most popular package manager out there.</p>
-				<p>This isn't an exhaustive list but from my perspective these are the dominant factors. Just the fact that JavaScript is so popular keeps on making it more popular. As a result I expect it will sustain its popularity for a long time to come.</p>
-				<br>
-			</div>
-</div>
-
-	 
-	     <div class="row">
+                <div class="container" style=" width: 40%; height: 30%; margin-bottom:5%">
+                    <img src="{$BASE_URL}images\articles\{$article.article_id}" alt="..." style=" width: 100%; height: auto; border-radius:5%">
+                </div>
+                <div id="content" class="container" style=" width: 100%; height: auto;">
+                {$article.content}
+                </div>
+            </div>		
+   </div>
+   <!-- ONLY SHOW COMMENT BOX IF LOGGED IN -->
+   {if $USERNAME}
+   <div class="row">
     
     <div class="col-md-6 col-md-offset-3">
     						<div class="widget-area no-padding blank">
@@ -116,6 +95,8 @@
 		
 		</div>
 	</div>
+    {/if}
+
 	 <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton"><span class="droptext">Newest</span>
 		<span class="caret caret-reversed"></span> 

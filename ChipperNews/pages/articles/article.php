@@ -1,10 +1,11 @@
 <?php
   include_once('../../config/init.php');
   include_once($BASE_DIR .'database/articles.php');
+  include_once($BASE_DIR .'database/users.php');
   include_once($BASE_DIR .'database/categories.php');
 
-  $articles = getArticles();
-  $smarty->assign('articles', $articles);
+  $article = getArticle($_GET['id']);
+  $smarty->assign('article', $article);
 
    function fetchSubcategories($article_id)
    {
