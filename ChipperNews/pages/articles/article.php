@@ -17,6 +17,10 @@
      $subcategory = getSubcategory($sub_id);
      return $subcategory[0];
    }
+   function fetchComments($article_id){
+       $comments = getArticleComments($article_id);
+       return $comments;
+   }
 
   $smarty->display('common/header.tpl');
   $smarty->display('articles/article.tpl');

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-07 17:34:42
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-07 18:28:35
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\article.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:277590ce55d4a1b31-41011843%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7d792418e426454ef503ca655ff6731fbac31125' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article.tpl',
-      1 => 1494178161,
+      1 => 1494181714,
       2 => 'file',
     ),
   ),
@@ -145,27 +145,9 @@ images\articles\<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'
 								</div><!-- Status Upload  -->
 							</div><!-- Widget Area -->
 	</div>
-     
-    <div class="container comment-main-level"style="height:300px; margin-top:20%">
-		<h1 class="nf" style="padding-left:0; border-bottom:solid 1px">Comment Preview</h1>
-		<div id="wmd-preview" class="wmd-panel wmd-preview" style="width:100%; margin:0;"></div>
-		
-		</div>
-	</div>
+    </div>
     <?php }?>
 
-	 <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton"><span class="droptext">Newest</span>
-		<span class="caret caret-reversed"></span> 
-		</button>
-                <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">
-                    <li><a href="#" onclick="changeDropdown('Newest')">Newest</a></li>
-                    <li><a href="#" onclick="changeDropdown('Oldest')">Oldest</a></li>
-                    <li><a href="#" onclick="changeDropdown('Popular')">Popular</a></li>
-                    <li><a href="#" onclick="changeDropdown('Controversial')">Controversial</a></li>
-                </ul>
-            </div>
-        </div>
 	
 
 

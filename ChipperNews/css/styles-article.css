@@ -14,7 +14,8 @@
 }
 .nf {
     font-family: 'webfontbold';
-    padding-left:1%;
+    padding-left:8%;
+    margin-top:0;
     font-size: 40px;
     font-weight: 600;
     color: #1E352F;
@@ -272,8 +273,6 @@ img.bg {
 
 .dropdown{
      margin-right:7%;
-     margin-top:4%;
-
 }
 #dropdownbutton {
   background: #7EB09B;
