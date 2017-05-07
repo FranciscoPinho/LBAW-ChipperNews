@@ -2,7 +2,7 @@
   function getArticle($article_id)
   {
     global $conn;
-    $stmt = $conn->prepare("SELECT article.*, COALESCE(SUM(rating_article.score),0) AS sum_score,
+    $stmt = $conn->prepare("SELECT article.*,users.name AS authorname, COALESCE(SUM(rating_article.score),0) AS sum_score,
           (SELECT COUNT(rating_article.score) 
            FROM rating_article
            WHERE  rating_article.score=1 AND rating_article.article_id = ?) AS posratings,
@@ -10,9 +10,10 @@
           FROM rating_article
           WHERE rating_article.score=-1 AND rating_article.article_id = ?) AS negratings 
           FROM article  
-          LEFT JOIN rating_article ON article.article_id=rating_article.article_id   
+          LEFT JOIN rating_article ON article.article_id=rating_article.article_id
+          LEFT JOIN users ON article.author=users.user_id
           WHERE article.article_id = ?  
-          GROUP BY article.author,article.article_id 
+          GROUP BY article.author,users.name,article.article_id 
         ");
     $stmt->execute(array($article_id,$article_id,$article_id));
     $article= $stmt->fetchAll();

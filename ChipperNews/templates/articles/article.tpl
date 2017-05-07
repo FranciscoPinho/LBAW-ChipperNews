@@ -23,7 +23,7 @@
 <div class="container article-snip" id="article-snip-5">
 		<br>
 		<h2 id="headline">{$article.title}</h2>
-			<h6>By <a style="color:black; font-style:italic">Theodore Reesevolts Moronson</a> 2/5/2013</h6>
+			<h6>By <a href={$BASE_URL}pages/users/viewprofile?id={$article.author} style="color:black; font-style:italic">{$article.authorname}</a> {$article.published_date}</h6>
             {$subcategories = fetchSubcategories($article.article_id)}
 			 {foreach $subcategories as $subart}
                             {$sub = fetchSubcategory($subart.sub_id)}
@@ -56,7 +56,6 @@
 					<button type="button" class="btn btn-default btn-circle btndislike">
 					<img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 					</button>
-
 			</div>
 			<br>
 			<div id="article-body-5">

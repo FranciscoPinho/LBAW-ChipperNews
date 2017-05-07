@@ -67,3 +67,26 @@ h1 {
     cursor: pointer;
     cursor: hand;
 }
+
+.btn.btn-default.btn-circle.btndislike {
+   width:3%;
+  height:auto;
+  background-color:#FFFAF0;
+  line-height: 0px; /* adjust line height to align vertically*/
+  padding:0;
+  border-radius: 50%;
+}
+
+.btn.btn-default.btn-circle.btnlike {
+  width:3%;
+  height:auto;
+  background-color:#FFFAF0;
+  line-height: 0px; /* adjust line height to align vertically*/
+  padding:0;
+  border-radius: 50%;
+}
+#ratings {
+  font-family: 'webfontbold';
+  font-size: 15px;
+  font-weight: 600;
+}

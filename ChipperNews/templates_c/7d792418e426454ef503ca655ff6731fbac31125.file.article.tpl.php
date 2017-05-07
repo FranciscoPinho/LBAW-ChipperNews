@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-05 22:35:56
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-07 17:34:42
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\article.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:277590ce55d4a1b31-41011843%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7d792418e426454ef503ca655ff6731fbac31125' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article.tpl',
-      1 => 1494023752,
+      1 => 1494178161,
       2 => 'file',
     ),
   ),
@@ -59,7 +59,11 @@ images/assets/circuit.jpg" alt="">
 		<br>
 		<h2 id="headline"><?php echo $_smarty_tpl->tpl_vars['article']->value['title'];?>
 </h2>
-			<h6>By <a style="color:black; font-style:italic">Theodore Reesevolts Moronson</a> 2/5/2013</h6>
+			<h6>By <a href=<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/viewprofile?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['author'];?>
+ style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['article']->value['authorname'];?>
+</a> <?php echo $_smarty_tpl->tpl_vars['article']->value['published_date'];?>
+</h6>
             <?php $_smarty_tpl->tpl_vars['subcategories'] = new Smarty_variable(fetchSubcategories($_smarty_tpl->tpl_vars['article']->value['article_id']), null, 0);?>
 			 <?php  $_smarty_tpl->tpl_vars['subart'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['subart']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['subcategories']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -107,7 +111,6 @@ images/assets/chipart1.png" alt="" style="width:100%;height:100%;">
 					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 					</button>
-
 			</div>
 			<br>
 			<div id="article-body-5">

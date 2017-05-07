@@ -11,7 +11,7 @@
     <script src="{$BASE_URL}js/bootstrap.min.js"></script>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/bootstrap-social.css">
-    <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-ricardo.css">
+    <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-frontpage.css">
     <link href="https://fonts.googleapis.com/css?family=Lato|Lora|Playfair+Display:700" rel="stylesheet">
 
 </head>
@@ -27,6 +27,16 @@
             <div class="col-sm-6 col-md-4 ">
                 <a class="thumbnail " href="{$BASE_URL}pages/articles/article?id={$art.article_id}" style="text-decoration:none ">
                     <img src="{$BASE_URL}images\articles\{$art.article_id}" alt="... ">
+                    <div id="ratings">
+                        <span id="postext4" style="color:#357266">{$art.posratings}</span>
+                        <button type="button" class="btn btn-default btn-circle btnlike">
+                        <img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
+                        </button>
+                        <span id="negtext4" style="color:#f11066">{$art.negratings}</span>
+                        <button type="button" class="btn btn-default btn-circle btndislike">
+                        <img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
+                        </button>
+			        </div>
                     <div class="caption ">
                         <h3>{$art.title}</h3>
                         <p>{$art.lead}</p>
@@ -65,6 +75,16 @@
             {$subcategories = fetchSubcategories($art.article_id)}
             <div class="col-6 col-lg-4 ">
             <h2>{$art.title}</h2>
+             <div id="ratings">
+                        <span id="postext4" style="color:#357266">{$art.posratings}</span>
+                        <button type="button" class="btn btn-default btn-circle btnlike">
+                        <img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
+                        </button>
+                        <span id="negtext4" style="color:#f11066">{$art.negratings}</span>
+                        <button type="button" class="btn btn-default btn-circle btndislike">
+                        <img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
+                        </button>
+			</div>
             <p>{$art.lead}</p>
             {foreach $subcategories as $subart}
                 {$sub = fetchSubcategory($subart.sub_id)}
