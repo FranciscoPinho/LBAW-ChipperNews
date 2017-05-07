@@ -109,10 +109,67 @@
 
   }
 
-  function editUser($user_id, $username, $name, $local_id, $email, $bio, $birthdate)
+ function editUser($user_id, $name, $email, $bio, $assoc_publications)
   {
-    //usar concatenacao strings?
+    //convert to smarty
+    //botoes e settings tab
+    //adicionar localidade e password
+    global $conn;
+    $query = "UPDATE users SET ";
+    $columns = 0;
+   
+    if ($name!=null)
+    {
+      $query .= ($columns > 0 ? ', name = :name' : 'name = :name');
+      $columns++;
+    }
+ 
+    if ($email!=null)
+    {
+      $query .= ($columns > 0 ? ', email = :email' : 'email = :email');
+      $columns++;
+    }
+ 
+    if ($bio != null)
+    {
+      $query .= ($columns > 0 ? ', bio = :bio' : 'bio = :bio');
+      $columns++;
+    }
 
+    if ($assoc_publications != null)
+    {
+      $query .= ($columns > 0 ? ', assoc_publications = :assoc_publications' : 'assoc_publications = :assoc_publications');
+      $columns++;
+    }
+   
+    $query .= ' WHERE user_id = :user_id';
+   
+    $stmt = $conn->prepare($query);
+   
+    $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+   
+    if ($name != null)
+    {
+      $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+    }
+ 
+    if ($email != null)
+    {
+      $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+    }
+   
+    if ($bio != null)
+    {
+      $stmt->bindParam(':bio', $bio, PDO::PARAM_STR);
+    }
+
+    if ($assoc_publications != null)
+    {
+      $stmt->bindParam(':assoc_publications', $assoc_publications, PDO::PARAM_STR);
+    }
+ 
+    $stmt->execute();
+    return $stmt->rowCount();
   }
 
   //useful for debugging

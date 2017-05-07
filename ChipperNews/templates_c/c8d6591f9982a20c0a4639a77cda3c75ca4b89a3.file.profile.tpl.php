@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-01 19:54:02
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-04 18:14:14
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:619859077a3c36c607-44707552%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c8d6591f9982a20c0a4639a77cda3c75ca4b89a3' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
-      1 => 1493668436,
+      1 => 1493746899,
       2 => 'file',
     ),
   ),
@@ -92,7 +92,7 @@ pages/users/myarticles.php">
                 </ul>
                 <!-- /.nav -->
             </div>
-            
+
             <div class="col-sm-9">
                 <div class="panel panel-default">
                     <div class="panel-heading resume-heading">
@@ -131,7 +131,6 @@ pages/users/myarticles.php">
                                                 <li class="list-group-item"><b>Bio: </b> Tech savvy and bad friends with trees. <i class="fa fa-pencil"></i></li>
                                                 <li class="list-group-item"><b>Last logged in: </b> 2017-03-01, 22h03 <i class="fa fa-pencil"></i></li>
                                                 <li class="list-group-item"><b>Associated newspapers or publications: </b>New York Times <i class="fa fa-pencil"></i></li>
-                                                <li class="list-group-item"><b>Password: </b>********** <i class="fa fa-pencil"></i></li>
                                             </ul>
                                         </div>
                                         <div class="tab-pane fade" id="interests">
