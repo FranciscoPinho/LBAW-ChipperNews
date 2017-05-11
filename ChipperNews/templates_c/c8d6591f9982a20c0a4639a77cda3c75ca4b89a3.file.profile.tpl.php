@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-04 18:14:14
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-11 20:49:41
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:619859077a3c36c607-44707552%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c8d6591f9982a20c0a4639a77cda3c75ca4b89a3' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
-      1 => 1493746899,
+      1 => 1494535767,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'BASE_URL' => 0,
+    'username' => 0,
+    'user' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -97,8 +99,10 @@ pages/users/myarticles.php">
                 <div class="panel panel-default">
                     <div class="panel-heading resume-heading">
                         <div class="col-lg-12">
-                            <h3>johnny_boy</h3>
-                            <h5>John Doe <small>324 points</small> </h5>
+                            <h3> <?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+ </h3>
+                            <h5> <?php echo $_smarty_tpl->tpl_vars['user']->value['name'];?>
+ <small> some rep points? </small> </h5>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
@@ -110,10 +114,25 @@ pages/users/myarticles.php">
                                         <div class="col-lg-12">
                                             <div class="col-xs-12 col-sm-8">
                                                 <p>
-                                                    <i class="fa fa-certificate" aria-hidden="false"></i> Administrator
-                                                    <br/><i class="fa fa-envelope" aria-hidden="false"></i> john@doe.com
-                                                    <br/> <i class="fa fa-map-marker" aria-hidden="false"></i> United States of America
-                                                    <br/> <i class="fa fa-birthday-cake" aria-hidden="false"></i> August 1st
+                                                    <i class="fa fa-certificate" aria-hidden="false"></i>
+                                                    <?php if ($_smarty_tpl->tpl_vars['user']->value['permission_level']=='0') {?>
+                                                    Reader
+                                                    <?php } elseif ($_smarty_tpl->tpl_vars['user']->value['permission_level']=='1') {?>
+                                                    Collaborator
+                                                    <?php } elseif ($_smarty_tpl->tpl_vars['user']->value['permission_level']=='2') {?>
+                                                    Moderator
+                                                    <?php } else { ?>
+                                                    Administrator
+                                                    <?php }?>
+                                                    <br/><i class="fa fa-envelope" aria-hidden="false"><span style="font-family:arial">&nbsp<?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
+</span></i>
+                                                    <br/><i class="fa fa-map-marker" aria-hidden="false"></i> <?php echo $_smarty_tpl->tpl_vars['user']->value['local'];?>
+
+                                                    <?php if ((ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate'])!=0)||!($_smarty_tpl->tpl_vars['user']->value['hide_birthdate'])) {?>
+                                                    <br/> <i class="fa fa-birthday-cake" aria-hidden="false"></i> 
+                                                    <?php echo ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate']);?>
+ years old
+                                                    <?php }?>
                                                 </p>
                                             </div>
                                         </div>
@@ -127,10 +146,13 @@ pages/users/myarticles.php">
                                     <div id="myTabContent" class="tab-content">
                                         <div class="tab-pane fade active in" id="info">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><b>Full name:</b> John Doe <i class="fa fa-pencil"></i></li>
-                                                <li class="list-group-item"><b>Bio: </b> Tech savvy and bad friends with trees. <i class="fa fa-pencil"></i></li>
+                                                <li class="list-group-item"><b>Full name:</b> <?php echo $_smarty_tpl->tpl_vars['user']->value['name'];?>
+ <i class="fa fa-pencil"></i></li>
+                                                <li class="list-group-item"><b>Bio: </b> <?php echo $_smarty_tpl->tpl_vars['user']->value['bio'];?>
+ <i class="fa fa-pencil"></i></li>
                                                 <li class="list-group-item"><b>Last logged in: </b> 2017-03-01, 22h03 <i class="fa fa-pencil"></i></li>
-                                                <li class="list-group-item"><b>Associated newspapers or publications: </b>New York Times <i class="fa fa-pencil"></i></li>
+                                                <li class="list-group-item"><b>Associated newspapers or publications: </b><?php echo $_smarty_tpl->tpl_vars['user']->value['assoc_publications'];?>
+<i class="fa fa-pencil"></i></li>
                                             </ul>
                                         </div>
                                         <div class="tab-pane fade" id="interests">

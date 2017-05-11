@@ -62,8 +62,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading resume-heading">
                         <div class="col-lg-12">
-                            <h3>johnny_boy</h3>
-                            <h5>John Doe <small>324 points</small> </h5>
+                            <h3> {$username} </h3>
+                            <h5> {$user.name} <small> some rep points? </small> </h5>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
@@ -75,10 +75,22 @@
                                         <div class="col-lg-12">
                                             <div class="col-xs-12 col-sm-8">
                                                 <p>
-                                                    <i class="fa fa-certificate" aria-hidden="false"></i> Administrator
-                                                    <br/><i class="fa fa-envelope" aria-hidden="false"></i> john@doe.com
-                                                    <br/> <i class="fa fa-map-marker" aria-hidden="false"></i> United States of America
-                                                    <br/> <i class="fa fa-birthday-cake" aria-hidden="false"></i> August 1st
+                                                    <i class="fa fa-certificate" aria-hidden="false"></i>
+                                                    {if $user.permission_level eq '0'}
+                                                    Reader
+                                                    {elseif $user.permission_level eq '1'}
+                                                    Collaborator
+                                                    {elseif $user.permission_level eq '2'}
+                                                    Moderator
+                                                    {else}
+                                                    Administrator
+                                                    {/if}
+                                                    <br/><i class="fa fa-envelope" aria-hidden="false"><span style="font-family:arial">&nbsp{$user.email}</span></i>
+                                                    <br/><i class="fa fa-map-marker" aria-hidden="false"></i> {$user.local}
+                                                    {if (ageCalc($user.birthdate) neq 0) || !($user.hide_birthdate)}
+                                                    <br/> <i class="fa fa-birthday-cake" aria-hidden="false"></i> 
+                                                    {ageCalc($user.birthdate)} years old
+                                                    {/if}
                                                 </p>
                                             </div>
                                         </div>
@@ -92,10 +104,10 @@
                                     <div id="myTabContent" class="tab-content">
                                         <div class="tab-pane fade active in" id="info">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><b>Full name:</b> John Doe <i class="fa fa-pencil"></i></li>
-                                                <li class="list-group-item"><b>Bio: </b> Tech savvy and bad friends with trees. <i class="fa fa-pencil"></i></li>
+                                                <li class="list-group-item"><b>Full name:</b> {$user.name} <i class="fa fa-pencil"></i></li>
+                                                <li class="list-group-item"><b>Bio: </b> {$user.bio} <i class="fa fa-pencil"></i></li>
                                                 <li class="list-group-item"><b>Last logged in: </b> 2017-03-01, 22h03 <i class="fa fa-pencil"></i></li>
-                                                <li class="list-group-item"><b>Associated newspapers or publications: </b>New York Times <i class="fa fa-pencil"></i></li>
+                                                <li class="list-group-item"><b>Associated newspapers or publications: </b>{$user.assoc_publications}<i class="fa fa-pencil"></i></li>
                                             </ul>
                                         </div>
                                         <div class="tab-pane fade" id="interests">

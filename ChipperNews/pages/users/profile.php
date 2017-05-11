@@ -6,9 +6,12 @@
     header('Location: ' . $BASE_URL);
     exit;
   }
+  
   $countries=getAllCountries();
-
- 
+  $user=$_SESSION['userinfo'];
+  $smarty->assign('user', $user);
+  $smarty->assign('username', $_SESSION['username']);
+  
   $smarty->assign('title', 'Profile');
   $smarty->assign('countries',$countries);
   $smarty->display('common/header.tpl');

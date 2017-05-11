@@ -68,9 +68,18 @@
     $permission = $stmt->fetchColumn();
     return $permission;
   }
+
+  function getUser($user_id)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM users WHERE user_id = ?");
+    $stmt->execute(array($user_id));
+    return $stmt->fetchAll();
+  }
+
   function getUserInfo($username){
     global $conn;
-    $stmt = $conn->prepare("SELECT user_id,users.name,permission_level,localization.name AS local,email,bio,birthdate,last_login,assoc_publications,hide_posthistory,hide_local,hide_birthdate,hide_email
+    $stmt = $conn->prepare("SELECT user_id,users.name AS name, permission_level,localization.name AS local,email,bio,birthdate,last_login,assoc_publications,hide_posthistory,hide_local,hide_birthdate,hide_email
                             FROM users 
                             LEFT JOIN localization ON users.local_id=localization.local_id
                             WHERE username = ?");
@@ -88,6 +97,20 @@
     $userinterests = $stmt->fetchColumn();
     return $userinterests;
   }
+
+function ageCalc($birthdate){
+    if(!empty($birthdate))
+    {
+        $birthdate2 = new DateTime($birthdate);
+        $today   = new DateTime('today');
+        $age = $birthdate2->diff($today)->y;
+        return $age;
+    }
+    else
+    {
+        return 0;
+    }
+}
   function getAllUsers()
   {
     global $conn;
