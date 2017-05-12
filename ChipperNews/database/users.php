@@ -116,7 +116,7 @@
   function getImage($user_id)
   {
     $img = glob("../../images/users/{$user_id}.{jpg,jpeg,png}", GLOB_BRACE);
-    return $img != false ? $img[0] : "http://lorempixel.com/300/300";
+    return $img != false ? $img[0] : "http://lorempixel.com/300/300/";
   }
 
   function registerVisit($username)
@@ -145,14 +145,21 @@
     return $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
   }
 
-  function getCurrName()
+  function getNumberFriends($user_id)
   {
+    global $conn;
+    $stmt = $conn->prepare("SELECT * from friendship 
+    WHERE user_id1=:user_id1 OR user_id2=:user_id2 AND accepted=TRUE");
+    $stmt->bindParam(':user_id1', $user_id, PDO::PARAM_INT);
+    $stmt->bindParam(':user_id2', $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->rowCount();
 
   }
 
  function editUser($user_id, $name, $email, $bio, $assoc_publications)
   {
-    //convert to smarty
+    //points contribution rep
     //botoes e settings tab
     //adicionar localidade e password
     global $conn;

@@ -18,6 +18,25 @@
      return $subcategories;
   }
 
+  function getMostPopularArticle($user_id)
+  {
+      global $conn;
+      $stmt = $conn->prepare("SELECT article.*, COALESCE(SUM(rating_article.score),0) AS sum_score,
+       (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
+        (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE rating_article.score=-1 AND rating_article.article_id = article.article_id) AS negratings   
+        FROM article  
+        LEFT JOIN rating_article ON article.article_id=rating_article.article_id   
+        WHERE article.author=:author   
+        GROUP BY article.author,article.article_id 
+        LIMIT 1;");
+      $stmt->bindParam(':author', $user_id, PDO::PARAM_INT);
+      $stmt->execute();
+      return $stmt->fetchAll()[0];
+  }
   
   $smarty->assign('title', 'Profile');
   $smarty->assign('countries',$countries);

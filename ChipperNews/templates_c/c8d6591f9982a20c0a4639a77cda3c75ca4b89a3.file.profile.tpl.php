@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-12 17:31:53
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-12 19:19:08
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:619859077a3c36c607-44707552%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c8d6591f9982a20c0a4639a77cda3c75ca4b89a3' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
-      1 => 1494610311,
+      1 => 1494616745,
       2 => 'file',
     ),
   ),
@@ -20,11 +20,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'BASE_URL' => 0,
-    'username' => 0,
     'user' => 0,
+    'username' => 0,
     'utilizador' => 0,
     'interests' => 0,
     'interest' => 0,
+    'article' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -74,12 +75,14 @@ pages/users/posthistory.php"><i class="fa fa-book"></i> Comment History </a>
                     <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/friendlist.php">
-                            <i class="fa fa-users"></i> Friends <span class="label label-info pull-right inbox-notification">23</span>
+                            <i class="fa fa-users"></i> Friends <span class="label label-info pull-right inbox-notification"><?php echo getNumberFriends($_smarty_tpl->tpl_vars['user']->value['user_id']);?>
+</span>
                         </a>
                     </li>
                 </ul>
                 <!-- /.nav -->
 
+                <?php if ($_smarty_tpl->tpl_vars['user']->value['permission_level']>='1') {?>
                 <h5 class="nav-email-subtitle" style="color:black"><b>More Actions</b></h5>
                 <ul class="nav nav-pills nav-stacked nav-email mb-20 rounded shadow">
                     <li>
@@ -95,6 +98,7 @@ pages/users/myarticles.php">
                         </a>
                     </li>
                 </ul>
+                <?php }?>
                 <!-- /.nav -->
             </div>
 
@@ -133,7 +137,7 @@ pages/users/myarticles.php">
 </span></i>
                                                     <br/><i class="fa fa-map-marker" aria-hidden="false"></i> <?php echo $_smarty_tpl->tpl_vars['user']->value['local'];?>
 
-                                                    <?php if ((ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate'])!=0)||!($_smarty_tpl->tpl_vars['user']->value['hide_birthdate'])) {?>
+                                                    <?php if (((ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate'])!=0)&&!($_smarty_tpl->tpl_vars['user']->value['hide_birthdate']))) {?>
                                                     <br/> <i class="fa fa-birthday-cake" aria-hidden="false"></i> 
                                                     <?php echo ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate']);?>
  years old
@@ -203,62 +207,35 @@ $_smarty_tpl->tpl_vars['interest']->_loop = true;
                     </div>
                 </div>
                 <div class="bs-callout bs-callout-danger">
+                    <?php $_smarty_tpl->tpl_vars['article'] = new Smarty_variable(getMostPopularArticle($_smarty_tpl->tpl_vars['user']->value['user_id']), null, 0);?>
+                    <?php if ($_smarty_tpl->tpl_vars['article']->value!=null) {?>
                     <h4>Most Popular Contribution</h4>
                     <p>
-                        <small> <i> from </i></small><a href="article.html"><b>C++ is alive and kicking</b></a>
+                        <small> <i> from </i></small><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/articles/article?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
+"><b><?php echo $_smarty_tpl->tpl_vars['article']->value['title'];?>
+</b></a>
                         <div class="highlight">
-                            <i class="fa fa-quote-left" aria-hidden="false"></i> Even all the parallel programming languages/techniques (Cuda, MPI, etc) rely on your knowledge of C++ (pointer, dereferencing, arithmetic, etc) to accomplish a task. In my
-                            field of computer architecture, for instance, every famous simulator out there is written in C++. <i class="fa fa-quote-right" aria-hidden="false"></i>
+                            <i class="fa fa-quote-left" aria-hidden="false"></i> <?php echo $_smarty_tpl->tpl_vars['article']->value['lead'];?>
+ <i class="fa fa-quote-right" aria-hidden="false"></i>
                         </div>
                         <br>
                         <div id="ratings3">
-
-                            <span id="postext3" style="color:#357266">42</span>
+                            <span id="postext3" style="color:#357266"><?php echo $_smarty_tpl->tpl_vars['article']->value['posratings'];?>
+</span>
                             <button type="button" class="btn btn-default btn-circle btnlike">
 					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
 				</button>
-                            <span id="negtext3" style="color:#f11066">29</span>
+                            <span id="negtext3" style="color:#f11066"><?php echo $_smarty_tpl->tpl_vars['article']->value['negratings'];?>
+</span>
                             <button type="button" class="btn btn-default btn-circle btndislike">
 					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
-				</button>
-
-                            <script>
-                                $('#ratings3').find('.btn.btn-default.btn-circle.btnlike').on("click", function() {
-
-                                    if ($('#ratings3').find('.btn.btn-default.btn-circle.btndislike').is(
-                                            ":disabled")) {
-                                        $('#ratings3').find('.btn.btn-default.btn-circle.btndislike').prop(
-                                            "disabled", false);
-                                        $('span#postext3').empty();
-                                        $('span#postext3').append('42');
-                                    } else {
-                                        $('#ratings3').find('.btn.btn-default.btn-circle.btndislike').prop(
-                                            "disabled", true);
-                                        $('span#postext3').empty();
-                                        $('span#postext3').append('43');
-                                    }
-                                });
-
-                                $('#ratings3').find('.btn.btn-default.btn-circle.btndislike').on("click", function() {
-
-                                    if ($('#ratings3').find('.btn.btn-default.btn-circle.btnlike').is(
-                                            ":disabled")) {
-                                        $('#ratings3').find('.btn.btn-default.btn-circle.btnlike').prop(
-                                            "disabled", false);
-                                        $('span#negtext3').empty();
-                                        $('span#negtext3').append('29');
-                                    } else {
-                                        $('#ratings3').find('.btn.btn-default.btn-circle.btnlike').prop(
-                                            "disabled", true);
-                                        $('span#negtext3').empty();
-                                        $('span#negtext3').append('30');
-                                    }
-                                });
-                            </script>
+				</button>                
                         </div>
                     </p>
+                    <?php }?>
                 </div>
             </div>
         </div>
