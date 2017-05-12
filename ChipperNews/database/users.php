@@ -87,18 +87,19 @@
     $userinfo = $stmt->fetchAll();
     return $userinfo;
   }
-  function getUserInterests($username){
+
+  function getUserInterests($user_id){
     global $conn;
-    $stmt = $conn->prepare("SELECT name
+    $stmt = $conn->prepare("SELECT name, category
                             FROM subcategory 
                             LEFT JOIN user_interests ON subcategory.sub_id=user_interests.sub_id   
-                            WHERE USER.interests.user_id=?");
-    $stmt->execute(array($username));
-    $userinterests = $stmt->fetchColumn();
-    return $userinterests;
+                            WHERE user_interests.user_id=?");
+    $stmt->execute(array($user_id));
+    return $stmt->fetchAll();
   }
 
-function ageCalc($birthdate){
+  function ageCalc($birthdate)
+  {
     if(!empty($birthdate))
     {
         $birthdate2 = new DateTime($birthdate);
@@ -110,7 +111,23 @@ function ageCalc($birthdate){
     {
         return 0;
     }
-}
+  }
+
+  function getImage($user_id)
+  {
+    return $img != false ? $img[0] : "http://lorempixel.com/300/300";
+  }
+
+  function registerVisit($username)
+  {
+    global $conn;
+	  $stmt = $conn->prepare("UPDATE users SET last_login=:last_login WHERE username=:username");
+    $stmt->bindParam(':last_login', date("Y-m-d H:i:s"), PDO::PARAM_STR);
+    $stmt->bindParam(':username', $_SESSION['username'], PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll();
+  }
+
   function getAllUsers()
   {
     global $conn;

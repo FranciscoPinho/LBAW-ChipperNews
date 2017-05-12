@@ -69,7 +69,7 @@
                             <div class="col-lg-12">
                                 <div class="col-xs-12 col-sm-4">
                                     <figure>
-                                        <img class="img-responsive" id="profilepic" alt="" src="http://www.unipromo.com.au/Images/Articles/SaveYourSanity/BoxGuy_Small.jpg">
+                                        <img class="img-responsive" id="profilepic" alt="{$utilizador.username}" src="{$user.user_id|getImage}">
                                     </figure>
                                     <div class="text-content">
                                         <div class="col-lg-12">
@@ -106,14 +106,34 @@
                                             <ul class="list-group">
                                                 <li class="list-group-item"><b>Full name:</b> {$user.name} <i class="fa fa-pencil"></i></li>
                                                 <li class="list-group-item"><b>Bio: </b> {$user.bio} <i class="fa fa-pencil"></i></li>
-                                                <li class="list-group-item"><b>Last logged in: </b> 2017-03-01, 22h03 <i class="fa fa-pencil"></i></li>
+                                                <li class="list-group-item"><b>Last logged in: </b> {$user.last_login}</li>
                                                 <li class="list-group-item"><b>Associated newspapers or publications: </b>{$user.assoc_publications}<i class="fa fa-pencil"></i></li>
                                             </ul>
                                         </div>
                                         <div class="tab-pane fade" id="interests">
-                                            <p><span class="label label-info ">Programming</span>
-                                                <span class="label label-success ">Mobile</span>
-                                                <span class="label label-danger ">Politics</span></p>
+                                            <p>
+                                            {$interests = fetchInterests($user.user_id)}
+                                            {foreach $interests as $interest}
+                                                {if $interest.category==1}
+                                                    <span class="label label-primary ">{$interest.name}</span>
+                                                {/if}
+                                                {if $interest.category==2}
+                                                    <span class="label label-warning ">{$interest.name}</span>
+                                                {/if}
+                                                {if $interest.category==3}
+                                                    <span class="label label-info ">{$interest.name}</span>
+                                                {/if}
+                                                {if $interest.category==4}
+                                                    <span class="label label-default ">{$interest.name}</span>
+                                                {/if}
+                                                {if $interest.category==5}
+                                                    <span class="label label-danger ">{$interest.name}</span>
+                                                {/if}
+                                                {if $interest.category==6}
+                                                    <span class="label label-success ">{$interest.name}</span>
+                                                {/if}     
+                                            {/foreach}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

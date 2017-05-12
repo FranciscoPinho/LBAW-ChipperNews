@@ -1,6 +1,6 @@
 <?php
   include_once('../../config/init.php');
-  include_once($BASE_DIR .'database/users.php');
+  include_once($BASE_DIR .'database/users.php'); 
 
   if (!$_SESSION['username'] || !$_SESSION['user_id']) {
     header('Location: ' . $BASE_URL);
@@ -11,6 +11,13 @@
   $user=$_SESSION['userinfo'];
   $smarty->assign('user', $user);
   $smarty->assign('username', $_SESSION['username']);
+
+  function fetchInterests($user_id)
+  {
+     $subcategories = getUserInterests($user_id);
+     return $subcategories;
+  }
+
   
   $smarty->assign('title', 'Profile');
   $smarty->assign('countries',$countries);

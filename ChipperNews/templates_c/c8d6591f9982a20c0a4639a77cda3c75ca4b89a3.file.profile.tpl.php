@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-11 20:49:41
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-12 17:31:53
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:619859077a3c36c607-44707552%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c8d6591f9982a20c0a4639a77cda3c75ca4b89a3' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
-      1 => 1494535767,
+      1 => 1494610311,
       2 => 'file',
     ),
   ),
@@ -22,6 +22,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'BASE_URL' => 0,
     'username' => 0,
     'user' => 0,
+    'utilizador' => 0,
+    'interests' => 0,
+    'interest' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -108,7 +111,9 @@ pages/users/myarticles.php">
                             <div class="col-lg-12">
                                 <div class="col-xs-12 col-sm-4">
                                     <figure>
-                                        <img class="img-responsive" id="profilepic" alt="" src="http://www.unipromo.com.au/Images/Articles/SaveYourSanity/BoxGuy_Small.jpg">
+                                        <img class="img-responsive" id="profilepic" alt="<?php echo $_smarty_tpl->tpl_vars['utilizador']->value['username'];?>
+" src="<?php echo getImage($_smarty_tpl->tpl_vars['user']->value['user_id']);?>
+">
                                     </figure>
                                     <div class="text-content">
                                         <div class="col-lg-12">
@@ -150,15 +155,46 @@ pages/users/myarticles.php">
  <i class="fa fa-pencil"></i></li>
                                                 <li class="list-group-item"><b>Bio: </b> <?php echo $_smarty_tpl->tpl_vars['user']->value['bio'];?>
  <i class="fa fa-pencil"></i></li>
-                                                <li class="list-group-item"><b>Last logged in: </b> 2017-03-01, 22h03 <i class="fa fa-pencil"></i></li>
+                                                <li class="list-group-item"><b>Last logged in: </b> <?php echo $_smarty_tpl->tpl_vars['user']->value['last_login'];?>
+</li>
                                                 <li class="list-group-item"><b>Associated newspapers or publications: </b><?php echo $_smarty_tpl->tpl_vars['user']->value['assoc_publications'];?>
 <i class="fa fa-pencil"></i></li>
                                             </ul>
                                         </div>
                                         <div class="tab-pane fade" id="interests">
-                                            <p><span class="label label-info ">Programming</span>
-                                                <span class="label label-success ">Mobile</span>
-                                                <span class="label label-danger ">Politics</span></p>
+                                            <p>
+                                            <?php $_smarty_tpl->tpl_vars['interests'] = new Smarty_variable(fetchInterests($_smarty_tpl->tpl_vars['user']->value['user_id']), null, 0);?>
+                                            <?php  $_smarty_tpl->tpl_vars['interest'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['interest']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['interests']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['interest']->key => $_smarty_tpl->tpl_vars['interest']->value) {
+$_smarty_tpl->tpl_vars['interest']->_loop = true;
+?>
+                                                <?php if ($_smarty_tpl->tpl_vars['interest']->value['category']==1) {?>
+                                                    <span class="label label-primary "><?php echo $_smarty_tpl->tpl_vars['interest']->value['name'];?>
+</span>
+                                                <?php }?>
+                                                <?php if ($_smarty_tpl->tpl_vars['interest']->value['category']==2) {?>
+                                                    <span class="label label-warning "><?php echo $_smarty_tpl->tpl_vars['interest']->value['name'];?>
+</span>
+                                                <?php }?>
+                                                <?php if ($_smarty_tpl->tpl_vars['interest']->value['category']==3) {?>
+                                                    <span class="label label-info "><?php echo $_smarty_tpl->tpl_vars['interest']->value['name'];?>
+</span>
+                                                <?php }?>
+                                                <?php if ($_smarty_tpl->tpl_vars['interest']->value['category']==4) {?>
+                                                    <span class="label label-default "><?php echo $_smarty_tpl->tpl_vars['interest']->value['name'];?>
+</span>
+                                                <?php }?>
+                                                <?php if ($_smarty_tpl->tpl_vars['interest']->value['category']==5) {?>
+                                                    <span class="label label-danger "><?php echo $_smarty_tpl->tpl_vars['interest']->value['name'];?>
+</span>
+                                                <?php }?>
+                                                <?php if ($_smarty_tpl->tpl_vars['interest']->value['category']==6) {?>
+                                                    <span class="label label-success "><?php echo $_smarty_tpl->tpl_vars['interest']->value['name'];?>
+</span>
+                                                <?php }?>     
+                                            <?php } ?>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

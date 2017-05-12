@@ -16,6 +16,7 @@
     $_SESSION['user_id'] = getUserID($username);
     $_SESSION['username'] = $username;
     $_SESSION['userinfo'] = getUserInfo($username)[0];
+    registerVisit($username);
     $_SESSION['success_messages'][] = 'Hello '. $username . ', you have successfully logged in';  
   } 
    elseif(isUserBanned($username))
