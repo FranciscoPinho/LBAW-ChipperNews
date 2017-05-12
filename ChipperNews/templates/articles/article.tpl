@@ -26,24 +26,23 @@
 			<h6>By <a href={$BASE_URL}pages/users/viewprofile?id={$article.author} style="color:black; font-style:italic">{$article.authorname}</a> {$article.published_date}</h6>
             {$subcategories = fetchSubcategories($article.article_id)}
 			 {foreach $subcategories as $subart}
-                            {$sub = fetchSubcategory($subart.sub_id)}
-                            {if $sub.category==1}
-                                <span class="label label-primary ">{$sub.name}</span>
+                            {if $subart.category==1}
+                                <span class="label label-primary ">{$subart.name}</span>
                             {/if}
-                            {if $sub.category==2}
-                                <span class="label label-warning ">{$sub.name}</span>
+                            {if $subart.category==2}
+                                <span class="label label-warning ">{$subart.name}</span>
                             {/if}
-                            {if $sub.category==3}
-                                <span class="label label-info ">{$sub.name}</span>
+                            {if $subart.category==3}
+                                <span class="label label-info ">{$subart.name}</span>
                             {/if}
-                            {if $sub.category==4}
-                                <span class="label label-default ">{$sub.name}</span>
+                            {if $subart.category==4}
+                                <span class="label label-default ">{$subart.name}</span>
                             {/if}
-                            {if $sub.category==5}
-                                <span class="label label-danger ">{$sub.name}</span>
+                            {if $subart.category==5}
+                                <span class="label label-danger ">{$subart.name}</span>
                             {/if}
-                            {if $sub.category==6}
-                                <span class="label label-success ">{$sub.name}</span>
+                            {if $subart.category==6}
+                                <span class="label label-success ">{$subart.name}</span>
                             {/if}     
             {/foreach}
 			<h3 id="lead">{$article.lead}</h3>

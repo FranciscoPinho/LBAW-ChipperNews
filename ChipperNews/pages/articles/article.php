@@ -12,13 +12,20 @@
      $subcatories = getArticleSubcategories($article_id);
      return $subcatories;
    }
-   function fetchSubcategory($sub_id)
-   {
-     $subcategory = getSubcategory($sub_id);
-     return $subcategory[0];
-   }
    function fetchComments($article_id){
        $comments = getArticleComments($article_id);
+       return $comments;
+   }
+   function fetchOldestComments($article_id){
+       $comments = getArticleCommentsOldest($article_id);
+       return $comments;
+   }
+   function fetchPopularComments($article_id){
+       $comments = getArticleCommentsPopular($article_id);
+       return $comments;
+   }
+   function fetchControversialComments($article_id){
+       $comments = getArticleCommentsControversial($article_id);
        return $comments;
    }
 

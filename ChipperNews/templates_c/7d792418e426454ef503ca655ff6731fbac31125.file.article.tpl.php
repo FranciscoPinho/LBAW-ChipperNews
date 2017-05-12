@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-07 18:28:35
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-12 17:47:59
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\article.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:277590ce55d4a1b31-41011843%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7d792418e426454ef503ca655ff6731fbac31125' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article.tpl',
-      1 => 1494181714,
+      1 => 1494611205,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'article' => 0,
     'subcategories' => 0,
     'subart' => 0,
-    'sub' => 0,
     'USERNAME' => 0,
   ),
   'has_nocache_code' => false,
@@ -70,29 +69,28 @@ pages/users/viewprofile?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['
 foreach ($_from as $_smarty_tpl->tpl_vars['subart']->key => $_smarty_tpl->tpl_vars['subart']->value) {
 $_smarty_tpl->tpl_vars['subart']->_loop = true;
 ?>
-                            <?php $_smarty_tpl->tpl_vars['sub'] = new Smarty_variable(fetchSubcategory($_smarty_tpl->tpl_vars['subart']->value['sub_id']), null, 0);?>
-                            <?php if ($_smarty_tpl->tpl_vars['sub']->value['category']==1) {?>
-                                <span class="label label-primary "><?php echo $_smarty_tpl->tpl_vars['sub']->value['name'];?>
+                            <?php if ($_smarty_tpl->tpl_vars['subart']->value['category']==1) {?>
+                                <span class="label label-primary "><?php echo $_smarty_tpl->tpl_vars['subart']->value['name'];?>
 </span>
                             <?php }?>
-                            <?php if ($_smarty_tpl->tpl_vars['sub']->value['category']==2) {?>
-                                <span class="label label-warning "><?php echo $_smarty_tpl->tpl_vars['sub']->value['name'];?>
+                            <?php if ($_smarty_tpl->tpl_vars['subart']->value['category']==2) {?>
+                                <span class="label label-warning "><?php echo $_smarty_tpl->tpl_vars['subart']->value['name'];?>
 </span>
                             <?php }?>
-                            <?php if ($_smarty_tpl->tpl_vars['sub']->value['category']==3) {?>
-                                <span class="label label-info "><?php echo $_smarty_tpl->tpl_vars['sub']->value['name'];?>
+                            <?php if ($_smarty_tpl->tpl_vars['subart']->value['category']==3) {?>
+                                <span class="label label-info "><?php echo $_smarty_tpl->tpl_vars['subart']->value['name'];?>
 </span>
                             <?php }?>
-                            <?php if ($_smarty_tpl->tpl_vars['sub']->value['category']==4) {?>
-                                <span class="label label-default "><?php echo $_smarty_tpl->tpl_vars['sub']->value['name'];?>
+                            <?php if ($_smarty_tpl->tpl_vars['subart']->value['category']==4) {?>
+                                <span class="label label-default "><?php echo $_smarty_tpl->tpl_vars['subart']->value['name'];?>
 </span>
                             <?php }?>
-                            <?php if ($_smarty_tpl->tpl_vars['sub']->value['category']==5) {?>
-                                <span class="label label-danger "><?php echo $_smarty_tpl->tpl_vars['sub']->value['name'];?>
+                            <?php if ($_smarty_tpl->tpl_vars['subart']->value['category']==5) {?>
+                                <span class="label label-danger "><?php echo $_smarty_tpl->tpl_vars['subart']->value['name'];?>
 </span>
                             <?php }?>
-                            <?php if ($_smarty_tpl->tpl_vars['sub']->value['category']==6) {?>
-                                <span class="label label-success "><?php echo $_smarty_tpl->tpl_vars['sub']->value['name'];?>
+                            <?php if ($_smarty_tpl->tpl_vars['subart']->value['category']==6) {?>
+                                <span class="label label-success "><?php echo $_smarty_tpl->tpl_vars['subart']->value['name'];?>
 </span>
                             <?php }?>     
             <?php } ?>

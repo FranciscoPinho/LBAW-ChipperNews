@@ -16,7 +16,9 @@
     function getArticleSubcategories($article_id)
     {
         global $conn;
-        $stmt = $conn->prepare("SELECT * FROM article_category WHERE article_id = ?");
+        $stmt = $conn->prepare("SELECT article_category.sub_id AS sub_id,name,category FROM article_category LEFT JOIN subcategory ON 
+        article_category.sub_id=subcategory.sub_id 
+        WHERE article_id = ?");
         $stmt->execute(array($article_id));
         return $stmt->fetchAll();
     }
