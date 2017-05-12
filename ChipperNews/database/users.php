@@ -115,6 +115,7 @@
 
   function getImage($user_id)
   {
+    $img = glob("../../images/users/{$user_id}.{jpg,jpeg,png}", GLOB_BRACE);
     return $img != false ? $img[0] : "http://lorempixel.com/300/300";
   }
 
