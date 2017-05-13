@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-08 14:07:22
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-12 19:21:43
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\search\frontpage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2899658f7c78152d6e8-89439176%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6ecf89c9273741d7efc514f6fc5b2fbf45634b66' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\search\\frontpage.tpl',
-      1 => 1494189631,
+      1 => 1494616860,
       2 => 'file',
     ),
   ),
@@ -93,29 +93,28 @@ images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rota
 foreach ($_from as $_smarty_tpl->tpl_vars['subart']->key => $_smarty_tpl->tpl_vars['subart']->value) {
 $_smarty_tpl->tpl_vars['subart']->_loop = true;
 ?>
-                            <?php $_smarty_tpl->tpl_vars['sub'] = new Smarty_variable(fetchSubcategory($_smarty_tpl->tpl_vars['subart']->value['sub_id']), null, 0);?>
-                            <?php if ($_smarty_tpl->tpl_vars['sub']->value['category']==1) {?>
-                                <span class="label label-primary "><?php echo $_smarty_tpl->tpl_vars['sub']->value['name'];?>
+                            <?php if ($_smarty_tpl->tpl_vars['subart']->value['category']==1) {?>
+                                <span class="label label-primary "><?php echo $_smarty_tpl->tpl_vars['subart']->value['name'];?>
 </span>
                             <?php }?>
-                            <?php if ($_smarty_tpl->tpl_vars['sub']->value['category']==2) {?>
-                                <span class="label label-warning "><?php echo $_smarty_tpl->tpl_vars['sub']->value['name'];?>
+                            <?php if ($_smarty_tpl->tpl_vars['subart']->value['category']==2) {?>
+                                <span class="label label-warning "><?php echo $_smarty_tpl->tpl_vars['subart']->value['name'];?>
 </span>
                             <?php }?>
-                            <?php if ($_smarty_tpl->tpl_vars['sub']->value['category']==3) {?>
-                                <span class="label label-info "><?php echo $_smarty_tpl->tpl_vars['sub']->value['name'];?>
+                            <?php if ($_smarty_tpl->tpl_vars['subart']->value['category']==3) {?>
+                                <span class="label label-info "><?php echo $_smarty_tpl->tpl_vars['subart']->value['name'];?>
 </span>
                             <?php }?>
-                            <?php if ($_smarty_tpl->tpl_vars['sub']->value['category']==4) {?>
-                                <span class="label label-default "><?php echo $_smarty_tpl->tpl_vars['sub']->value['name'];?>
+                            <?php if ($_smarty_tpl->tpl_vars['subart']->value['category']==4) {?>
+                                <span class="label label-default "><?php echo $_smarty_tpl->tpl_vars['subart']->value['name'];?>
 </span>
                             <?php }?>
-                            <?php if ($_smarty_tpl->tpl_vars['sub']->value['category']==5) {?>
-                                <span class="label label-danger "><?php echo $_smarty_tpl->tpl_vars['sub']->value['name'];?>
+                            <?php if ($_smarty_tpl->tpl_vars['subart']->value['category']==5) {?>
+                                <span class="label label-danger "><?php echo $_smarty_tpl->tpl_vars['subart']->value['name'];?>
 </span>
                             <?php }?>
-                            <?php if ($_smarty_tpl->tpl_vars['sub']->value['category']==6) {?>
-                                <span class="label label-success "><?php echo $_smarty_tpl->tpl_vars['sub']->value['name'];?>
+                            <?php if ($_smarty_tpl->tpl_vars['subart']->value['category']==6) {?>
+                                <span class="label label-success "><?php echo $_smarty_tpl->tpl_vars['subart']->value['name'];?>
 </span>
                             <?php }?>     
                         <?php } ?>
@@ -154,12 +153,11 @@ images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rota
 			</div>
             <p><?php echo $_smarty_tpl->tpl_vars['art']->value['lead'];?>
 </p>
-            <?php  $_smarty_tpl->tpl_vars['subart'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['subart']->_loop = false;
+            <?php  $_smarty_tpl->tpl_vars['sub'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['sub']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['subcategories']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['subart']->key => $_smarty_tpl->tpl_vars['subart']->value) {
-$_smarty_tpl->tpl_vars['subart']->_loop = true;
+foreach ($_from as $_smarty_tpl->tpl_vars['sub']->key => $_smarty_tpl->tpl_vars['sub']->value) {
+$_smarty_tpl->tpl_vars['sub']->_loop = true;
 ?>
-                <?php $_smarty_tpl->tpl_vars['sub'] = new Smarty_variable(fetchSubcategory($_smarty_tpl->tpl_vars['subart']->value['sub_id']), null, 0);?>
                <?php if ($_smarty_tpl->tpl_vars['sub']->value['category']==1) {?>
                  <span class="label label-primary "><?php echo $_smarty_tpl->tpl_vars['sub']->value['name'];?>
 </span>

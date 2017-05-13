@@ -39,6 +39,9 @@
                             <i class="fa fa-users"></i> Friends <span class="label label-info pull-right inbox-notification">{$user.user_id|getNumberFriends}</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="{$BASE_URL}pages/users/settings.php"><i class="fa fa-cogs"></i> Settings </a>
+                    </li>
                 </ul>
                 <!-- /.nav -->
 
@@ -52,7 +55,7 @@
                     </li>
                     <li>
                         <a href="{$BASE_URL}pages/users/myarticles.php">
-                            <i class="fa fa-file-text-o"></i> Article History <span class="label label-info pull-right inbox-notification">6</span>
+                            <i class="fa fa-file-text-o"></i> Article History <span class="label label-info pull-right inbox-notification"></span>
                         </a>
                     </li>
                 </ul>
@@ -106,10 +109,10 @@
                                     <div id="myTabContent" class="tab-content">
                                         <div class="tab-pane fade active in" id="info">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><b>Full name:</b> {$user.name} <i class="fa fa-pencil"></i></li>
-                                                <li class="list-group-item"><b>Bio: </b> {$user.bio} <i class="fa fa-pencil"></i></li>
+                                                <li class="list-group-item"><b>Full name:</b> {$user.name} <a href="google.com" class="btn btn-default" title="Edit"> <i class="fa fa-pencil"></i> </a></li>
+                                                <li class="list-group-item"><b>Bio: </b> {$user.bio} <a href="google.com" class="btn btn-default" title="Edit"> <i class="fa fa-pencil"></i> </a></li>
                                                 <li class="list-group-item"><b>Last logged in: </b> {$user.last_login}</li>
-                                                <li class="list-group-item"><b>Associated newspapers or publications: </b>{$user.assoc_publications}<i class="fa fa-pencil"></i></li>
+                                                <li class="list-group-item"><b>Associated newspapers or publications: </b>{$user.assoc_publications} <a href="google.com" class="btn btn-default" title="Edit"> <i class="fa fa-pencil"></i> </a></i></li>
                                             </ul>
                                         </div>
                                         <div class="tab-pane fade" id="interests">
@@ -164,6 +167,8 @@
 				</button>                
                         </div>
                     </p>
+                    {else}
+                    <h5>This user has no contributions yet</h5>
                     {/if}
                 </div>
             </div>

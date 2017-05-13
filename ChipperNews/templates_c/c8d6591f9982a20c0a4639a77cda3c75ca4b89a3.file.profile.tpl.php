@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-12 19:19:08
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-13 19:39:30
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:619859077a3c36c607-44707552%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c8d6591f9982a20c0a4639a77cda3c75ca4b89a3' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
-      1 => 1494616745,
+      1 => 1494704367,
       2 => 'file',
     ),
   ),
@@ -79,6 +79,10 @@ pages/users/friendlist.php">
 </span>
                         </a>
                     </li>
+                    <li>
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/settings.php"><i class="fa fa-cogs"></i> Settings </a>
+                    </li>
                 </ul>
                 <!-- /.nav -->
 
@@ -94,7 +98,7 @@ pages/articles/newarticle.php">
                     <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/myarticles.php">
-                            <i class="fa fa-file-text-o"></i> Article History <span class="label label-info pull-right inbox-notification">6</span>
+                            <i class="fa fa-file-text-o"></i> Article History <span class="label label-info pull-right inbox-notification"></span>
                         </a>
                     </li>
                 </ul>
@@ -156,13 +160,13 @@ pages/users/myarticles.php">
                                         <div class="tab-pane fade active in" id="info">
                                             <ul class="list-group">
                                                 <li class="list-group-item"><b>Full name:</b> <?php echo $_smarty_tpl->tpl_vars['user']->value['name'];?>
- <i class="fa fa-pencil"></i></li>
+ <a href="google.com" class="btn btn-default" title="Edit"> <i class="fa fa-pencil"></i> </a></li>
                                                 <li class="list-group-item"><b>Bio: </b> <?php echo $_smarty_tpl->tpl_vars['user']->value['bio'];?>
- <i class="fa fa-pencil"></i></li>
+ <a href="google.com" class="btn btn-default" title="Edit"> <i class="fa fa-pencil"></i> </a></li>
                                                 <li class="list-group-item"><b>Last logged in: </b> <?php echo $_smarty_tpl->tpl_vars['user']->value['last_login'];?>
 </li>
                                                 <li class="list-group-item"><b>Associated newspapers or publications: </b><?php echo $_smarty_tpl->tpl_vars['user']->value['assoc_publications'];?>
-<i class="fa fa-pencil"></i></li>
+ <a href="google.com" class="btn btn-default" title="Edit"> <i class="fa fa-pencil"></i> </a></i></li>
                                             </ul>
                                         </div>
                                         <div class="tab-pane fade" id="interests">
@@ -235,6 +239,8 @@ images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rota
 				</button>                
                         </div>
                     </p>
+                    <?php } else { ?>
+                    <h5>This user has no contributions yet</h5>
                     <?php }?>
                 </div>
             </div>
