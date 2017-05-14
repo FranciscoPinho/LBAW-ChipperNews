@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-04 14:03:02
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-14 01:13:55
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:25195590b34960f0d48-49678860%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '77f825b8b977dbcb551f42f4ad1ac8cf5eb5f932' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
-      1 => 1493825892,
+      1 => 1494721276,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_590b3496194f68_55723827',
   'variables' => 
   array (
     'BASE_URL' => 0,
+    'user' => 0,
+    'username' => 0,
+    'utilizador' => 0,
+    'interests' => 0,
+    'interest' => 0,
+    'article' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_590b3496194f68_55723827',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_590b3496194f68_55723827')) {function content_590b3496194f68_55723827($_smarty_tpl) {?><!DOCTYPE html>
 <html>
@@ -69,12 +75,18 @@ pages/users/posthistory.php"><i class="fa fa-book"></i> Comment History </a>
                     <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/friendlist.php">
-                            <i class="fa fa-users"></i> Friends <span class="label label-info pull-right inbox-notification">23</span>
+                            <i class="fa fa-users"></i> Friends <span class="label label-info pull-right inbox-notification"><?php echo getNumberFriends($_smarty_tpl->tpl_vars['user']->value['user_id']);?>
+</span>
                         </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/settings.php"><i class="fa fa-cogs"></i> Settings </a>
                     </li>
                 </ul>
                 <!-- /.nav -->
 
+                <?php if ($_smarty_tpl->tpl_vars['user']->value['permission_level']>='1') {?>
                 <h5 class="nav-email-subtitle" style="color:black"><b>More Actions</b></h5>
                 <ul class="nav nav-pills nav-stacked nav-email mb-20 rounded shadow">
                     <li>
@@ -86,10 +98,11 @@ pages/articles/newarticle.php">
                     <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/myarticles.php">
-                            <i class="fa fa-file-text-o"></i> Article History <span class="label label-info pull-right inbox-notification">6</span>
+                            <i class="fa fa-file-text-o"></i> Article History <span class="label label-info pull-right inbox-notification"></span>
                         </a>
                     </li>
                 </ul>
+                <?php }?>
                 <!-- /.nav -->
             </div>
 
@@ -97,23 +110,42 @@ pages/users/myarticles.php">
                 <div class="panel panel-default">
                     <div class="panel-heading resume-heading">
                         <div class="col-lg-12">
-                            <h3>johnny_boy</h3>
-                            <h5>John Doe <small>324 points</small> </h5>
+                            <h3> <?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+ </h3>
+                            <h5> <?php echo $_smarty_tpl->tpl_vars['user']->value['name'];?>
+ <small> some rep points? </small> </h5>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="col-xs-12 col-sm-4">
                                     <figure>
-                                        <img class="img-responsive" id="profilepic" alt="" src="http://www.unipromo.com.au/Images/Articles/SaveYourSanity/BoxGuy_Small.jpg">
+                                        <img class="img-responsive" id="profilepic" alt="<?php echo $_smarty_tpl->tpl_vars['utilizador']->value['username'];?>
+" src="<?php echo getImage($_smarty_tpl->tpl_vars['user']->value['user_id']);?>
+">
                                     </figure>
                                     <div class="text-content">
                                         <div class="col-lg-12">
                                             <div class="col-xs-12 col-sm-8">
                                                 <p>
-                                                    <i class="fa fa-certificate" aria-hidden="false"></i> Administrator
-                                                    <br/><i class="fa fa-envelope" aria-hidden="false"></i> john@doe.com
-                                                    <br/> <i class="fa fa-map-marker" aria-hidden="false"></i> United States of America
-                                                    <br/> <i class="fa fa-birthday-cake" aria-hidden="false"></i> August 1st
+                                                    <i class="fa fa-certificate" aria-hidden="false"></i>
+                                                    <?php if ($_smarty_tpl->tpl_vars['user']->value['permission_level']=='0') {?>
+                                                    Reader
+                                                    <?php } elseif ($_smarty_tpl->tpl_vars['user']->value['permission_level']=='1') {?>
+                                                    Collaborator
+                                                    <?php } elseif ($_smarty_tpl->tpl_vars['user']->value['permission_level']=='2') {?>
+                                                    Moderator
+                                                    <?php } else { ?>
+                                                    Administrator
+                                                    <?php }?>
+                                                    <br/><i class="fa fa-envelope" aria-hidden="false"><span style="font-family:arial">&nbsp<?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
+</span></i>
+                                                    <br/><i class="fa fa-map-marker" aria-hidden="false"></i> <?php echo $_smarty_tpl->tpl_vars['user']->value['local'];?>
+
+                                                    <?php if (((ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate'])!=0)&&!($_smarty_tpl->tpl_vars['user']->value['hide_birthdate']))) {?>
+                                                    <br/> <i class="fa fa-birthday-cake" aria-hidden="false"></i> 
+                                                    <?php echo ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate']);?>
+ years old
+                                                    <?php }?>
                                                 </p>
                                             </div>
                                         </div>
@@ -127,16 +159,50 @@ pages/users/myarticles.php">
                                     <div id="myTabContent" class="tab-content">
                                         <div class="tab-pane fade active in" id="info">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><b>Full name:</b> John Doe <i class="fa fa-pencil"></i></li>
-                                                <li class="list-group-item"><b>Bio: </b> Tech savvy and bad friends with trees. <i class="fa fa-pencil"></i></li>
-                                                <li class="list-group-item"><b>Last logged in: </b> 2017-03-01, 22h03 <i class="fa fa-pencil"></i></li>
-                                                <li class="list-group-item"><b>Associated newspapers or publications: </b>New York Times <i class="fa fa-pencil"></i></li>
+                                                <li class="list-group-item"><b>Full name:</b> <?php echo $_smarty_tpl->tpl_vars['user']->value['name'];?>
+ <a href="google.com" class="btn btn-default" title="Edit"> <i class="fa fa-pencil"></i> </a></li>
+                                                <li class="list-group-item"><b>Bio: </b> <?php echo $_smarty_tpl->tpl_vars['user']->value['bio'];?>
+ <a href="google.com" class="btn btn-default" title="Edit"> <i class="fa fa-pencil"></i> </a></li>
+                                                <li class="list-group-item"><b>Last logged in: </b> <?php echo $_smarty_tpl->tpl_vars['user']->value['last_login'];?>
+</li>
+                                                <li class="list-group-item"><b>Associated newspapers or publications: </b><?php echo $_smarty_tpl->tpl_vars['user']->value['assoc_publications'];?>
+ <a href="google.com" class="btn btn-default" title="Edit"> <i class="fa fa-pencil"></i> </a></i></li>
                                             </ul>
                                         </div>
                                         <div class="tab-pane fade" id="interests">
-                                            <p><span class="label label-info ">Programming</span>
-                                                <span class="label label-success ">Mobile</span>
-                                                <span class="label label-danger ">Politics</span></p>
+                                            <p>
+                                            <?php $_smarty_tpl->tpl_vars['interests'] = new Smarty_variable(fetchInterests($_smarty_tpl->tpl_vars['user']->value['user_id']), null, 0);?>
+                                            <?php  $_smarty_tpl->tpl_vars['interest'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['interest']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['interests']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['interest']->key => $_smarty_tpl->tpl_vars['interest']->value) {
+$_smarty_tpl->tpl_vars['interest']->_loop = true;
+?>
+                                                <?php if ($_smarty_tpl->tpl_vars['interest']->value['category']==1) {?>
+                                                    <span class="label label-primary "><?php echo $_smarty_tpl->tpl_vars['interest']->value['name'];?>
+</span>
+                                                <?php }?>
+                                                <?php if ($_smarty_tpl->tpl_vars['interest']->value['category']==2) {?>
+                                                    <span class="label label-warning "><?php echo $_smarty_tpl->tpl_vars['interest']->value['name'];?>
+</span>
+                                                <?php }?>
+                                                <?php if ($_smarty_tpl->tpl_vars['interest']->value['category']==3) {?>
+                                                    <span class="label label-info "><?php echo $_smarty_tpl->tpl_vars['interest']->value['name'];?>
+</span>
+                                                <?php }?>
+                                                <?php if ($_smarty_tpl->tpl_vars['interest']->value['category']==4) {?>
+                                                    <span class="label label-default "><?php echo $_smarty_tpl->tpl_vars['interest']->value['name'];?>
+</span>
+                                                <?php }?>
+                                                <?php if ($_smarty_tpl->tpl_vars['interest']->value['category']==5) {?>
+                                                    <span class="label label-danger "><?php echo $_smarty_tpl->tpl_vars['interest']->value['name'];?>
+</span>
+                                                <?php }?>
+                                                <?php if ($_smarty_tpl->tpl_vars['interest']->value['category']==6) {?>
+                                                    <span class="label label-success "><?php echo $_smarty_tpl->tpl_vars['interest']->value['name'];?>
+</span>
+                                                <?php }?>     
+                                            <?php } ?>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -145,62 +211,37 @@ pages/users/myarticles.php">
                     </div>
                 </div>
                 <div class="bs-callout bs-callout-danger">
+                    <?php $_smarty_tpl->tpl_vars['article'] = new Smarty_variable(getMostPopularArticle($_smarty_tpl->tpl_vars['user']->value['user_id']), null, 0);?>
+                    <?php if ($_smarty_tpl->tpl_vars['article']->value!=null) {?>
                     <h4>Most Popular Contribution</h4>
                     <p>
-                        <small> <i> from </i></small><a href="article.html"><b>C++ is alive and kicking</b></a>
+                        <small> <i> from </i></small><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/articles/article?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
+"><b><?php echo $_smarty_tpl->tpl_vars['article']->value['title'];?>
+</b></a>
                         <div class="highlight">
-                            <i class="fa fa-quote-left" aria-hidden="false"></i> Even all the parallel programming languages/techniques (Cuda, MPI, etc) rely on your knowledge of C++ (pointer, dereferencing, arithmetic, etc) to accomplish a task. In my
-                            field of computer architecture, for instance, every famous simulator out there is written in C++. <i class="fa fa-quote-right" aria-hidden="false"></i>
+                            <i class="fa fa-quote-left" aria-hidden="false"></i> <?php echo $_smarty_tpl->tpl_vars['article']->value['lead'];?>
+ <i class="fa fa-quote-right" aria-hidden="false"></i>
                         </div>
                         <br>
                         <div id="ratings3">
-
-                            <span id="postext3" style="color:#357266">42</span>
+                            <span id="postext3" style="color:#357266"><?php echo $_smarty_tpl->tpl_vars['article']->value['posratings'];?>
+</span>
                             <button type="button" class="btn btn-default btn-circle btnlike">
 					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
 				</button>
-                            <span id="negtext3" style="color:#f11066">29</span>
+                            <span id="negtext3" style="color:#f11066"><?php echo $_smarty_tpl->tpl_vars['article']->value['negratings'];?>
+</span>
                             <button type="button" class="btn btn-default btn-circle btndislike">
 					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
-				</button>
-
-                            <script>
-                                $('#ratings3').find('.btn.btn-default.btn-circle.btnlike').on("click", function() {
-
-                                    if ($('#ratings3').find('.btn.btn-default.btn-circle.btndislike').is(
-                                            ":disabled")) {
-                                        $('#ratings3').find('.btn.btn-default.btn-circle.btndislike').prop(
-                                            "disabled", false);
-                                        $('span#postext3').empty();
-                                        $('span#postext3').append('42');
-                                    } else {
-                                        $('#ratings3').find('.btn.btn-default.btn-circle.btndislike').prop(
-                                            "disabled", true);
-                                        $('span#postext3').empty();
-                                        $('span#postext3').append('43');
-                                    }
-                                });
-
-                                $('#ratings3').find('.btn.btn-default.btn-circle.btndislike').on("click", function() {
-
-                                    if ($('#ratings3').find('.btn.btn-default.btn-circle.btnlike').is(
-                                            ":disabled")) {
-                                        $('#ratings3').find('.btn.btn-default.btn-circle.btnlike').prop(
-                                            "disabled", false);
-                                        $('span#negtext3').empty();
-                                        $('span#negtext3').append('29');
-                                    } else {
-                                        $('#ratings3').find('.btn.btn-default.btn-circle.btnlike').prop(
-                                            "disabled", true);
-                                        $('span#negtext3').empty();
-                                        $('span#negtext3').append('30');
-                                    }
-                                });
-                            </script>
+				</button>                
                         </div>
                     </p>
+                    <?php } else { ?>
+                    <h5>This user has no contributions yet</h5>
+                    <?php }?>
                 </div>
             </div>
         </div>

@@ -17,13 +17,13 @@
 }
 .img-responsive{
   margin: 0 auto;
-  width:25%;
-  height:25%;
+  width:13%;
+  height:13%;
 }
 ul.nav.navbar-nav > li > a{
    color:#1E352F !important;
    font-family: 'webfontbold';
-   font-size:110%;
+   font-size:90%;
    font-weight: 500;  
 }
 .nav.navbar-nav {
@@ -35,8 +35,8 @@ ul.nav.navbar-nav > li > a{
 @media screen and (max-width: 1024px) { 
    .img-responsive{
   margin: 0 auto;
-  width:50%;
-  height:50%;
+  width:30%;
+  height:30%;
   }
 }
 
