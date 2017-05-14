@@ -219,7 +219,23 @@
     $stmt->execute();
     return $stmt->rowCount();
   }
-
+  
+  function getCommentHistory($user_id)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT title as article_title,comment.comment_id,comment.article_id,comment.content,to_char(comment.posted_date,'DD-MM-YY HH24:MI') AS posted_date, COALESCE(SUM(rating_comment.score),0) AS sum_score
+    FROM comment 
+    LEFT JOIN rating_comment 
+    ON comment.comment_id=rating_comment.comment_id 
+    LEFT JOIN article
+    ON comment.article_id=article.article_id
+    WHERE comment.user_id = ? 
+    GROUP BY comment.comment_id,article.title
+    ORDER BY posted_date");
+    $stmt->execute(array($user_id));
+    return $stmt->fetchAll();
+  }
+  
   //useful for debugging
   function debug_to_console( $data ) {
     $output = $data;
