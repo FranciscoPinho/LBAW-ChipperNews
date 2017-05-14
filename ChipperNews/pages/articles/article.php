@@ -2,10 +2,16 @@
   include_once('../../config/init.php');
   include_once($BASE_DIR .'database/articles.php');
   include_once($BASE_DIR .'database/users.php');
-  include_once($BASE_DIR .'database/categories.php');
-
+  include_once($BASE_DIR .'database/categories.php'); 
+  if($_SESSION['user_id']){
+    $rating = getMyRating($_GET['id'],$_SESSION['user_id']);
+    if($rating==null)
+        $smarty->assign('rating',-1);
+    else $smarty->assign('rating',$rating);
+  }
   $article = getArticle($_GET['id']);
   $smarty->assign('article', $article);
+  $smarty->assign('article_id',$_GET['id']);
 
    function fetchSubcategories($article_id)
    {
@@ -28,6 +34,7 @@
        $comments = getArticleCommentsControversial($article_id);
        return $comments;
    }
+
 
   $smarty->display('common/header.tpl');
   $smarty->display('articles/article.tpl');

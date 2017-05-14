@@ -1,4 +1,12 @@
 <?php
+  function rateArticle($article_id,$user_id,$score)
+  {
+      global $conn; 
+      $stmt = $conn->prepare("SELECT * FROM rate_article(?,?,?)");
+      $stmt->execute(array($article_id,$user_id,$score));
+      return $stmt->fetchAll();
+  }
+
   function getArticle($article_id)
   {
     global $conn;
@@ -16,6 +24,14 @@
           GROUP BY article.author,users.name,article.article_id 
         ");
     $stmt->execute(array($article_id,$article_id,$article_id));
+    $article= $stmt->fetchAll();
+    return $article[0];
+  }
+
+  function getMyRating($article_id,$user_id){
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM rating_article WHERE article_id=? AND user_id=?");
+    $stmt->execute(array($article_id,$user_id));
     $article= $stmt->fetchAll();
     return $article[0];
   }
@@ -122,6 +138,8 @@
       $stmt->execute();
       return $stmt->fetchAll();
   }
+
+
   function createArticleTransaction($title, $lead, $content, $tags) 
   {
     try{

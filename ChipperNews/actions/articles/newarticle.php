@@ -16,7 +16,6 @@
   $lead = strip_tags($_POST['lead']);
   $body = $_POST['body'];
   $tags = $_POST['tags'];
-  debug_to_console($tags);
 
   $photo = $_FILES['pic']; 
   $extension = end(explode(".", $photo["name"]));

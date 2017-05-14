@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-12 17:47:59
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-14 00:18:49
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\article.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:277590ce55d4a1b31-41011843%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7d792418e426454ef503ca655ff6731fbac31125' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article.tpl',
-      1 => 1494611205,
+      1 => 1494721110,
       2 => 'file',
     ),
   ),
@@ -20,9 +20,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'BASE_URL' => 0,
+    'article_id' => 0,
     'article' => 0,
     'subcategories' => 0,
     'subart' => 0,
+    'rating' => 0,
     'USERNAME' => 0,
   ),
   'has_nocache_code' => false,
@@ -44,8 +46,12 @@ css/styles-article.css">
 	<script src="https://www.w3schools.com/lib/w3data.js"></script>	
 	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/bootstrap.min.js"></script>
-
-
+    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/article.js"></script>
+    <span class="base_url" id="base_url" hidden><?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+</span>
+    <span id="article_id" hidden><?php echo $_smarty_tpl->tpl_vars['article_id']->value;?>
+</span>
 </head>
 
 
@@ -97,19 +103,119 @@ $_smarty_tpl->tpl_vars['subart']->_loop = true;
 			<h3 id="lead"><?php echo $_smarty_tpl->tpl_vars['article']->value['lead'];?>
 </h3>
 			<div id="ratings">
-					<span id="postext4" style="color:#357266"><?php echo $_smarty_tpl->tpl_vars['article']->value['posratings'];?>
-</span>
-					<button type="button" class="btn btn-default btn-circle btnlike">
+                    <span id="postext4" style="color:#357266"><?php echo $_smarty_tpl->tpl_vars['article']->value['posratings'];?>
+</span> 
+                    <?php if (!isset($_smarty_tpl->tpl_vars['rating']->value)) {?>
+					<button type="button" id="like" class="btn btn-default btn-circle btnlike" disabled>
 					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
 					</button>
-					<span id="negtext4" style="color:#f11066"><?php echo $_smarty_tpl->tpl_vars['article']->value['negratings'];?>
+					<span id="negtext4"  style="color:#f11066"><?php echo $_smarty_tpl->tpl_vars['article']->value['negratings'];?>
 </span>
-					<button type="button" class="btn btn-default btn-circle btndislike">
+					<button type="button" id="dislike" class="btn btn-default btn-circle btndislike" disabled>
 					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 					</button>
+                    <?php }?>
+                    <?php if ($_smarty_tpl->tpl_vars['rating']->value==-1||(isset($_smarty_tpl->tpl_vars['rating']->value)&&$_smarty_tpl->tpl_vars['rating']->value['score']==0)) {?>
+					<button type="button" id="like" class="btn btn-default btn-circle btnlike">
+					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
+					</button>
+					<span id="negtext4"  style="color:#f11066"><?php echo $_smarty_tpl->tpl_vars['article']->value['negratings'];?>
+</span>
+					<button type="button" id="dislike" class="btn btn-default btn-circle btndislike">
+					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
+					</button>
+                    <?php }?>
+                    <?php if ($_smarty_tpl->tpl_vars['rating']->value['score']==-1) {?>
+					<button type="button" id="like" class="btn btn-default btn-circle btnlike" disabled>
+					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
+					</button>
+					<span id="negtext4"  style="color:#f11066"><?php echo $_smarty_tpl->tpl_vars['article']->value['negratings'];?>
+</span>
+					<button type="button" id="dislike" class="btn btn-default btn-circle btndislike">
+					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
+					</button>
+                    <?php }?>
+                    <?php if ($_smarty_tpl->tpl_vars['rating']->value['score']==1) {?>
+					<button type="button" id="like" class="btn btn-default btn-circle btnlike">
+					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
+					</button>
+					<span id="negtext4"  style="color:#f11066"><?php echo $_smarty_tpl->tpl_vars['article']->value['negratings'];?>
+</span>
+					<button type="button" id="dislike" class="btn btn-default btn-circle btndislike" disabled>
+					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
+					</button>
+                    <?php }?> 
 			</div>
+            
+            <script>
+            $('#like').on('click', function() {
+                var score;
+                var article_id = $("#article_id").text();
+
+                if ($('#dislike').is(":disabled"))
+                    score = 0;
+                else score = 1;
+
+
+                var base_url = $("#base_url").text();
+                return $.ajax({
+                    type: "POST",
+                    url: base_url + "actions/articles/vote.php",
+                    data: "article_id=" + encodeURI(article_id) + "&score=" + encodeURI(score),
+                    success: updateScores
+                });
+            });
+
+            $('#dislike').click( function() {
+                var score;
+                var article_id = $("#article_id").text();
+                if ($('#like').is(":disabled"))
+                    score = 0;
+                else score = -1;
+                var base_url = $("#base_url").text();
+                return $.ajax({
+                    type: "POST",
+                    url: base_url + "actions/articles/vote.php",
+                    data: "article_id=" + encodeURI(article_id) + "&score=" + encodeURI(score),
+                    success: updateScores
+                });
+            });
+
+            function updateScores(data) {
+                var result=JSON.parse(data);
+                if (result == "-1") {
+                    console.log('stored procedure failed');
+                    return;
+                }
+                switch (result[0]) {
+                    case "1":
+                        $('#dislike').prop("disabled", true);
+                        break;
+                    case "-1":
+                        $('#like').prop("disabled", true);
+                        break;
+                    case "0":
+                        $('#dislike').prop("disabled", false);
+                        $('#like').prop("disabled", false);
+                        break;
+                }
+                $('span#postext4').empty();
+                $('span#negtext4').empty();
+                $('span#postext4').append(result[1]);
+                $('span#negtext4').append(result[2]);
+
+            }
+
+            </script>
+            
 			<br>
 			<div id="article-body-5">
                 <div class="container" style=" width: 40%; height: 30%; margin-bottom:5%">
