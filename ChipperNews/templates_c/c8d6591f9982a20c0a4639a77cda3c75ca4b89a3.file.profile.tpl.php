@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-13 19:39:30
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-14 13:20:14
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:619859077a3c36c607-44707552%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c8d6591f9982a20c0a4639a77cda3c75ca4b89a3' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
-      1 => 1494704367,
+      1 => 1494768012,
       2 => 'file',
     ),
   ),
@@ -49,6 +49,13 @@ css/styles-header.css">
     <script src="https://www.w3schools.com/lib/w3data.js"></script>
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> 
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <link href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+/css/bootstrap-editable.css" rel="stylesheet">
+    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+/js/bootstrap-editable.js"></script>
     <!-- Optional Bootstrap theme -->
     <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
 </head>
@@ -159,16 +166,22 @@ pages/users/myarticles.php">
                                     <div id="myTabContent" class="tab-content">
                                         <div class="tab-pane fade active in" id="info">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><b>Full name:</b> <?php echo $_smarty_tpl->tpl_vars['user']->value['name'];?>
- <a href="google.com" class="btn btn-default" title="Edit"> <i class="fa fa-pencil"></i> </a></li>
-                                                <li class="list-group-item"><b>Bio: </b> <?php echo $_smarty_tpl->tpl_vars['user']->value['bio'];?>
- <a href="google.com" class="btn btn-default" title="Edit"> <i class="fa fa-pencil"></i> </a></li>
-                                                <li class="list-group-item"><b>Last logged in: </b> <?php echo $_smarty_tpl->tpl_vars['user']->value['last_login'];?>
+                                                <li class="list-group-item"><b>Full name </b><a href="#" id="fullname" data-type="text" data-pk="1" data-title="Full name " title="Edit"><?php echo $_smarty_tpl->tpl_vars['user']->value['name'];?>
+ <i class="fa fa-pencil"></i> </a></li>
+                                                <li class="list-group-item"><b>Bio </b><a href="#" id="bio" data-type="textarea" data-pk="1" data-title="Bio " title="Edit"><?php echo $_smarty_tpl->tpl_vars['user']->value['bio'];?>
+ <i class="fa fa-pencil"></i></a></li>
+                                                <li class="list-group-item"><b>Last logged in </b> <?php echo $_smarty_tpl->tpl_vars['user']->value['last_login'];?>
 </li>
-                                                <li class="list-group-item"><b>Associated newspapers or publications: </b><?php echo $_smarty_tpl->tpl_vars['user']->value['assoc_publications'];?>
- <a href="google.com" class="btn btn-default" title="Edit"> <i class="fa fa-pencil"></i> </a></i></li>
+                                                <li class="list-group-item"><b>Associated newspapers or publications </b><a href="#" id="assoc" data-type="textarea" data-pk="1" data-title="Associated newspapers or publications" title="Edit"><?php echo $_smarty_tpl->tpl_vars['user']->value['assoc_publications'];?>
+ <i class="fa fa-pencil"></i> </a></i></li>
                                             </ul>
                                         </div>
+                                        <script>
+                                        $.fn.editable.defaults.mode = 'inline';
+                                        $('#fullname').editable();
+                                        $('#bio').editable();
+                                        $('#assoc').editable();
+                                        </script>
                                         <div class="tab-pane fade" id="interests">
                                             <p>
                                             <?php $_smarty_tpl->tpl_vars['interests'] = new Smarty_variable(fetchInterests($_smarty_tpl->tpl_vars['user']->value['user_id']), null, 0);?>

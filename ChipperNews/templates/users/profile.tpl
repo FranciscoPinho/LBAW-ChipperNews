@@ -14,6 +14,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://www.w3schools.com/lib/w3data.js"></script>
     <script src="{$BASE_URL}js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> 
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <link href="{$BASE_URL}/css/bootstrap-editable.css" rel="stylesheet">
+    <script src="{$BASE_URL}/js/bootstrap-editable.js"></script>
     <!-- Optional Bootstrap theme -->
     <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
 </head>
@@ -109,12 +114,18 @@
                                     <div id="myTabContent" class="tab-content">
                                         <div class="tab-pane fade active in" id="info">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><b>Full name:</b> {$user.name} <a href="google.com" class="btn btn-default" title="Edit"> <i class="fa fa-pencil"></i> </a></li>
-                                                <li class="list-group-item"><b>Bio: </b> {$user.bio} <a href="google.com" class="btn btn-default" title="Edit"> <i class="fa fa-pencil"></i> </a></li>
-                                                <li class="list-group-item"><b>Last logged in: </b> {$user.last_login}</li>
-                                                <li class="list-group-item"><b>Associated newspapers or publications: </b>{$user.assoc_publications} <a href="google.com" class="btn btn-default" title="Edit"> <i class="fa fa-pencil"></i> </a></i></li>
+                                                <li class="list-group-item"><b>Full name </b><a href="#" id="fullname" data-type="text" data-pk="1" data-title="Full name " title="Edit">{$user.name} <i class="fa fa-pencil"></i> </a></li>
+                                                <li class="list-group-item"><b>Bio </b><a href="#" id="bio" data-type="textarea" data-pk="1" data-title="Bio " title="Edit">{$user.bio} <i class="fa fa-pencil"></i></a></li>
+                                                <li class="list-group-item"><b>Last logged in </b> {$user.last_login}</li>
+                                                <li class="list-group-item"><b>Associated newspapers or publications </b><a href="#" id="assoc" data-type="textarea" data-pk="1" data-title="Associated newspapers or publications" title="Edit">{$user.assoc_publications} <i class="fa fa-pencil"></i> </a></i></li>
                                             </ul>
                                         </div>
+                                        <script>
+                                        $.fn.editable.defaults.mode = 'inline';
+                                        $('#fullname').editable();
+                                        $('#bio').editable();
+                                        $('#assoc').editable();
+                                        </script>
                                         <div class="tab-pane fade" id="interests">
                                             <p>
                                             {$interests = fetchInterests($user.user_id)}
