@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-14 01:13:14
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-16 11:40:40
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\article.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:277590ce55d4a1b31-41011843%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7d792418e426454ef503ca655ff6731fbac31125' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article.tpl',
-      1 => 1494721278,
+      1 => 1494934839,
       2 => 'file',
     ),
   ),
@@ -46,8 +46,8 @@ css/styles-article.css">
 	<script src="https://www.w3schools.com/lib/w3data.js"></script>	
 	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/bootstrap.min.js"></script>
-    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-js/article.js"></script>
+    <link href="https://cdn.quilljs.com/1.2.4/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.2.4/quill.min.js" type="text/javascript"></script>
     <span class="base_url" id="base_url" hidden><?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 </span>
     <span id="article_id" hidden><?php echo $_smarty_tpl->tpl_vars['article_id']->value;?>
@@ -238,18 +238,63 @@ images\articles\<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'
 								<div class="status-upload">
 									<form >
 										<div id="wmd-button-bar"></div>
-							<textarea id="wmd-input" class="wmd-input"></textarea>
-							
-							
-										<ul>
-											<li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Picture"><i class="fa fa-picture-o"></i></a></li>
-										</ul>
-										<button type="submit" class="btn btn-success" style="background-color:#357266"> Submit</button>
+                                         <div id="editor-container" style=" min-height: 100px;display: block; clear: both;">
+                                         <textarea id="contentstuff"></textarea>
+				                        </div>
+                                         <input class="form-control"  id="body" type="hidden" name="body" required>
+										<button type="button" onclick="submitComment()" class="btn btn-success" style="background-color:#357266"> Submit</button>
 									</form>
 								</div><!-- Status Upload  -->
 							</div><!-- Widget Area -->
 	</div>
     </div>
+
+        
+                <script>
+                var quill = new Quill('#editor-container', {
+                modules: {
+                    toolbar: [
+                     ['bold', 'italic','underline'],
+                     ['link', 'blockquote', 'code-block', 'image','video'],
+                     [{ list: 'ordered' }, { list: 'bullet' }],
+                      [{ 'size': ['small', false, 'large', 'huge'] }],  
+                      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                     ]
+                },
+                theme: 'snow'
+                });
+                quill.on('text-change', function() {
+                  var html = quill.root.innerHTML;
+                  var content = document.getElementById('body');
+                  content.value = html;
+                 });
+                 function submitComment(){
+                     var content = document.getElementById('body');
+                     var base_url = $("#base_url").text();
+                     var article_id = $("#article_id").text();
+                     return $.ajax({
+                        type: "POST",
+                        url: base_url + "actions/articles/newcomment.php",
+                        data: "article_id=" + encodeURI(article_id) +"&content=" + content.value ,
+                        success: updateCommentSection
+                     });
+                 }
+
+                     function updateCommentSection(data) {
+                        var result=data;
+                        console.log(result);
+                        if (result == "-1") {
+                            console.log('Unset variables sent through request');
+                            return;
+                        } 
+                        if (result == "-2") {
+                            console.log('Database procedure failed');
+                            return;
+                        }   
+                        $('#comment_section').empty();
+                        $('#comment_section').html(result);   
+                     }
+                </script>
     <?php }?>
 
 	

@@ -1,5 +1,3 @@
-{$comments = fetchComments($article.article_id)}
-<div id="comment_section">
 {if sizeof($comments)>0}
 <div class="row">
  <div class="dropdown">
@@ -16,8 +14,7 @@
 	
 <h1 class="nf">Comments</h1>
 </div>
-
-         {foreach $comments as $comment}
+{foreach $comments as $comment}
 			<div class="container comment-main-level">
 					<!-- Contenedor del Comentario -->
 					<div class="comment-box">
@@ -38,9 +35,5 @@
 						</div>
 					</div>
 			 </div>
-        {/foreach}
-
+{/foreach}
 {/if}
-</div>	
-
-			  					

@@ -1,33 +1,30 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-16 11:42:49
-         compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\article-comments.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:3114590ce55d5822d2-61564544%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-16 11:43:36
+         compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\ajax\article-comments-updated.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:6622591ae0334cb187-90138490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '03240d0d0b54748aaf652b284f5c27eb8237b74f' => 
+    '4d59cf627498e14828e4edebfbb185ecdbd854d5' => 
     array (
-      0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article-comments.tpl',
-      1 => 1494934957,
+      0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\ajax\\article-comments-updated.tpl',
+      1 => 1494935004,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3114590ce55d5822d2-61564544',
+  'nocache_hash' => '6622591ae0334cb187-90138490',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_590ce55d58ae96_27027198',
+  'unifunc' => 'content_591ae03352e7e4_15086061',
   'variables' => 
   array (
-    'article' => 0,
     'comments' => 0,
     'comment' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_590ce55d58ae96_27027198')) {function content_590ce55d58ae96_27027198($_smarty_tpl) {?><?php $_smarty_tpl->tpl_vars['comments'] = new Smarty_variable(fetchComments($_smarty_tpl->tpl_vars['article']->value['article_id']), null, 0);?>
-<div id="comment_section">
-<?php if (sizeof($_smarty_tpl->tpl_vars['comments']->value)>0) {?>
+<?php if ($_valid && !is_callable('content_591ae03352e7e4_15086061')) {function content_591ae03352e7e4_15086061($_smarty_tpl) {?><?php if (sizeof($_smarty_tpl->tpl_vars['comments']->value)>0) {?>
 <div class="row">
  <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton"><span class="droptext">Newest</span>
@@ -43,8 +40,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	
 <h1 class="nf">Comments</h1>
 </div>
-
-         <?php  $_smarty_tpl->tpl_vars['comment'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['comment']->_loop = false;
+<?php  $_smarty_tpl->tpl_vars['comment'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['comment']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['comments']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['comment']->key => $_smarty_tpl->tpl_vars['comment']->value) {
 $_smarty_tpl->tpl_vars['comment']->_loop = true;
@@ -74,9 +70,5 @@ $_smarty_tpl->tpl_vars['comment']->_loop = true;
 						</div>
 					</div>
 			 </div>
-        <?php } ?>
-
-<?php }?>
-</div>	
-
-			  					<?php }} ?>
+<?php } ?>
+<?php }?><?php }} ?>

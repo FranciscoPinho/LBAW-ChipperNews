@@ -1,4 +1,9 @@
 <?php
+  function newComment($article_id,$user_id,$content){
+      global $conn; 
+      $stmt = $conn->prepare("INSERT INTO comment(article_id,user_id,content) VALUES (?,?,?)");
+      return $stmt->execute(array($article_id,$user_id,$content));
+  }
   function rateArticle($article_id,$user_id,$score)
   {
       global $conn; 
