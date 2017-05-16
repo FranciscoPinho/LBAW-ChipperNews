@@ -5,7 +5,9 @@
   font-weight: normal;
   font-style: normal;
 }
-
+#comment-elements{
+  background:transparent; 
+}
 #headline {
   font-family: 'Playfair Display', serif;
   text-align: left;
@@ -14,7 +16,6 @@
 }
 .nf {
     font-family: 'webfontbold';
-    padding-left:8%;
     margin-top:0;
     font-size: 40px;
     font-weight: 600;
@@ -271,12 +272,8 @@ img.bg {
 }
 .comment-box .comment-name.by-author, .comment-box .comment-name.by-author a {color: #1E352F;}
 
-.dropdown{
-     margin-right:7%;
-}
 #dropdownbutton {
   background: #7EB09B;
- 
   border: none;
 }
 #ratings {

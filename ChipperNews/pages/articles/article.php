@@ -35,6 +35,12 @@
        return $comments;
    }
 
+   function dateDiffDays($mydate){
+       $now = time(); // or your date as well
+       $mydate = strtotime($mydate);
+       $datediff = $now - $mydate;
+       return floor($datediff / (60 * 60 * 24));
+   }
 
   $smarty->display('common/header.tpl');
   $smarty->display('articles/article.tpl');

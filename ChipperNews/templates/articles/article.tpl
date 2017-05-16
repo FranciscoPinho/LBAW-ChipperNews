@@ -24,7 +24,11 @@
 
 <div class="container article-snip" id="article-snip-5">
 		<br>
+        {if dateDiffDays($article.published_date)<100}
 		<h2 id="headline">{$article.title}</h2>
+        {else}
+        <h2 id="headline" style="color:grey">Archived: {$article.title}</h2>
+        {/if}
 			<h6>By <a href={$BASE_URL}pages/users/viewprofile?id={$article.author} style="color:black; font-style:italic">{$article.authorname}</a> {$article.published_date}</h6>
             {$subcategories = fetchSubcategories($article.article_id)}
 			 {foreach $subcategories as $subart}
@@ -50,7 +54,7 @@
 			<h3 id="lead">{$article.lead}</h3>
 			<div id="ratings">
                     <span id="postext4" style="color:#357266">{$article.posratings}</span> 
-                    {if !isset($rating)}
+                    {if !isset($rating) || dateDiffDays($article.published_date)>=100}
 					<button type="button" id="like" class="btn btn-default btn-circle btnlike" disabled>
 					<img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
 					</button>
@@ -59,7 +63,7 @@
 					<img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 					</button>
                     {/if}
-                    {if $rating==-1 || (isset($rating) && $rating.score==0)}
+                    {if ($rating==-1 || (isset($rating) && $rating.score==0)) && dateDiffDays($article.published_date)<100}
 					<button type="button" id="like" class="btn btn-default btn-circle btnlike">
 					<img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
 					</button>
@@ -68,7 +72,7 @@
 					<img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 					</button>
                     {/if}
-                    {if $rating.score==-1}
+                    {if $rating.score==-1 && dateDiffDays($article.published_date)<100}
 					<button type="button" id="like" class="btn btn-default btn-circle btnlike" disabled>
 					<img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
 					</button>
@@ -77,7 +81,7 @@
 					<img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 					</button>
                     {/if}
-                    {if $rating.score==1}
+                    {if $rating.score==1 && dateDiffDays($article.published_date)<100}
 					<button type="button" id="like" class="btn btn-default btn-circle btnlike">
 					<img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
 					</button>
@@ -87,7 +91,7 @@
 					</button>
                     {/if} 
 			</div>
-            {literal}
+          
             <script>
             $('#like').on('click', function() {
                 var score;
@@ -148,7 +152,7 @@
             }
 
             </script>
-            {/literal}
+           
 			<br>
 			<div id="article-body-5">
                 <div class="container" style=" width: 40%; height: 30%; margin-bottom:5%">
@@ -159,8 +163,9 @@
                 </div>
             </div>		
    </div>
+   <br><br>
    <!-- ONLY SHOW COMMENT BOX IF LOGGED IN -->
-   {if $USERNAME}
+   {if $USERNAME && dateDiffDays($article.published_date)<100}
    <div class="row">
     
     <div class="col-md-6 col-md-offset-3">
@@ -178,8 +183,6 @@
 							</div><!-- Widget Area -->
 	</div>
     </div>
-
-        
                 <script>
                 var quill = new Quill('#editor-container', {
                 modules: {
@@ -205,7 +208,7 @@
                      return $.ajax({
                         type: "POST",
                         url: base_url + "actions/articles/newcomment.php",
-                        data: "article_id=" + encodeURI(article_id) +"&content=" + content.value ,
+                        data: "article_id=" + encodeURI(article_id) +"&content=" + encodeURI(content.value) ,
                         success: updateCommentSection
                      });
                  }
