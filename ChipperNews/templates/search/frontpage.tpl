@@ -25,7 +25,7 @@
             {$art = $articles[$i] }
             {$subcategories = fetchSubcategories($art.article_id)}
             <div class="col-sm-6 col-md-4 ">
-                <a class="thumbnail " href="{$BASE_URL}pages/articles/article?id={$art.article_id}" style="text-decoration:none ">
+                <a class="thumbnail " href="{$BASE_URL}pages/articles/article.php?id={$art.article_id}" style="text-decoration:none ">
                     <img src="{$BASE_URL}images\articles\{$art.article_id}" alt="... ">
                     <div id="ratings">
                         <span id="postext4" style="color:#357266">{$art.posratings}</span>
@@ -105,7 +105,7 @@
                   <span class="label label-success ">{$sub.name}</span>
                {/if}     
             {/foreach}
-            <p><a class="btn btn-secondary " href="{$BASE_URL}pages/articles/article?id={$art.article_id}" role="button ">View details »</a></p>
+            <p><a class="btn btn-secondary " href="{$BASE_URL}pages/articles/article.php?id={$art.article_id}" role="button ">View details »</a></p>
             </div>
         {/foreach}
     </div>

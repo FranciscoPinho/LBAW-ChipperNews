@@ -162,7 +162,7 @@
                     {if $article neq null}
                     <h4>Most Popular Contribution</h4>
                     <p>
-                        <small> <i> from </i></small><a href="{$BASE_URL}pages/articles/article?id={$article.article_id}"><b>{$article.title}</b></a>
+                        <small> <i> from </i></small><a href="{$BASE_URL}pages/articles/article.php?id={$article.article_id}"><b>{$article.title}</b></a>
                         <div class="highlight">
                             <i class="fa fa-quote-left" aria-hidden="false"></i> {$article.lead} <i class="fa fa-quote-right" aria-hidden="false"></i>
                         </div>

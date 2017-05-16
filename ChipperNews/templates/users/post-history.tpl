@@ -47,7 +47,7 @@
                     <div class="container image">
                         <img src="{$BASE_URL}images\articles\{$comment.article_id}" alt="..." style=" width: 100%; height: auto;">
                     </div>
-                    <h2 id="headline"><a href="{$BASE_URL}pages\articles\article?id={$comment.article_id}" style="color:black" id="articleAnchor">{$comment.article_title}</a></h3>
+                    <h2 id="headline"><a href="{$BASE_URL}pages\articles\article.php?id={$comment.article_id}" style="color:black" id="articleAnchor">{$comment.article_title}</a></h3>
                 </div>
                 <div class="comment">
                     <div class="mycomment">
