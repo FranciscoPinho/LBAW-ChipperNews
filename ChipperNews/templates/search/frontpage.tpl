@@ -70,7 +70,8 @@
         <h1 class="text-center " href="# "> News </h1>
     </nav>
     <div class="row " style="padding-left:4%;padding-right:4% ">
-        {foreach $articles as $art}
+        {for $i=3 to sizeof($articles)}
+             {$art = $articles[$i] }
             {$subcategories = fetchSubcategories($art.article_id)}
             <div class="col-6 col-lg-4 ">
             <h2>{$art.title}</h2>
@@ -107,7 +108,7 @@
             {/foreach}
             <p><a class="btn btn-secondary " href="{$BASE_URL}pages/articles/article.php?id={$art.article_id}" role="button ">View details »</a></p>
             </div>
-        {/foreach}
+        {/for}
     </div>
 
 
