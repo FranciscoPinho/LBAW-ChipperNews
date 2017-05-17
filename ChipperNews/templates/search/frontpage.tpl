@@ -37,9 +37,12 @@
                         <button type="button" class="btn btn-default btn-circle btndislike">
                         <img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
                         </button>
+                        
 			        </div>
+                    
                     <div class="caption ">
                         <h3>{$art.title}</h3>
+                        <h6>By <span style="color:black; font-style:italic">{$art.authorname}</span> {$art.published_date}</h6>
                         <p>{$art.lead}</p>
                         {foreach $subcategories as $subart}
                             {if $subart.category==1}
@@ -71,7 +74,7 @@
         <h1 class="text-center " href="# "> News </h1>
     </nav>
     <div class="row " style="padding-left:4%;padding-right:4% ">
-        {for $i=3 to sizeof($articles)}
+        {for $i=3 to sizeof($articles)-1}
              {$art = $articles[$i] }
             {$subcategories = fetchSubcategories($art.article_id)}
             <div class="col-6 col-lg-4 ">
@@ -86,6 +89,7 @@
                         <img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
                         </button>
 			</div>
+            	<h6>By <a href={$BASE_URL}pages/users/viewprofile?id={$art.author} style="color:black; font-style:italic">{$art.authorname}</a> {$art.published_date}</h6>
             <p>{$art.lead}</p>
             {foreach $subcategories as $sub}
                {if $sub.category==1}

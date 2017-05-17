@@ -2,6 +2,7 @@
   include_once('../../config/init.php');
   include_once($BASE_DIR .'database/articles.php');
   include_once($BASE_DIR .'database/categories.php');
+   include_once($BASE_DIR .'database/users.php');
 
   $articles = getRecentArticles();
   $smarty->assign('articles', $articles);

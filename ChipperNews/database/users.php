@@ -6,6 +6,19 @@
     global $conn;
     $stmt = $conn->prepare("INSERT INTO users(username,name,password,local_id,email,permission_level, bio, birthdate) 
     VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    if($local_id===NULL OR $birthdate===NULL)
+    {
+      if($local_id===NULL && $birthdate===NULL)
+      {
+      $stmt->execute(array($username, $name, password_hash($password,PASSWORD_DEFAULT), NULL, $email, '0', $bio, NULL));
+      }
+      else if($local_id===NULL)
+      {
+        $stmt->execute(array($username, $name, password_hash($password,PASSWORD_DEFAULT), NULL, $email, '0', $bio, $birthdate));
+      }
+      else
+       $stmt->execute(array($username, $name, password_hash($password,PASSWORD_DEFAULT), $local_id, $email, '0', $bio, NULL));
+    }
     $stmt->execute(array($username, $name, password_hash($password,PASSWORD_DEFAULT), $local_id, $email, '0', $bio, $birthdate));
   }
   
@@ -113,9 +126,9 @@
     }
   }
 
-  function getImage($user_id)
+  function getImage($username)
   {
-    $img = glob("../../images/users/{$user_id}.{jpg,jpeg,png}", GLOB_BRACE);
+    $img = glob("../../images/users/{$username}.{jpg,jpeg,png}", GLOB_BRACE);
     return $img != false ? $img[0] : "http://lorempixel.com/300/300/";
   }
 
@@ -160,7 +173,6 @@
  function editUser($user_id, $name, $email, $bio, $assoc_publications)
   {
     //points contribution rep
-    //botoes e settings tab -- hide e password
     //adicionar localidade e password
     global $conn;
     $query = "UPDATE users SET ";

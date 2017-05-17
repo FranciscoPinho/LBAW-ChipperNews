@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-14 17:24:30
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-17 11:36:43
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:25195590b34960f0d48-49678860%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '77f825b8b977dbcb551f42f4ad1ac8cf5eb5f932' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
-      1 => 1494773684,
+      1 => 1495011642,
       2 => 'file',
     ),
   ),
@@ -36,7 +36,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Basic Bootstrap Template</title>
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -56,6 +55,11 @@ js/bootstrap.min.js"></script>
 /css/bootstrap-editable.css" rel="stylesheet">
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 /js/bootstrap-editable.js"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <link href="select2/select2.css" rel="stylesheet" type="text/css"></link>  
+    <script src="select2/select2.js"></script> 
+    <link href="select2-bootstrap.css" rel="stylesheet" type="text/css"></link>  
     <!-- Optional Bootstrap theme -->
     <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
 </head>
@@ -85,10 +89,6 @@ pages/users/friendlist.php">
                             <i class="fa fa-users"></i> Friends <span class="label label-info pull-right inbox-notification"><?php echo getNumberFriends($_smarty_tpl->tpl_vars['user']->value['user_id']);?>
 </span>
                         </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/settings.php"><i class="fa fa-cogs"></i> Settings </a>
                     </li>
                 </ul>
                 <!-- /.nav -->
@@ -148,6 +148,7 @@ pages/users/myarticles.php">
 </span></i>
                                                     <br/><i class="fa fa-map-marker" aria-hidden="false"></i> <?php echo $_smarty_tpl->tpl_vars['user']->value['local'];?>
 
+                                                    <!-- isto e p view como outra pessoa -->
                                                     <?php if (((ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate'])!=0)&&!($_smarty_tpl->tpl_vars['user']->value['hide_birthdate']))) {?>
                                                     <br/> <i class="fa fa-birthday-cake" aria-hidden="false"></i> 
                                                     <?php echo ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate']);?>
@@ -162,25 +163,28 @@ pages/users/myarticles.php">
                                     <ul class="nav nav-tabs">
                                         <li class="active"><a href="#info" data-toggle="tab">Info</a></li>
                                         <li><a href="#interests" data-toggle="tab">Interests</a></li>
+                                        <li><a href="#settings" data-toggle="tab">Settings <i class="fa fa-cogs"></i></a></li>
+                                        <li><a href="#security" data-toggle="tab">Security <i class="fa fa-key"></i></a></li>
                                     </ul>
                                     <div id="myTabContent" class="tab-content">
                                         <div class="tab-pane fade active in" id="info">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><b>Full name </b><a href="#" id="fullname" data-type="text" data-pk="1" data-title="Full name " title="Edit"><?php echo $_smarty_tpl->tpl_vars['user']->value['name'];?>
- <i class="fa fa-pencil"></i> </a></li>
+                                                <li class="list-group-item"><b>Full name </b><a href="#" id="fullname" data-type="text" data-pk="1" data-title="Full name "><?php echo $_smarty_tpl->tpl_vars['user']->value['name'];?>
+  </a><i id="pencil" onclick="pencil()" class="fa fa-pencil"></i></li>
                                                 <li class="list-group-item"><b>Bio </b><a href="#" id="bio" data-type="textarea" data-pk="1" data-title="Bio " title="Edit"><?php echo $_smarty_tpl->tpl_vars['user']->value['bio'];?>
- <i class="fa fa-pencil"></i></a></li>
+ </a><i class="fa fa-pencil"></i></li>
                                                 <li class="list-group-item"><b>Last logged in </b> <?php echo $_smarty_tpl->tpl_vars['user']->value['last_login'];?>
 </li>
                                                 <li class="list-group-item"><b>Associated newspapers or publications </b><a href="#" id="assoc" data-type="textarea" data-pk="1" data-title="Associated newspapers or publications" title="Edit"><?php echo $_smarty_tpl->tpl_vars['user']->value['assoc_publications'];?>
- <i class="fa fa-pencil"></i> </a></i></li>
+ </a><i id="pencil" class="fa fa-pencil"></i></li>
                                             </ul>
                                         </div>
                                         <script>
-                                        $.fn.editable.defaults.mode = 'inline';
-                                        $('#fullname').editable();
-                                        $('#bio').editable();
-                                        $('#assoc').editable();
+                                            $.fn.editable.defaults.mode = 'inline';
+                                            $('#fullname').editable();
+                                            $('#bio').editable();
+                                            $('#assoc').editable();
+                                            $('#local').editable();
                                         </script>
                                         <div class="tab-pane fade" id="interests">
                                             <p>
@@ -217,6 +221,58 @@ $_smarty_tpl->tpl_vars['interest']->_loop = true;
                                             <?php } ?>
                                             </p>
                                         </div>
+                                        <div class="tab-pane fade" id="settings">
+                                            <ul class="list-group">
+                                                <li class="list-group-item"><b>Email visible to anyone who visits my profile </b><input type="checkbox" checked data-toggle="toggle" data-size="small" data-onstyle="success"></li>
+                                                <li class="list-group-item"><b>Location visible to anyone who visits my profile </b><input type="checkbox" checked data-toggle="toggle" data-size="small" data-onstyle="success"></li>
+                                                <li class="list-group-item"><b>Email visible to anyone who visits my profile </b><input type="checkbox" checked data-toggle="toggle" data-size="small" data-onstyle="success"></li>
+                                                <li class="list-group-item"><b>Update location </b><a href="#" id="fullname" data-type="select2" data-pk="1" data-title="Current localisation " data-source="$countries"><?php echo $_smarty_tpl->tpl_vars['user']->value['local'];?>
+  </a><i id="pencil" class="fa fa-pencil"></i></li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane fade" id="security">
+                                            <form class="form-horizontal" id="fpassw" method="post">
+                                            <fieldset class="responsive-fieldset">
+                                            <div class="form-group">
+                                                <label> Current password </label>
+                                                <div class="container col-sm-12">
+                                                    <div class="input-group">
+                                                        <div class="input-group-btn">
+                                                            <button class="btn btn-default"><i class="fa fa-unlock-alt"></i></button>
+                                                        </div>
+                                                        <input type="password" class="form-control" id="old_pw" placeholder="Please input your current password" name="old_psw" required> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label> New password </label>
+                                                <div class="container col-sm-12">
+                                                    <div class="input-group">
+                                                        <div class="input-group-btn">
+                                                            <button class="btn btn-default"><i class="fa fa-lock"></i></button>
+                                                        </div>
+                                                        <input type="password" class="form-control" id="new_pw" placeholder="Please input the new desired password" name="new_psw" required> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label> Confirm new password </label>
+                                                <div class="container col-sm-12">
+                                                    <div class="input-group">
+                                                        <div class="input-group-btn">
+                                                            <button class="btn btn-default"><i class="fa fa-lock"></i></button>
+                                                        </div>
+                                                        <input type="password" class="form-control" id="c_new_pw" placeholder="Confirm the new password" name="c_new_psw" required> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+				                                <div class="col-sm-4 col-sm-offset-4">
+					                                <button type="reset" class="btn btn-default">Cancel</button>
+					                                <button type="submit" class="btn btn-success">Submit</button>
+				                                </div>
+			                                </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -229,7 +285,7 @@ $_smarty_tpl->tpl_vars['interest']->_loop = true;
                     <h4>Most Popular Contribution</h4>
                     <p>
                         <small> <i> from </i></small><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/articles/article?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
+pages/articles/article.php?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
 "><b><?php echo $_smarty_tpl->tpl_vars['article']->value['title'];?>
 </b></a>
                         <div class="highlight">
