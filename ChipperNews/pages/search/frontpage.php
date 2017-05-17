@@ -2,8 +2,10 @@
   include_once('../../config/init.php');
   include_once($BASE_DIR .'database/articles.php');
   include_once($BASE_DIR .'database/categories.php');
+   include_once($BASE_DIR .'database/users.php');
 
   $articles = getRecentArticles();
+  print_r($articles);
   $smarty->assign('articles', $articles);
 
    function fetchSubcategories($article_id)

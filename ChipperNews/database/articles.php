@@ -113,7 +113,7 @@
         WHERE rating_article.score=-1 AND rating_article.article_id = article.article_id) AS negratings   
         FROM article  
         LEFT JOIN rating_article ON article.article_id=rating_article.article_id   
-        WHERE (current_date-article.published_date) < 50   
+        WHERE (current_date-article.published_date) < 100  
         GROUP BY article.author,article.article_id 
         ORDER BY article.published_date DESC;  ");
       $stmt->execute();
@@ -125,7 +125,7 @@
       $stmt = $conn->prepare(" SELECT article.*, COALESCE(SUM(rating_article.score),0) AS sum_score   
         FROM article  
         LEFT JOIN rating_article ON article.article_id=rating_article.article_id   
-        WHERE (current_date-article.published_date) < 50   
+        WHERE (current_date-article.published_date) < 100   
         GROUP BY article.author,article.article_id 
         ORDER BY article.sum_score DESC;  ");
       $stmt->execute();
@@ -137,7 +137,7 @@
       $stmt = $conn->prepare(" SELECT article.*, COALESCE(SUM(rating_article.score),0) AS sum_score   
         FROM article  
         LEFT JOIN rating_article ON article.article_id=rating_article.article_id   
-        WHERE (current_date-article.published_date) < 50   
+        WHERE (current_date-article.published_date) < 100   
         GROUP BY article.author,article.article_id 
         ORDER BY article.sum_score ASC;  ");
       $stmt->execute();
