@@ -5,10 +5,20 @@
   $name = strip_tags($_POST['name']);
   $username = strip_tags($_POST['username']);
   $password = $_POST['password'];
-  $local_id = strip_tags($_POST['local_id']);
+  if ($_POST['local_id'] === NULL)
+  {
+    $local_id=NULL;
+  }
+  else $local_id = strip_tags($_POST['local_id']);
+
   $email = strip_tags($_POST['email']);
   $bio = strip_tags($_POST['bio']);
-  $birthdate = $_POST['birthdate'];
+
+  if ($_POST['birthdate'] === NULL)
+  {
+    $birthdate=NULL;
+  }
+  else $birthdate = strip_tags($_POST['birthdate']);
 
 
   $photo = $_FILES['pic'];

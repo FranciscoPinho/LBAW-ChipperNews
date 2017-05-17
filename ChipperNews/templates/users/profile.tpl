@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-profile.css">
-    <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-header.css">
     <link href="https://fonts.googleapis.com/css?family=Lora|Oswald|Slabo+27px" rel="stylesheet">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -80,7 +79,7 @@
                             <div class="col-lg-12">
                                 <div class="col-xs-12 col-sm-4">
                                     <figure>
-                                        <img class="img-responsive" id="profilepic" alt="{$utilizador.username}" src="{$user.user_id|getImage}">
+                                        <img class="img-responsive" id="profilepic" alt="{$username}" src="{$username|getImage}">
                                     </figure>
                                     <div class="text-content">
                                         <div class="col-lg-12">

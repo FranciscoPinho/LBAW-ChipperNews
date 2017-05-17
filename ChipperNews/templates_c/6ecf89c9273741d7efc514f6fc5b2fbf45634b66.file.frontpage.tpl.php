@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-12 19:21:43
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-17 11:26:06
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\search\frontpage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2899658f7c78152d6e8-89439176%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6ecf89c9273741d7efc514f6fc5b2fbf45634b66' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\search\\frontpage.tpl',
-      1 => 1494616860,
+      1 => 1495020255,
       2 => 'file',
     ),
   ),
@@ -64,7 +64,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
             <?php $_smarty_tpl->tpl_vars['subcategories'] = new Smarty_variable(fetchSubcategories($_smarty_tpl->tpl_vars['art']->value['article_id']), null, 0);?>
             <div class="col-sm-6 col-md-4 ">
                 <a class="thumbnail " href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/articles/article?id=<?php echo $_smarty_tpl->tpl_vars['art']->value['article_id'];?>
+pages/articles/article.php?id=<?php echo $_smarty_tpl->tpl_vars['art']->value['article_id'];?>
 " style="text-decoration:none ">
                     <img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images\articles\<?php echo $_smarty_tpl->tpl_vars['art']->value['article_id'];?>
@@ -128,11 +128,11 @@ $_smarty_tpl->tpl_vars['subart']->_loop = true;
         <h1 class="text-center " href="# "> News </h1>
     </nav>
     <div class="row " style="padding-left:4%;padding-right:4% ">
-        <?php  $_smarty_tpl->tpl_vars['art'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['art']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['articles']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['art']->key => $_smarty_tpl->tpl_vars['art']->value) {
-$_smarty_tpl->tpl_vars['art']->_loop = true;
-?>
+        <?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? sizeof($_smarty_tpl->tpl_vars['articles']->value)-1+1 - (3) : 3-(sizeof($_smarty_tpl->tpl_vars['articles']->value)-1)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = 3, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
+             <?php $_smarty_tpl->tpl_vars['art'] = new Smarty_variable($_smarty_tpl->tpl_vars['articles']->value[$_smarty_tpl->tpl_vars['i']->value], null, 0);?>
             <?php $_smarty_tpl->tpl_vars['subcategories'] = new Smarty_variable(fetchSubcategories($_smarty_tpl->tpl_vars['art']->value['article_id']), null, 0);?>
             <div class="col-6 col-lg-4 ">
             <h2><?php echo $_smarty_tpl->tpl_vars['art']->value['title'];?>
@@ -184,10 +184,10 @@ $_smarty_tpl->tpl_vars['sub']->_loop = true;
                <?php }?>     
             <?php } ?>
             <p><a class="btn btn-secondary " href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/articles/article?id=<?php echo $_smarty_tpl->tpl_vars['art']->value['article_id'];?>
+pages/articles/article.php?id=<?php echo $_smarty_tpl->tpl_vars['art']->value['article_id'];?>
 " role="button ">View details »</a></p>
             </div>
-        <?php } ?>
+        <?php }} ?>
     </div>
 
 
