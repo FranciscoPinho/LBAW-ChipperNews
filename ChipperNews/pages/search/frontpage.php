@@ -5,7 +5,6 @@
    include_once($BASE_DIR .'database/users.php');
 
   $articles = getRecentArticles();
-  print_r($articles);
   $smarty->assign('articles', $articles);
 
    function fetchSubcategories($article_id)
