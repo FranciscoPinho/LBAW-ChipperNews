@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Basic Bootstrap Template</title>
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-profile.css">
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-header.css">
@@ -19,6 +18,11 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <link href="{$BASE_URL}/css/bootstrap-editable.css" rel="stylesheet">
     <script src="{$BASE_URL}/js/bootstrap-editable.js"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <link href="select2/select2.css" rel="stylesheet" type="text/css"></link>  
+    <script src="select2/select2.js"></script> 
+    <link href="select2-bootstrap.css" rel="stylesheet" type="text/css"></link>  
     <!-- Optional Bootstrap theme -->
     <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
 </head>
@@ -43,9 +47,6 @@
                         <a href="{$BASE_URL}pages/users/friendlist.php">
                             <i class="fa fa-users"></i> Friends <span class="label label-info pull-right inbox-notification">{$user.user_id|getNumberFriends}</span>
                         </a>
-                    </li>
-                    <li>
-                        <a href="{$BASE_URL}pages/users/settings.php"><i class="fa fa-cogs"></i> Settings </a>
                     </li>
                 </ul>
                 <!-- /.nav -->
@@ -97,6 +98,7 @@
                                                     {/if}
                                                     <br/><i class="fa fa-envelope" aria-hidden="false"><span style="font-family:arial">&nbsp{$user.email}</span></i>
                                                     <br/><i class="fa fa-map-marker" aria-hidden="false"></i> {$user.local}
+                                                    <!-- isto e p view como outra pessoa -->
                                                     {if ((ageCalc($user.birthdate) neq 0) && !($user.hide_birthdate))}
                                                     <br/> <i class="fa fa-birthday-cake" aria-hidden="false"></i> 
                                                     {ageCalc($user.birthdate)} years old
@@ -110,21 +112,24 @@
                                     <ul class="nav nav-tabs">
                                         <li class="active"><a href="#info" data-toggle="tab">Info</a></li>
                                         <li><a href="#interests" data-toggle="tab">Interests</a></li>
+                                        <li><a href="#settings" data-toggle="tab">Settings <i class="fa fa-cogs"></i></a></li>
+                                        <li><a href="#security" data-toggle="tab">Security <i class="fa fa-key"></i></a></li>
                                     </ul>
                                     <div id="myTabContent" class="tab-content">
                                         <div class="tab-pane fade active in" id="info">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><b>Full name </b><a href="#" id="fullname" data-type="text" data-pk="1" data-title="Full name " title="Edit">{$user.name} <i class="fa fa-pencil"></i> </a></li>
-                                                <li class="list-group-item"><b>Bio </b><a href="#" id="bio" data-type="textarea" data-pk="1" data-title="Bio " title="Edit">{$user.bio} <i class="fa fa-pencil"></i></a></li>
+                                                <li class="list-group-item"><b>Full name </b><a href="#" id="fullname" data-type="text" data-pk="1" data-title="Full name ">{$user.name}  </a><i id="pencil" onclick="pencil()" class="fa fa-pencil"></i></li>
+                                                <li class="list-group-item"><b>Bio </b><a href="#" id="bio" data-type="textarea" data-pk="1" data-title="Bio " title="Edit">{$user.bio} </a><i class="fa fa-pencil"></i></li>
                                                 <li class="list-group-item"><b>Last logged in </b> {$user.last_login}</li>
-                                                <li class="list-group-item"><b>Associated newspapers or publications </b><a href="#" id="assoc" data-type="textarea" data-pk="1" data-title="Associated newspapers or publications" title="Edit">{$user.assoc_publications} <i class="fa fa-pencil"></i> </a></i></li>
+                                                <li class="list-group-item"><b>Associated newspapers or publications </b><a href="#" id="assoc" data-type="textarea" data-pk="1" data-title="Associated newspapers or publications" title="Edit">{$user.assoc_publications} </a><i id="pencil" class="fa fa-pencil"></i></li>
                                             </ul>
                                         </div>
                                         <script>
-                                        $.fn.editable.defaults.mode = 'inline';
-                                        $('#fullname').editable();
-                                        $('#bio').editable();
-                                        $('#assoc').editable();
+                                            $.fn.editable.defaults.mode = 'inline';
+                                            $('#fullname').editable();
+                                            $('#bio').editable();
+                                            $('#assoc').editable();
+                                            $('#local').editable();
                                         </script>
                                         <div class="tab-pane fade" id="interests">
                                             <p>
@@ -150,6 +155,57 @@
                                                 {/if}     
                                             {/foreach}
                                             </p>
+                                        </div>
+                                        <div class="tab-pane fade" id="settings">
+                                            <ul class="list-group">
+                                                <li class="list-group-item"><b>Email visible to anyone who visits my profile </b><input type="checkbox" checked data-toggle="toggle" data-size="small" data-onstyle="success"></li>
+                                                <li class="list-group-item"><b>Location visible to anyone who visits my profile </b><input type="checkbox" checked data-toggle="toggle" data-size="small" data-onstyle="success"></li>
+                                                <li class="list-group-item"><b>Email visible to anyone who visits my profile </b><input type="checkbox" checked data-toggle="toggle" data-size="small" data-onstyle="success"></li>
+                                                <li class="list-group-item"><b>Update location </b><a href="#" id="fullname" data-type="select2" data-pk="1" data-title="Current localisation " data-source="$countries">{$user.local}  </a><i id="pencil" class="fa fa-pencil"></i></li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane fade" id="security">
+                                            <form class="form-horizontal" id="fpassw" method="post">
+                                            <fieldset class="responsive-fieldset">
+                                            <div class="form-group">
+                                                <label> Current password </label>
+                                                <div class="container col-sm-12">
+                                                    <div class="input-group">
+                                                        <div class="input-group-btn">
+                                                            <button class="btn btn-default"><i class="fa fa-unlock-alt"></i></button>
+                                                        </div>
+                                                        <input type="password" class="form-control" id="old_pw" placeholder="Please input your current password" name="old_psw" required> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label> New password </label>
+                                                <div class="container col-sm-12">
+                                                    <div class="input-group">
+                                                        <div class="input-group-btn">
+                                                            <button class="btn btn-default"><i class="fa fa-lock"></i></button>
+                                                        </div>
+                                                        <input type="password" class="form-control" id="new_pw" placeholder="Please input the new desired password" name="new_psw" required> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label> Confirm new password </label>
+                                                <div class="container col-sm-12">
+                                                    <div class="input-group">
+                                                        <div class="input-group-btn">
+                                                            <button class="btn btn-default"><i class="fa fa-lock"></i></button>
+                                                        </div>
+                                                        <input type="password" class="form-control" id="c_new_pw" placeholder="Confirm the new password" name="c_new_psw" required> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+				                                <div class="col-sm-4 col-sm-offset-4">
+					                                <button type="reset" class="btn btn-default">Cancel</button>
+					                                <button type="submit" class="btn btn-success">Submit</button>
+				                                </div>
+			                                </div>
                                         </div>
                                     </div>
                                 </div>

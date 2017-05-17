@@ -160,7 +160,6 @@
  function editUser($user_id, $name, $email, $bio, $assoc_publications)
   {
     //points contribution rep
-    //botoes e settings tab -- hide e password
     //adicionar localidade e password
     global $conn;
     $query = "UPDATE users SET ";

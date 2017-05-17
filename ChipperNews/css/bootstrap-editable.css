@@ -20,6 +20,11 @@
     width: auto;
 }
 
+#fullname, #bio, #assoc, #mail, #age {
+    text-decoration-line: none;
+    color: #1e352f;
+}
+
 .editable-buttons {
    display: inline-block; /* should be inline to take effect of parent's white-space: nowrap */
    vertical-align: top;
@@ -47,6 +52,7 @@
 
 .editable-buttons .editable-cancel {
    margin-left: 7px; 
+   color: #1E352F;
 }
 
 /*for jquery-ui buttons need set height to look more pretty*/
@@ -170,7 +176,7 @@
 a.editable-click, 
 a.editable-click:hover {
     text-decoration: none;
-    border-bottom: dashed 1px #0088cc;
+    border-bottom: dashed 1px #1E352F;
 }
 
 .editable-click.editable-disabled, 
@@ -481,7 +487,7 @@ a.editable-click.editable-disabled:hover {
 .datepicker table tr td.active:hover,
 .datepicker table tr td.active.disabled,
 .datepicker table tr td.active.disabled:hover {
-  background-color: #006dcc;
+  background-color: #1E352F;
   background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
   background-image: -ms-linear-gradient(top, #0088cc, #0044cc);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
