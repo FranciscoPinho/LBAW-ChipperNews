@@ -104,7 +104,7 @@
   function getRecentArticles()
   {
       global $conn;
-      $stmt = $conn->prepare(" SELECT article.*, COALESCE(SUM(rating_article.score),0) AS sum_score,
+      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname,COALESCE(SUM(rating_article.score),0) AS sum_score,
        (SELECT COUNT(rating_article.score) 
         FROM rating_article
         WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
@@ -112,9 +112,10 @@
         FROM rating_article
         WHERE rating_article.score=-1 AND rating_article.article_id = article.article_id) AS negratings   
         FROM article  
-        LEFT JOIN rating_article ON article.article_id=rating_article.article_id   
+        LEFT JOIN rating_article ON article.article_id=rating_article.article_id
+        LEFT JOIN users ON users.user_id=article.author
         WHERE (current_date-article.published_date) < 100  
-        GROUP BY article.author,article.article_id 
+        GROUP BY article.author,article.article_id,users.name
         ORDER BY article.published_date DESC;  ");
       $stmt->execute();
       return $stmt->fetchAll();
@@ -122,11 +123,18 @@
   function getControversialArticles()
   {
       global $conn;
-      $stmt = $conn->prepare(" SELECT article.*, COALESCE(SUM(rating_article.score),0) AS sum_score   
+      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname, COALESCE(SUM(rating_article.score),0) AS sum_score,
+      (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
+        (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE rating_article.score=-1 AND rating_article.article_id = article.article_id) AS negratings  
         FROM article  
-        LEFT JOIN rating_article ON article.article_id=rating_article.article_id   
+        LEFT JOIN rating_article ON article.article_id=rating_article.article_id
+        LEFT JOIN users ON users.user_id=article.author
         WHERE (current_date-article.published_date) < 100   
-        GROUP BY article.author,article.article_id 
+        GROUP BY article.author,article.article_id,users.name
         ORDER BY article.sum_score DESC;  ");
       $stmt->execute();
       return $stmt->fetchAll();
@@ -134,11 +142,18 @@
     function getPopularArticles()
   {
       global $conn;
-      $stmt = $conn->prepare(" SELECT article.*, COALESCE(SUM(rating_article.score),0) AS sum_score   
+      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname, COALESCE(SUM(rating_article.score),0) AS sum_score,
+       (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
+        (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE rating_article.score=-1 AND rating_article.article_id = article.article_id) AS negratings   
         FROM article  
-        LEFT JOIN rating_article ON article.article_id=rating_article.article_id   
+        LEFT JOIN rating_article ON article.article_id=rating_article.article_id
+        LEFT JOIN users ON users.user_id=article.author
         WHERE (current_date-article.published_date) < 100   
-        GROUP BY article.author,article.article_id 
+        GROUP BY article.author,article.article_id,users.name
         ORDER BY article.sum_score ASC;  ");
       $stmt->execute();
       return $stmt->fetchAll();
