@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-header.css">
     <script src="{$BASE_URL}js/bootstrap.min.js"></script>
     <script src="{$BASE_URL}js/main.js"></script>
+    <script src="{$BASE_URL}js/articleScripts.js"></script>
     <!-- Animals graphic by -->
     <!--a href="http://www.flaticon.com/authors/zlatko-najdenovski">Zlatko Najdenovski</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>-->
     <!-- Optional Bootstrap theme -->
@@ -24,12 +25,12 @@
             <img class="img-responsive" src="{$BASE_URL}images/assets/logo_navigation.png" alt"logo">
 		    </a>
            <ul class="nav navbar-nav">
-                    <li><a href="#">Programming</a></li>
-                    <li><a href="#">Hardware</a></li>
-                    <li><a href="#">Software</a></li>
-                    <li><a href="#">Industry</a></li>
-                    <li><a href="#">Technology</a></li>
-                </ul>
+                    <li><a class="categorySearch" cat="Programming" href="#">Programming</a></li>
+                    <li><a class="categorySearch" cat="Hardware" href="#">Hardware</a></li>
+                    <li><a class="categorySearch" cat="Software" href="#">Software</a></li>
+                    <li><a class="categorySearch" cat="Industry" href="#">Industry</a></li>
+                    <li><a class="categorySearch" cat="Technology" href="#">Technology</a></li>
+                </ul> 
     </div>
     <nav class="navbar navbar-default headernav">
         <div class="container-fluid">

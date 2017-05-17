@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="{$BASE_URL}js/bootstrap.min.js"></script>
+    <script src="{$BASE_URL}js/endlessScrolling.js"></script>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/bootstrap-social.css">
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-frontpage.css">
