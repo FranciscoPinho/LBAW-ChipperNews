@@ -70,7 +70,7 @@
         <h1 class="text-center " href="# "> News </h1>
     </nav>
     <div class="row " style="padding-left:4%;padding-right:4% ">
-        {for $i=3 to sizeof($articles)}
+        {for $i=3 to sizeof($articles)-1}
              {$art = $articles[$i] }
             {$subcategories = fetchSubcategories($art.article_id)}
             <div class="col-6 col-lg-4 ">
