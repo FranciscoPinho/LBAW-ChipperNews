@@ -6,22 +6,7 @@
         </div>
         <form class="form-horizontal" id="fapplycollab" method="post">
             <fieldset class="responsive-fieldset">
-                <legend>Apply for Collaborator</legend>
-                <div class="form-group">
-                    <label> Full name <i class="fa fa-asterisk" aria-hidden="false"></i></label>
-                    <div class="col-sm-12">
-                        <div class="input-group">
-                            <div class="input-group-btn">
-                                <button class="btn btn-default"><i class="fa fa-id-card-o"></i></button>
-                            </div>
-							{if $FORM_VALUES.fullname}
-							<input type="text" class="form-control" id="fullname" placeholder="Please input your full name." name="fullname"
-								value="{$FORM_VALUES.fullname}" required> {else}
-							<input type="text" class="form-control" id="fullname" placeholder="Please input your full name." name="fullname"
-								required> {/if}
-                        </div>
-                    </div>
-                </div>
+                <legend>Apply for Collaborator</legend>                
                 <div class="form-group">
                     <label> Describe yourself and your achievements briefly <i class="fa fa-asterisk" aria-hidden="false"></i></label>
                     <div class="col-sm-12">

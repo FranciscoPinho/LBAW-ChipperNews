@@ -22,12 +22,13 @@
     $stmt->execute(array($username, $name, password_hash($password,PASSWORD_DEFAULT), $local_id, $email, '0', $bio, $birthdate));
   }
   
-  function createCollabApplication($fullname, $description, $motivation, $refs, $assoc)
+  function createCollabApplication($userID, $description, $motivation, $refs, $assoc)
   {
 	 
 	global $conn;
-	$stmt = $conn->prepare("INSERT INTO collaborator_application(applicantname, achievements, motivation, references, associations) VALUES (?, ?, ?, ?, ?)");
-	$stmt->execute(array($fullname, $description, $motivation, $refs, $assoc));
+	echo "here";
+	$stmt = $conn->prepare("INSERT INTO collaborator_application(userID, achievements, motivation, references, associations) VALUES (?, ?, ?, ?, ?)");
+	$stmt->execute(array($userID, $description, $motivation, $refs, $assoc));
 	}
   
   function isLoginCorrect($username, $password) {
