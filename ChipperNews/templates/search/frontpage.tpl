@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/bootstrap-social.css">
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-frontpage.css">
     <link href="https://fonts.googleapis.com/css?family=Lato|Lora|Playfair+Display:700" rel="stylesheet">
-
+<span class="base_url" id="base_url" hidden>{$BASE_URL}</span>
 </head>
 <body>
    
