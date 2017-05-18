@@ -1,4 +1,9 @@
 <?php
+  function newReport($reportee,$reported,$description){
+      global $conn; 
+      $stmt = $conn->prepare("INSERT INTO report(reportee,reported,description) VALUES (?,?,?)");
+      return $stmt->execute(array($reportee,$reported,$description));
+  }
   function newComment($article_id,$user_id,$content){
       global $conn; 
       $stmt = $conn->prepare("INSERT INTO comment(article_id,user_id,content) VALUES (?,?,?)");
@@ -11,7 +16,13 @@
       $stmt->execute(array($article_id,$user_id,$score));
       return $stmt->fetchAll();
   }
-
+  function rateComment($comment_id,$user_id,$score)
+  {
+      global $conn; 
+      $stmt = $conn->prepare("SELECT * FROM rate_comment(?,?,?)");
+      $stmt->execute(array($comment_id,$user_id,$score));
+      return $stmt->fetchAll();
+  }
   function getArticle($article_id)
   {
     global $conn;
@@ -43,7 +54,7 @@
 
   function getArticleComments($article_id){
      global $conn;
-     $stmt = $conn->prepare("SELECT comment.comment_id,comment.content,to_char(comment.posted_date,'DD-MM-YY HH24:MI') AS posted_date,users.username AS commenter, COALESCE(SUM(rating_comment.score),0) AS sum_score
+     $stmt = $conn->prepare("SELECT comment.comment_id,comment.user_id AS commenter_id,comment.content,to_char(comment.posted_date,'DD-MM-YY HH24:MI') AS posted_date,users.username AS commenter, COALESCE(SUM(rating_comment.score),0) AS sum_score
           FROM comment
           LEFT JOIN rating_comment ON comment.comment_id=rating_comment.comment_id
           LEFT JOIN users ON comment.user_id=users.user_id
@@ -58,7 +69,7 @@
 
    function getArticleCommentsOldest($article_id){
      global $conn;
-     $stmt = $conn->prepare("SELECT comment.comment_id,comment.content,to_char(comment.posted_date,'DD-MM-YY HH24:MI') AS posted_date,users.username AS commenter, COALESCE(SUM(rating_comment.score),0) AS sum_score
+     $stmt = $conn->prepare("SELECT comment.comment_id,comment.user_id AS commenter_id,comment.content,to_char(comment.posted_date,'DD-MM-YY HH24:MI') AS posted_date,users.username AS commenter, COALESCE(SUM(rating_comment.score),0) AS sum_score
           FROM comment
           LEFT JOIN rating_comment ON comment.comment_id=rating_comment.comment_id
           LEFT JOIN users ON comment.user_id=users.user_id
@@ -73,7 +84,7 @@
 
   function getArticleCommentsPopular($article_id){
      global $conn;
-     $stmt = $conn->prepare("SELECT comment.comment_id,comment.content,to_char(comment.posted_date,'DD-MM-YY HH24:MI') AS posted_date,users.username AS commenter, COALESCE(SUM(rating_comment.score),0) AS sum_score
+     $stmt = $conn->prepare("SELECT comment.comment_id,comment.user_id AS commenter_id,comment.content,to_char(comment.posted_date,'DD-MM-YY HH24:MI') AS posted_date,users.username AS commenter, COALESCE(SUM(rating_comment.score),0) AS sum_score
           FROM comment
           LEFT JOIN rating_comment ON comment.comment_id=rating_comment.comment_id
           LEFT JOIN users ON comment.user_id=users.user_id
@@ -88,7 +99,7 @@
 
     function getArticleCommentsControversial($article_id){
      global $conn;
-     $stmt = $conn->prepare("SELECT comment.comment_id,comment.content,to_char(comment.posted_date,'DD-MM-YY HH24:MI') AS posted_date,users.username AS commenter, COALESCE(SUM(rating_comment.score),0) AS sum_score
+     $stmt = $conn->prepare("SELECT comment.comment_id,comment.user_id AS commenter_id,comment.content,to_char(comment.posted_date,'DD-MM-YY HH24:MI') AS posted_date,users.username AS commenter, COALESCE(SUM(rating_comment.score),0) AS sum_score
           FROM comment
           LEFT JOIN rating_comment ON comment.comment_id=rating_comment.comment_id
           LEFT JOIN users ON comment.user_id=users.user_id

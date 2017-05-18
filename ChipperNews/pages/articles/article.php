@@ -46,5 +46,6 @@
   $smarty->display('articles/article.tpl');
   $smarty->display('articles/article-comments.tpl');
   $smarty->display('users/login.tpl');
+  $smarty->display('articles/report-modal.tpl');
   $smarty->display('common/footer.tpl');
 ?>

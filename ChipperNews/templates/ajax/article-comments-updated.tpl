@@ -23,7 +23,8 @@
 								{else}
 								 <span class="posrating" style="font-weight:bold;color:#357266">+{$comment.sum_score}</span>
 								{/if}
-							<i class="fa fa-reply" onclick="quote("'{$comment.commenter}'")"></i>
+							<i class="fa fa-flag" aria-hidden="true" data-toggle="modal"  data-target="#reportModal" onclick="report('{$comment.commenter_id}','{$comment.content}')"></i>
+							<!--<i class="fa fa-reply" onclick="quote("'{$comment.commenter}'")"></i>-->
 							<i class="fa fa-thumbs-down"></i>
 							<i class="fa fa-thumbs-up"></i>
 						</div>

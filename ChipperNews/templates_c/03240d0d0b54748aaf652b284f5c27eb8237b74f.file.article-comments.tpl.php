@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-16 15:02:43
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-18 09:59:24
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\article-comments.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3114590ce55d5822d2-61564544%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '03240d0d0b54748aaf652b284f5c27eb8237b74f' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article-comments.tpl',
-      1 => 1494946958,
+      1 => 1495101560,
       2 => 'file',
     ),
   ),
@@ -63,8 +63,12 @@ $_smarty_tpl->tpl_vars['comment']->_loop = true;
 </span>
 								<?php }?>
 							<?php if ($_smarty_tpl->tpl_vars['USERNAME']->value&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100) {?>
-							<i class="fa fa-reply" onclick="quote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
+							<i class="fa fa-flag" aria-hidden="true" data-toggle="modal"  data-target="#reportModal" onclick="report('<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
+','<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter_id'];?>
+','<?php echo $_smarty_tpl->tpl_vars['comment']->value['content'];?>
 ')"></i>
+							<!--<i class="fa fa-reply" onclick="quote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
+')"></i>-->
 							<i class="fa fa-thumbs-down"></i>
 							<i class="fa fa-thumbs-up"></i>
                             <?php }?>
@@ -75,13 +79,20 @@ $_smarty_tpl->tpl_vars['comment']->_loop = true;
 						</div>
 					</div>
 			 </div>
-			 
+
         <?php } ?>
 		
 		<script>
 		function quote(commenter){
 			var replyTo="Reply: "+"@"+commenter;
 			quill.setText(replyTo);
+		}
+		function report(reported,reported_id,flagged_content){
+			$("#reported").val(reported);
+			$("#reported_id").val(reported_id);
+			cleanText = flagged_content.replace(/<\/?[^>]+(>|$)/g, "");
+			cleanText= "Offense: "+"\""+cleanText+"\"";
+			$("#description").val(cleanText);
 		}
 		</script>
 <?php }?>

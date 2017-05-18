@@ -27,7 +27,8 @@
 								 <span class="posrating" style="font-weight:bold;color:#357266">+{$comment.sum_score}</span>
 								{/if}
 							{if $USERNAME && dateDiffDays($article.published_date)<100}
-							<i class="fa fa-reply" onclick="quote('{$comment.commenter}')"></i>
+							<i class="fa fa-flag" aria-hidden="true" data-toggle="modal"  data-target="#reportModal" onclick="report('{$comment.commenter}','{$comment.commenter_id}','{$comment.content}')"></i>
+							<!--<i class="fa fa-reply" onclick="quote('{$comment.commenter}')"></i>-->
 							<i class="fa fa-thumbs-down"></i>
 							<i class="fa fa-thumbs-up"></i>
                             {/if}
@@ -37,13 +38,20 @@
 						</div>
 					</div>
 			 </div>
-			 
+
         {/foreach}
 		
 		<script>
 		function quote(commenter){
 			var replyTo="Reply: "+"@"+commenter;
 			quill.setText(replyTo);
+		}
+		function report(reported,reported_id,flagged_content){
+			$("#reported").val(reported);
+			$("#reported_id").val(reported_id);
+			cleanText = flagged_content.replace(/<\/?[^>]+(>|$)/g, "");
+			cleanText= "Offense: "+"\""+cleanText+"\"";
+			$("#description").val(cleanText);
 		}
 		</script>
 {/if}
