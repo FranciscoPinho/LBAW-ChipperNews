@@ -14,7 +14,6 @@
 	$motivation = strip_tags($_POST['motivation']);
 	$refs = strip_tags($_POST['refs']);
 	$assoc = strip_tags($_POST['assoc']);
-	debug_to_console ("Teste");	
 	try {
 	createCollabApplication($userID, $description, $motivation, $refs, $assoc); 
 	} catch (PDOException $e) {
@@ -24,4 +23,5 @@
 	}
 	$_SESSION['success_messages'][] = 'Apply form sent successfully';
 	header("Location: $BASE_URL");
+	exit;
 	?>

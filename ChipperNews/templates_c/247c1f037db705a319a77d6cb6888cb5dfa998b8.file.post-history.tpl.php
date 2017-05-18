@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-14 02:00:10
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-18 08:24:45
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\post-history.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2786558fe43e57bc2a4-81144832%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '247c1f037db705a319a77d6cb6888cb5dfa998b8' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\post-history.tpl',
-      1 => 1494727208,
+      1 => 1494935641,
       2 => 'file',
     ),
   ),
@@ -88,7 +88,7 @@ images\articles\<?php echo $_smarty_tpl->tpl_vars['comment']->value['article_id'
 " alt="..." style=" width: 100%; height: auto;">
                     </div>
                     <h2 id="headline"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages\articles\article?id=<?php echo $_smarty_tpl->tpl_vars['comment']->value['article_id'];?>
+pages\articles\article.php?id=<?php echo $_smarty_tpl->tpl_vars['comment']->value['article_id'];?>
 " style="color:black" id="articleAnchor"><?php echo $_smarty_tpl->tpl_vars['comment']->value['article_title'];?>
 </a></h3>
                 </div>
