@@ -224,8 +224,8 @@
                             console.log('Database procedure failed');
                             return;
                         }   
-                        $('#articlecheese').empty();
-                        $('#articlecheese').html(result);   
+                        $('#comment_section').empty();
+                        $('#comment_section').html(result);   
                      }
                 </script>
     {/if}
