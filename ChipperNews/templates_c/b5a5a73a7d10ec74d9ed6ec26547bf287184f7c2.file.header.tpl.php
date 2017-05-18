@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-20 07:48:37
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-17 14:11:06
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\common\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1750558f72594d9ddc0-53438670%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b5a5a73a7d10ec74d9ed6ec26547bf287184f7c2' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\header.tpl',
-      1 => 1492674025,
+      1 => 1495030253,
       2 => 'file',
     ),
   ),
@@ -46,6 +46,10 @@ css/styles-header.css">
 js/bootstrap.min.js"></script>
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/main.js"></script>
+    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/articleScripts.js"></script>~
+    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/endlessScrolling.js"></script>
     <!-- Animals graphic by -->
     <!--a href="http://www.flaticon.com/authors/zlatko-najdenovski">Zlatko Najdenovski</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>-->
     <!-- Optional Bootstrap theme -->
@@ -60,12 +64,12 @@ pages/search/frontpage.php">
 images/assets/logo_navigation.png" alt"logo">
 		    </a>
            <ul class="nav navbar-nav">
-                    <li><a href="#">Programming</a></li>
-                    <li><a href="#">Hardware</a></li>
-                    <li><a href="#">Software</a></li>
-                    <li><a href="#">Industry</a></li>
-                    <li><a href="#">Technology</a></li>
-                </ul>
+                    <li><a class="categorySearch" cat="Programming" href="#">Programming</a></li>
+                    <li><a class="categorySearch" cat="Hardware" href="#">Hardware</a></li>
+                    <li><a class="categorySearch" cat="Software" href="#">Software</a></li>
+                    <li><a class="categorySearch" cat="Industry" href="#">Industry</a></li>
+                    <li><a class="categorySearch" cat="Technology" href="#">Technology</a></li>
+                </ul> 
     </div>
     <nav class="navbar navbar-default headernav">
         <div class="container-fluid">
