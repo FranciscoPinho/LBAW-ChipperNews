@@ -10,7 +10,7 @@
 		exit;
 	} 
 	$userID = $_SESSION['user_id'];	
-	$status = FALSE;
+	$status = 0;
 	$description = strip_tags($_POST['description']);
 	$motivation = strip_tags($_POST['motivation']);
 	$refs = strip_tags($_POST['refs']);

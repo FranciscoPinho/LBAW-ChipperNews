@@ -42,6 +42,9 @@
                     <li><a href="{$BASE_URL}actions/users/logout.php">Logout</a></li>
                     <li><a href="{$BASE_URL}pages/users/profile.php">Profile</a></li>
                     <li><a href="{$BASE_URL}pages/articles/newsfeed.php">Feed</a></li>
+					{if $smarty.session.permission==2}
+					<li><a href="{$BASE_URL}pages/users/reviewapps.php">Review Applications</a></li>
+					{/if}
                      {if $smarty.session.permission==3}
                     <li><a href="{$BASE_URL}pages/admin/sysadmin.php">Admin Panel</a></li>
                      {/if}

@@ -26,8 +26,7 @@
   {
 	 
 	global $conn;
-	echo "here";
-	$stmt = $conn->prepare("INSERT INTO collaborator_application(user_id, status, motivation, achievements, references, associations) VALUES (?, ?, ?, ?, ?, ?)");
+	$stmt = $conn->prepare("INSERT INTO collaborator_application(user_id, status, motivation, achievements, reference, associations) VALUES (?, ?, ?, ?, ?, ?)");
 	$stmt->execute(array($userID, $status, $motivation, $description, $refs, $assoc));
 	}
   
