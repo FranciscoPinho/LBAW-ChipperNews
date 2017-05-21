@@ -24,11 +24,18 @@
   
   function createCollabApplication($userID, $status, $motivation, $description, $refs, $assoc)
   {
-	 
 	global $conn;
 	$stmt = $conn->prepare("INSERT INTO collaborator_application(user_id, status, motivation, achievements, reference, associations) VALUES (?, ?, ?, ?, ?, ?)");
 	$stmt->execute(array($userID, $status, $motivation, $description, $refs, $assoc));
 	}
+  
+  function getApplicationList()
+  {
+	global $conn;
+    $stmt = $conn->prepare("SELECT * FROM collaborator_application");
+    $stmt->execute();
+    return $stmt->fetchAll();
+  }
   
   function isLoginCorrect($username, $password) {
     global $conn;
