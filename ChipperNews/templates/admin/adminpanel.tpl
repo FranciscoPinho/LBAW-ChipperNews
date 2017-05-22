@@ -55,6 +55,7 @@
                     <label class="radio-inline"><input type="radio" name="operation" value="ban" >Ban</label>
                     <label class="radio-inline"><input type="radio" name="operation" value="delete">Delete</label>
                     <label class="radio-inline"><input type="radio" name="operation" value="colaborator">Promote</label>
+                    <label class="radio-inline"><input type="radio" name="operation" value="unban">Unban</label>
                 </div>
                 <table class="table table-hover">
                 <thead>
@@ -73,7 +74,7 @@
                     {if $user.permission_level == 0}
                     <tr>
                         <td>{$user.user_id}</td>
-                        <td><img class="media-object" src="{$BASE_URL}images/assets/pepe.jpg" alt="..."></td>
+                        <td><img class="media-object" src="" alt="..."></td>
                         <td>{$user.username}</td>
                         <td> {$user.email}</td>
                         <td>
@@ -128,7 +129,7 @@
                     {if $user.permission_level == 1}
                     <tr>
                         <td>{$user.user_id}</td>
-                        <td><img class="media-object" src="{$BASE_URL}images/assets/pepe.jpg" alt="..."></td>
+                        <td><img class="media-object" src="" alt="..."></td>
                         <td>{$user.username}</td>
                         <td> {$user.email}</td>
                         <td>
@@ -183,7 +184,7 @@
                     {if $user.permission_level == 2}
                     <tr>
                         <td>{$user.user_id}</td>
-                        <td><img class="media-object" src="{$BASE_URL}images/assets/pepe.jpg" alt="..."></td>
+                        <td><img class="media-object" src="" alt="..."></td>
                         <td>{$user.username}</td>
                         <td> {$user.email}</td>
                         <td>

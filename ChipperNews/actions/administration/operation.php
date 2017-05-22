@@ -13,6 +13,7 @@
       case "colaborator": permissionToColaborator($user);break;
       case "moderator": permissionToModerator($user);break;
       case "ban": banUser($user);break;
+      case "unban": unbanUser($user);break;
       case "delete": deleteUser($user);break;
       default: break;
     }
