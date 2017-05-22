@@ -74,7 +74,7 @@
                     {if $user.permission_level == 0}
                     <tr>
                         <td>{$user.user_id}</td>
-                        <td><img class="media-object" src="" alt="..."></td>
+                        <td><img class="media-object" src={$BASE_URL}images\users\{$user.username} alt="..."></td>
                         <td>{$user.username}</td>
                         <td> {$user.email}</td>
                         <td>
@@ -129,7 +129,7 @@
                     {if $user.permission_level == 1}
                     <tr>
                         <td>{$user.user_id}</td>
-                        <td><img class="media-object" src="" alt="..."></td>
+                        <td><img class="media-object" src={$BASE_URL}images\users\{$user.username} alt="..." style="height:30px;width:30px"></td>
                         <td>{$user.username}</td>
                         <td> {$user.email}</td>
                         <td>

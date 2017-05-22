@@ -23,7 +23,13 @@
     $stmt = $conn->prepare("UPDATE users SET is_banned = TRUE WHERE user_id = ?");
     $stmt->execute(array($user_id));
   }
-   function deleteUser($user_id)
+  function unbanUser($user_id)
+  {
+    global $conn;
+    $stmt = $conn->prepare("UPDATE users SET is_banned = FALSE WHERE user_id = ?");
+    $stmt->execute(array($user_id));
+  }
+  function deleteUser($user_id)
   {
     global $conn;
     $stmt = $conn->prepare("UPDATE users SET is_deleted = TRUE WHERE user_id = ?");
