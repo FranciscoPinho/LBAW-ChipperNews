@@ -144,6 +144,17 @@
         ORDER BY article.published_date DESC;  ");
       $stmt->execute();
       return $stmt->fetchAll();
+  }
+  function getRecentArticlesByCategory($category)
+  {
+      global $conn;
+      $stmt = $conn->prepare("SELECT article FROM article,article_category,subcategory
+      WHERE article.article_id = article_category.article_id
+      AND article_category.sub_id = subcategory.sub_id
+      AND subcategory.category = ?
+      ORDER BY article.published_date DESC;");
+      $stmt->execute(array($category));
+      return $stmt->fetchAll();
   } 
   function getControversialArticles()
   {

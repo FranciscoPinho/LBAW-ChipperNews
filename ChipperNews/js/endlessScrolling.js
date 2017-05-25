@@ -23,6 +23,7 @@ function renderArticles(data)
     var result=data;
     //$('#articlecheese').empty();
     //$('#articlecheese').html(result);
+    console.log(data);
     $('#appendArticles').append(result); 
 }
 var classname = document.getElementsByClassName("categorySearch");
@@ -37,7 +38,7 @@ var getArticlesByCategory = function() {
     var attribute = this.getAttribute("cat");
     currentCategory = attribute;
     indexA = 0;
-    indexB = 4;
+    indexB = 3;
     $('#appendArticles').empty();
     getMoreArticles();
 };

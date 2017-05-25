@@ -6,8 +6,15 @@
   $indexA = $_POST['indexA'];
   $indexB = $_POST['indexB'];
   $categoryID = $_POST['categoryID'];
-  $articles =  getRecentArticles();
-
+  $articles;
+  if($categoryID == 0 )
+  {
+    $articles =  getRecentArticles();
+  }  
+  else 
+  {
+    $articles =  getRecentArticlesByCategory($categoryID);
+  }
   if($indexB > sizeof($articles)) $indexB = sizeof($articles);
 
   $smarty->assign('articles', $articles);
