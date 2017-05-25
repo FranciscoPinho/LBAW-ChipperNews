@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 19:15:20
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 19:40:13
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\ajax\article-comments-updated.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6622591ae0334cb187-90138490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4d59cf627498e14828e4edebfbb185ecdbd854d5' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\ajax\\article-comments-updated.tpl',
-      1 => 1495739715,
+      1 => 1495740893,
       2 => 'file',
     ),
   ),
@@ -108,6 +108,10 @@ $_smarty_tpl->tpl_vars['rat']->_loop = true;
 " onclick="upvote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
 ')" style="color:blue" name="blue"></i>
 							<?php }?> 
+							<?php }?>
+							<?php if ($_SESSION['permission']>=2||$_smarty_tpl->tpl_vars['comment']->value['commenter_id']==$_SESSION['user_id']) {?>
+							<i class="fa fa-trash" aria-hidden="true" onclick="deleteComment('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+')"></i>
 							<?php }?>
 						</div>
 						<div class="comment-content">

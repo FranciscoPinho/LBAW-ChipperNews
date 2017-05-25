@@ -39,7 +39,11 @@
     $article= $stmt->fetchAll();
     return $article[0];
   }
-
+  function deleteComment($comment_id){
+    global $conn;
+    $stmt = $conn->prepare("DELETE FROM comment WHERE comment_id=?");
+    return $stmt->execute(array($comment_id));
+  }
   function getMyRating($article_id,$user_id){
     global $conn;
     $stmt = $conn->prepare("SELECT * FROM rating_article WHERE article_id=? AND user_id=?");

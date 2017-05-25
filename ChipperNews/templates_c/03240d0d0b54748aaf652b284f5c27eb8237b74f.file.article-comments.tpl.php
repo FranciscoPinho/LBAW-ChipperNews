@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 19:16:20
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 19:52:41
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\article-comments.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3114590ce55d5822d2-61564544%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '03240d0d0b54748aaf652b284f5c27eb8237b74f' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article-comments.tpl',
-      1 => 1495739778,
+      1 => 1495741959,
       2 => 'file',
     ),
   ),
@@ -124,6 +124,10 @@ $_smarty_tpl->tpl_vars['rat']->_loop = true;
 ')" style="color:blue" name="blue"></i>
 							<?php }?> 
                             <?php }?>
+							<?php if ($_SESSION['permission']>=2||$_smarty_tpl->tpl_vars['comment']->value['commenter_id']==$_SESSION['user_id']) {?>
+							<i class="fa fa-trash" aria-hidden="true" onclick="deleteComment('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+')"></i>
+							<?php }?>
 						</div>
 						<div class="comment-content">
                             <?php echo $_smarty_tpl->tpl_vars['comment']->value['content'];?>
@@ -149,7 +153,18 @@ $_smarty_tpl->tpl_vars['rat']->_loop = true;
 			cleanText= "Offense: "+"\""+cleanText+"\"";
 			$("#description").val(cleanText);
 		}
-
+		function deleteComment(comment_id){
+                var base_url = $("#base_url").text();
+                return $.ajax({
+                    type: "POST",
+                    url: base_url + "actions/articles/delete_comment.php",
+                    data: "comment_id=" + encodeURI(comment_id) + "&article_id=" + encodeURI(article_id),
+                    success: reload
+                });
+		}
+		function reload(data){
+			 location.reload();
+		}
 		 function upvote(comment_id) {
                 var score;
 				 var article_id = $("#article_id").text();

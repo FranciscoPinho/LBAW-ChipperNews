@@ -46,6 +46,9 @@
 							<i class="fa fa-thumbs-up"  id="up{$comment.comment_id}" onclick="upvote('{$comment.comment_id}')" style="color:blue" name="blue"></i>
 							{/if} 
 							{/if}
+							{if $smarty.session.permission>=2 || $comment.commenter_id == $smarty.session.user_id}
+							<i class="fa fa-trash" aria-hidden="true" onclick="deleteComment('{$comment.comment_id}')"></i>
+							{/if}
 						</div>
 						<div class="comment-content">
                             {$comment.content}

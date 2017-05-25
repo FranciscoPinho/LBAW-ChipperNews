@@ -57,6 +57,9 @@
 							<i class="fa fa-thumbs-up"  id="up{$comment.comment_id}" onclick="upvote('{$comment.comment_id}')" style="color:blue" name="blue"></i>
 							{/if} 
                             {/if}
+							{if $smarty.session.permission>=2 || $comment.commenter_id == $smarty.session.user_id}
+							<i class="fa fa-trash" aria-hidden="true" onclick="deleteComment('{$comment.comment_id}')"></i>
+							{/if}
 						</div>
 						<div class="comment-content">
                             {$comment.content}
@@ -81,7 +84,18 @@
 			cleanText= "Offense: "+"\""+cleanText+"\"";
 			$("#description").val(cleanText);
 		}
-
+		function deleteComment(comment_id){
+                var base_url = $("#base_url").text();
+                return $.ajax({
+                    type: "POST",
+                    url: base_url + "actions/articles/delete_comment.php",
+                    data: "comment_id=" + encodeURI(comment_id) + "&article_id=" + encodeURI(article_id),
+                    success: reload
+                });
+		}
+		function reload(data){
+			 location.reload();
+		}
 		 function upvote(comment_id) {
                 var score;
 				 var article_id = $("#article_id").text();
