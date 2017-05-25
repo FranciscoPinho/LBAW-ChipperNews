@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 14:33:14
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 19:15:20
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\ajax\article-comments-updated.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6622591ae0334cb187-90138490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4d59cf627498e14828e4edebfbb185ecdbd854d5' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\ajax\\article-comments-updated.tpl',
-      1 => 1495722469,
+      1 => 1495739715,
       2 => 'file',
     ),
   ),
@@ -23,6 +23,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'comment_id' => 0,
     'comment' => 0,
     'BASE_URL' => 0,
+    'ratings' => 0,
+    'rat' => 0,
+    'rating' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -68,11 +71,43 @@ pages/users/view_profile.php?id=<?php echo $_smarty_tpl->tpl_vars['comment']->va
 </span>
 								<?php }?>
 							<?php if ($_smarty_tpl->tpl_vars['comment']->value['commenter_id']!=$_SESSION['user_id']) {?>
-							<i class="fa fa-flag" aria-hidden="true" data-toggle="modal"  data-target="#reportModal" onclick="report('<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter_id'];?>
+							<i class="fa fa-flag" aria-hidden="true" data-toggle="modal"  data-target="#reportModal" onclick="report('<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
+',<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter_id'];?>
 ','<?php echo $_smarty_tpl->tpl_vars['comment']->value['content'];?>
 ')"></i>
-							<i class="fa fa-thumbs-down"></i>
-							<i class="fa fa-thumbs-up"></i>
+							<?php  $_smarty_tpl->tpl_vars['rat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['rat']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['ratings']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['rat']->key => $_smarty_tpl->tpl_vars['rat']->value) {
+$_smarty_tpl->tpl_vars['rat']->_loop = true;
+?>
+								<?php if ($_smarty_tpl->tpl_vars['rat']->value['comment_id']==$_smarty_tpl->tpl_vars['comment']->value['comment_id']) {?>
+									<?php $_smarty_tpl->tpl_vars['rating'] = new Smarty_variable($_smarty_tpl->tpl_vars['rat']->value, null, 0);?>
+								<?php }?>
+							<?php } ?>
+							<?php if (($_smarty_tpl->tpl_vars['rating']->value==-1||(isset($_smarty_tpl->tpl_vars['rating']->value)&&$_smarty_tpl->tpl_vars['rating']->value['score']==0))) {?>
+							<i class="fa fa-thumbs-down" id="down<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+"onclick="downvote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+')" ></i>
+							<i class="fa fa-thumbs-up"  id="up<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+" onclick="upvote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+')"></i>
+                    		<?php }?>
+							<?php if ($_smarty_tpl->tpl_vars['rating']->value['score']==-1) {?>
+							<i class="fa fa-thumbs-down" id="down<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+"onclick="downvote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+')" style="color:blue" name="blue"></i>
+							<i class="fa fa-thumbs-up"  id="up<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+" onclick="upvote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+')" name="grey"></i>
+							<?php }?>
+							<?php if ($_smarty_tpl->tpl_vars['rating']->value['score']==1) {?>
+							<i class="fa fa-thumbs-down" id="down<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+"onclick="downvote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+')" name="grey"></i>
+							<i class="fa fa-thumbs-up"  id="up<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+" onclick="upvote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+')" style="color:blue" name="blue"></i>
+							<?php }?> 
 							<?php }?>
 						</div>
 						<div class="comment-content">
@@ -82,4 +117,5 @@ pages/users/view_profile.php?id=<?php echo $_smarty_tpl->tpl_vars['comment']->va
 					</div>
 			 </div>
 <?php } ?>
+
 <?php }?><?php }} ?>

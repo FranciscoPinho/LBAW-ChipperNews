@@ -2,15 +2,18 @@
 <div id="comment_section">
 {if sizeof($comments)>0}
 <div class="container" id="comment-elements">
+<div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton"><span class="droptext">Newest</span>
-		<span class="caret caret-reversed"></span> 
+		<span class="caret caret-reversed"></span>
+		
 		</button>
-                <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">
+          <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">
                     <li><a href="#" onclick="changeDropdown('Newest')">Newest</a></li>
                     <li><a href="#" onclick="changeDropdown('Oldest')">Oldest</a></li>
                     <li><a href="#" onclick="changeDropdown('Popular')">Popular</a></li>
                     <li><a href="#" onclick="changeDropdown('Controversial')">Controversial</a></li>
-                </ul>
+                </ul>   
+</div>   
 <h1 class="nf">Comments</h1>
 </div>
 
@@ -32,8 +35,27 @@
 								{/if}
 							{if $USERNAME && dateDiffDays($article.published_date)<100 &&$comment.commenter_id != $smarty.session.user_id}
 							<i class="fa fa-flag" aria-hidden="true" data-toggle="modal"  data-target="#reportModal" onclick="report('{$comment.commenter}','{$comment.commenter_id}','{$comment.content}')"></i>
-							<i class="fa fa-thumbs-down"></i>
-							<i class="fa fa-thumbs-up"></i>
+							{foreach $ratings as $rat}
+								{if $rat.comment_id==$comment.comment_id}
+									{$rating = $rat}
+								{/if}
+							{/foreach}
+							{if dateDiffDays($article.published_date)>=100}
+							<i class="fa fa-thumbs-down" id="down{$comment.comment_id}"onclick="downvote('{$comment.comment_id}')" disabled></i>
+							<i class="fa fa-thumbs-up"  id="up{$comment.comment_id}" onclick="upvote('{$comment.comment_id}')" disabled></i>
+							{/if}
+							{if ($rating==-1 || (isset($rating) && $rating.score==0)) && dateDiffDays($article.published_date)<100}
+							<i class="fa fa-thumbs-down" id="down{$comment.comment_id}"onclick="downvote('{$comment.comment_id}')"></i>
+							<i class="fa fa-thumbs-up"  id="up{$comment.comment_id}" onclick="upvote('{$comment.comment_id}')"></i>
+                    		{/if}
+							{if $rating.score==-1 && dateDiffDays($article.published_date)<100}
+							<i class="fa fa-thumbs-down" id="down{$comment.comment_id}"onclick="downvote('{$comment.comment_id}')" style="color:blue" name="blue"></i>
+							<i class="fa fa-thumbs-up"  id="up{$comment.comment_id}" onclick="upvote('{$comment.comment_id}')" name="grey"></i>
+							{/if}
+							{if $rating.score==1 && dateDiffDays($article.published_date)<100}
+							<i class="fa fa-thumbs-down" id="down{$comment.comment_id}"onclick="downvote('{$comment.comment_id}')" name="grey"></i>
+							<i class="fa fa-thumbs-up"  id="up{$comment.comment_id}" onclick="upvote('{$comment.comment_id}')" style="color:blue" name="blue"></i>
+							{/if} 
                             {/if}
 						</div>
 						<div class="comment-content">
@@ -59,5 +81,38 @@
 			cleanText= "Offense: "+"\""+cleanText+"\"";
 			$("#description").val(cleanText);
 		}
+
+		 function upvote(comment_id) {
+                var score;
+				 var article_id = $("#article_id").text();
+                if ($('#down'+comment_id).attr("name")=="grey")
+                    score = 0;
+                else score = 1;
+                var base_url = $("#base_url").text();
+                return $.ajax({
+                    type: "POST",
+                    url: base_url + "actions/articles/comment_vote.php",
+                    data: "comment_id=" + encodeURI(comment_id) + "&score=" + encodeURI(score) + "&article_id=" + encodeURI(article_id),
+                    success: updateCommentSection
+                });
+		   }
+     
+
+        function downvote(comment_id) {
+                var score;
+				var article_id = $("#article_id").text();
+                if ($('#up'+comment_id).attr("name")=="grey")
+                    score = 0;
+                else score = -1;
+                var base_url = $("#base_url").text();
+                return $.ajax({
+                    type: "POST",
+                    url: base_url + "actions/articles/comment_vote.php",
+                    data: "comment_id=" + encodeURI(comment_id) + "&score=" + encodeURI(score)+ "&article_id=" + encodeURI(article_id),
+                    success: updateCommentSection
+                });
+		}
+
+         
 		</script>
 			  					

@@ -44,10 +44,24 @@
     global $conn;
     $stmt = $conn->prepare("SELECT * FROM rating_article WHERE article_id=? AND user_id=?");
     $stmt->execute(array($article_id,$user_id));
-    $article= $stmt->fetchAll();
-    return $article[0];
+    $rating= $stmt->fetchAll();
+    return $rating[0];
   }
-
+  
+  function getMyCommentRating($comment_id_id,$user_id){
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM rating_comment WHERE comment_id=? AND user_id=?");
+    $stmt->execute(array($comment_id,$user_id));
+    $rating= $stmt->fetchAll();
+    return $rating[0];
+  }
+   function getAllMyCommentRatings($user_id,$article_id){
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM rating_comment LEFT JOIN comment ON rating_comment.comment_id=comment.comment_id WHERE rating_comment.user_id=? AND comment.article_id=?");
+    $stmt->execute(array($user_id,$article_id));
+    $ratings= $stmt->fetchAll();
+    return $ratings;
+  }
   function getArticleComments($article_id){
      global $conn;
      $stmt = $conn->prepare("SELECT comment.comment_id,comment.user_id AS commenter_id,comment.content,to_char(comment.posted_date,'DD-MM-YY HH24:MI') AS posted_date,users.username AS commenter, COALESCE(SUM(rating_comment.score),0) AS sum_score

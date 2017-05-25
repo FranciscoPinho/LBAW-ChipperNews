@@ -34,7 +34,6 @@
     </div>
     <nav class="navbar navbar-default headernav">
         <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
               
                 <ul class="nav navbar-nav navbar-right">
@@ -54,11 +53,10 @@
                     {/if}          
                 </ul>          
             </div>
-            <div class="navbar-right collapse navbar-collapse">
+            <div class="navbar-right">
                 
                <form class="navbar-form navbar-right">
                         <div class="form-group has-feedback">
-
                             <input type="text" style="border-radius:16px;color:#C5C9A4" class="form-control" placeholder="Search">
                             <span class="glyphicon glyphicon-search form-control-feedback"></span>
                         </div>
