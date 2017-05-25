@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-16 13:58:14
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 14:16:02
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\ajax\article-comments-updated.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6622591ae0334cb187-90138490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4d59cf627498e14828e4edebfbb185ecdbd854d5' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\ajax\\article-comments-updated.tpl',
-      1 => 1494941399,
+      1 => 1495721678,
       2 => 'file',
     ),
   ),
@@ -59,8 +59,13 @@ $_smarty_tpl->tpl_vars['comment']->_loop = true;
 								 <span class="posrating" style="font-weight:bold;color:#357266">+<?php echo $_smarty_tpl->tpl_vars['comment']->value['sum_score'];?>
 </span>
 								<?php }?>
-							<i class="fa fa-reply" onclick="quote("'<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
-'")"></i>
+							<?php if ($_smarty_tpl->tpl_vars['comment']->value['commenter_id']!=$_SESSION['user_id']) {?>
+							<i class="fa fa-flag" aria-hidden="true" data-toggle="modal"  data-target="#reportModal" onclick="report('<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter_id'];?>
+','<?php echo $_smarty_tpl->tpl_vars['comment']->value['content'];?>
+')"></i>
+							<?php }?>
+							<!--<i class="fa fa-reply" onclick="quote("'<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
+'")"></i>-->
 							<i class="fa fa-thumbs-down"></i>
 							<i class="fa fa-thumbs-up"></i>
 						</div>

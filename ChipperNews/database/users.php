@@ -1,5 +1,9 @@
 <?php
-  
+   function newReport($reportee,$reported,$description){
+      global $conn; 
+      $stmt = $conn->prepare("INSERT INTO report(reportee,reported,description) VALUES (?,?,?)");
+      return $stmt->execute(array($reportee,$reported,$description));
+  }
   function createUser($username, $name, $password, $local_id, $email, $bio, $birthdate) 
   {
 

@@ -11,6 +11,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://www.w3schools.com/lib/w3data.js"></script>	
 	<script src="{$BASE_URL}js/bootstrap.min.js"></script>
+    
     <link href="https://cdn.quilljs.com/1.2.4/quill.snow.css" rel="stylesheet">
     <script src="https://cdn.quilljs.com/1.2.4/quill.min.js" type="text/javascript"></script>
     <span class="base_url" id="base_url" hidden>{$BASE_URL}</span>
@@ -164,7 +165,6 @@
             </div>		
    </div>
    <br><br>
-   <!-- ONLY SHOW COMMENT BOX IF LOGGED IN -->
    {if $USERNAME && dateDiffDays($article.published_date)<100}
    <div class="row">
     
@@ -179,8 +179,8 @@
                                          <input class="form-control"  id="body" type="hidden" name="body" required>
 										<button type="button" onclick="submitComment()" class="btn btn-success" style="background-color:#357266"> Submit</button>
 									</form>
-								</div><!-- Status Upload  -->
-							</div><!-- Widget Area -->
+								</div>
+							</div>
 	</div>
     </div>
                 <script>

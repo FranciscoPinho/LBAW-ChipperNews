@@ -1,9 +1,5 @@
 <?php
-  function newReport($reportee,$reported,$description){
-      global $conn; 
-      $stmt = $conn->prepare("INSERT INTO report(reportee,reported,description) VALUES (?,?,?)");
-      return $stmt->execute(array($reportee,$reported,$description));
-  }
+ 
   function newComment($article_id,$user_id,$content){
       global $conn; 
       $stmt = $conn->prepare("INSERT INTO comment(article_id,user_id,content) VALUES (?,?,?)");

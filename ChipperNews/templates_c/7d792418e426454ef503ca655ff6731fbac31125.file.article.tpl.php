@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-18 09:57:56
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 14:20:38
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\article.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:277590ce55d4a1b31-41011843%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7d792418e426454ef503ca655ff6731fbac31125' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article.tpl',
-      1 => 1495101185,
+      1 => 1495721926,
       2 => 'file',
     ),
   ),
@@ -46,6 +46,7 @@ css/styles-article.css">
 	<script src="https://www.w3schools.com/lib/w3data.js"></script>	
 	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/bootstrap.min.js"></script>
+    
     <link href="https://cdn.quilljs.com/1.2.4/quill.snow.css" rel="stylesheet">
     <script src="https://cdn.quilljs.com/1.2.4/quill.min.js" type="text/javascript"></script>
     <span class="base_url" id="base_url" hidden><?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -235,7 +236,6 @@ images\articles\<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'
             </div>		
    </div>
    <br><br>
-   <!-- ONLY SHOW COMMENT BOX IF LOGGED IN -->
    <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100) {?>
    <div class="row">
     
@@ -250,8 +250,8 @@ images\articles\<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'
                                          <input class="form-control"  id="body" type="hidden" name="body" required>
 										<button type="button" onclick="submitComment()" class="btn btn-success" style="background-color:#357266"> Submit</button>
 									</form>
-								</div><!-- Status Upload  -->
-							</div><!-- Widget Area -->
+								</div>
+							</div>
 	</div>
     </div>
                 <script>

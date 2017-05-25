@@ -13,20 +13,24 @@
 </div>
 {foreach $comments as $comment}
 			<div class="container comment-main-level" id="comment-id-{$comment_id}">
-					<!-- Contenedor del Comentario -->
 					<div class="comment-box">
 						<div class="comment-head">
-							<h6 class="comment-name by-author"><a href="#"></a> {$comment.commenter}</h6>
+							{if $comment.commenter_id == $smarty.session.user_id}
+							<h6 class="comment-name by-author"><a style="color:blue;text-decoration:none" href="{$BASE_URL}pages/users/profile.php"> {$comment.commenter}</a></h6>
+							{else}
+							<h6 class="comment-name by-author"><a style="text-decoration:none" href="{$BASE_URL}pages/users/view_profile.php?id={$comment.commenter_id}"></a> {$comment.commenter}</h6>
+							{/if}
 							<span> {$comment.posted_date}&nbsp&nbsp&nbsp</span>
 								{if $comment.sum_score<0}
 								<span class="negrating" style="font-weight:bold;color:#f11066"> {$comment.sum_score}</span>
 								{else}
 								 <span class="posrating" style="font-weight:bold;color:#357266">+{$comment.sum_score}</span>
 								{/if}
+							{if $comment.commenter_id != $smarty.session.user_id}
 							<i class="fa fa-flag" aria-hidden="true" data-toggle="modal"  data-target="#reportModal" onclick="report('{$comment.commenter_id}','{$comment.content}')"></i>
-							<!--<i class="fa fa-reply" onclick="quote("'{$comment.commenter}'")"></i>-->
 							<i class="fa fa-thumbs-down"></i>
 							<i class="fa fa-thumbs-up"></i>
+							{/if}
 						</div>
 						<div class="comment-content">
                             {$comment.content}
