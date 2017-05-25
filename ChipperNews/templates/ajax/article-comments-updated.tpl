@@ -38,4 +38,5 @@
 					</div>
 			 </div>
 {/foreach}
+
 {/if}

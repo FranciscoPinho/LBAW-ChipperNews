@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 14:27:49
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 14:33:59
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\article-comments.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3114590ce55d5822d2-61564544%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '03240d0d0b54748aaf652b284f5c27eb8237b74f' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article-comments.tpl',
-      1 => 1495722432,
+      1 => 1495722836,
       2 => 'file',
     ),
   ),
@@ -89,7 +89,10 @@ pages/users/view_profile.php?id=<?php echo $_smarty_tpl->tpl_vars['comment']->va
 
         <?php } ?>
 		
-		<script>
+	
+		<?php }?>
+</div>	
+	<script>
 		function quote(commenter){
 			var replyTo="Reply: "+"@"+commenter;
 			quill.setText(replyTo);
@@ -102,7 +105,4 @@ pages/users/view_profile.php?id=<?php echo $_smarty_tpl->tpl_vars['comment']->va
 			$("#description").val(cleanText);
 		}
 		</script>
-<?php }?>
-</div>	
-
 			  					<?php }} ?>

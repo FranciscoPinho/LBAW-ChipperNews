@@ -29,6 +29,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cogs"></i>Admin Options <span class="caret"></span></a>
                         <ul class="dropdown-menu">
+                            <li><a href="{$BASE_URL}pages/admin/syscategories.php">Category Management</a></li>
                             <li><a href="#">Shut down for maintenance</a></li>
                         </ul>
                     </li>
@@ -74,7 +75,7 @@
                     {if $user.permission_level == 0}
                     <tr>
                         <td>{$user.user_id}</td>
-                        <td><img class="media-object" src={$BASE_URL}images\users\{$user.username} alt="..."></td>
+                        <td><img class="media-object" src="{$user.username|getImage}" alt="..." style="height:30px;width:30px"></td>
                         <td>{$user.username}</td>
                         <td> {$user.email}</td>
                         <td>
@@ -129,7 +130,7 @@
                     {if $user.permission_level == 1}
                     <tr>
                         <td>{$user.user_id}</td>
-                        <td><img class="media-object" src={$BASE_URL}images\users\{$user.username} alt="..." style="height:30px;width:30px"></td>
+                        <td><img class="media-object" src="{$user.username|getImage}" alt="..." style="height:30px;width:30px"></td>
                         <td>{$user.username}</td>
                         <td> {$user.email}</td>
                         <td>
@@ -184,7 +185,7 @@
                     {if $user.permission_level == 2}
                     <tr>
                         <td>{$user.user_id}</td>
-                        <td><img class="media-object" src="" alt="..."></td>
+                        <td><img class="media-object" src="{$user.username|getImage}" alt="..." style="height:30px;width:30px"></td>
                         <td>{$user.username}</td>
                         <td> {$user.email}</td>
                         <td>

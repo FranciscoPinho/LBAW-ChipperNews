@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 14:16:02
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 14:33:14
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\ajax\article-comments-updated.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6622591ae0334cb187-90138490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4d59cf627498e14828e4edebfbb185ecdbd854d5' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\ajax\\article-comments-updated.tpl',
-      1 => 1495721678,
+      1 => 1495722469,
       2 => 'file',
     ),
   ),
@@ -22,6 +22,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'comments' => 0,
     'comment_id' => 0,
     'comment' => 0,
+    'BASE_URL' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -45,11 +46,18 @@ $_smarty_tpl->tpl_vars['comment']->_loop = true;
 ?>
 			<div class="container comment-main-level" id="comment-id-<?php echo $_smarty_tpl->tpl_vars['comment_id']->value;?>
 ">
-					<!-- Contenedor del Comentario -->
 					<div class="comment-box">
 						<div class="comment-head">
-							<h6 class="comment-name by-author"><a href="#"></a> <?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
+							<?php if ($_smarty_tpl->tpl_vars['comment']->value['commenter_id']==$_SESSION['user_id']) {?>
+							<h6 class="comment-name by-author"><a style="color:blue;text-decoration:none" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/profile.php"> <?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
+</a></h6>
+							<?php } else { ?>
+							<h6 class="comment-name by-author"><a style="text-decoration:none" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/view_profile.php?id=<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter_id'];?>
+"></a> <?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
 </h6>
+							<?php }?>
 							<span> <?php echo $_smarty_tpl->tpl_vars['comment']->value['posted_date'];?>
 &nbsp&nbsp&nbsp</span>
 								<?php if ($_smarty_tpl->tpl_vars['comment']->value['sum_score']<0) {?>
@@ -63,11 +71,9 @@ $_smarty_tpl->tpl_vars['comment']->_loop = true;
 							<i class="fa fa-flag" aria-hidden="true" data-toggle="modal"  data-target="#reportModal" onclick="report('<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter_id'];?>
 ','<?php echo $_smarty_tpl->tpl_vars['comment']->value['content'];?>
 ')"></i>
-							<?php }?>
-							<!--<i class="fa fa-reply" onclick="quote("'<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
-'")"></i>-->
 							<i class="fa fa-thumbs-down"></i>
 							<i class="fa fa-thumbs-up"></i>
+							<?php }?>
 						</div>
 						<div class="comment-content">
                             <?php echo $_smarty_tpl->tpl_vars['comment']->value['content'];?>

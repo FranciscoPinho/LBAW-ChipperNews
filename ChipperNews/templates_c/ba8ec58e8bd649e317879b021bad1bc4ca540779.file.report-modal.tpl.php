@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 14:29:42
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 14:33:59
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\report-modal.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:24867591d6745955c00-75992515%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ba8ec58e8bd649e317879b021bad1bc4ca540779' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\report-modal.tpl',
-      1 => 1495722579,
+      1 => 1495722657,
       2 => 'file',
     ),
   ),
@@ -63,6 +63,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         console.log(result);
                         if (result == "-1") {
                             console.log('Unset variables sent through request');
+                            $('#report_body').empty();
+                            $('#report_body').html(`<p>Report could not be sent. Servers may be down, check your own connectivity!</p>`);  
                             return;
                         } 
                         if (result == "0") {

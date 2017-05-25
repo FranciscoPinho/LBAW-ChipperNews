@@ -44,7 +44,10 @@
 
         {/foreach}
 		
-		<script>
+	
+		{/if}
+</div>	
+	<script>
 		function quote(commenter){
 			var replyTo="Reply: "+"@"+commenter;
 			quill.setText(replyTo);
@@ -57,7 +60,4 @@
 			$("#description").val(cleanText);
 		}
 		</script>
-{/if}
-</div>	
-
 			  					
