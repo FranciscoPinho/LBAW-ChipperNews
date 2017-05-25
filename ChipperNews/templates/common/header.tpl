@@ -25,11 +25,11 @@
             <img class="img-responsive" src="{$BASE_URL}images/assets/logo_navigation.png" alt"logo">
 		    </a>
            <ul class="nav navbar-nav">
-                    <li><a class="categorySearch" cat="Programming" href="#">Programming</a></li>
-                    <li><a class="categorySearch" cat="Hardware" href="#">Hardware</a></li>
-                    <li><a class="categorySearch" cat="Software" href="#">Software</a></li>
-                    <li><a class="categorySearch" cat="Industry" href="#">Industry</a></li>
-                    <li><a class="categorySearch" cat="Technology" href="#">Technology</a></li>
+                    <li><a class="categorySearch" cat="1" href="#">Programming</a></li>
+                    <li><a class="categorySearch" cat="2" href="#">Hardware</a></li>
+                    <li><a class="categorySearch" cat="3" href="#">Software</a></li>
+                    <li><a class="categorySearch" cat="4" href="#">Industry</a></li>
+                    <li><a class="categorySearch" cat="5" href="#">Technology</a></li>
                 </ul> 
     </div>
     <nav class="navbar navbar-default headernav">
