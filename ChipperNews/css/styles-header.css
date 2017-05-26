@@ -44,6 +44,9 @@ ul.nav.navbar-nav > li > a{
     display: inline-block;
     float:none;
 }
+.nav.navbar-nav.navbar-right > li:hover {
+   background:white;
+}
 .navbar-brand > img {
  height: 95%;   
 }
