@@ -11,7 +11,7 @@
      $category = getCategory($sub_id);
      return $category[0];
   }
-
+  $smarty->assign('adminpanel', 0);
   $smarty->display('common/header.tpl');
   $smarty->display('admin/categoriespanel.tpl');
   $smarty->display('common/footer.tpl');

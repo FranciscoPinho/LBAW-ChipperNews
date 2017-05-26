@@ -1,34 +1,34 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 22:02:28
-         compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\common\header.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1750558f72594d9ddc0-53438670%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 21:27:20
+         compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\common\header-categories.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:1934859289db893f121-81724616%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    'b5a5a73a7d10ec74d9ed6ec26547bf287184f7c2' => 
+    '2e17029332126250520347ec71b9d06da44c0232' => 
     array (
-      0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\header.tpl',
-      1 => 1495836093,
+      0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\header-categories.tpl',
+      1 => 1495833974,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1750558f72594d9ddc0-53438670',
+  'nocache_hash' => '1934859289db893f121-81724616',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_58f72594df9575_74919065',
   'variables' => 
   array (
     'BASE_URL' => 0,
     'USERNAME' => 0,
-    'profile' => 0,
-    'feed' => 0,
-    'apps' => 0,
-    'adminpanel' => 0,
+    'ERROR_MESSAGES' => 0,
+    'error' => 0,
+    'SUCCESS_MESSAGES' => 0,
+    'success' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_59289db89ff002_11228847',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_58f72594df9575_74919065')) {function content_58f72594df9575_74919065($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_59289db89ff002_11228847')) {function content_59289db89ff002_11228847($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 
 <head>
@@ -62,60 +62,72 @@ pages/search/frontpage.php">
 images/assets/logo_navigation.png" alt"logo">
 		    </a>
            <ul class="nav navbar-nav">
+                    <li><a class="categorySearch" cat="1" href="#">Programming</a></li>
+                    <li><a class="categorySearch" cat="2" href="#">Hardware</a></li>
+                    <li><a class="categorySearch" cat="3" href="#">Software</a></li>
+                    <li><a class="categorySearch" cat="4" href="#">Industry</a></li>
+                    <li><a class="categorySearch" cat="5" href="#">Technology</a></li>
+                </ul> 
+    </div>
+    <nav class="navbar navbar-default headernav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              
+                <ul class="nav navbar-nav navbar-right">
                     <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value) {?>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 actions/users/logout.php">Logout</a></li>
-                     <?php if (isset($_smarty_tpl->tpl_vars['profile']->value)) {?>
-                     <li style="background:white"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/profile.php">Profile</a></li>
-                     <?php } else { ?>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/profile.php">Profile</a></li>
-                    <?php }?>
-                    <?php if (isset($_smarty_tpl->tpl_vars['feed']->value)) {?>
-                       <li style="background:white"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/articles/newsfeed.php">Feed</a></li>
-                    <?php } else { ?>
-                       <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/articles/newsfeed.php">Feed</a></li>
-                     <?php }?>
-                  
 					<?php if ($_SESSION['permission']==2) {?>
-                    <?php if (isset($_smarty_tpl->tpl_vars['apps']->value)) {?>
-                     <li style="background:white"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+					<li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/reviewapps.php">Review Applications</a></li>
-                    <?php } else { ?>
-                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/reviewapps.php">Review Applications</a></li>
-                     <?php }?>
 					<?php }?>
                      <?php if ($_SESSION['permission']==3) {?>
-                     <?php if (isset($_smarty_tpl->tpl_vars['adminpanel']->value)) {?>
-                     <li style="background:white"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/admin/sysadmin.php">Admin Panel</a></li>
-                    <?php } else { ?>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/admin/sysadmin.php">Admin Panel</a></li>
-                     <?php }?>
                      <?php }?>
                     <?php } else { ?>
                      <li><a data-toggle="modal" data-target="#myModal" href="">Login</a></li>     
                      <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/register.php">Register</a></li>
                     <?php }?>          
-                </ul> 
-                 <nav class="navbar navbar-default headernav">
-                    <form class="navbar-form navbar-center">
+                </ul>          
+            </div>
+            <div class="navbar-right">
+                
+               <form class="navbar-form navbar-right">
                         <div class="form-group has-feedback">
                             <input type="text" style="border-radius:16px;color:#C5C9A4" class="form-control" placeholder="Search">
                             <span class="glyphicon glyphicon-search form-control-feedback"></span>
                         </div>
 
                  </form>
-                 </nav>
-    </div>
-    <br>
-    <br>
+            </div>
+            </div>     <!-- /.container-fluid -->
+                            <div id="error_messages">
+                            <?php  $_smarty_tpl->tpl_vars['error'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['error']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['ERROR_MESSAGES']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['error']->key => $_smarty_tpl->tpl_vars['error']->value) {
+$_smarty_tpl->tpl_vars['error']->_loop = true;
+?>
+                            <div class="error"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
+<a class="close" href="#">X</a></div>
+                            <?php } ?>
+                            </div>
+                            <div id="success_messages">
+                            <?php  $_smarty_tpl->tpl_vars['success'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['success']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['SUCCESS_MESSAGES']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['success']->key => $_smarty_tpl->tpl_vars['success']->value) {
+$_smarty_tpl->tpl_vars['success']->_loop = true;
+?>
+                            <div class="success"><?php echo $_smarty_tpl->tpl_vars['success']->value;?>
+<a class="close" href="#">X</a></div>
+                            <?php } ?>
+                            </div>
+    </nav>
 </body>
 
 </html><?php }} ?>

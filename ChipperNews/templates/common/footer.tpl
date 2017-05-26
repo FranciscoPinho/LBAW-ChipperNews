@@ -19,10 +19,10 @@
            <ul class="nav navbar-nav">
 					{if $USERNAME}
 					{if $smarty.session.permission==0}
-                    <li><a href="{$BASE_URL}actions/users/applycollab.php">Become a Collaborator</a></li>
+                    <li><a href="{$BASE_URL}pages/users/applycollab.php">Become a Collaborator</a></li>
 					{/if}
 					{/if}
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="{$BASE_URL}pages/users/help.php">Help</a></li>
                     <li><a href="#">Contact Info</a></li>
                 </ul>
     </div>

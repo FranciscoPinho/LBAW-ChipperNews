@@ -25,50 +25,56 @@
             <img class="img-responsive" src="{$BASE_URL}images/assets/logo_navigation.png" alt"logo">
 		    </a>
            <ul class="nav navbar-nav">
+                    <li><a class="categorySearch" cat="1" href="#">Programming</a></li>
+                    <li><a class="categorySearch" cat="2" href="#">Hardware</a></li>
+                    <li><a class="categorySearch" cat="3" href="#">Software</a></li>
+                    <li><a class="categorySearch" cat="4" href="#">Industry</a></li>
+                    <li><a class="categorySearch" cat="5" href="#">Technology</a></li>
+                </ul> 
+    </div>
+    <nav class="navbar navbar-default headernav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              
+                <ul class="nav navbar-nav navbar-right">
                     {if $USERNAME}
                     <li><a href="{$BASE_URL}actions/users/logout.php">Logout</a></li>
-                     {if isset($profile)}
-                     <li style="background:white"><a href="{$BASE_URL}pages/users/profile.php">Profile</a></li>
-                     {else}
                     <li><a href="{$BASE_URL}pages/users/profile.php">Profile</a></li>
-                    {/if}
-                    {if isset($feed)}
-                       <li style="background:white"><a href="{$BASE_URL}pages/articles/newsfeed.php">Feed</a></li>
-                    {else}
-                       <li><a href="{$BASE_URL}pages/articles/newsfeed.php">Feed</a></li>
-                     {/if}
-                  
+                    <li><a href="{$BASE_URL}pages/articles/newsfeed.php">Feed</a></li>
 					{if $smarty.session.permission==2}
-                    {if isset($apps)}
-                     <li style="background:white"><a href="{$BASE_URL}pages/users/reviewapps.php">Review Applications</a></li>
-                    {else}
-                     <li><a href="{$BASE_URL}pages/users/reviewapps.php">Review Applications</a></li>
-                     {/if}
+					<li><a href="{$BASE_URL}pages/users/reviewapps.php">Review Applications</a></li>
 					{/if}
                      {if $smarty.session.permission==3}
-                     {if isset($adminpanel)}
-                     <li style="background:white"><a href="{$BASE_URL}pages/admin/sysadmin.php">Admin Panel</a></li>
-                    {else}
                     <li><a href="{$BASE_URL}pages/admin/sysadmin.php">Admin Panel</a></li>
-                     {/if}
                      {/if}
                     {else}
                      <li><a data-toggle="modal" data-target="#myModal" href="">Login</a></li>     
                      <li><a href="{$BASE_URL}pages/users/register.php">Register</a></li>
                     {/if}          
-                </ul> 
-                 <nav class="navbar navbar-default headernav">
-                    <form class="navbar-form navbar-center">
+                </ul>          
+            </div>
+            <div class="navbar-right">
+                
+               <form class="navbar-form navbar-right">
                         <div class="form-group has-feedback">
                             <input type="text" style="border-radius:16px;color:#C5C9A4" class="form-control" placeholder="Search">
                             <span class="glyphicon glyphicon-search form-control-feedback"></span>
                         </div>
 
                  </form>
-                 </nav>
-    </div>
-    <br>
-    <br>
+            </div>
+            </div>     <!-- /.container-fluid -->
+                            <div id="error_messages">
+                            {foreach $ERROR_MESSAGES as $error}
+                            <div class="error">{$error}<a class="close" href="#">X</a></div>
+                            {/foreach}
+                            </div>
+                            <div id="success_messages">
+                            {foreach $SUCCESS_MESSAGES as $success}
+                            <div class="success">{$success}<a class="close" href="#">X</a></div>
+                            {/foreach}
+                            </div>
+    </nav>
 </body>
 
 </html>

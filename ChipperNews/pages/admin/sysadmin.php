@@ -7,6 +7,8 @@
   $usersID = 1;  
   $smarty->assign('users', $users);
   $smarty->assign('usersID', $usersID);
+    $smarty->assign('adminpanel', 0);
+
   $smarty->display('common/header.tpl');
   $smarty->display('admin/adminpanel.tpl');
   $smarty->display('common/footer.tpl');

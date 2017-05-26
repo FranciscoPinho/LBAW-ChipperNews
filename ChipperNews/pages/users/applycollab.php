@@ -6,7 +6,9 @@
 		header('Location: '.$BASE_DIR);
 	}
 	else {
+		$apps=0;
 		$smarty->assign('title', 'Apply Collaborator');
+		$smarty->assign('apps',$apps)
 		$smarty->display('users/applycollab.tpl');
 	}
 ?>
