@@ -20,21 +20,10 @@
                 <div class="form-group">
                 	<label >Article Body:</label>
                         <div class="col-lg-10">
-                        <textarea class="form-control center-block" required rows="10" cols="50" id="body"  name="body">{$article.content}</textarea>
+                        <textarea class="form-control center-block widgEditor" required rows="10" cols="50" id="body"  name="body">{$article.content}</textarea>
                         </div>
 				
                 </div>
-               
-           
-                    <button type="button" onclick="preview()" class="btn btn-default center-block">Preview</button>
-                <div id="preview" class="container" style="opacity:0.7;width: 70%; height: auto;">
-                </div>
-                <script>
-                function preview(){
-                    $("#preview").empty();
-                    $("#preview").append($("#body").val());
-                }
-                </script>
                 <br><br>    
 				<div class="form-group">
                     <div class="col-lg-10">

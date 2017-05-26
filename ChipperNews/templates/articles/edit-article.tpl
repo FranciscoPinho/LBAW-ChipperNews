@@ -3,14 +3,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edit article page</title>
-
+      
   <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-forms.css">
+  <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/widgEditor.css">
+  <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/widgContent.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato|Lora|Playfair+Display:700" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="{$BASE_URL}js/bootstrap.min.js"></script>
   <script src="{$BASE_URL}js/newarticle.js"></script>
-    <link href="https://cdn.quilljs.com/1.2.4/quill.snow.css" rel="stylesheet">
-   <script src="https://cdn.quilljs.com/1.2.4/quill.min.js" type="text/javascript"></script>
+  <script src="{$BASE_URL}js/widgEditor.js"></script>
 
 </head>
 <div id="bg">
@@ -27,3 +29,5 @@
 
   {/block} 
   </body>
+
+

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 15:55:16
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 17:33:21
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\edit-article.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:92565927615a66bce1-50439354%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c33f10c1087caa5f86039de7f0c2a44bd7cd8775' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\edit-article.tpl',
-      1 => 1495814056,
+      1 => 1495819758,
       2 => 'file',
     ),
     'b1499b3ba41ee4175f06180203cc780d83af9e1c' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\edit-article-form.tpl',
-      1 => 1495814033,
+      1 => 1495820000,
       2 => 'file',
     ),
   ),
@@ -34,18 +34,23 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edit article page</title>
-
+      
   <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 css/styles-forms.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+css/widgEditor.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+css/widgContent.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato|Lora|Playfair+Display:700" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/bootstrap.min.js"></script>
   <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/newarticle.js"></script>
-    <link href="https://cdn.quilljs.com/1.2.4/quill.snow.css" rel="stylesheet">
-   <script src="https://cdn.quilljs.com/1.2.4/quill.min.js" type="text/javascript"></script>
+  <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/widgEditor.js"></script>
 
 </head>
 <div id="bg">
@@ -62,16 +67,19 @@ actions/articles/update.php" class="form-horizontal" id="form-edit-article"
       <?php /*  Call merged included template "articles/edit-article-form.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate('articles/edit-article-form.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '92565927615a66bce1-50439354');
-content_59284fe44f9da1_66421794($_smarty_tpl);
+content_592866e1a3bf64_59037704($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "articles/edit-article-form.tpl" */?>
     </form>
 
    
-  </body><?php }} ?>
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 15:55:16
+  </body>
+
+
+<?php }} ?>
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 17:33:21
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\edit-article-form.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_59284fe44f9da1_66421794')) {function content_59284fe44f9da1_66421794($_smarty_tpl) {?><div class="form-div" id="new_article">
+<?php if ($_valid && !is_callable('content_592866e1a3bf64_59037704')) {function content_592866e1a3bf64_59037704($_smarty_tpl) {?><div class="form-div" id="new_article">
 		<form  method="post">
 			<fieldset>
 				<legend>Edit Article</legend>
@@ -96,22 +104,11 @@ $_smarty_tpl = array_pop($_tpl_stack);
                 <div class="form-group">
                 	<label >Article Body:</label>
                         <div class="col-lg-10">
-                        <textarea class="form-control center-block" required rows="10" cols="50" id="body"  name="body"><?php echo $_smarty_tpl->tpl_vars['article']->value['content'];?>
+                        <textarea class="form-control center-block widgEditor" required rows="10" cols="50" id="body"  name="body"><?php echo $_smarty_tpl->tpl_vars['article']->value['content'];?>
 </textarea>
                         </div>
 				
                 </div>
-               
-           
-                    <button type="button" onclick="preview()" class="btn btn-default center-block">Preview</button>
-                <div id="preview" class="container" style="opacity:0.7;width: 70%; height: auto;">
-                </div>
-                <script>
-                function preview(){
-                    $("#preview").empty();
-                    $("#preview").append($("#body").val());
-                }
-                </script>
                 <br><br>    
 				<div class="form-group">
                     <div class="col-lg-10">

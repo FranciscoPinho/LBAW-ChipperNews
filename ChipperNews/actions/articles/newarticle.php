@@ -32,7 +32,7 @@
     exit;
   }
   $_SESSION['success_messages'][] = 'Article created';   //send to article page when done
-  header('Location: ' . $_SERVER['HTTP_REFERER']);
+  header('Location: ' . $BASE_URL.'pages/articles/article.php?id='.$ar_id);
 ?>
 
 
