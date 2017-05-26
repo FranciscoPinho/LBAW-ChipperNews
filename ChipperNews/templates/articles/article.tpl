@@ -25,13 +25,33 @@
 
 <div class="container article-snip" id="article-snip-5">
 		<br>
+        {if $smarty.session.permission==3}
+        <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="delete"  onclick="deleteArticle('{$article.article_id}')" style=" background: #7EB09B;border: none;"><span class="droptext">Admin Delete Article</span></button>
+        <script>
+          function deleteArticle($article_id){
+                var article_id = $("#article_id").text();
+                var base_url = $("#base_url").text();
+                return $.ajax({
+                    type: "POST",
+                    url: base_url + "actions/articles/delete.php",
+                    data: "article_id=" + encodeURI(article_id),
+                    success: frontpage
+                });
+          }
+          function frontpage(){
+             var base_url = $("#base_url").text();
+              window.location.href = base_url;
+          }
+         </script>
+        {/if}
         {if dateDiffDays($article.published_date)<100 && $article.archived==false}
          {if $smarty.session.user_id==$article.author}
          <a href="{$BASE_URL}pages/articles/edit.php?id={$article.article_id}"><button class="btn btn-primary dropdown-toggle pull-right" type="button" id="Edit"   style=" background: #7EB09B;border: none;"><span class="droptext">Edit</span></button></a>
          {elseif $smarty.session.permission>=2}
          <a href="{$BASE_URL}pages/articles/edit.php?id={$article.article_id}"><button class="btn btn-primary dropdown-toggle pull-right" type="button" id="Edit"   style=" background: #7EB09B;border: none;"><span class="droptext">Mod Edit</span></button></a>
-         <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="Edit"  onclick="closeArticle('{$article.article_id}')" style=" background: #7EB09B;border: none;"><span class="droptext">Close Article</span></button>
-          <script>
+         <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="archivebut"  onclick="closeArticle('{$article.article_id}')" style=" background: #7EB09B;border: none;"><span class="droptext">Archive Article</span></button>
+         
+         <script>
           function closeArticle($article_id){
                 var article_id = $("#article_id").text();
                 var base_url = $("#base_url").text();

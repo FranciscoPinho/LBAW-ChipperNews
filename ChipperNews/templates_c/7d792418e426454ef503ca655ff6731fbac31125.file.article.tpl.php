@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 18:49:44
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 19:02:56
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\article.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:277590ce55d4a1b31-41011843%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7d792418e426454ef503ca655ff6731fbac31125' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article.tpl',
-      1 => 1495824583,
+      1 => 1495825375,
       2 => 'file',
     ),
   ),
@@ -63,6 +63,26 @@ images/assets/circuit.jpg" alt="">
 
 <div class="container article-snip" id="article-snip-5">
 		<br>
+        <?php if ($_SESSION['permission']==3) {?>
+        <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="delete"  onclick="deleteArticle('<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
+')" style=" background: #7EB09B;border: none;"><span class="droptext">Admin Delete Article</span></button>
+        <script>
+          function deleteArticle($article_id){
+                var article_id = $("#article_id").text();
+                var base_url = $("#base_url").text();
+                return $.ajax({
+                    type: "POST",
+                    url: base_url + "actions/articles/delete.php",
+                    data: "article_id=" + encodeURI(article_id),
+                    success: frontpage
+                });
+          }
+          function frontpage(){
+             var base_url = $("#base_url").text();
+              window.location.href = base_url;
+          }
+         </script>
+        <?php }?>
         <?php if (dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100&&$_smarty_tpl->tpl_vars['article']->value['archived']==false) {?>
          <?php if ($_SESSION['user_id']==$_smarty_tpl->tpl_vars['article']->value['author']) {?>
          <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -72,9 +92,10 @@ pages/articles/edit.php?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['
          <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/articles/edit.php?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
 "><button class="btn btn-primary dropdown-toggle pull-right" type="button" id="Edit"   style=" background: #7EB09B;border: none;"><span class="droptext">Mod Edit</span></button></a>
-         <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="Edit"  onclick="closeArticle('<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
-')" style=" background: #7EB09B;border: none;"><span class="droptext">Close Article</span></button>
-          <script>
+         <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="archivebut"  onclick="closeArticle('<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
+')" style=" background: #7EB09B;border: none;"><span class="droptext">Archive Article</span></button>
+         
+         <script>
           function closeArticle($article_id){
                 var article_id = $("#article_id").text();
                 var base_url = $("#base_url").text();

@@ -24,6 +24,11 @@
       $stmt = $conn->prepare("UPDATE article SET archived='true' WHERE article_id=?");
       return $stmt->execute(array($article_id));
   }
+  function deleteArticle($article_id){
+      global $conn; 
+      $stmt = $conn->prepare("DELETE FROM article WHERE article_id=?");
+      return $stmt->execute(array($article_id));
+  }
   function getArticle($article_id)
   {
     global $conn;
