@@ -4,7 +4,7 @@
 			{if $art.title != ""}
             {$subcategories = fetchSubcategories($art.article_id)}
             <div class="col-6 col-lg-4 ">
-            <h2>{$art.title}</h2>
+            <h2><a href="{$BASE_URL}pages/articles/article.php?id={$art.article_id}">{$art.title}</a></h2>
              <div id="ratings">
                         <span id="postext4" style="color:#357266">{$art.posratings}</span>
                         <button type="button" class="btn btn-default btn-circle btnlike">
@@ -37,7 +37,6 @@
                   <span class="label label-success ">{$sub.name}</span>
                {/if}     
             {/foreach}
-            <p><a class="btn btn-secondary " href="{$BASE_URL}pages/articles/article.php?id={$art.article_id}" role="button ">View details »</a></p>
             </div>
 			{/if}
 
@@ -45,7 +44,7 @@
 			{if $art.title != ""}
             {$subcategories = fetchSubcategories($art.article_id)}
             <div class="col-6 col-lg-4 ">
-            <h2>{$art.title}</h2>
+            <h2><a href="{$BASE_URL}pages/articles/article.php?id={$art.article_id}">{$art.title}</a></h2>
              <div id="ratings">
                         <span id="postext4" style="color:#357266">{$art.posratings}</span>
                         <button type="button" class="btn btn-default btn-circle btnlike">
@@ -78,7 +77,6 @@
                   <span class="label label-success ">{$sub.name}</span>
                {/if}     
             {/foreach}
-            <p><a class="btn btn-secondary " href="{$BASE_URL}pages/articles/article.php?id={$art.article_id}" role="button ">View details »</a></p>
             </div>
 			{/if}
 
@@ -86,7 +84,7 @@
 			{if $art.title != ""}
             {$subcategories = fetchSubcategories($art.article_id)}
             <div class="col-6 col-lg-4 ">
-            <h2>{$art.title}</h2>
+            <h2><a href="{$BASE_URL}pages/articles/article.php?id={$art.article_id}">{$art.title}</a></h2>
              <div id="ratings">
                         <span id="postext4" style="color:#357266">{$art.posratings}</span>
                         <button type="button" class="btn btn-default btn-circle btnlike">
@@ -119,7 +117,6 @@
                   <span class="label label-success ">{$sub.name}</span>
                {/if}     
             {/foreach}
-            <p><a class="btn btn-secondary " href="{$BASE_URL}pages/articles/article.php?id={$art.article_id}" role="button ">View details »</a></p>
             </div>
 			{/if}
         </div>
