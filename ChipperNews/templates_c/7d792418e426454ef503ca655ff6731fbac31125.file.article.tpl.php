@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 15:31:18
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 22:58:36
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\article.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:277590ce55d4a1b31-41011843%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7d792418e426454ef503ca655ff6731fbac31125' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article.tpl',
-      1 => 1495726277,
+      1 => 1495753113,
       2 => 'file',
     ),
   ),
@@ -64,7 +64,12 @@ images/assets/circuit.jpg" alt="">
 <div class="container article-snip" id="article-snip-5">
 		<br>
         <?php if (dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100) {?>
-		<h2 id="headline"><?php echo $_smarty_tpl->tpl_vars['article']->value['title'];?>
+         <?php if ($_SESSION['user_id']==$_smarty_tpl->tpl_vars['article']->value['author']) {?>
+         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/articles/edit.php?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
+"><button class="btn btn-primary dropdown-toggle pull-right" type="button" id="Edit"   style=" background: #7EB09B;border: none;"><span class="droptext">Edit</span></button></a>
+         <?php }?>
+        <h2 id="headline"><?php echo $_smarty_tpl->tpl_vars['article']->value['title'];?>
 </h2>
         <?php } else { ?>
         <h2 id="headline" style="color:grey">Archived: <?php echo $_smarty_tpl->tpl_vars['article']->value['title'];?>

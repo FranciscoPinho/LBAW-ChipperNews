@@ -14,7 +14,11 @@ div#tagselection.form-group{
     padding-left:2%;
     padding-right:2%;
 }
-
+img {
+  display: block;
+  margin: 0 auto;
+  max-width:100%;
+}
 #note{
     padding-left:12%;
 }

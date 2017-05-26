@@ -26,7 +26,10 @@
 <div class="container article-snip" id="article-snip-5">
 		<br>
         {if dateDiffDays($article.published_date)<100}
-		<h2 id="headline">{$article.title}</h2>
+         {if $smarty.session.user_id==$article.author}
+         <a href="{$BASE_URL}pages/articles/edit.php?id={$article.article_id}"><button class="btn btn-primary dropdown-toggle pull-right" type="button" id="Edit"   style=" background: #7EB09B;border: none;"><span class="droptext">Edit</span></button></a>
+         {/if}
+        <h2 id="headline">{$article.title}</h2>
         {else}
         <h2 id="headline" style="color:grey">Archived: {$article.title}</h2>
         {/if}

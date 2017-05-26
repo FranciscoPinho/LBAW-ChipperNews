@@ -220,4 +220,11 @@
       throw $e;
     }
   }
+
+   function updateArticle($article_id,$title,$lead,$content) 
+  {
+      global $conn; 
+      $stmt = $conn->prepare("UPDATE article SET title=?, lead=?, content=? WHERE article_id=?");
+      return $stmt->execute(array($title,$lead,$content,$article_id));
+  }
 ?>

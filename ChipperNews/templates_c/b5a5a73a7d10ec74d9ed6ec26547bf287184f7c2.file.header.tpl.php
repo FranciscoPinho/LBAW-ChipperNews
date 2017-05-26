@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 15:27:42
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 22:55:29
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\common\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1750558f72594d9ddc0-53438670%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b5a5a73a7d10ec74d9ed6ec26547bf287184f7c2' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\header.tpl',
-      1 => 1495726061,
+      1 => 1495750445,
       2 => 'file',
     ),
   ),
@@ -62,11 +62,11 @@ pages/search/frontpage.php">
 images/assets/logo_navigation.png" alt"logo">
 		    </a>
            <ul class="nav navbar-nav">
-                    <li><a class="categorySearch" cat="Programming" href="#">Programming</a></li>
-                    <li><a class="categorySearch" cat="Hardware" href="#">Hardware</a></li>
-                    <li><a class="categorySearch" cat="Software" href="#">Software</a></li>
-                    <li><a class="categorySearch" cat="Industry" href="#">Industry</a></li>
-                    <li><a class="categorySearch" cat="Technology" href="#">Technology</a></li>
+                    <li><a class="categorySearch" cat="1" href="#">Programming</a></li>
+                    <li><a class="categorySearch" cat="2" href="#">Hardware</a></li>
+                    <li><a class="categorySearch" cat="3" href="#">Software</a></li>
+                    <li><a class="categorySearch" cat="4" href="#">Industry</a></li>
+                    <li><a class="categorySearch" cat="5" href="#">Technology</a></li>
                 </ul> 
     </div>
     <nav class="navbar navbar-default headernav">
