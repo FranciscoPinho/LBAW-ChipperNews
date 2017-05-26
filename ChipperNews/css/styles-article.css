@@ -296,3 +296,10 @@ img.bg {
   background: #000000;
   transform: rotate(45deg);
 }
+
+.btn.btn-default.pull-right {
+  background: #1E352F;
+  color: white;
+  border: 1px solid #7EB09B;
+  border-width: 1px 1px;
+}

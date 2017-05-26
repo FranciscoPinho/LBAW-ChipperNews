@@ -26,7 +26,7 @@
 <div class="container article-snip" id="article-snip-5">
 		<br>
         {if $smarty.session.permission==3}
-        <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="delete"  onclick="deleteArticle('{$article.article_id}')" style=" background: #7EB09B;border: none;"><span class="droptext">Admin Delete Article</span></button>
+        <button class="btn btn-danger dropdown-toggle pull-right" type="button" id="delete"  onclick="deleteArticle('{$article.article_id}')">Admin Delete Article</button>
         <script>
           function deleteArticle($article_id){
                 var article_id = $("#article_id").text();
@@ -46,10 +46,10 @@
         {/if}
         {if dateDiffDays($article.published_date)<100 && $article.archived==false}
          {if $smarty.session.user_id==$article.author}
-         <a href="{$BASE_URL}pages/articles/edit.php?id={$article.article_id}"><button class="btn btn-primary dropdown-toggle pull-right" type="button" id="Edit"   style=" background: #7EB09B;border: none;"><span class="droptext">Edit</span></button></a>
+         <a href="{$BASE_URL}pages/articles/edit.php?id={$article.article_id}"><button class="btn btn-default pull-right" type="button" id="edit">Edit</button></a>
          {elseif $smarty.session.permission>=2}
-         <a href="{$BASE_URL}pages/articles/edit.php?id={$article.article_id}"><button class="btn btn-primary dropdown-toggle pull-right" type="button" id="Edit"   style=" background: #7EB09B;border: none;"><span class="droptext">Mod Edit</span></button></a>
-         <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="archivebut"  onclick="closeArticle('{$article.article_id}')" style=" background: #7EB09B;border: none;"><span class="droptext">Archive Article</span></button>
+         <a href="{$BASE_URL}pages/articles/edit.php?id={$article.article_id}"><button class="btn btn-default pull-right" type="button" id="mod_edit">Mod Edit</button></a>
+         <button class="btn btn-default pull-right" type="button" id="archivebut"  onclick="closeArticle('{$article.article_id}')"><span>Archive Article</span></button>
          
          <script>
           function closeArticle($article_id){
@@ -68,7 +68,7 @@
         {else}
         <h2 id="headline" style="color:grey">Archived: {$article.title}</h2>
         {/if}
-			<h6>By <a href={$BASE_URL}pages/users/viewprofile?id={$article.author} style="color:black; font-style:italic">{$article.authorname}</a> {$article.published_date}</h6>
+			<h6>By <a href="{$BASE_URL}pages/users/viewprofile?id={$article.author}" style="color:black; font-style:italic">{$article.authorname}</a> {$article.published_date}</h6>
             {$subcategories = fetchSubcategories($article.article_id)}
 			 {foreach $subcategories as $subart}
                             {if $subart.category==1}

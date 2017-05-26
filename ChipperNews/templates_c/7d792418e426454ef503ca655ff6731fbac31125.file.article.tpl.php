@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 19:02:56
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 19:56:58
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\article.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:277590ce55d4a1b31-41011843%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7d792418e426454ef503ca655ff6731fbac31125' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article.tpl',
-      1 => 1495825375,
+      1 => 1495828616,
       2 => 'file',
     ),
   ),
@@ -64,8 +64,8 @@ images/assets/circuit.jpg" alt="">
 <div class="container article-snip" id="article-snip-5">
 		<br>
         <?php if ($_SESSION['permission']==3) {?>
-        <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="delete"  onclick="deleteArticle('<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
-')" style=" background: #7EB09B;border: none;"><span class="droptext">Admin Delete Article</span></button>
+        <button class="btn btn-danger dropdown-toggle pull-right" type="button" id="delete"  onclick="deleteArticle('<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
+')">Admin Delete Article</button>
         <script>
           function deleteArticle($article_id){
                 var article_id = $("#article_id").text();
@@ -87,13 +87,13 @@ images/assets/circuit.jpg" alt="">
          <?php if ($_SESSION['user_id']==$_smarty_tpl->tpl_vars['article']->value['author']) {?>
          <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/articles/edit.php?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
-"><button class="btn btn-primary dropdown-toggle pull-right" type="button" id="Edit"   style=" background: #7EB09B;border: none;"><span class="droptext">Edit</span></button></a>
+"><button class="btn btn-default pull-right" type="button" id="edit">Edit</button></a>
          <?php } elseif ($_SESSION['permission']>=2) {?>
          <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/articles/edit.php?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
-"><button class="btn btn-primary dropdown-toggle pull-right" type="button" id="Edit"   style=" background: #7EB09B;border: none;"><span class="droptext">Mod Edit</span></button></a>
-         <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="archivebut"  onclick="closeArticle('<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
-')" style=" background: #7EB09B;border: none;"><span class="droptext">Archive Article</span></button>
+"><button class="btn btn-default pull-right" type="button" id="mod_edit">Mod Edit</button></a>
+         <button class="btn btn-default pull-right" type="button" id="archivebut"  onclick="closeArticle('<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
+')"><span>Archive Article</span></button>
          
          <script>
           function closeArticle($article_id){
@@ -114,9 +114,9 @@ pages/articles/edit.php?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['
         <h2 id="headline" style="color:grey">Archived: <?php echo $_smarty_tpl->tpl_vars['article']->value['title'];?>
 </h2>
         <?php }?>
-			<h6>By <a href=<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+			<h6>By <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/viewprofile?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['author'];?>
- style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['article']->value['authorname'];?>
+" style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['article']->value['authorname'];?>
 </a> <?php echo $_smarty_tpl->tpl_vars['article']->value['published_date'];?>
 </h6>
             <?php $_smarty_tpl->tpl_vars['subcategories'] = new Smarty_variable(fetchSubcategories($_smarty_tpl->tpl_vars['article']->value['article_id']), null, 0);?>

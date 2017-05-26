@@ -155,6 +155,8 @@
       $stmt->execute();
       return $stmt->fetchAll();
   }
+
+
   function getRecentArticlesByCategory($category)
   {
       global $conn;

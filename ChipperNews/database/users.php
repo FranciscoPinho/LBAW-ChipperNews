@@ -258,7 +258,80 @@
     $stmt->execute(array($user_id));
     return $stmt->fetchAll();
   }
-  
+  function getMyArticlesRecent($user_id){
+       global $conn;
+      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname,COALESCE(SUM(rating_article.score),0) AS sum_score,
+       (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
+        (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE rating_article.score=-1 AND rating_article.article_id = article.article_id) AS negratings   
+        FROM article  
+        LEFT JOIN rating_article ON article.article_id=rating_article.article_id
+        LEFT JOIN users ON users.user_id=article.author
+        WHERE article.author=?
+        GROUP BY article.author,article.article_id,users.name
+        ORDER BY article.published_date DESC;  ");
+      $stmt->execute(array($user_id));
+      return $stmt->fetchAll();
+  }
+  function getMyArticlesOldest($user_id){
+       global $conn;
+      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname,COALESCE(SUM(rating_article.score),0) AS sum_score,
+       (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
+        (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE rating_article.score=-1 AND rating_article.article_id = article.article_id) AS negratings   
+        FROM article  
+        LEFT JOIN rating_article ON article.article_id=rating_article.article_id
+        LEFT JOIN users ON users.user_id=article.author
+        WHERE article.author=?
+        GROUP BY article.author,article.article_id,users.name
+        ORDER BY article.published_date ASC;  ");
+      $stmt->execute(array($user_id));
+      return $stmt->fetchAll();
+  }
+  function getMyArticlesControversial()
+  {
+      global $conn;
+      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname, COALESCE(SUM(rating_article.score),0) AS sum_score,
+      (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
+        (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE rating_article.score=-1 AND rating_article.article_id = article.article_id) AS negratings  
+        FROM article  
+        LEFT JOIN rating_article ON article.article_id=rating_article.article_id
+        LEFT JOIN users ON users.user_id=article.author
+        WHERE article.author=?        
+        GROUP BY article.author,article.article_id,users.name
+        ORDER BY article.sum_score DESC;  ");
+      $stmt->execute();
+      return $stmt->fetchAll();
+  }
+  function getMyArticlesPopular()
+  {
+      global $conn;
+      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname, COALESCE(SUM(rating_article.score),0) AS sum_score,
+      (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
+        (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE rating_article.score=-1 AND rating_article.article_id = article.article_id) AS negratings  
+        FROM article  
+        LEFT JOIN rating_article ON article.article_id=rating_article.article_id
+        LEFT JOIN users ON users.user_id=article.author
+        WHERE article.author=?        
+        GROUP BY article.author,article.article_id,users.name
+        ORDER BY article.sum_score ASC;  ");
+      $stmt->execute();
+      return $stmt->fetchAll();
+  }
   //useful for debugging
   function debug_to_console( $data ) {
     $output = $data;
