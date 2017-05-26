@@ -160,13 +160,15 @@
   function getRecentArticlesByCategory($category)
   {
       global $conn;
-      $stmt = $conn->prepare("SELECT * FROM article
+      $stmt = $conn->prepare("SELECT article.* FROM article
       LEFT JOIN article_category 
       ON article.article_id = article_category.article_id
       LEFT JOIN subcategory
       ON article_category.sub_id = subcategory.sub_id
       WHERE subcategory.category = ?
-      ORDER BY article.published_date DESC;");
+      GROUP BY article.article_id
+      ORDER BY article.published_date DESC;
+      ");
       $stmt->execute(array($category));
       return $stmt->fetchAll();
   } 
