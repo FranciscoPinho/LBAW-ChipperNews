@@ -94,7 +94,7 @@
                 });
 		}
 		function reload(data){
-			 location.reload();
+			location.reload();
 		}
 		 function upvote(comment_id) {
                 var score;

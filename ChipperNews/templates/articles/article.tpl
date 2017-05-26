@@ -25,9 +25,24 @@
 
 <div class="container article-snip" id="article-snip-5">
 		<br>
-        {if dateDiffDays($article.published_date)<100}
+        {if dateDiffDays($article.published_date)<100 && $article.archived==false}
          {if $smarty.session.user_id==$article.author}
          <a href="{$BASE_URL}pages/articles/edit.php?id={$article.article_id}"><button class="btn btn-primary dropdown-toggle pull-right" type="button" id="Edit"   style=" background: #7EB09B;border: none;"><span class="droptext">Edit</span></button></a>
+         {elseif $smarty.session.permission>=2}
+         <a href="{$BASE_URL}pages/articles/edit.php?id={$article.article_id}"><button class="btn btn-primary dropdown-toggle pull-right" type="button" id="Edit"   style=" background: #7EB09B;border: none;"><span class="droptext">Mod Edit</span></button></a>
+         <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="Edit"  onclick="closeArticle('{$article.article_id}')" style=" background: #7EB09B;border: none;"><span class="droptext">Close Article</span></button>
+          <script>
+          function closeArticle($article_id){
+                var article_id = $("#article_id").text();
+                var base_url = $("#base_url").text();
+                return $.ajax({
+                    type: "POST",
+                    url: base_url + "actions/articles/archive.php",
+                    data: "article_id=" + encodeURI(article_id),
+                    success: reload
+                });
+          }
+          </script>
          {/if}
         <h2 id="headline">{$article.title}</h2>
         {else}
@@ -58,7 +73,7 @@
 			<h3 id="lead">{$article.lead}</h3>
 			<div id="ratings">
                     <span id="postext4" style="color:#357266">{$article.posratings}</span> 
-                    {if !isset($rating) || dateDiffDays($article.published_date)>=100}
+                    {if !isset($rating) || dateDiffDays($article.published_date)>=100 || $article.archived==true}
 					<button type="button" id="like" class="btn btn-default btn-circle btnlike" disabled>
 					<img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
 					</button>
@@ -67,7 +82,7 @@
 					<img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 					</button>
                     {/if}
-                    {if ($rating==-1 || (isset($rating) && $rating.score==0)) && dateDiffDays($article.published_date)<100}
+                    {if ($rating==-1 || (isset($rating) && $rating.score==0)) && dateDiffDays($article.published_date)<100 && !$article.archived}
 					<button type="button" id="like" class="btn btn-default btn-circle btnlike">
 					<img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
 					</button>
@@ -76,7 +91,7 @@
 					<img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 					</button>
                     {/if}
-                    {if $rating.score==-1 && dateDiffDays($article.published_date)<100}
+                    {if $rating.score==-1 && dateDiffDays($article.published_date)<100 && !$article.archived}
 					<button type="button" id="like" class="btn btn-default btn-circle btnlike" disabled>
 					<img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
 					</button>
@@ -85,7 +100,7 @@
 					<img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 					</button>
                     {/if}
-                    {if $rating.score==1 && dateDiffDays($article.published_date)<100}
+                    {if $rating.score==1 && dateDiffDays($article.published_date)<100 && !$article.archived}
 					<button type="button" id="like" class="btn btn-default btn-circle btnlike">
 					<img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
 					</button>
@@ -168,7 +183,7 @@
             </div>		
    </div>
    <br><br>
-   {if $USERNAME && dateDiffDays($article.published_date)<100}
+   {if $USERNAME && dateDiffDays($article.published_date)<100 && !$article.archived}
    <div class="row">
     
     <div class="col-md-6 col-md-offset-3">

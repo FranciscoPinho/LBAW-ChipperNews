@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 22:58:36
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 18:49:44
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\article.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:277590ce55d4a1b31-41011843%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7d792418e426454ef503ca655ff6731fbac31125' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article.tpl',
-      1 => 1495753113,
+      1 => 1495824583,
       2 => 'file',
     ),
   ),
@@ -63,11 +63,29 @@ images/assets/circuit.jpg" alt="">
 
 <div class="container article-snip" id="article-snip-5">
 		<br>
-        <?php if (dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100) {?>
+        <?php if (dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100&&$_smarty_tpl->tpl_vars['article']->value['archived']==false) {?>
          <?php if ($_SESSION['user_id']==$_smarty_tpl->tpl_vars['article']->value['author']) {?>
          <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/articles/edit.php?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
 "><button class="btn btn-primary dropdown-toggle pull-right" type="button" id="Edit"   style=" background: #7EB09B;border: none;"><span class="droptext">Edit</span></button></a>
+         <?php } elseif ($_SESSION['permission']>=2) {?>
+         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/articles/edit.php?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
+"><button class="btn btn-primary dropdown-toggle pull-right" type="button" id="Edit"   style=" background: #7EB09B;border: none;"><span class="droptext">Mod Edit</span></button></a>
+         <button class="btn btn-primary dropdown-toggle pull-right" type="button" id="Edit"  onclick="closeArticle('<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
+')" style=" background: #7EB09B;border: none;"><span class="droptext">Close Article</span></button>
+          <script>
+          function closeArticle($article_id){
+                var article_id = $("#article_id").text();
+                var base_url = $("#base_url").text();
+                return $.ajax({
+                    type: "POST",
+                    url: base_url + "actions/articles/archive.php",
+                    data: "article_id=" + encodeURI(article_id),
+                    success: reload
+                });
+          }
+          </script>
          <?php }?>
         <h2 id="headline"><?php echo $_smarty_tpl->tpl_vars['article']->value['title'];?>
 </h2>
@@ -116,7 +134,7 @@ $_smarty_tpl->tpl_vars['subart']->_loop = true;
 			<div id="ratings">
                     <span id="postext4" style="color:#357266"><?php echo $_smarty_tpl->tpl_vars['article']->value['posratings'];?>
 </span> 
-                    <?php if (!isset($_smarty_tpl->tpl_vars['rating']->value)||dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])>=100) {?>
+                    <?php if (!isset($_smarty_tpl->tpl_vars['rating']->value)||dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])>=100||$_smarty_tpl->tpl_vars['article']->value['archived']==true) {?>
 					<button type="button" id="like" class="btn btn-default btn-circle btnlike" disabled>
 					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
@@ -128,7 +146,7 @@ images/assets/chipart1.png" alt="" style="width:100%;height:100%;">
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 					</button>
                     <?php }?>
-                    <?php if (($_smarty_tpl->tpl_vars['rating']->value==-1||(isset($_smarty_tpl->tpl_vars['rating']->value)&&$_smarty_tpl->tpl_vars['rating']->value['score']==0))&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100) {?>
+                    <?php if (($_smarty_tpl->tpl_vars['rating']->value==-1||(isset($_smarty_tpl->tpl_vars['rating']->value)&&$_smarty_tpl->tpl_vars['rating']->value['score']==0))&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100&&!$_smarty_tpl->tpl_vars['article']->value['archived']) {?>
 					<button type="button" id="like" class="btn btn-default btn-circle btnlike">
 					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
@@ -140,7 +158,7 @@ images/assets/chipart1.png" alt="" style="width:100%;height:100%;">
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 					</button>
                     <?php }?>
-                    <?php if ($_smarty_tpl->tpl_vars['rating']->value['score']==-1&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100) {?>
+                    <?php if ($_smarty_tpl->tpl_vars['rating']->value['score']==-1&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100&&!$_smarty_tpl->tpl_vars['article']->value['archived']) {?>
 					<button type="button" id="like" class="btn btn-default btn-circle btnlike" disabled>
 					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
@@ -152,7 +170,7 @@ images/assets/chipart1.png" alt="" style="width:100%;height:100%;">
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 					</button>
                     <?php }?>
-                    <?php if ($_smarty_tpl->tpl_vars['rating']->value['score']==1&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100) {?>
+                    <?php if ($_smarty_tpl->tpl_vars['rating']->value['score']==1&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100&&!$_smarty_tpl->tpl_vars['article']->value['archived']) {?>
 					<button type="button" id="like" class="btn btn-default btn-circle btnlike">
 					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
@@ -241,7 +259,7 @@ images\articles\<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'
             </div>		
    </div>
    <br><br>
-   <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100) {?>
+   <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100&&!$_smarty_tpl->tpl_vars['article']->value['archived']) {?>
    <div class="row">
     
     <div class="col-md-6 col-md-offset-3">

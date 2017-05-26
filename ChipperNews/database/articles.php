@@ -19,6 +19,11 @@
       $stmt->execute(array($comment_id,$user_id,$score));
       return $stmt->fetchAll();
   }
+  function archiveArticle($article_id){
+      global $conn; 
+      $stmt = $conn->prepare("UPDATE article SET archived='true' WHERE article_id=?");
+      return $stmt->execute(array($article_id));
+  }
   function getArticle($article_id)
   {
     global $conn;
@@ -139,7 +144,7 @@
         FROM article  
         LEFT JOIN rating_article ON article.article_id=rating_article.article_id
         LEFT JOIN users ON users.user_id=article.author
-        WHERE (current_date-article.published_date) < 100  
+        WHERE (current_date-article.published_date) < 100  AND article.archived='false' 
         GROUP BY article.author,article.article_id,users.name
         ORDER BY article.published_date DESC;  ");
       $stmt->execute();
@@ -148,10 +153,12 @@
   function getRecentArticlesByCategory($category)
   {
       global $conn;
-      $stmt = $conn->prepare("SELECT article FROM article,article_category,subcategory
-      WHERE article.article_id = article_category.article_id
-      AND article_category.sub_id = subcategory.sub_id
-      AND subcategory.category = ?
+      $stmt = $conn->prepare("SELECT * FROM article
+      LEFT JOIN article_category 
+      ON article.article_id = article_category.article_id
+      LEFT JOIN subcategory
+      ON article_category.sub_id = subcategory.sub_id
+      WHERE subcategory.category = ?
       ORDER BY article.published_date DESC;");
       $stmt->execute(array($category));
       return $stmt->fetchAll();
@@ -169,7 +176,7 @@
         FROM article  
         LEFT JOIN rating_article ON article.article_id=rating_article.article_id
         LEFT JOIN users ON users.user_id=article.author
-        WHERE (current_date-article.published_date) < 100   
+        WHERE (current_date-article.published_date) < 100  AND article.archived='false' 
         GROUP BY article.author,article.article_id,users.name
         ORDER BY article.sum_score DESC;  ");
       $stmt->execute();
@@ -188,7 +195,7 @@
         FROM article  
         LEFT JOIN rating_article ON article.article_id=rating_article.article_id
         LEFT JOIN users ON users.user_id=article.author
-        WHERE (current_date-article.published_date) < 100   
+        WHERE (current_date-article.published_date) < 100  AND article.archived='false' 
         GROUP BY article.author,article.article_id,users.name
         ORDER BY article.sum_score ASC;  ");
       $stmt->execute();
