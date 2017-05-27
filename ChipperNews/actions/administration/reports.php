@@ -13,11 +13,16 @@
 
     switch($operation)
     {
-      case "ban": banUser($eportedID);clearReport($report);break;
+      case "ban": banUser($reportedID);break;
       case "clear": clearReport($report);break;
       default: break;
     }
   }
-  debug_to_console($reports);
+  function fetchUser($id)
+  {
+     $users = getUser($id);
+     return $users[0];
+  }
+  //debug_to_console($reports);
   header("Location: $BASE_URL" . 'pages/admin/reportPanel.php');
 ?>

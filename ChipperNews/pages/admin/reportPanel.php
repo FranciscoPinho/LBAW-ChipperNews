@@ -9,6 +9,11 @@
    */
   $reports = getReports();
 
+  function fetchUser($id)
+  {
+    $users = getUser($id);
+    return $users[0];
+  }
   $smarty->assign('reports', $reports);
 
   $smarty->display('common/header.tpl');

@@ -51,6 +51,7 @@
                         <th>#</th>
                         <th>Reportee</th>
                         <th>Reported</th>
+                        <th>Banned</th>
                         <th>Description</th>
                         <th>Select</th>
                     </tr>
@@ -58,9 +59,18 @@
                 <tbody>
                    {foreach $reports as $report}
                         <tr>
+                            {$rep = fetchUser($report.reported)}
+                            {$ree = fetchUser($report.reportee)}
                             <td>{$report.report_id} </td>
-                            <td>{$report.reportee} </td>
-                            <td>{$report.reported} </td>
+                            <td>{$ree.username} </td>
+                            <td>{$rep.username} </td>
+                            <td>
+                                {if $rep.is_banned == TRUE}
+                                    TRUE
+                                {else}
+                                    FALSE
+                                {/if}
+                            </td>
                             <td>{$report.description} </td>
                              <td><input type="checkbox" name="reports[]" value={$report.report_id}><br></td>  
                         </tr>
