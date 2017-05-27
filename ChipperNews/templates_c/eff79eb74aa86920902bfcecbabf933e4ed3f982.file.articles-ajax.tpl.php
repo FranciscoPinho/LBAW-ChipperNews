@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 13:57:48
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 16:16:00
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\ajax\articles-ajax.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:26031592985dc4a7a80-63596522%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:195605929a640363b15-82786282%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '26031592985dc4a7a80-63596522',
+  'nocache_hash' => '195605929a640363b15-82786282',
   'function' => 
   array (
   ),
@@ -27,9 +27,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_592985dc7a9228_85697229',
+  'unifunc' => 'content_5929a64067b122_63632940',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_592985dc7a9228_85697229')) {function content_592985dc7a9228_85697229($_smarty_tpl) {?><?php while ($_smarty_tpl->tpl_vars['indexA']->value<$_smarty_tpl->tpl_vars['indexB']->value) {?>
+<?php if ($_valid && !is_callable('content_5929a64067b122_63632940')) {function content_5929a64067b122_63632940($_smarty_tpl) {?><?php while ($_smarty_tpl->tpl_vars['indexA']->value<$_smarty_tpl->tpl_vars['indexB']->value) {?>
     <div class="row " style="padding-left:4%;padding-right:4% ">
             <?php $_smarty_tpl->tpl_vars['art'] = new Smarty_variable($_smarty_tpl->tpl_vars['articles']->value[$_smarty_tpl->tpl_vars['indexA']->value], null, 0);?>
 			<?php if ($_smarty_tpl->tpl_vars['art']->value['title']!='') {?>

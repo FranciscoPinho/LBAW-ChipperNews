@@ -15,7 +15,7 @@
     return $users[0];
   }
   $smarty->assign('reports', $reports);
-
+  $smarty->assign('reportcenter',0);
   $smarty->display('common/header.tpl');
   $smarty->display('admin/reportPanel.tpl');
   $smarty->display('common/footer.tpl');

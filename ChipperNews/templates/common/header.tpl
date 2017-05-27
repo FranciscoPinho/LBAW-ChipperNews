@@ -35,15 +35,21 @@
                     {if isset($feed)}
                        <li style="background:white"><a href="{$BASE_URL}pages/articles/newsfeed.php">Feed</a></li>
                     {else}
-                       <li><a href="{$BASE_URL}pages/articles/newsfeed.php">Feed</a></li>
+                       <li><a href="{$BASE_URL}pages/users/newsfeed.php">Feed</a></li>
                      {/if}
                   
-					{if $smarty.session.permission==2}
+					{if $smarty.session.permission>=2}
                     {if isset($apps)}
                      <li style="background:white"><a href="{$BASE_URL}pages/users/reviewapps.php">Review Applications</a></li>
                     {else}
                      <li><a href="{$BASE_URL}pages/users/reviewapps.php">Review Applications</a></li>
+                     {if isset($reportcenter)}
+                     <li style="background:white"><a href="{$BASE_URL}pages/admin/reportPanel.php">Report Center</a></li>
+                    {else}
+                     <li><a href="{$BASE_URL}pages/admin/reportPanel.php">Report Center</a></li>
                      {/if}
+                     {/if} 
+                    
 					{/if}
                      {if $smarty.session.permission==3}
                      {if isset($adminpanel)}

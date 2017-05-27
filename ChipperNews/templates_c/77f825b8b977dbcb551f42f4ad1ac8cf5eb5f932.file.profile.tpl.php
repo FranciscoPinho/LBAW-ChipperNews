@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 14:30:06
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 16:25:15
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:425059298d6e47f4e3-02046939%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:151825929a86b5a05c4-10120109%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '77f825b8b977dbcb551f42f4ad1ac8cf5eb5f932' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
-      1 => 1495884273,
+      1 => 1495897609,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '425059298d6e47f4e3-02046939',
+  'nocache_hash' => '151825929a86b5a05c4-10120109',
   'function' => 
   array (
   ),
@@ -27,9 +27,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_59298d6e6a24c1_44552616',
+  'unifunc' => 'content_5929a86b875052_66857259',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_59298d6e6a24c1_44552616')) {function content_59298d6e6a24c1_44552616($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_5929a86b875052_66857259')) {function content_5929a86b875052_66857259($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 
 <head>
@@ -75,17 +75,17 @@ images/assets/circuit.jpg" alt="">
                     <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/chatbox.php">
-                            <i class="fa fa-envelope-o"></i> Inbox <span class="label label-info pull-right inbox-notification"></span>
+                            <i class="fa fa-envelope-o fa-fw"></i> Inbox <span class="label label-info pull-right inbox-notification"></span>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/posthistory.php"><i class="fa fa-book"></i> Comment History </a>
+pages/users/posthistory.php"><i class="fa fa-book fa-fw"></i> Comment History </a>
                     </li>
                     <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/friendlist.php">
-                            <i class="fa fa-users"></i> Friends <span class="label label-info pull-right inbox-notification"><?php echo getNumberFriends($_smarty_tpl->tpl_vars['user']->value['user_id']);?>
+                            <i class="fa fa-users fa-fw"></i> Friends <span class="label label-info pull-right inbox-notification"><?php echo getNumberFriends($_smarty_tpl->tpl_vars['user']->value['user_id']);?>
 </span>
                         </a>
                     </li>
@@ -98,13 +98,13 @@ pages/users/friendlist.php">
                     <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/articles/newarticle.php">
-                            <i class="fa fa-file-text-o"></i> Write New Article
+                            <i class="fa fa-file-text-o fa-fw"></i> Write New Article
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/myarticles.php">
-                            <i class="fa fa-file-text-o"></i> Article History <span class="label label-info pull-right inbox-notification"></span>
+                            <i class="fa fa-file-text-o fa-fw"></i> Article History <span class="label label-info pull-right inbox-notification"></span>
                         </a>
                     </li>
                 </ul>
@@ -133,26 +133,24 @@ pages/users/myarticles.php">
                                         <div class="col-lg-12">
                                             <div class="col-xs-12 col-sm-8">
                                                 <p>
-                                                    <i class="fa fa-certificate" aria-hidden="false"></i>
-                                                    <?php if ($_smarty_tpl->tpl_vars['user']->value['permission_level']=='0') {?>
-                                                    Reader
-                                                    <?php } elseif ($_smarty_tpl->tpl_vars['user']->value['permission_level']=='1') {?>
-                                                    Collaborator
-                                                    <?php } elseif ($_smarty_tpl->tpl_vars['user']->value['permission_level']=='2') {?>
-                                                    Moderator
-                                                    <?php } else { ?>
-                                                    Administrator
+                                                    <ul class="list-unstyled">
+                                                    <li><i class="fa fa-certificate fa-fw" aria-hidden="false"></i>
+                                                    <?php if ($_smarty_tpl->tpl_vars['user']->value['permission_level']=='0') {?>Reader
+                                                    <?php } elseif ($_smarty_tpl->tpl_vars['user']->value['permission_level']=='1') {?>Collaborator
+                                                    <?php } elseif ($_smarty_tpl->tpl_vars['user']->value['permission_level']=='2') {?>Moderator
+                                                    <?php } else { ?>Administrator
                                                     <?php }?>
-                                                    <br/><i class="fa fa-envelope" aria-hidden="false"><span style="font-family:arial">&nbsp<?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
-</span></i>
-                                                    <br/><i class="fa fa-map-marker" aria-hidden="false"></i> <?php echo $_smarty_tpl->tpl_vars['user']->value['local'];?>
-
-                                                    <!-- isto e p view como outra pessoa -->
-                                                    <?php if (((ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate'])!=0)&&!($_smarty_tpl->tpl_vars['user']->value['hide_birthdate']))) {?>
-                                                    <br/> <i class="fa fa-birthday-cake" aria-hidden="false"></i> 
-                                                    <?php echo ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate']);?>
+                                                        <li><i class="fa fa-envelope fa-fw" aria-hidden="false"></i> <?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
+</li>
+                                                        <li><i class="fa fa-map-marker fa-fw" aria-hidden="false"></i> <?php echo $_smarty_tpl->tpl_vars['user']->value['local'];?>
+</li>
+                                                        <?php if (((ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate'])!=0)&&!($_smarty_tpl->tpl_vars['user']->value['hide_birthdate']))) {?>
+                                                            <li><i class="fa fa-birthday-cake fa-fw" aria-hidden="false"></i>
+                                                            <?php echo ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate']);?>
  years old
-                                                    <?php }?>
+                                                    <?php }?></li>
+                                                    </ul>
+
                                                 </p>
                                             </div>
                                         </div>

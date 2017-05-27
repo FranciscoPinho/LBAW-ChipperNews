@@ -1,26 +1,27 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 14:34:18
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 16:23:28
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\common\header-categories.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:9609592985db8fe679-58472076%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:164475929a63ed74323-59916378%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '2e17029332126250520347ec71b9d06da44c0232' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\header-categories.tpl',
-      1 => 1495893532,
+      1 => 1495902207,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '9609592985db8fe679-58472076',
+  'nocache_hash' => '164475929a63ed74323-59916378',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_592985dba40376_41016659',
+  'unifunc' => 'content_5929a63f26c993_84643140',
   'variables' => 
   array (
     'BASE_URL' => 0,
     'USERNAME' => 0,
+    'reportcenter' => 0,
     'ERROR_MESSAGES' => 0,
     'error' => 0,
     'SUCCESS_MESSAGES' => 0,
@@ -28,7 +29,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_592985dba40376_41016659')) {function content_592985dba40376_41016659($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_5929a63f26c993_84643140')) {function content_5929a63f26c993_84643140($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 
 <head>
@@ -78,10 +79,17 @@ actions/users/logout.php">Logout</a></li>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/profile.php">Profile</a></li>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/articles/newsfeed.php">Feed</a></li>
-					<?php if ($_SESSION['permission']==2) {?>
+pages/users/newsfeed.php">Feed</a></li>
+					<?php if ($_SESSION['permission']>=2) {?>
 					<li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/reviewapps.php">Review Applications</a></li>
+                      <?php if (isset($_smarty_tpl->tpl_vars['reportcenter']->value)) {?>
+                     <li style="background:white"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/admin/reportPanel.php">Report Center</a></li>
+                    <?php } else { ?>
+                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/admin/reportPanel.php">Report Center</a></li>
+                     <?php }?>
 					<?php }?>
                      <?php if ($_SESSION['permission']==3) {?>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
