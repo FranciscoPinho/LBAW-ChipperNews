@@ -36,15 +36,15 @@
                 <ul class="nav nav-pills nav-stacked nav-email shadow mb-20">
                     <li>
                         <a href="{$BASE_URL}pages/users/chatbox.php">
-                            <i class="fa fa-envelope-o"></i> Inbox <span class="label label-info pull-right inbox-notification"></span>
+                            <i class="fa fa-envelope-o fa-fw"></i> Inbox <span class="label label-info pull-right inbox-notification"></span>
                         </a>
                     </li>
                     <li>
-                        <a href="{$BASE_URL}pages/users/posthistory.php"><i class="fa fa-book"></i> Comment History </a>
+                        <a href="{$BASE_URL}pages/users/posthistory.php"><i class="fa fa-book fa-fw"></i> Comment History </a>
                     </li>
                     <li>
                         <a href="{$BASE_URL}pages/users/friendlist.php">
-                            <i class="fa fa-users"></i> Friends <span class="label label-info pull-right inbox-notification">{$user.user_id|getNumberFriends}</span>
+                            <i class="fa fa-users fa-fw"></i> Friends <span class="label label-info pull-right inbox-notification">{$user.user_id|getNumberFriends}</span>
                         </a>
                     </li>
                 </ul>
@@ -55,12 +55,12 @@
                 <ul class="nav nav-pills nav-stacked nav-email mb-20 rounded shadow">
                     <li>
                         <a href="{$BASE_URL}pages/articles/newarticle.php">
-                            <i class="fa fa-file-text-o"></i> Write New Article
+                            <i class="fa fa-file-text-o fa-fw"></i> Write New Article
                         </a>
                     </li>
                     <li>
                         <a href="{$BASE_URL}pages/users/myarticles.php">
-                            <i class="fa fa-file-text-o"></i> Article History <span class="label label-info pull-right inbox-notification"></span>
+                            <i class="fa fa-file-text-o fa-fw"></i> Article History <span class="label label-info pull-right inbox-notification"></span>
                         </a>
                     </li>
                 </ul>
@@ -85,23 +85,21 @@
                                         <div class="col-lg-12">
                                             <div class="col-xs-12 col-sm-8">
                                                 <p>
-                                                    <i class="fa fa-certificate" aria-hidden="false"></i>
-                                                    {if $user.permission_level eq '0'}
-                                                    Reader
-                                                    {elseif $user.permission_level eq '1'}
-                                                    Collaborator
-                                                    {elseif $user.permission_level eq '2'}
-                                                    Moderator
-                                                    {else}
-                                                    Administrator
+                                                    <ul class="list-unstyled">
+                                                    <li><i class="fa fa-certificate fa-fw" aria-hidden="false"></i>
+                                                    {if $user.permission_level eq '0'}Reader
+                                                    {elseif $user.permission_level eq '1'}Collaborator
+                                                    {elseif $user.permission_level eq '2'}Moderator
+                                                    {else}Administrator
                                                     {/if}
-                                                    <br/><i class="fa fa-envelope" aria-hidden="false"><span style="font-family:arial">&nbsp{$user.email}</span></i>
-                                                    <br/><i class="fa fa-map-marker" aria-hidden="false"></i> {$user.local}
-                                                    <!-- isto e p view como outra pessoa -->
-                                                    {if ((ageCalc($user.birthdate) neq 0) && !($user.hide_birthdate))}
-                                                    <br/> <i class="fa fa-birthday-cake" aria-hidden="false"></i> 
-                                                    {ageCalc($user.birthdate)} years old
-                                                    {/if}
+                                                        <li><i class="fa fa-envelope fa-fw" aria-hidden="false"></i> {$user.email}</li>
+                                                        <li><i class="fa fa-map-marker fa-fw" aria-hidden="false"></i> {$user.local}</li>
+                                                        {if ((ageCalc($user.birthdate) neq 0) && !($user.hide_birthdate))}
+                                                            <li><i class="fa fa-birthday-cake fa-fw" aria-hidden="false"></i>
+                                                            {ageCalc($user.birthdate)} years old
+                                                    {/if}</li>
+                                                    </ul>
+
                                                 </p>
                                             </div>
                                         </div>

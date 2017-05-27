@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 12:07:23
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 12:27:32
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\register.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:99458f68e110fca77-59367740%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -13,7 +13,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c5a51a8eb83d205c2f8fb9256bad303bf7b032ed' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\register-form.tpl',
-      1 => 1495886842,
+      1 => 1495888051,
       2 => 'file',
     ),
   ),
@@ -67,7 +67,7 @@ actions/users/register.php" class="ink-form ink-formvalidator xlarge-60 large-70
       <?php /*  Call merged included template "users/register-form.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate('users/register-form.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '99458f68e110fca77-59367740');
-content_59296bfc039e13_84631546($_smarty_tpl);
+content_592970b4b14968_87819555($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "users/register-form.tpl" */?>
     </form>
@@ -93,9 +93,9 @@ $_smarty_tpl->tpl_vars['success']->_loop = true;
                             <?php } ?>
                             </div>
   <?php }} ?>
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 12:07:24
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 12:27:32
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\register-form.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_59296bfc039e13_84631546')) {function content_59296bfc039e13_84631546($_smarty_tpl) {?><div class="container form-div" id="register">
+<?php if ($_valid && !is_callable('content_592970b4b14968_87819555')) {function content_592970b4b14968_87819555($_smarty_tpl) {?><div class="container form-div" id="register">
 <br>
 	<div class="logo">
 		<a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -246,6 +246,8 @@ $_smarty_tpl->tpl_vars['name']->_loop = true;
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</div>
 			</div>
+			<br>
 		</fieldset>
+		<br>
 	</form>
 </div><?php }} ?>

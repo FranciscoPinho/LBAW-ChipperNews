@@ -132,6 +132,8 @@
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</div>
 			</div>
+			<br>
 		</fieldset>
+		<br>
 	</form>
 </div>

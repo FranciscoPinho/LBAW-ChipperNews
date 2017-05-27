@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 00:40:33
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 13:26:08
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:619859077a3c36c607-44707552%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c8d6591f9982a20c0a4639a77cda3c75ca4b89a3' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
-      1 => 1495844993,
+      1 => 1495891567,
       2 => 'file',
     ),
   ),
@@ -75,17 +75,17 @@ images/assets/circuit.jpg" alt="">
                     <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/chatbox.php">
-                            <i class="fa fa-envelope-o"></i> Inbox <span class="label label-info pull-right inbox-notification"></span>
+                            <i class="fa fa-envelope-o fa-fw"></i> Inbox <span class="label label-info pull-right inbox-notification"></span>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/posthistory.php"><i class="fa fa-book"></i> Comment History </a>
+pages/users/posthistory.php"><i class="fa fa-book fa-fw"></i> Comment History </a>
                     </li>
                     <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/friendlist.php">
-                            <i class="fa fa-users"></i> Friends <span class="label label-info pull-right inbox-notification"><?php echo getNumberFriends($_smarty_tpl->tpl_vars['user']->value['user_id']);?>
+                            <i class="fa fa-users fa-fw"></i> Friends <span class="label label-info pull-right inbox-notification"><?php echo getNumberFriends($_smarty_tpl->tpl_vars['user']->value['user_id']);?>
 </span>
                         </a>
                     </li>
@@ -98,13 +98,13 @@ pages/users/friendlist.php">
                     <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/articles/newarticle.php">
-                            <i class="fa fa-file-text-o"></i> Write New Article
+                            <i class="fa fa-file-text-o fa-fw"></i> Write New Article
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/myarticles.php">
-                            <i class="fa fa-file-text-o"></i> Article History <span class="label label-info pull-right inbox-notification"></span>
+                            <i class="fa fa-file-text-o fa-fw"></i> Article History <span class="label label-info pull-right inbox-notification"></span>
                         </a>
                     </li>
                 </ul>
@@ -133,26 +133,24 @@ pages/users/myarticles.php">
                                         <div class="col-lg-12">
                                             <div class="col-xs-12 col-sm-8">
                                                 <p>
-                                                    <i class="fa fa-certificate" aria-hidden="false"></i>
-                                                    <?php if ($_smarty_tpl->tpl_vars['user']->value['permission_level']=='0') {?>
-                                                    Reader
-                                                    <?php } elseif ($_smarty_tpl->tpl_vars['user']->value['permission_level']=='1') {?>
-                                                    Collaborator
-                                                    <?php } elseif ($_smarty_tpl->tpl_vars['user']->value['permission_level']=='2') {?>
-                                                    Moderator
-                                                    <?php } else { ?>
-                                                    Administrator
+                                                    <ul class="list-unstyled">
+                                                    <li><i class="fa fa-certificate fa-fw" aria-hidden="false"></i>
+                                                    <?php if ($_smarty_tpl->tpl_vars['user']->value['permission_level']=='0') {?>Reader
+                                                    <?php } elseif ($_smarty_tpl->tpl_vars['user']->value['permission_level']=='1') {?>Collaborator
+                                                    <?php } elseif ($_smarty_tpl->tpl_vars['user']->value['permission_level']=='2') {?>Moderator
+                                                    <?php } else { ?>Administrator
                                                     <?php }?>
-                                                    <br/><i class="fa fa-envelope" aria-hidden="false"><span style="font-family:arial">&nbsp<?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
-</span></i>
-                                                    <br/><i class="fa fa-map-marker" aria-hidden="false"></i> <?php echo $_smarty_tpl->tpl_vars['user']->value['local'];?>
-
-                                                    <!-- isto e p view como outra pessoa -->
-                                                    <?php if (((ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate'])!=0)&&!($_smarty_tpl->tpl_vars['user']->value['hide_birthdate']))) {?>
-                                                    <br/> <i class="fa fa-birthday-cake" aria-hidden="false"></i> 
-                                                    <?php echo ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate']);?>
+                                                        <li><i class="fa fa-envelope fa-fw" aria-hidden="false"></i> <?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
+</li>
+                                                        <li><i class="fa fa-map-marker fa-fw" aria-hidden="false"></i> <?php echo $_smarty_tpl->tpl_vars['user']->value['local'];?>
+</li>
+                                                        <?php if (((ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate'])!=0)&&!($_smarty_tpl->tpl_vars['user']->value['hide_birthdate']))) {?>
+                                                            <li><i class="fa fa-birthday-cake fa-fw" aria-hidden="false"></i>
+                                                            <?php echo ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate']);?>
  years old
-                                                    <?php }?>
+                                                    <?php }?></li>
+                                                    </ul>
+
                                                 </p>
                                             </div>
                                         </div>
