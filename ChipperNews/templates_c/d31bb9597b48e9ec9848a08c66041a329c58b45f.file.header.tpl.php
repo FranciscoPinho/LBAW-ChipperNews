@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 13:56:58
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 11:17:17
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\common\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1317158f68e1116e296-06793157%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd31bb9597b48e9ec9848a08c66041a329c58b45f' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\header.tpl',
-      1 => 1495720564,
+      1 => 1495883835,
       2 => 'file',
     ),
   ),
@@ -21,10 +21,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'BASE_URL' => 0,
     'USERNAME' => 0,
-    'ERROR_MESSAGES' => 0,
-    'error' => 0,
-    'SUCCESS_MESSAGES' => 0,
-    'success' => 0,
+    'profile' => 0,
+    'feed' => 0,
+    'apps' => 0,
+    'adminpanel' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -61,75 +61,62 @@ pages/search/frontpage.php">
             <img class="img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/logo_navigation.png" alt"logo">
 		    </a>
-           <ul class="nav navbar-nav">
-                    <li><a class="categorySearch" cat="Programming" href="#">Programming</a></li>
-                    <li><a class="categorySearch" cat="Hardware" href="#">Hardware</a></li>
-                    <li><a class="categorySearch" cat="Software" href="#">Software</a></li>
-                    <li><a class="categorySearch" cat="Industry" href="#">Industry</a></li>
-                    <li><a class="categorySearch" cat="Technology" href="#">Technology</a></li>
-                </ul> 
-    </div>
-    <nav class="navbar navbar-default headernav">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              
-                <ul class="nav navbar-nav navbar-right">
+            <br>
+           <ul class="nav navbar-nav nabvar-left">
                     <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value) {?>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 actions/users/logout.php">Logout</a></li>
+                     <?php if (isset($_smarty_tpl->tpl_vars['profile']->value)) {?>
+                     <li style="background:white"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/profile.php">Profile</a></li>
+                     <?php } else { ?>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/profile.php">Profile</a></li>
-                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+                    <?php }?>
+                    <?php if (isset($_smarty_tpl->tpl_vars['feed']->value)) {?>
+                       <li style="background:white"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/articles/newsfeed.php">Feed</a></li>
+                    <?php } else { ?>
+                       <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/articles/newsfeed.php">Feed</a></li>
+                     <?php }?>
+                  
 					<?php if ($_SESSION['permission']==2) {?>
-					<li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+                    <?php if (isset($_smarty_tpl->tpl_vars['apps']->value)) {?>
+                     <li style="background:white"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/reviewapps.php">Review Applications</a></li>
+                    <?php } else { ?>
+                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/reviewapps.php">Review Applications</a></li>
+                     <?php }?>
 					<?php }?>
                      <?php if ($_SESSION['permission']==3) {?>
+                     <?php if (isset($_smarty_tpl->tpl_vars['adminpanel']->value)) {?>
+                     <li style="background:white"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/admin/sysadmin.php">Admin Panel</a></li>
+                    <?php } else { ?>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/admin/sysadmin.php">Admin Panel</a></li>
                      <?php }?>
+                     <?php }?> 
                     <?php } else { ?>
                      <li><a data-toggle="modal" data-target="#myModal" href="">Login</a></li>     
                      <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/register.php">Register</a></li>
-                    <?php }?>          
-                </ul>          
-            </div>
-            <div class="navbar-right collapse navbar-collapse">
-                
-               <form class="navbar-form navbar-right">
+                    <?php }?>    
+                </ul> 
+                <ul class="nav navbar-nav navbar-center">
+                <form class="navbar-form navbar-right">
                         <div class="form-group has-feedback">
-
                             <input type="text" style="border-radius:16px;color:#C5C9A4" class="form-control" placeholder="Search">
                             <span class="glyphicon glyphicon-search form-control-feedback"></span>
                         </div>
-
-                 </form>
-            </div>
-            </div>     <!-- /.container-fluid -->
-                            <div id="error_messages">
-                            <?php  $_smarty_tpl->tpl_vars['error'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['error']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['ERROR_MESSAGES']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['error']->key => $_smarty_tpl->tpl_vars['error']->value) {
-$_smarty_tpl->tpl_vars['error']->_loop = true;
-?>
-                            <div class="error"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
-<a class="close" href="#">X</a></div>
-                            <?php } ?>
-                            </div>
-                            <div id="success_messages">
-                            <?php  $_smarty_tpl->tpl_vars['success'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['success']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['SUCCESS_MESSAGES']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['success']->key => $_smarty_tpl->tpl_vars['success']->value) {
-$_smarty_tpl->tpl_vars['success']->_loop = true;
-?>
-                            <div class="success"><?php echo $_smarty_tpl->tpl_vars['success']->value;?>
-<a class="close" href="#">X</a></div>
-                            <?php } ?>
-                            </div>
-    </nav>
+                 </form>  
+                 </ul>
+               
+    </div>
+    <br>
+    <br>
 </body>
 
 </html><?php }} ?>

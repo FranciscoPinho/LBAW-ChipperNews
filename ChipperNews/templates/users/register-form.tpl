@@ -1,10 +1,12 @@
 <div class="container form-div" id="register">
+<br>
 	<div class="logo">
 		<a href="{$BASE_URL}pages/search/frontpage.php">
 			<img class="logo" src="{$BASE_URL}images/assets/logo_navigation.png" alt="Chipper News" align="middle">
 		</a>
 	</div>
 	<form class="form-horizontal" id="fregister" method="post">
+	<br>
 		<fieldset class="responsive-fieldset">
 			<legend>Register Page</legend>
 			<div class="form-group">

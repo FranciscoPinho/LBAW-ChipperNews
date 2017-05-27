@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-17 11:29:23
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 00:47:18
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\articles\article-comments.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2988559160a019572d3-99675676%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5fb956e896df38b68e4dced567034ac5446f217a' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article-comments.tpl',
-      1 => 1494979578,
+      1 => 1495844990,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'article' => 0,
     'comments' => 0,
     'comment' => 0,
+    'BASE_URL' => 0,
     'USERNAME' => 0,
+    'ratings' => 0,
+    'rat' => 0,
+    'rating' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -30,15 +34,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <div id="comment_section">
 <?php if (sizeof($_smarty_tpl->tpl_vars['comments']->value)>0) {?>
 <div class="container" id="comment-elements">
+<div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton"><span class="droptext">Newest</span>
-		<span class="caret caret-reversed"></span> 
+		<span class="caret caret-reversed"></span>
+		
 		</button>
-                <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">
+          <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">
                     <li><a href="#" onclick="changeDropdown('Newest')">Newest</a></li>
                     <li><a href="#" onclick="changeDropdown('Oldest')">Oldest</a></li>
                     <li><a href="#" onclick="changeDropdown('Popular')">Popular</a></li>
                     <li><a href="#" onclick="changeDropdown('Controversial')">Controversial</a></li>
-                </ul>
+                </ul>   
+</div>   
 <h1 class="nf">Comments</h1>
 </div>
 
@@ -51,8 +58,16 @@ $_smarty_tpl->tpl_vars['comment']->_loop = true;
 					<!-- Contenedor del Comentario -->
 					<div class="comment-box">
 						<div class="comment-head">
-							<h6 class="comment-name by-author"><a href="#"></a> <?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
-</h6>
+						<?php if ($_smarty_tpl->tpl_vars['comment']->value['commenter_id']==$_SESSION['user_id']) {?>
+							<h6 class="comment-name by-author" ><a style="color:blue;text-decoration:none" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/profile.php"><?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
+</a> </h6>
+							<?php } else { ?>
+							<h6 class="comment-name by-author"><a style="text-decoration:none" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/view_profile.php?id=<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter_id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
+</a> </h6>
+							<?php }?>
 							<span> <?php echo $_smarty_tpl->tpl_vars['comment']->value['posted_date'];?>
 &nbsp&nbsp&nbsp</span>
 								<?php if ($_smarty_tpl->tpl_vars['comment']->value['sum_score']<0) {?>
@@ -62,12 +77,57 @@ $_smarty_tpl->tpl_vars['comment']->_loop = true;
 								 <span class="posrating" style="font-weight:bold;color:#357266">+<?php echo $_smarty_tpl->tpl_vars['comment']->value['sum_score'];?>
 </span>
 								<?php }?>
-							<?php if ($_smarty_tpl->tpl_vars['USERNAME']->value&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100) {?>
-							<i class="fa fa-reply" onclick="quote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
+							<?php if ($_smarty_tpl->tpl_vars['USERNAME']->value&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100&&$_smarty_tpl->tpl_vars['comment']->value['commenter_id']!=$_SESSION['user_id']) {?>
+							<i class="fa fa-flag" aria-hidden="true" data-toggle="modal"  data-target="#reportModal" onclick="report('<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
+','<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter_id'];?>
+','<?php echo $_smarty_tpl->tpl_vars['comment']->value['content'];?>
 ')"></i>
-							<i class="fa fa-thumbs-down"></i>
-							<i class="fa fa-thumbs-up"></i>
+							<?php  $_smarty_tpl->tpl_vars['rat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['rat']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['ratings']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['rat']->key => $_smarty_tpl->tpl_vars['rat']->value) {
+$_smarty_tpl->tpl_vars['rat']->_loop = true;
+?>
+								<?php if ($_smarty_tpl->tpl_vars['rat']->value['comment_id']==$_smarty_tpl->tpl_vars['comment']->value['comment_id']) {?>
+									<?php $_smarty_tpl->tpl_vars['rating'] = new Smarty_variable($_smarty_tpl->tpl_vars['rat']->value, null, 0);?>
+								<?php }?>
+							<?php } ?>
+							<?php if (dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])>=100) {?>
+							<i class="fa fa-thumbs-down" id="down<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+"onclick="downvote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+')" disabled></i>
+							<i class="fa fa-thumbs-up"  id="up<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+" onclick="upvote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+')" disabled></i>
+							<?php }?>
+							<?php if (($_smarty_tpl->tpl_vars['rating']->value==-1||(isset($_smarty_tpl->tpl_vars['rating']->value)&&$_smarty_tpl->tpl_vars['rating']->value['score']==0))&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100) {?>
+							<i class="fa fa-thumbs-down" id="down<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+"onclick="downvote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+')"></i>
+							<i class="fa fa-thumbs-up"  id="up<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+" onclick="upvote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+')"></i>
+                    		<?php }?>
+							<?php if ($_smarty_tpl->tpl_vars['rating']->value['score']==-1&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100) {?>
+							<i class="fa fa-thumbs-down" id="down<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+"onclick="downvote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+')" style="color:blue" name="blue"></i>
+							<i class="fa fa-thumbs-up"  id="up<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+" onclick="upvote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+')" name="grey"></i>
+							<?php }?>
+							<?php if ($_smarty_tpl->tpl_vars['rating']->value['score']==1&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100) {?>
+							<i class="fa fa-thumbs-down" id="down<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+"onclick="downvote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+')" name="grey"></i>
+							<i class="fa fa-thumbs-up"  id="up<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+" onclick="upvote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+')" style="color:blue" name="blue"></i>
+							<?php }?> 
                             <?php }?>
+							<?php if ($_SESSION['permission']>=2||$_smarty_tpl->tpl_vars['comment']->value['commenter_id']==$_SESSION['user_id']) {?>
+							<i class="fa fa-trash" aria-hidden="true" onclick="deleteComment('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
+')"></i>
+							<?php }?>
 						</div>
 						<div class="comment-content">
                             <?php echo $_smarty_tpl->tpl_vars['comment']->value['content'];?>
@@ -75,16 +135,67 @@ $_smarty_tpl->tpl_vars['comment']->_loop = true;
 						</div>
 					</div>
 			 </div>
-			 
+
         <?php } ?>
 		
-		<script>
+	
+		<?php }?>
+</div>	
+	<script>
 		function quote(commenter){
 			var replyTo="Reply: "+"@"+commenter;
 			quill.setText(replyTo);
 		}
-		</script>
-<?php }?>
-</div>	
+		function report(reported,reported_id,flagged_content){
+			$("#reported").val(reported);
+			$("#reported_id").val(reported_id);
+			cleanText = flagged_content.replace(/<\/?[^>]+(>|$)/g, "");
+			cleanText= "Offense: "+"\""+cleanText+"\"";
+			$("#description").val(cleanText);
+		}
+		function deleteComment(comment_id){
+                var base_url = $("#base_url").text();
+                return $.ajax({
+                    type: "POST",
+                    url: base_url + "actions/articles/delete_comment.php",
+                    data: "comment_id=" + encodeURI(comment_id) + "&article_id=" + encodeURI(article_id),
+                    success: reload
+                });
+		}
+		function reload(data){
+			location.reload();
+		}
+		 function upvote(comment_id) {
+                var score;
+				 var article_id = $("#article_id").text();
+                if ($('#down'+comment_id).attr("name")=="grey")
+                    score = 0;
+                else score = 1;
+                var base_url = $("#base_url").text();
+                return $.ajax({
+                    type: "POST",
+                    url: base_url + "actions/articles/comment_vote.php",
+                    data: "comment_id=" + encodeURI(comment_id) + "&score=" + encodeURI(score) + "&article_id=" + encodeURI(article_id),
+                    success: updateCommentSection
+                });
+		   }
+     
 
+        function downvote(comment_id) {
+                var score;
+				var article_id = $("#article_id").text();
+                if ($('#up'+comment_id).attr("name")=="grey")
+                    score = 0;
+                else score = -1;
+                var base_url = $("#base_url").text();
+                return $.ajax({
+                    type: "POST",
+                    url: base_url + "actions/articles/comment_vote.php",
+                    data: "comment_id=" + encodeURI(comment_id) + "&score=" + encodeURI(score)+ "&article_id=" + encodeURI(article_id),
+                    success: updateCommentSection
+                });
+		}
+
+         
+		</script>
 			  					<?php }} ?>

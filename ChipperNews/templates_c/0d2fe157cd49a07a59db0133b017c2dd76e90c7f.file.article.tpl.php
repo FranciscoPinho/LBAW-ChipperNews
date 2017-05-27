@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-17 11:29:22
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 00:47:18
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\articles\article.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1333259160a01742293-47373203%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0d2fe157cd49a07a59db0133b017c2dd76e90c7f' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article.tpl',
-      1 => 1494979578,
+      1 => 1495844990,
       2 => 'file',
     ),
   ),
@@ -46,6 +46,7 @@ css/styles-article.css">
 	<script src="https://www.w3schools.com/lib/w3data.js"></script>	
 	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/bootstrap.min.js"></script>
+    
     <link href="https://cdn.quilljs.com/1.2.4/quill.snow.css" rel="stylesheet">
     <script src="https://cdn.quilljs.com/1.2.4/quill.min.js" type="text/javascript"></script>
     <span class="base_url" id="base_url" hidden><?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -62,16 +63,60 @@ images/assets/circuit.jpg" alt="">
 
 <div class="container article-snip" id="article-snip-5">
 		<br>
-        <?php if (dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100) {?>
-		<h2 id="headline"><?php echo $_smarty_tpl->tpl_vars['article']->value['title'];?>
+        <?php if ($_SESSION['permission']==3) {?>
+        <button class="btn btn-danger dropdown-toggle pull-right" type="button" id="delete"  onclick="deleteArticle('<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
+')">Admin Delete Article</button>
+        <script>
+          function deleteArticle($article_id){
+                var article_id = $("#article_id").text();
+                var base_url = $("#base_url").text();
+                return $.ajax({
+                    type: "POST",
+                    url: base_url + "actions/articles/delete.php",
+                    data: "article_id=" + encodeURI(article_id),
+                    success: frontpage
+                });
+          }
+          function frontpage(){
+             var base_url = $("#base_url").text();
+              window.location.href = base_url;
+          }
+         </script>
+        <?php }?>
+        <?php if (dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100&&$_smarty_tpl->tpl_vars['article']->value['archived']==false) {?>
+         <?php if ($_SESSION['user_id']==$_smarty_tpl->tpl_vars['article']->value['author']) {?>
+         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/articles/edit.php?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
+"><button class="btn btn-default pull-right" type="button" id="edit">Edit</button></a>
+         <?php } elseif ($_SESSION['permission']>=2) {?>
+         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/articles/edit.php?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
+"><button class="btn btn-default pull-right" type="button" id="mod_edit">Mod Edit</button></a>
+         <button class="btn btn-default pull-right" type="button" id="archivebut"  onclick="closeArticle('<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
+')"><span>Archive Article</span></button>
+         
+         <script>
+          function closeArticle($article_id){
+                var article_id = $("#article_id").text();
+                var base_url = $("#base_url").text();
+                return $.ajax({
+                    type: "POST",
+                    url: base_url + "actions/articles/archive.php",
+                    data: "article_id=" + encodeURI(article_id),
+                    success: reload
+                });
+          }
+          </script>
+         <?php }?>
+        <h2 id="headline"><?php echo $_smarty_tpl->tpl_vars['article']->value['title'];?>
 </h2>
         <?php } else { ?>
         <h2 id="headline" style="color:grey">Archived: <?php echo $_smarty_tpl->tpl_vars['article']->value['title'];?>
 </h2>
         <?php }?>
-			<h6>By <a href=<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+			<h6>By <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/viewprofile?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['author'];?>
- style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['article']->value['authorname'];?>
+" style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['article']->value['authorname'];?>
 </a> <?php echo $_smarty_tpl->tpl_vars['article']->value['published_date'];?>
 </h6>
             <?php $_smarty_tpl->tpl_vars['subcategories'] = new Smarty_variable(fetchSubcategories($_smarty_tpl->tpl_vars['article']->value['article_id']), null, 0);?>
@@ -110,7 +155,7 @@ $_smarty_tpl->tpl_vars['subart']->_loop = true;
 			<div id="ratings">
                     <span id="postext4" style="color:#357266"><?php echo $_smarty_tpl->tpl_vars['article']->value['posratings'];?>
 </span> 
-                    <?php if (!isset($_smarty_tpl->tpl_vars['rating']->value)||dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])>=100) {?>
+                    <?php if (!isset($_smarty_tpl->tpl_vars['rating']->value)||dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])>=100||$_smarty_tpl->tpl_vars['article']->value['archived']==true) {?>
 					<button type="button" id="like" class="btn btn-default btn-circle btnlike" disabled>
 					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
@@ -122,7 +167,7 @@ images/assets/chipart1.png" alt="" style="width:100%;height:100%;">
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 					</button>
                     <?php }?>
-                    <?php if (($_smarty_tpl->tpl_vars['rating']->value==-1||(isset($_smarty_tpl->tpl_vars['rating']->value)&&$_smarty_tpl->tpl_vars['rating']->value['score']==0))&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100) {?>
+                    <?php if (($_smarty_tpl->tpl_vars['rating']->value==-1||(isset($_smarty_tpl->tpl_vars['rating']->value)&&$_smarty_tpl->tpl_vars['rating']->value['score']==0))&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100&&!$_smarty_tpl->tpl_vars['article']->value['archived']) {?>
 					<button type="button" id="like" class="btn btn-default btn-circle btnlike">
 					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
@@ -134,7 +179,7 @@ images/assets/chipart1.png" alt="" style="width:100%;height:100%;">
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 					</button>
                     <?php }?>
-                    <?php if ($_smarty_tpl->tpl_vars['rating']->value['score']==-1&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100) {?>
+                    <?php if ($_smarty_tpl->tpl_vars['rating']->value['score']==-1&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100&&!$_smarty_tpl->tpl_vars['article']->value['archived']) {?>
 					<button type="button" id="like" class="btn btn-default btn-circle btnlike" disabled>
 					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
@@ -146,7 +191,7 @@ images/assets/chipart1.png" alt="" style="width:100%;height:100%;">
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
 					</button>
                     <?php }?>
-                    <?php if ($_smarty_tpl->tpl_vars['rating']->value['score']==1&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100) {?>
+                    <?php if ($_smarty_tpl->tpl_vars['rating']->value['score']==1&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100&&!$_smarty_tpl->tpl_vars['article']->value['archived']) {?>
 					<button type="button" id="like" class="btn btn-default btn-circle btnlike">
 					<img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
@@ -235,8 +280,7 @@ images\articles\<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'
             </div>		
    </div>
    <br><br>
-   <!-- ONLY SHOW COMMENT BOX IF LOGGED IN -->
-   <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100) {?>
+   <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value&&dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100&&!$_smarty_tpl->tpl_vars['article']->value['archived']) {?>
    <div class="row">
     
     <div class="col-md-6 col-md-offset-3">
@@ -250,8 +294,8 @@ images\articles\<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'
                                          <input class="form-control"  id="body" type="hidden" name="body" required>
 										<button type="button" onclick="submitComment()" class="btn btn-success" style="background-color:#357266"> Submit</button>
 									</form>
-								</div><!-- Status Upload  -->
-							</div><!-- Widget Area -->
+								</div>
+							</div>
 	</div>
     </div>
                 <script>
@@ -259,7 +303,7 @@ images\articles\<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'
                 modules: {
                     toolbar: [
                      ['bold', 'italic','underline'],
-                     ['link', 'blockquote', 'code-block', 'image','video'],
+                     ['link', 'blockquote', 'code-block', 'video'],
                      [{ list: 'ordered' }, { list: 'bullet' }],
                       [{ 'size': ['small', false, 'large', 'huge'] }],  
                       [{ 'header': [1, 2, 3, 4, 5, 6, false] }],

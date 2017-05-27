@@ -24,7 +24,8 @@
             <a href="{$BASE_URL}pages/search/frontpage.php">
             <img class="img-responsive" src="{$BASE_URL}images/assets/logo_navigation.png" alt"logo">
 		    </a>
-           <ul class="nav navbar-nav">
+            <br>
+           <ul class="nav navbar-nav nabvar-left">
                     {if $USERNAME}
                     <li><a href="{$BASE_URL}actions/users/logout.php">Logout</a></li>
                      {if isset($profile)}
@@ -51,21 +52,21 @@
                     {else}
                     <li><a href="{$BASE_URL}pages/admin/sysadmin.php">Admin Panel</a></li>
                      {/if}
-                     {/if}
+                     {/if} 
                     {else}
                      <li><a data-toggle="modal" data-target="#myModal" href="">Login</a></li>     
                      <li><a href="{$BASE_URL}pages/users/register.php">Register</a></li>
-                    {/if}          
+                    {/if}    
                 </ul> 
-                 <nav class="navbar navbar-default headernav">
-                    <form class="navbar-form navbar-center">
+                <ul class="nav navbar-nav navbar-center">
+                <form class="navbar-form navbar-right">
                         <div class="form-group has-feedback">
                             <input type="text" style="border-radius:16px;color:#C5C9A4" class="form-control" placeholder="Search">
                             <span class="glyphicon glyphicon-search form-control-feedback"></span>
                         </div>
-
-                 </form>
-                 </nav>
+                 </form>  
+                 </ul>
+               
     </div>
     <br>
     <br>
