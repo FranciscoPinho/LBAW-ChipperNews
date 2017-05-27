@@ -301,7 +301,7 @@
       $stmt->execute(array($user_id));
       return $stmt->fetchAll();
   }
-  function getMyArticlesControversial()
+  function getMyArticlesControversial($user_id)
   {
       global $conn;
       $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname, COALESCE(SUM(rating_article.score),0) AS sum_score,
@@ -316,11 +316,11 @@
         LEFT JOIN users ON users.user_id=article.author
         WHERE article.author=?        
         GROUP BY article.author,article.article_id,users.name
-        ORDER BY article.sum_score DESC;  ");
-      $stmt->execute();
+        ORDER BY sum_score ASC;  ");
+      $stmt->execute(array($user_id));
       return $stmt->fetchAll();
   }
-  function getMyArticlesPopular()
+  function getMyArticlesPopular($user_id)
   {
       global $conn;
       $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname, COALESCE(SUM(rating_article.score),0) AS sum_score,
@@ -335,8 +335,8 @@
         LEFT JOIN users ON users.user_id=article.author
         WHERE article.author=?        
         GROUP BY article.author,article.article_id,users.name
-        ORDER BY article.sum_score ASC;  ");
-      $stmt->execute();
+        ORDER BY sum_score DESC;  ");
+       $stmt->execute(array($user_id));
       return $stmt->fetchAll();
   }
   //useful for debugging

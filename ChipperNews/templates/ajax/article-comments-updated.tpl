@@ -17,6 +17,12 @@
 						<div class="comment-head">
 							{if $comment.commenter_id == $smarty.session.user_id}
 							<h6 class="comment-name by-author"><a style="color:blue;text-decoration:none" href="{$BASE_URL}pages/users/profile.php"> {$comment.commenter}</a></h6>
+							{elseif $comment.commenter_id==$article.author}
+							<h6 class="comment-name by-author"><a style="color:darkblue;text-decoration:none" href="{$BASE_URL}pages/users/view_profile.php?id={$comment.commenter_id}">Author {$comment.commenter}</a> </h6>
+							{elseif $comment.commenter_permission==2}
+							<h6 class="comment-name by-author"><a style="color:red;text-decoration:none" href="{$BASE_URL}pages/users/view_profile.php?id={$comment.commenter_id}">Moderator {$comment.commenter}</a> </h6>
+							{elseif $comment.commenter_permission==3}
+							<h6 class="comment-name by-author"><a style="color:yellow;text-decoration:none" href="{$BASE_URL}pages/users/view_profile.php?id={$comment.commenter_id}">Admin {$comment.commenter}</a> </h6>
 							{else}
 							<h6 class="comment-name by-author"><a style="text-decoration:none" href="{$BASE_URL}pages/users/view_profile.php?id={$comment.commenter_id}"></a> {$comment.commenter}</h6>
 							{/if}
@@ -38,12 +44,12 @@
 							<i class="fa fa-thumbs-up"  id="up{$comment.comment_id}" onclick="upvote('{$comment.comment_id}')"></i>
                     		{/if}
 							{if $rating.score==-1}
-							<i class="fa fa-thumbs-down" id="down{$comment.comment_id}"onclick="downvote('{$comment.comment_id}')" style="color:blue" name="blue"></i>
+							<i class="fa fa-thumbs-down" id="down{$comment.comment_id}"onclick="downvote('{$comment.comment_id}')" style="color:red" name="blue"></i>
 							<i class="fa fa-thumbs-up"  id="up{$comment.comment_id}" onclick="upvote('{$comment.comment_id}')" name="grey"></i>
 							{/if}
 							{if $rating.score==1 }
 							<i class="fa fa-thumbs-down" id="down{$comment.comment_id}"onclick="downvote('{$comment.comment_id}')" name="grey"></i>
-							<i class="fa fa-thumbs-up"  id="up{$comment.comment_id}" onclick="upvote('{$comment.comment_id}')" style="color:blue" name="blue"></i>
+							<i class="fa fa-thumbs-up"  id="up{$comment.comment_id}" onclick="upvote('{$comment.comment_id}')" style="color:green" name="blue"></i>
 							{/if} 
 							{/if}
 							{if $smarty.session.permission>=2 || $comment.commenter_id == $smarty.session.user_id}

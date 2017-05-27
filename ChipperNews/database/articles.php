@@ -78,12 +78,12 @@
   }
   function getArticleComments($article_id){
      global $conn;
-     $stmt = $conn->prepare("SELECT comment.comment_id,comment.user_id AS commenter_id,comment.content,to_char(comment.posted_date,'DD-MM-YY HH24:MI') AS posted_date,users.username AS commenter, COALESCE(SUM(rating_comment.score),0) AS sum_score
+     $stmt = $conn->prepare("SELECT comment.comment_id,comment.user_id AS commenter_id,comment.content,to_char(comment.posted_date,'DD-MM-YY HH24:MI') AS posted_date,users.username AS commenter,users.permission_level AS commenter_permission, COALESCE(SUM(rating_comment.score),0) AS sum_score
           FROM comment
           LEFT JOIN rating_comment ON comment.comment_id=rating_comment.comment_id
           LEFT JOIN users ON comment.user_id=users.user_id
           WHERE comment.article_id = ?  
-          GROUP BY comment.user_id,users.username,comment.comment_id 
+          GROUP BY comment.user_id,users.username,comment.comment_id,users.permission_level
           ORDER BY comment.posted_date DESC; 
         ");
     $stmt->execute(array($article_id));
@@ -93,12 +93,12 @@
 
    function getArticleCommentsOldest($article_id){
      global $conn;
-     $stmt = $conn->prepare("SELECT comment.comment_id,comment.user_id AS commenter_id,comment.content,to_char(comment.posted_date,'DD-MM-YY HH24:MI') AS posted_date,users.username AS commenter, COALESCE(SUM(rating_comment.score),0) AS sum_score
+     $stmt = $conn->prepare("SELECT comment.comment_id,comment.user_id AS commenter_id,comment.content,to_char(comment.posted_date,'DD-MM-YY HH24:MI') AS posted_date,users.username AS commenter,users.permission_level AS commenter_permission,  COALESCE(SUM(rating_comment.score),0) AS sum_score
           FROM comment
           LEFT JOIN rating_comment ON comment.comment_id=rating_comment.comment_id
           LEFT JOIN users ON comment.user_id=users.user_id
           WHERE comment.article_id = ?  
-          GROUP BY comment.user_id,users.username,comment.comment_id 
+          GROUP BY comment.user_id,users.username,comment.comment_id,users.permission_level
           ORDER BY comment.posted_date ASC; 
         ");
     $stmt->execute(array($article_id));
@@ -108,12 +108,12 @@
 
   function getArticleCommentsPopular($article_id){
      global $conn;
-     $stmt = $conn->prepare("SELECT comment.comment_id,comment.user_id AS commenter_id,comment.content,to_char(comment.posted_date,'DD-MM-YY HH24:MI') AS posted_date,users.username AS commenter, COALESCE(SUM(rating_comment.score),0) AS sum_score
+     $stmt = $conn->prepare("SELECT comment.comment_id,comment.user_id AS commenter_id,comment.content,to_char(comment.posted_date,'DD-MM-YY HH24:MI') AS posted_date,users.username AS commenter,users.permission_level AS commenter_permission,  COALESCE(SUM(rating_comment.score),0) AS sum_score
           FROM comment
           LEFT JOIN rating_comment ON comment.comment_id=rating_comment.comment_id
           LEFT JOIN users ON comment.user_id=users.user_id
           WHERE comment.article_id = ?  
-          GROUP BY comment.user_id,users.username,comment.comment_id 
+          GROUP BY comment.user_id,users.username,comment.comment_id,users.permission_level
           ORDER BY sum_score DESC; 
         ");
     $stmt->execute(array($article_id));
@@ -123,12 +123,12 @@
 
     function getArticleCommentsControversial($article_id){
      global $conn;
-     $stmt = $conn->prepare("SELECT comment.comment_id,comment.user_id AS commenter_id,comment.content,to_char(comment.posted_date,'DD-MM-YY HH24:MI') AS posted_date,users.username AS commenter, COALESCE(SUM(rating_comment.score),0) AS sum_score
+     $stmt = $conn->prepare("SELECT comment.comment_id,comment.user_id AS commenter_id,comment.content,to_char(comment.posted_date,'DD-MM-YY HH24:MI') AS posted_date,users.username AS commenter,users.permission_level AS commenter_permission,  COALESCE(SUM(rating_comment.score),0) AS sum_score
           FROM comment
           LEFT JOIN rating_comment ON comment.comment_id=rating_comment.comment_id
           LEFT JOIN users ON comment.user_id=users.user_id
           WHERE comment.article_id = ?  
-          GROUP BY comment.user_id,users.username,comment.comment_id 
+          GROUP BY comment.user_id,users.username,comment.comment_id,users.permission_level 
           ORDER BY sum_score ASC; 
         ");
     $stmt->execute(array($article_id));

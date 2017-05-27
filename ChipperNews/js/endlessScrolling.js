@@ -26,7 +26,7 @@ function renderArticles(data)
     console.log(data);
     $('#appendArticles').append(result); 
 }
-var classname = document.getElementsByClassName("categorySearch");
+var classname = $(".categorySearch");
 window.onload = function()
 {
     getMoreArticles();

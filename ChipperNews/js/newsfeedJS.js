@@ -3,20 +3,41 @@ function changeDropdown(option) {
 	$('span.droptext').append(option);
 	switch (option) {
 		case 'Me':
-			$('.container.article-snip').show();
-			$('.container.article-snip.friend').hide();
 			break;
 		case 'Mixed':
-			$('.container.article-snip.friend').show();
-			$('.container.article-snip').show();
 			break;
 		case 'Friends':
-			$('.container.article-snip').hide();
-			$('.container.article-snip.friend').show();
+			break;
+		case 'Newest':
+			sortArticles("newest");
+			break;
+		case 'Oldest':
+			sortArticles("oldest");
+			break;
+		case 'Popular':
+			sortArticles("popular");
+			break;
+		case 'Controversial':
+			sortArticles("controversial");
 			break;
 	}
 }
-
+function sortArticles(type)
+{
+    var base_url = $("#base_url").text();
+    return $.ajax({
+        type: "POST",
+        url: base_url + "/actions/articles/getSortedArticles.php",
+        data:  "&type=" + encodeURI(type),
+        success: renderArticles
+    });
+}
+function renderArticles(data)
+{
+	console.log(data);
+    $('.allcontent').empty();
+    $('.allcontent').append(data); 
+}
 function fullStory(snipID) {
 	$(`#expand-${snipID}`).hide();
 	$(`#article-body-${snipID}`).show();

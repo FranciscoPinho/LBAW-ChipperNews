@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 19:40:13
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 12:41:45
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\ajax\article-comments-updated.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6622591ae0334cb187-90138490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4d59cf627498e14828e4edebfbb185ecdbd854d5' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\ajax\\article-comments-updated.tpl',
-      1 => 1495740893,
+      1 => 1495888901,
       2 => 'file',
     ),
   ),
@@ -23,6 +23,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'comment_id' => 0,
     'comment' => 0,
     'BASE_URL' => 0,
+    'article' => 0,
     'ratings' => 0,
     'rat' => 0,
     'rating' => 0,
@@ -55,6 +56,21 @@ $_smarty_tpl->tpl_vars['comment']->_loop = true;
 							<h6 class="comment-name by-author"><a style="color:blue;text-decoration:none" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/profile.php"> <?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
 </a></h6>
+							<?php } elseif ($_smarty_tpl->tpl_vars['comment']->value['commenter_id']==$_smarty_tpl->tpl_vars['article']->value['author']) {?>
+							<h6 class="comment-name by-author"><a style="color:darkblue;text-decoration:none" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/view_profile.php?id=<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter_id'];?>
+">Author <?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
+</a> </h6>
+							<?php } elseif ($_smarty_tpl->tpl_vars['comment']->value['commenter_permission']==2) {?>
+							<h6 class="comment-name by-author"><a style="color:red;text-decoration:none" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/view_profile.php?id=<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter_id'];?>
+">Moderator <?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
+</a> </h6>
+							<?php } elseif ($_smarty_tpl->tpl_vars['comment']->value['commenter_permission']==3) {?>
+							<h6 class="comment-name by-author"><a style="color:yellow;text-decoration:none" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/view_profile.php?id=<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter_id'];?>
+">Admin <?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
+</a> </h6>
 							<?php } else { ?>
 							<h6 class="comment-name by-author"><a style="text-decoration:none" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/view_profile.php?id=<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter_id'];?>
@@ -95,7 +111,7 @@ $_smarty_tpl->tpl_vars['rat']->_loop = true;
 							<?php if ($_smarty_tpl->tpl_vars['rating']->value['score']==-1) {?>
 							<i class="fa fa-thumbs-down" id="down<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
 "onclick="downvote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
-')" style="color:blue" name="blue"></i>
+')" style="color:red" name="blue"></i>
 							<i class="fa fa-thumbs-up"  id="up<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
 " onclick="upvote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
 ')" name="grey"></i>
@@ -106,7 +122,7 @@ $_smarty_tpl->tpl_vars['rat']->_loop = true;
 ')" name="grey"></i>
 							<i class="fa fa-thumbs-up"  id="up<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
 " onclick="upvote('<?php echo $_smarty_tpl->tpl_vars['comment']->value['comment_id'];?>
-')" style="color:blue" name="blue"></i>
+')" style="color:green" name="blue"></i>
 							<?php }?> 
 							<?php }?>
 							<?php if ($_SESSION['permission']>=2||$_smarty_tpl->tpl_vars['comment']->value['commenter_id']==$_SESSION['user_id']) {?>

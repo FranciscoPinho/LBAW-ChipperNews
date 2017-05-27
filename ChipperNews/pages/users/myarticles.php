@@ -12,23 +12,7 @@
      $subcatories = getArticleSubcategories($article_id);
      return $subcatories;
    }
- 
-   function fetchMyRecentArticles(){
-       $articles = getMyArticlesRecent($_SESSION['user_id']);
-       return $articles;
-   }
-   function fetchMyPopularArticles(){
-       $articles = getMyArticlesPopular($_SESSION['user_id']);
-       return $articles;
-   }
-   function fetchMyControversialArticles(){
-       $articles = getMyArticlesControversial($_SESSION['user_id']);
-       return $articles;
-   }
-   function fetchMyOldestArticles(){
-       $articles = getMyArticlesOldest($_SESSION['user_id']);
-       return $articles;
-   }
+
    function dateDiffDays($mydate){
        $now = time(); // or your date as well
        $mydate = strtotime($mydate);

@@ -6,7 +6,7 @@
                     <button type="button" class="close " data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Report User</h4>
                 </div>
-                <div class="modal-body " id="report_body">
+                <div class="modal-body" id="report_body">
                     <form class="form-report">
                          <div class="col-sm-12">
                          <label>Reporting:</label>
@@ -17,7 +17,7 @@
                         <label>Description:</label>
                         <textarea class="form-control" rows="8" cols="20" id="description" name="description" required></textarea>
                         </div>
-                        <div class="col-sm-12"
+                        <div class="col-sm-12">
                         <br><br>
                          </div>
                           <button class="btn btn-lg btn-primary btn-block" type="button" onclick="submitReport()" value="submit" >Report</button>
