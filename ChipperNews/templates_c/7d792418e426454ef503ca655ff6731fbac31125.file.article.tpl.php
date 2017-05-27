@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 19:56:58
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 14:39:47
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\article.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:277590ce55d4a1b31-41011843%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:750559298175b34189-33047774%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7d792418e426454ef503ca655ff6731fbac31125' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article.tpl',
-      1 => 1495828616,
+      1 => 1495895987,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '277590ce55d4a1b31-41011843',
+  'nocache_hash' => '750559298175b34189-33047774',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_590ce55d4f3645_64210503',
+  'unifunc' => 'content_59298175dd3db5_34526056',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -29,7 +29,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_590ce55d4f3645_64210503')) {function content_590ce55d4f3645_64210503($_smarty_tpl) {?><head>
+<?php if ($_valid && !is_callable('content_59298175dd3db5_34526056')) {function content_59298175dd3db5_34526056($_smarty_tpl) {?><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,7 +46,8 @@ css/styles-article.css">
 	<script src="https://www.w3schools.com/lib/w3data.js"></script>	
 	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/bootstrap.min.js"></script>
-    
+    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/commentSort.js"></script>
     <link href="https://cdn.quilljs.com/1.2.4/quill.snow.css" rel="stylesheet">
     <script src="https://cdn.quilljs.com/1.2.4/quill.min.js" type="text/javascript"></script>
     <span class="base_url" id="base_url" hidden><?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -297,6 +298,8 @@ images\articles\<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'
 								</div>
 							</div>
 	</div>
+
+    
     </div>
                 <script>
                 var quill = new Quill('#editor-container', {

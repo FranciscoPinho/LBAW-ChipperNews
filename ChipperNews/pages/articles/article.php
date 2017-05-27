@@ -34,12 +34,7 @@
        $comments = getArticleCommentsControversial($article_id);
        return $comments;
    }
-   function dateDiffDays($mydate){
-       $now = time(); // or your date as well
-       $mydate = strtotime($mydate);
-       $datediff = $now - $mydate;
-       return floor($datediff / (60 * 60 * 24));
-   }
+   
   $comment_ratings=getAllMyCommentRatings($_SESSION['user_id'],$_GET['id']);
   $smarty->assign('ratings', $comment_ratings);
   $smarty->display('common/header.tpl');

@@ -28,7 +28,7 @@ function sortArticles(type)
     return $.ajax({
         type: "POST",
         url: base_url + "/actions/articles/getSortedArticles.php",
-        data:  "&type=" + encodeURI(type),
+        data:  "type=" + encodeURI(type),
         success: renderArticles
     });
 }

@@ -13,12 +13,6 @@
      return $subcatories;
    }
 
-   function dateDiffDays($mydate){
-       $now = time(); // or your date as well
-       $mydate = strtotime($mydate);
-       $datediff = $now - $mydate;
-       return floor($datediff / (60 * 60 * 24));
-   }
   $articles = getMyArticlesRecent($_SESSION['user_id']);
   $smarty->assign('articles', $articles);
   $smarty->display('common/header.tpl');

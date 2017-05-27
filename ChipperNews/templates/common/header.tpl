@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-header.css">
     <script src="{$BASE_URL}js/bootstrap.min.js"></script>
     <script src="{$BASE_URL}js/main.js"></script>
-    <script src="{$BASE_URL}js/articleScripts.js"></script>
     <!-- Animals graphic by -->
     <!--a href="http://www.flaticon.com/authors/zlatko-najdenovski">Zlatko Najdenovski</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>-->
     <!-- Optional Bootstrap theme -->

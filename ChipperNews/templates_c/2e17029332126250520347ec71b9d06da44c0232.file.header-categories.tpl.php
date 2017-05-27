@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 21:27:20
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 14:34:18
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\common\header-categories.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1934859289db893f121-81724616%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:9609592985db8fe679-58472076%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '2e17029332126250520347ec71b9d06da44c0232' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\header-categories.tpl',
-      1 => 1495833974,
+      1 => 1495893532,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1934859289db893f121-81724616',
+  'nocache_hash' => '9609592985db8fe679-58472076',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_592985dba40376_41016659',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -25,10 +27,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'success' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_59289db89ff002_11228847',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_59289db89ff002_11228847')) {function content_59289db89ff002_11228847($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_592985dba40376_41016659')) {function content_592985dba40376_41016659($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 
 <head>
@@ -46,8 +46,6 @@ css/styles-header.css">
 js/bootstrap.min.js"></script>
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/main.js"></script>
-    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-js/articleScripts.js"></script>
     <!-- Animals graphic by -->
     <!--a href="http://www.flaticon.com/authors/zlatko-najdenovski">Zlatko Najdenovski</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>-->
     <!-- Optional Bootstrap theme -->

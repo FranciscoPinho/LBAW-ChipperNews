@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 11:26:00
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 14:30:06
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:25195590b34960f0d48-49678860%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:425059298d6e47f4e3-02046939%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,12 +11,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '25195590b34960f0d48-49678860',
+  'nocache_hash' => '425059298d6e47f4e3-02046939',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_590b3496194f68_55723827',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -28,8 +26,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'article' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_59298d6e6a24c1_44552616',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_590b3496194f68_55723827')) {function content_590b3496194f68_55723827($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_59298d6e6a24c1_44552616')) {function content_59298d6e6a24c1_44552616($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 
 <head>
