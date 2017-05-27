@@ -13,6 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://www.w3schools.com/lib/w3data.js"></script>
+	<span class="base_url" id="base_url" hidden>{$BASE_URL}</span>
     <script src="{$BASE_URL}js/bootstrap.min.js"></script>
     <script src="{$BASE_URL}js/main.js"></script>
     <!-- Optional Bootstrap theme -->
@@ -39,13 +40,39 @@
                         <p>Achievements: {$app.achievements}</p>
 						<p>Motivation: {$app.motivation}</p>
 						<p>References: {$app.reference}</p>
-						<button type="button" class="btn btn-default">Delete</button>
-						<button type="button" class="btn btn-primary">Accept</button> 
+						<button type="button" class="btn btn-default" onclick="deleteApp('{$app.user_id}')">Delete</button>
+						<button type="button" class="btn btn-primary" onclick="acceptApp('{$app.user_id}')">Accept</button> 
                     </div>
                 </div>
             </div>
          {/foreach}
     </div>
+	
+<script>
+function deleteApp(user_id){
+                var base_url = $("#base_url").text();
+                return $.ajax({
+                    type: "POST",
+                    url: base_url + "actions/users/delete_collabapp.php",
+                    data: "user_id=" + encodeURI(user_id),
+                    success: reload
+                });
+		}
+		
+function acceptApp(user_id){
+                var base_url = $("#base_url").text();
+                return $.ajax({
+                    type: "POST",
+                    url: base_url + "actions/users/accept_collabapp.php",
+                    data: "user_id=" + encodeURI(user_id),
+                    success: reload
+                });
+		}
+		
+function reload(data){
+			location.reload();
+		}
+</script>
 </body>
 
 

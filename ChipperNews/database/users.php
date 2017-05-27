@@ -19,6 +19,18 @@
 	$stmt = $conn->prepare("INSERT INTO collaborator_application(user_id, status, motivation, achievements, reference, associations) VALUES (?, ?, ?, ?, ?, ?)");
 	$stmt->execute(array($userID, $status, $motivation, $description, $refs, $assoc));
 	}
+	
+  function deleteApp($user_id){
+    global $conn;
+    $stmt = $conn->prepare("DELETE FROM collaborator_application WHERE user_id=?");
+    return $stmt->execute(array($user_id));
+  }
+  
+  function acceptApp($user_id){
+    global $conn;
+    $stmt = $conn->prepare("UPDATE users SET permission_level = 2 WHERE user_id=?");
+    return $stmt->execute(array($user_id));
+  }
   
   function getApplicationList()
   {
