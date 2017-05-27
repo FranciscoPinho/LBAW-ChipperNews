@@ -35,6 +35,8 @@ window.onload = function()
     }
 }
 var getArticlesByCategory = function() {
+     $('#featuredBar').empty();
+     $('#featuredArticles').empty();
     var attribute = this.getAttribute("cat");
     currentCategory = attribute;
     indexA = 0;

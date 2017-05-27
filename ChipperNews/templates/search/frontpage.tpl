@@ -18,10 +18,12 @@
 </head>
 <body>
    
+   <div id="featuredBar">
     <nav class="navbar navbar-default ">
         <h1 class="text-center "> Featured </h1>
     </nav>
-    <div class="row " style="padding-left:4%;padding-right:4% ">
+    </div>
+    <div class="row " style="padding-left:4%;padding-right:4% " id="featuredArticles">
        {for $i=0 to 2}
             {$art = $articles[$i] }
             {$subcategories = fetchSubcategories($art.article_id)}
