@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-17 11:26:06
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 13:56:59
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\search\frontpage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2899658f7c78152d6e8-89439176%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6ecf89c9273741d7efc514f6fc5b2fbf45634b66' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\search\\frontpage.tpl',
-      1 => 1495020255,
+      1 => 1495720564,
       2 => 'file',
     ),
   ),
@@ -42,13 +42,16 @@ css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/bootstrap.min.js"></script>
+    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/endlessScrolling.js"></script>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 css/bootstrap-social.css">
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 css/styles-frontpage.css">
     <link href="https://fonts.googleapis.com/css?family=Lato|Lora|Playfair+Display:700" rel="stylesheet">
-
+<span class="base_url" id="base_url" hidden><?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+</span>
 </head>
 <body>
    
@@ -82,10 +85,15 @@ images/assets/chipart1.png" alt="" style="width:100%;height:100%;">
                         <img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
                         </button>
+                        
 			        </div>
+                    
                     <div class="caption ">
                         <h3><?php echo $_smarty_tpl->tpl_vars['art']->value['title'];?>
 </h3>
+                        <h6>By <span style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['art']->value['authorname'];?>
+</span> <?php echo $_smarty_tpl->tpl_vars['art']->value['published_date'];?>
+</h6>
                         <p><?php echo $_smarty_tpl->tpl_vars['art']->value['lead'];?>
 </p>
                         <?php  $_smarty_tpl->tpl_vars['subart'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['subart']->_loop = false;
@@ -151,6 +159,11 @@ images/assets/chipart1.png" alt="" style="width:100%;height:100%;">
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
                         </button>
 			</div>
+            	<h6>By <a href=<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/viewprofile?id=<?php echo $_smarty_tpl->tpl_vars['art']->value['author'];?>
+ style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['art']->value['authorname'];?>
+</a> <?php echo $_smarty_tpl->tpl_vars['art']->value['published_date'];?>
+</h6>
             <p><?php echo $_smarty_tpl->tpl_vars['art']->value['lead'];?>
 </p>
             <?php  $_smarty_tpl->tpl_vars['sub'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['sub']->_loop = false;

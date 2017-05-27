@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-04-27 07:58:35
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-25 13:56:58
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\common\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1317158f68e1116e296-06793157%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd31bb9597b48e9ec9848a08c66041a329c58b45f' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\header.tpl',
-      1 => 1492636692,
+      1 => 1495720564,
       2 => 'file',
     ),
   ),
@@ -46,6 +46,8 @@ css/styles-header.css">
 js/bootstrap.min.js"></script>
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/main.js"></script>
+    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/articleScripts.js"></script>
     <!-- Animals graphic by -->
     <!--a href="http://www.flaticon.com/authors/zlatko-najdenovski">Zlatko Najdenovski</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>-->
     <!-- Optional Bootstrap theme -->
@@ -60,12 +62,12 @@ pages/search/frontpage.php">
 images/assets/logo_navigation.png" alt"logo">
 		    </a>
            <ul class="nav navbar-nav">
-                    <li><a href="#">Programming</a></li>
-                    <li><a href="#">Hardware</a></li>
-                    <li><a href="#">Software</a></li>
-                    <li><a href="#">Industry</a></li>
-                    <li><a href="#">Technology</a></li>
-                </ul>
+                    <li><a class="categorySearch" cat="Programming" href="#">Programming</a></li>
+                    <li><a class="categorySearch" cat="Hardware" href="#">Hardware</a></li>
+                    <li><a class="categorySearch" cat="Software" href="#">Software</a></li>
+                    <li><a class="categorySearch" cat="Industry" href="#">Industry</a></li>
+                    <li><a class="categorySearch" cat="Technology" href="#">Technology</a></li>
+                </ul> 
     </div>
     <nav class="navbar navbar-default headernav">
         <div class="container-fluid">
@@ -80,6 +82,10 @@ actions/users/logout.php">Logout</a></li>
 pages/users/profile.php">Profile</a></li>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/articles/newsfeed.php">Feed</a></li>
+					<?php if ($_SESSION['permission']==2) {?>
+					<li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/reviewapps.php">Review Applications</a></li>
+					<?php }?>
                      <?php if ($_SESSION['permission']==3) {?>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/admin/sysadmin.php">Admin Panel</a></li>

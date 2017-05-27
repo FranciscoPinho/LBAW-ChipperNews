@@ -12,16 +12,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://www.w3schools.com/lib/w3data.js"></script>
     <script src="{$BASE_URL}js/bootstrap.min.js"></script>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> 
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <link href="{$BASE_URL}/css/bootstrap-editable.css" rel="stylesheet">
     <script src="{$BASE_URL}/js/bootstrap-editable.js"></script>
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <span class="base_url" id="base_url" hidden>{$BASE_URL}</span>
     <link href="select2/select2.css" rel="stylesheet" type="text/css"></link>  
-    <script src="select2/select2.js"></script> 
-    <link href="select2-bootstrap.css" rel="stylesheet" type="text/css"></link>  
+<script src="select2/select2.js"></script>  
+<link href="select2-bootstrap.css" rel="stylesheet" type="text/css"></link>    
     <!-- Optional Bootstrap theme -->
     <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
 </head>
@@ -117,19 +117,12 @@
                                     <div id="myTabContent" class="tab-content">
                                         <div class="tab-pane fade active in" id="info">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><b>Full name </b><a href="#" id="fullname" data-type="text" data-pk="1" data-title="Full name ">{$user.name}  </a><i id="pencil" onclick="pencil()" class="fa fa-pencil"></i></li>
-                                                <li class="list-group-item"><b>Bio </b><a href="#" id="bio" data-type="textarea" data-pk="1" data-title="Bio " title="Edit">{$user.bio} </a><i class="fa fa-pencil"></i></li>
+                                                <li class="list-group-item"><b>Full name </b><a href="#" data-name="fname" id="fullname" data-type="text" data-pk="1" data-title="Full name ">{$user.name}  </a><i class="fa fa-pencil"></i></li>
+                                                <li class="list-group-item"><b>Bio </b><a href="#" id="bio" data-name="bio" data-type="textarea" data-pk="1" data-title="Bio " title="Edit">{$user.bio} </a><i class="fa fa-pencil"></i></li>
                                                 <li class="list-group-item"><b>Last logged in </b> {$user.last_login}</li>
-                                                <li class="list-group-item"><b>Associated newspapers or publications </b><a href="#" id="assoc" data-type="textarea" data-pk="1" data-title="Associated newspapers or publications" title="Edit">{$user.assoc_publications} </a><i id="pencil" class="fa fa-pencil"></i></li>
+                                                <li class="list-group-item"><b>Associated newspapers or publications </b><a href="#" id="assoc" data-name="assocpub" data-type="textarea" data-pk="1" data-title="Associated newspapers or publications" title="Edit">{$user.assoc_publications} </a><i id="pencil" class="fa fa-pencil"></i></li>
                                             </ul>
                                         </div>
-                                        <script>
-                                            $.fn.editable.defaults.mode = 'inline';
-                                            $('#fullname').editable();
-                                            $('#bio').editable();
-                                            $('#assoc').editable();
-                                            $('#local').editable();
-                                        </script>
                                         <div class="tab-pane fade" id="interests">
                                             <p>
                                             {$interests = fetchInterests($user.user_id)}
@@ -160,7 +153,8 @@
                                                 <li class="list-group-item"><b>Email visible to anyone who visits my profile </b><input type="checkbox" checked data-toggle="toggle" data-size="small" data-onstyle="success"></li>
                                                 <li class="list-group-item"><b>Location visible to anyone who visits my profile </b><input type="checkbox" checked data-toggle="toggle" data-size="small" data-onstyle="success"></li>
                                                 <li class="list-group-item"><b>Email visible to anyone who visits my profile </b><input type="checkbox" checked data-toggle="toggle" data-size="small" data-onstyle="success"></li>
-                                                <li class="list-group-item"><b>Update location </b><a href="#" id="fullname" data-type="select2" data-pk="1" data-title="Current localisation " data-source="$countries">{$user.local}  </a><i id="pencil" class="fa fa-pencil"></i></li>
+                                                <li class="list-group-item"><b>Update location </b><a href="#" id="local" data-name="local" data-type="select2" data-pk="1" data-title="Current localisation " data-source="{$countries}">{$user.local}  </a><i id="pencil" class="fa fa-pencil"></i></li>
+                                                <li class="list-group-item"><b>Update email </b><a href="#" id="email" data-name="email" data-type="email" data-pk="1" data-title="Email ">{$user.email}  </a><i id="pencil" class="fa fa-pencil"></i></li>
                                             </ul>
                                         </div>
                                         <div class="tab-pane fade" id="security">
@@ -212,8 +206,63 @@
                         </div>
                     </div>
                 </div>
+                <script>
+
+                function debug(data)
+                {
+                    console.log(data);
+                };
+                        var base_url = $("#base_url").text();
+                        $.fn.editable.defaults.mode = 'inline';
+                        $('#fullname').editable({
+                            type: 'text',
+                            url: base_url + 'actions/users/profile.php',
+                            title: 'Edit name',
+                            ajaxOptions:{
+                            type:'post'
+                           }
+                            });
+                        $('#bio').editable({
+                            type: 'textarea',
+                            url: base_url + 'actions/users/profile.php',
+                            title: 'Edit bio',
+                            ajaxOptions:
+                            {
+                            type:'post'
+                           },
+                            success: debug
+
+                            });
+                        $('#assoc').editable({
+                            type: 'textarea',
+                            pk: 1,
+                            url: base_url + 'actions/users/profile.php',
+                            title: 'Edit associated publications',
+                            ajaxOptions:{
+                            type:'post'
+                           }
+                            });
+                        $('#local').editable({
+                            type: 'select2',
+                            pk: 1,
+                            url: base_url + 'actions/users/profile.php',
+                            title: 'Update localisation',
+                            ajaxOptions:{
+                            type:'post'
+                           }
+                            });
+                        $('#email').editable({
+                            type: 'email',
+                            pk: 1,
+                            url: base_url + 'actions/users/profile.php',
+                            title: 'Update email',
+                            ajaxOptions:{
+                            type:'post'
+                           }
+                            });
+                </script>
                 <div class="bs-callout bs-callout-danger">
-                    {$article = getMostPopularArticle($user.user_id)}
+                    {$article = fetchMostPopularArticle($user.user_id)}
                     {if $article neq null}
                     <h4>Most Popular Contribution</h4>
                     <p>

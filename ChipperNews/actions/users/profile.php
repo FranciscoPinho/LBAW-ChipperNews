@@ -1,45 +1,45 @@
 <?php
   include_once('../../config/init.php');
   include_once($BASE_DIR .'database/users.php');  
-
-  $name = strip_tags($_POST['name']);
-  $username = strip_tags($_POST['username']);
-  $password = $_POST['password'];
-  if ($_POST['local_id'] === NULL)
+  
+  switch($_POST['name'])
   {
-    $local_id=NULL;
+    case 'fname':
+    $name = strip_tags($_POST['value']);
+    break;
+
+    case 'bio':
+    $bio = strip_tags($_POST['value']);
+    break;
+
+    case 'assocpub':
+    $assoc_pub = strip_tags($_POST['value']);
+    break;
+
+    case 'email':
+    $email = strip_tags($_POST['value']);
+    break;
+
+    case 'local':
+    $local = strip_tags($_POST['value']);
+    break;
   }
-  else $local_id = strip_tags($_POST['local_id']);
 
-  $email = strip_tags($_POST['email']);
-  $bio = strip_tags($_POST['bio']);
-
-  if ($_POST['birthdate'] === NULL)
-  {
-    $birthdate=NULL;
-  }
-  else $birthdate = strip_tags($_POST['birthdate']);
-
+  
+  
+  //$password = strip_tags($_POST['password']);
+  
+  
 
   $photo = $_FILES['pic'];
   $extension = end(explode(".", $photo["name"]));
 
   try {
-    createUser($username, $name, $password, $local_id, $email, $bio, $birthdate);
-    move_uploaded_file($photo["tmp_name"], $BASE_DIR . "images/users/" . $username . '.' . $extension); // this is dangerous
-    chmod($BASE_DIR . "images/users/" . $username . '.' . $extension, 0644);
+    editUser($_SESSION['user_id'], $name, $email, $bio, $assoc_pub);
+    $_SESSION['success_messages'][] = 'User information updated successfully';  
+    echo 0;
   } catch (PDOException $e) {
-  
-    if (strpos($e->getMessage(), 'users_pkey') !== false) {
-      $_SESSION['error_messages'][] = 'Duplicate username';
-      $_SESSION['field_errors']['username'] = 'Username already exists';
+   
+     $_SESSION['error_messages'][] = $e->getMessage();
     }
-    else $_SESSION['error_messages'][] = $e->getMessage();
-
-    $_SESSION['form_values'] = $_POST;
-    header("Location: $BASE_URL" . 'pages/users/register.php');
-    exit;
-  }
-  $_SESSION['success_messages'][] = 'User registered successfully';  
-  header("Location: $BASE_URL");
 ?>

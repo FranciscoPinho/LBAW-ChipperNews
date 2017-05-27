@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-01 18:53:54
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 17:21:17
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\post-history.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2809059078071dc8b87-01118705%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd7314fcd5ee426a4a4d3dd2ed4ea10152ca031dc' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\post-history.tpl',
-      1 => 1493664734,
+      1 => 1494979578,
       2 => 'file',
     ),
   ),
@@ -22,9 +22,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'BASE_URL' => 0,
     'comments' => 0,
     'comment' => 0,
-    'article' => 0,
     'user' => 0,
-    'votes' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -82,30 +80,30 @@ images/assets/circuit.jpg" alt="">
 foreach ($_from as $_smarty_tpl->tpl_vars['comment']->key => $_smarty_tpl->tpl_vars['comment']->value) {
 $_smarty_tpl->tpl_vars['comment']->_loop = true;
 ?>
-            <?php $_smarty_tpl->tpl_vars['article'] = new Smarty_variable(fetchArticle($_smarty_tpl->tpl_vars['comment']->value['comment_id']), null, 0);?>
             <div class="container comment-snip" id="">
                 <div class="thumbcontent">
                     <div class="container image">
                         <img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-images\articles\<?php echo $_smarty_tpl->tpl_vars['article']->value['image'];?>
+images\articles\<?php echo $_smarty_tpl->tpl_vars['comment']->value['article_id'];?>
 " alt="..." style=" width: 100%; height: auto;">
                     </div>
-                    <h2 id="headline"><a href=# style="color:black" id="articleAnchor"><?php echo $_smarty_tpl->tpl_vars['article']->value['title'];?>
+                    <h2 id="headline"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages\articles\article.php?id=<?php echo $_smarty_tpl->tpl_vars['comment']->value['article_id'];?>
+" style="color:black" id="articleAnchor"><?php echo $_smarty_tpl->tpl_vars['comment']->value['article_title'];?>
 </a></h3>
                 </div>
                 <div class="comment">
                     <div class="mycomment">
-                        <h6>By <a style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['user']->value[0]['username'];?>
+                        <h6>By <a style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['user']->value;?>
 </a> <?php echo $_smarty_tpl->tpl_vars['comment']->value['posted_date'];?>
 </h6>
                         <p><?php echo $_smarty_tpl->tpl_vars['comment']->value['content'];?>
 </p>
-                        <?php $_smarty_tpl->tpl_vars['votes'] = new Smarty_variable(getVotes($_smarty_tpl->tpl_vars['comment']->value['comment_id']), null, 0);?>
-                        <?php if ($_smarty_tpl->tpl_vars['votes']->value>=0) {?>
-                            <h5>Votes: <span class="posrating" style="font-weight:bold;color:#357266">+<?php echo $_smarty_tpl->tpl_vars['votes']->value;?>
+                        <?php if ($_smarty_tpl->tpl_vars['comment']->value['sum_score']>=0) {?>
+                            <h5>Votes: <span class="posrating" style="font-weight:bold;color:#357266">+<?php echo $_smarty_tpl->tpl_vars['comment']->value['sum_score'];?>
 </span></h5>
                         <?php } else { ?>
-                            <h5>Votes: <span class="posrating" style="font-weight:bold;color:#f11066">-<?php echo $_smarty_tpl->tpl_vars['votes']->value;?>
+                            <h5>Votes: <span class="negrating" style="font-weight:bold;color:#f11066"><?php echo $_smarty_tpl->tpl_vars['comment']->value['sum_score'];?>
 </span></h5>
                         <?php }?>
                     </div>

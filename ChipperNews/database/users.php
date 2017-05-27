@@ -10,19 +10,6 @@
     global $conn;
     $stmt = $conn->prepare("INSERT INTO users(username,name,password,local_id,email,permission_level, bio, birthdate) 
     VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    if($local_id===NULL OR $birthdate===NULL)
-    {
-      if($local_id===NULL && $birthdate===NULL)
-      {
-      $stmt->execute(array($username, $name, password_hash($password,PASSWORD_DEFAULT), NULL, $email, '0', $bio, NULL));
-      }
-      else if($local_id===NULL)
-      {
-        $stmt->execute(array($username, $name, password_hash($password,PASSWORD_DEFAULT), NULL, $email, '0', $bio, $birthdate));
-      }
-      else
-       $stmt->execute(array($username, $name, password_hash($password,PASSWORD_DEFAULT), $local_id, $email, '0', $bio, NULL));
-    }
     $stmt->execute(array($username, $name, password_hash($password,PASSWORD_DEFAULT), $local_id, $email, '0', $bio, $birthdate));
   }
   
@@ -179,6 +166,26 @@
     $stmt->execute();
     return $stmt->rowCount();
 
+  }
+   function getMostPopularArticle($user_id)
+  {
+      global $conn;
+      $stmt = $conn->prepare("SELECT article.*, COALESCE(SUM(rating_article.score),0) AS sum_score,
+       (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
+        (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE rating_article.score=-1 AND rating_article.article_id = article.article_id) AS negratings   
+        FROM article  
+        LEFT JOIN rating_article ON article.article_id=rating_article.article_id   
+        WHERE article.author=:author   
+        GROUP BY article.author,article.article_id 
+        ORDER BY sum_score DESC
+        LIMIT 1;");
+      $stmt->bindParam(':author', $user_id, PDO::PARAM_INT);
+      $stmt->execute();
+      return $stmt->fetchAll()[0];
   }
 
  function editUser($user_id, $name, $email, $bio, $assoc_publications)
