@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 12:09:43
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 14:30:11
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\search\frontpage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2899658f7c78152d6e8-89439176%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6ecf89c9273741d7efc514f6fc5b2fbf45634b66' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\search\\frontpage.tpl',
-      1 => 1495886965,
+      1 => 1495895360,
       2 => 'file',
     ),
   ),
@@ -54,10 +54,12 @@ css/styles-frontpage.css">
 </head>
 <body>
    
+   <div id="featuredBar">
     <nav class="navbar navbar-default ">
         <h1 class="text-center "> Featured </h1>
     </nav>
-    <div class="row " style="padding-left:4%;padding-right:4% ">
+    </div>
+    <div class="row " style="padding-left:4%;padding-right:4% " id="featuredArticles">
        <?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? 2+1 - (0) : 0-(2)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
 if ($_smarty_tpl->tpl_vars['i']->total > 0) {
 for ($_smarty_tpl->tpl_vars['i']->value = 0, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {

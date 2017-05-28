@@ -140,6 +140,46 @@
     return $stmt->fetchAll();
   }
 
+  function setEmailPrivacy($user_id, $value)
+  {
+    global $conn;
+	  $stmt = $conn->prepare("UPDATE users SET hide_email=:hide_email WHERE user_id=:user_id");
+    $stmt->bindParam(':hide_email', $value, PDO::PARAM_BOOL);
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll();
+  }
+
+  function setLocalPrivacy($user_id, $value)
+  {
+    global $conn;
+	  $stmt = $conn->prepare("UPDATE users SET hide_local=:hide_local WHERE user_id=:user_id");
+    $stmt->bindParam(':hide_local', $value, PDO::PARAM_BOOL);
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll();
+  }
+
+  function setAgePrivacy($user_id, $value)
+  {
+    global $conn;
+	  $stmt = $conn->prepare("UPDATE users SET hide_birthdate=:hide_birthdate WHERE user_id=:user_id");
+    $stmt->bindParam(':hide_birthdate', $value, PDO::PARAM_BOOL);
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll();
+  }
+
+  function setPostHPrivacy($user_id, $value)
+  {
+    global $conn;
+	  $stmt = $conn->prepare("UPDATE users SET hide_birthdate=:hide_birthdate WHERE user_id=:user_id");
+    $stmt->bindParam(':hide_birthdate', $value, PDO::PARAM_BOOL);
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll();
+  }
+
   function getAllUsers()
   {
     global $conn;

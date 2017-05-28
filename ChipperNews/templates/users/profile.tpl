@@ -19,9 +19,6 @@
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <span class="base_url" id="base_url" hidden>{$BASE_URL}</span>
-    <link href="select2/select2.css" rel="stylesheet" type="text/css"></link>  
-<script src="select2/select2.js"></script>  
-<link href="select2-bootstrap.css" rel="stylesheet" type="text/css"></link>    
     <!-- Optional Bootstrap theme -->
     <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
 </head>
@@ -83,7 +80,7 @@
                                     </figure>
                                     <div class="text-content">
                                         <div class="col-lg-12">
-                                            <div class="col-xs-12 col-sm-8">
+                                            <div class="col-xs-12 col-sm-12">
                                                 <p>
                                                     <ul class="list-unstyled">
                                                     <li><i class="fa fa-certificate fa-fw" aria-hidden="false"></i>
@@ -92,11 +89,11 @@
                                                     {elseif $user.permission_level eq '2'}Moderator
                                                     {else}Administrator
                                                     {/if}
-                                                        <li><i class="fa fa-envelope fa-fw" aria-hidden="false"></i> {$user.email}</li>
-                                                        <li><i class="fa fa-map-marker fa-fw" aria-hidden="false"></i> {$user.local}</li>
-                                                        {if ((ageCalc($user.birthdate) neq 0) && !($user.hide_birthdate))}
-                                                            <li><i class="fa fa-birthday-cake fa-fw" aria-hidden="false"></i>
-                                                            {ageCalc($user.birthdate)} years old
+                                                    <li><i class="fa fa-envelope fa-fw" aria-hidden="false"></i> {$user.email}</li>
+                                                    <li><i class="fa fa-map-marker fa-fw" aria-hidden="false"></i> {$user.local}</li>
+                                                    {if ((ageCalc($user.birthdate) neq 0) && !($user.hide_birthdate))}
+                                                        <li><i class="fa fa-birthday-cake fa-fw" aria-hidden="false"></i>
+                                                        {ageCalc($user.birthdate)} years old
                                                     {/if}</li>
                                                     </ul>
 
@@ -147,13 +144,59 @@
                                             </p>
                                         </div>
                                         <div class="tab-pane fade" id="settings">
-                                            <ul class="list-group">
-                                                <li class="list-group-item"><b>Email visible to anyone who visits my profile </b><input type="checkbox" checked data-toggle="toggle" data-size="small" data-onstyle="success"></li>
-                                                <li class="list-group-item"><b>Location visible to anyone who visits my profile </b><input type="checkbox" checked data-toggle="toggle" data-size="small" data-onstyle="success"></li>
-                                                <li class="list-group-item"><b>Email visible to anyone who visits my profile </b><input type="checkbox" checked data-toggle="toggle" data-size="small" data-onstyle="success"></li>
-                                                <li class="list-group-item"><b>Update location </b><a href="#" id="local" data-name="local" data-type="select2" data-pk="1" data-title="Current localisation " data-source="{$countries}">{$user.local}  </a><i id="pencil" class="fa fa-pencil"></i></li>
+                                            <ul class="list-group">     
+                                                <li class="list-group-item"><b>Hide location from anyone who visits my profile </b><input type="checkbox" id="local_hide" name="local_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
+                                                <li class="list-group-item"><b>Hide age from anyone who visits my profile </b><input type="checkbox" id="age_hide" name="age_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
+                                                <li class="list-group-item"><b>Hide post history from anyone who visits my profile </b><input type="checkbox" id="post_hide" name="post_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
                                                 <li class="list-group-item"><b>Update email </b><a href="#" id="email" data-name="email" data-type="email" data-pk="1" data-title="Email ">{$user.email}  </a><i id="pencil" class="fa fa-pencil"></i></li>
                                             </ul>
+                                            <script>
+                                            if('{$user.hide_email}' == true)
+                                            {
+                                                $('#email_hide').prop('checked', true).change()
+                                            }
+
+                                            if('{$user.hide_local}' == true)
+                                            {
+                                                $('#local_hide').prop('checked', true).change()
+                                            }
+
+                                            if('{$user.hide_birthdate}' == true)
+                                            {
+                                                $('#age_hide').prop('checked', true).change()
+                                            }
+
+                                            if('{$user.hide_posthistory}' == true)
+                                            {
+                                                $('#post_hide').prop('checked', true).change()
+                                            }
+
+                                                console.log("here" + $(this).prop('checked'));
+                                                $('#email_hide').change(function() 
+                                                {
+                                                    console.log("checked" + $(this).prop('checked'));
+                                                    setEmailPrivacy($user_id,$(this).prop('checked'))
+                                                })
+
+                                                $("#local_hide").change(function()
+                                                {
+                                                    setLocalPrivacy($user_id,$(this).prop('checked'))
+                                                })
+
+                                                $("#age_hide").change(function()
+                                                {
+                                                    setAgePrivacy($user_id,$(this).prop('checked'))
+                                                })
+
+                                                $("#post_hide").change(function()
+                                                {
+                                                    setPostHPrivacy($user_id,$(this).prop('checked'))
+                                                })
+
+                                            {
+                                                {
+                                                }
+                                            </script>
                                         </div>
                                         <div class="tab-pane fade" id="security">
                                             <form class="form-horizontal" id="fpassw" method="post">

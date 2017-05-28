@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-01 19:53:19
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 14:44:42
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\admin\adminpanel.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2300859079185ed15a4-18378822%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f27475417aa3675f653bf2a04dcae10cf6eea992' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\admin\\adminpanel.tpl',
-      1 => 1493668397,
+      1 => 1495844990,
       2 => 'file',
     ),
   ),
@@ -59,6 +59,8 @@ css/styles-ricardo.css">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cogs"></i>Admin Options <span class="caret"></span></a>
                         <ul class="dropdown-menu">
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/admin/syscategories.php">Category Management</a></li>
                             <li><a href="#">Shut down for maintenance</a></li>
                         </ul>
                     </li>
@@ -86,6 +88,7 @@ actions/administration/operation.php" method="post">
                     <label class="radio-inline"><input type="radio" name="operation" value="ban" >Ban</label>
                     <label class="radio-inline"><input type="radio" name="operation" value="delete">Delete</label>
                     <label class="radio-inline"><input type="radio" name="operation" value="colaborator">Promote</label>
+                    <label class="radio-inline"><input type="radio" name="operation" value="unban">Unban</label>
                 </div>
                 <table class="table table-hover">
                 <thead>
@@ -109,8 +112,8 @@ $_smarty_tpl->tpl_vars['user']->_loop = true;
                     <tr>
                         <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
 </td>
-                        <td><img class="media-object" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-images/assets/pepe.jpg" alt="..."></td>
+                        <td><img class="media-object" src="<?php echo getImage($_smarty_tpl->tpl_vars['user']->value['username']);?>
+" alt="..." style="height:30px;width:30px"></td>
                         <td><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
 </td>
                         <td> <?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
@@ -175,8 +178,8 @@ $_smarty_tpl->tpl_vars['user']->_loop = true;
                     <tr>
                         <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
 </td>
-                        <td><img class="media-object" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-images/assets/pepe.jpg" alt="..."></td>
+                        <td><img class="media-object" src="<?php echo getImage($_smarty_tpl->tpl_vars['user']->value['username']);?>
+" alt="..." style="height:30px;width:30px"></td>
                         <td><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
 </td>
                         <td> <?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
@@ -241,8 +244,8 @@ $_smarty_tpl->tpl_vars['user']->_loop = true;
                     <tr>
                         <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
 </td>
-                        <td><img class="media-object" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-images/assets/pepe.jpg" alt="..."></td>
+                        <td><img class="media-object" src="<?php echo getImage($_smarty_tpl->tpl_vars['user']->value['username']);?>
+" alt="..." style="height:30px;width:30px"></td>
                         <td><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
 </td>
                         <td> <?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>

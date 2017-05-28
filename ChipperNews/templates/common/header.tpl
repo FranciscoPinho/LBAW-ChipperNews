@@ -39,7 +39,7 @@
                        <li><a href="{$BASE_URL}pages/articles/newsfeed.php">Feed</a></li>
                      {/if}
                   
-					{if $smarty.session.permission==2}
+					{if $smarty.session.permission gte 2}
                     {if isset($apps)}
                      <li style="background:white"><a href="{$BASE_URL}pages/users/reviewapps.php">Review Applications</a></li>
                     {else}
