@@ -9,7 +9,7 @@
 
   
 
-  $smarty->display('common/header.tpl');
+  $smarty->display('common/header-no-search.tpl');
   $smarty->display('users/friendlist.tpl');
   $smarty->display('common/footer.tpl');
 ?>

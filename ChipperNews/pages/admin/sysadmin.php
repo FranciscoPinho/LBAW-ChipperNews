@@ -9,7 +9,7 @@
   $smarty->assign('usersID', $usersID);
     $smarty->assign('adminpanel', 0);
 
-  $smarty->display('common/header.tpl');
+  $smarty->display('common/header-no-search.tpl');
   $smarty->display('admin/adminpanel.tpl');
   $smarty->display('common/footer.tpl');
 ?>

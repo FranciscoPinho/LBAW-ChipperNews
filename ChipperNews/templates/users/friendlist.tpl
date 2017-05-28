@@ -25,16 +25,6 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cogs"></i>Admin Options <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{$BASE_URL}pages/admin/syscategories.php">Category Management</a></li>
-                            <li><a href="{$BASE_URL}pages/admin/reportPanel.php">Report Management</a></li>
-                            <li><a href="#">Shut down for maintenance</a></li>
-                        </ul>
-                    </li>
-                </ul>
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search">
