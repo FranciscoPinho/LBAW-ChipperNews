@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 15:31:08
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 17:35:31
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:619859077a3c36c607-44707552%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c8d6591f9982a20c0a4639a77cda3c75ca4b89a3' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
-      1 => 1495985464,
+      1 => 1495985786,
       2 => 'file',
     ),
   ),
@@ -286,22 +286,6 @@ $_smarty_tpl->tpl_vars['interest']->_loop = true;
                                                     break;
                                                  }
                                             }
-
-                                           /* function checkEmail()
-                                            {
-                                                $('#email_hide').click(function() 
-                                                {
-                                                    console.log("checked at eamil" + $(this).prop('checked'));
-                                                    setEmailPrivacy($user_id,$(this).prop('checked'));
-                                                })
-                                                /*console.log("ima t eamil" + $(this).prop('checked'))
-                                                var c_box = document.getElementById('#email_hide')
-                                                if(c_box.checked == true)
-                                                {
-                                                    setEmailPrivacy($user_id,'true')
-                                                }
-                                                else setEmailPrivacy($user_id,'false')
-                                            }*/
                                             </script>
                                         </div>
                                         <div class="tab-pane fade" id="security">

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 14:44:42
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 17:26:51
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\admin\adminpanel.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2300859079185ed15a4-18378822%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f27475417aa3675f653bf2a04dcae10cf6eea992' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\admin\\adminpanel.tpl',
-      1 => 1495844990,
+      1 => 1495992325,
       2 => 'file',
     ),
   ),
@@ -41,49 +41,44 @@ css/bootstrap.min.css">
 js/bootstrap.min.js"></script>
     
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-css/styles-ricardo.css">
+css/styles-frontpage.css">
 </head>
 
 <body>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-
-                <a class="navbar-brand" href="#">Admin Panel</a>
-            </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cogs"></i>Admin Options <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cogs"></i> Admin Options <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/admin/syscategories.php">Category Management</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/admin/reportPanel.php">Report Management</a></li>
                             <li><a href="#">Shut down for maintenance</a></li>
                         </ul>
                     </li>
                 </ul>
-                <form class="navbar-form navbar-left">
+                <form class="navbar-form navbar-right">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" placeholder="Search user">
                     </div>
-                    <button type="submit" class="btn btn-default">Search User</button>
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="false"></i></button>
                 </form>
 
                 <ul class="nav navbar-nav navbar-right">
-
+                </div>
             </div>
             <!-- /.navbar-collapse -->
-        </div>
         <!-- /.container-fluid -->
     </nav>
         <div>
             <h1> Users </h1>
             <form action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 actions/administration/operation.php" method="post">
-             <button type="submit" class="btn btn-default">Submit</button>
                 <div class="radio">
                     <label class="radio-inline"><input type="radio" name="operation" value="ban" >Ban</label>
                     <label class="radio-inline"><input type="radio" name="operation" value="delete">Delete</label>
@@ -143,13 +138,13 @@ $_smarty_tpl->tpl_vars['user']->_loop = true;
                     <?php } ?>
                 </tbody>
                 </table>
+                <button type="submit" class="btn btn-default">Submit</button>
             </form>
         </div>
         <div>
             <h1> Collaborators </h1>
             <form action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 actions/administration/operation.php" method="post">
-             <button type="submit" class="btn btn-default">Submit</button>
                 <div class="radio">
                     <label class="radio-inline"><input type="radio" name="operation" value="ban" >Ban</label>
                     <label class="radio-inline"><input type="radio" name="operation" value="delete">Delete</label>
@@ -209,6 +204,7 @@ $_smarty_tpl->tpl_vars['user']->_loop = true;
                     <?php } ?>
                 </tbody>
                 </table>
+                <button type="submit" class="btn btn-default">Submit</button>
             </form>
         </div>
 
@@ -216,7 +212,6 @@ $_smarty_tpl->tpl_vars['user']->_loop = true;
             <h1> Moderators </h1>
             <form action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 actions/administration/operation.php" method="post">
-             <button type="submit" class="btn btn-default">Submit</button>
                 <div class="radio">
                     <label class="radio-inline"><input type="radio" name="operation" value="ban" >Ban</label>
                     <label class="radio-inline"><input type="radio" name="operation" value="delete">Delete</label>
@@ -275,7 +270,9 @@ $_smarty_tpl->tpl_vars['user']->_loop = true;
                     <?php } ?>
                 </tbody>
                 </table>
+                <button type="submit" class="btn btn-default">Submit</button>
             </form>
+            <br>
         </div>
 </body>
 

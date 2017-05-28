@@ -3,6 +3,7 @@ body {
     padding-top: 0px;
     /* Whatever the height of your navbar is; the
                              default is 50px */
+    padding-right: 0px;
     padding-bottom: 0px;
     background-color: #f8f8ff;
 }
@@ -13,6 +14,11 @@ body {
 
 .contact img {
     width: 40px;
+}
+
+.table {
+   margin: auto;
+   width: 70% !important; 
 }
 
 .table tbody tr td img {
