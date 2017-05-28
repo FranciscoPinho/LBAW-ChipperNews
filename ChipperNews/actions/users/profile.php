@@ -42,7 +42,6 @@
     $_SESSION['success_messages'][] = 'User privacy settings updated successfully';  
     echo 0;
   } catch (PDOException $e) {
-     $_SESSION['error_messages'][] = $e->getMessage();
     }
 
   try {
@@ -50,8 +49,6 @@
     $_SESSION['success_messages'][] = 'User privacy settings updated successfully';  
     echo 0;
   } catch (PDOException $e) {
-   
-     $_SESSION['error_messages'][] = $e->getMessage();
     }
 
   try {
@@ -59,8 +56,6 @@
     $_SESSION['success_messages'][] = 'User privacy settings updated successfully';  
     echo 0;
   } catch (PDOException $e) {
-   
-     $_SESSION['error_messages'][] = $e->getMessage();
     }
   
   try {
@@ -68,8 +63,6 @@
     $_SESSION['success_messages'][] = 'User privacy settings updated successfully';  
     echo 0;
   } catch (PDOException $e) {
-   
-     $_SESSION['error_messages'][] = $e->getMessage();
     }
 
   try {
@@ -77,7 +70,5 @@
     $_SESSION['success_messages'][] = 'User information updated successfully';  
     echo 0;
   } catch (PDOException $e) {
-   
-     $_SESSION['error_messages'][] = $e->getMessage();
     }
 ?>
