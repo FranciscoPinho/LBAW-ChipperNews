@@ -11,23 +11,18 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="{$BASE_URL}js/bootstrap.min.js"></script>
     
-    <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-ricardo.css">
+    <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-frontpage.css">
 </head>
 
 <body>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-
-                <a class="navbar-brand" href="#">Admin Panel</a>
-            </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cogs"></i>Admin Options <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cogs"></i> Admin Options <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{$BASE_URL}pages/admin/syscategories.php">Category Management</a></li>
                             <li><a href="{$BASE_URL}pages/admin/reportPanel.php">Report Management</a></li>
@@ -35,24 +30,22 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="navbar-form navbar-left">
+                <form class="navbar-form navbar-right">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" placeholder="Search user">
                     </div>
-                    <button type="submit" class="btn btn-default">Search User</button>
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="false"></i></button>
                 </form>
 
                 <ul class="nav navbar-nav navbar-right">
-
+                </div>
             </div>
             <!-- /.navbar-collapse -->
-        </div>
         <!-- /.container-fluid -->
     </nav>
         <div>
             <h1> Users </h1>
             <form action="{$BASE_URL}actions/administration/operation.php" method="post">
-             <button type="submit" class="btn btn-default">Submit</button>
                 <div class="radio">
                     <label class="radio-inline"><input type="radio" name="operation" value="ban" >Ban</label>
                     <label class="radio-inline"><input type="radio" name="operation" value="delete">Delete</label>
@@ -102,12 +95,12 @@
                     {/foreach}
                 </tbody>
                 </table>
+                <button type="submit" class="btn btn-default">Submit</button>
             </form>
         </div>
         <div>
             <h1> Collaborators </h1>
             <form action="{$BASE_URL}actions/administration/operation.php" method="post">
-             <button type="submit" class="btn btn-default">Submit</button>
                 <div class="radio">
                     <label class="radio-inline"><input type="radio" name="operation" value="ban" >Ban</label>
                     <label class="radio-inline"><input type="radio" name="operation" value="delete">Delete</label>
@@ -157,13 +150,13 @@
                     {/foreach}
                 </tbody>
                 </table>
+                <button type="submit" class="btn btn-default">Submit</button>
             </form>
         </div>
 
         <div>
             <h1> Moderators </h1>
             <form action="{$BASE_URL}actions/administration/operation.php" method="post">
-             <button type="submit" class="btn btn-default">Submit</button>
                 <div class="radio">
                     <label class="radio-inline"><input type="radio" name="operation" value="ban" >Ban</label>
                     <label class="radio-inline"><input type="radio" name="operation" value="delete">Delete</label>
@@ -212,7 +205,9 @@
                     {/foreach}
                 </tbody>
                 </table>
+                <button type="submit" class="btn btn-default">Submit</button>
             </form>
+            <br>
         </div>
 </body>
 

@@ -7,6 +7,8 @@
     exit;
   }
 
+  
+
   $smarty->display('common/header.tpl');
   $smarty->display('users/friendlist.tpl');
   $smarty->display('common/footer.tpl');

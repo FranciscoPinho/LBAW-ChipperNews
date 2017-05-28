@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="{$BASE_URL}js/bootstrap.min.js"></script>
     
-    <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-ricardo.css">
+    <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-frontpage.css">
 </head>
 
 <body>
