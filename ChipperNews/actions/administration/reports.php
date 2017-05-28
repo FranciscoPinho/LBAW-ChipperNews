@@ -6,11 +6,10 @@
 
   $operation = $_POST['operation'];
   $reports = $_POST['reports'];
-
   foreach ($reports as $report) {
-    $r = getReport($report);
-    $reportedID = $r.reported;
-
+    $reported = getReported($report);
+    $reportedID = $reported[0];
+    debug_to_console($reportedID);
     switch($operation)
     {
       case "ban": banUser($reportedID);break;

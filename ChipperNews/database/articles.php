@@ -149,7 +149,7 @@
         FROM article  
         LEFT JOIN rating_article ON article.article_id=rating_article.article_id
         LEFT JOIN users ON users.user_id=article.author
-        WHERE (current_date-article.published_date) < 100  AND article.archived='false' 
+        WHERE (current_date-article.published_date) < 100 
         GROUP BY article.author,article.article_id,users.name
         ORDER BY article.published_date DESC;  ");
       $stmt->execute();
