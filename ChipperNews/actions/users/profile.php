@@ -38,13 +38,10 @@
   $extension = end(explode(".", $photo["name"]));
 
   try {
-    print_r($_POST['email_hide']);
     setEmailPrivacy($_SESSION['user_id'], $email_hide);
     $_SESSION['success_messages'][] = 'User privacy settings updated successfully';  
     echo 0;
   } catch (PDOException $e) {
-   print_r($_POST['email_hide']);
-     $_SESSION['error_messages'][] = $e->getMessage();
     }
 
   try {
@@ -52,8 +49,6 @@
     $_SESSION['success_messages'][] = 'User privacy settings updated successfully';  
     echo 0;
   } catch (PDOException $e) {
-   
-     $_SESSION['error_messages'][] = $e->getMessage();
     }
 
   try {
@@ -61,8 +56,6 @@
     $_SESSION['success_messages'][] = 'User privacy settings updated successfully';  
     echo 0;
   } catch (PDOException $e) {
-   
-     $_SESSION['error_messages'][] = $e->getMessage();
     }
   
   try {
@@ -70,8 +63,6 @@
     $_SESSION['success_messages'][] = 'User privacy settings updated successfully';  
     echo 0;
   } catch (PDOException $e) {
-   
-     $_SESSION['error_messages'][] = $e->getMessage();
     }
 
   try {
@@ -79,7 +70,5 @@
     $_SESSION['success_messages'][] = 'User information updated successfully';  
     echo 0;
   } catch (PDOException $e) {
-   
-     $_SESSION['error_messages'][] = $e->getMessage();
     }
 ?>

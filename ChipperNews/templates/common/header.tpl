@@ -11,14 +11,17 @@
     <script src="https://www.w3schools.com/lib/w3data.js"></script>
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-header.css">
     <script src="{$BASE_URL}js/bootstrap.min.js"></script>
+    <script src="{$BASE_URL}js/pollingMessageCount.js"></script>
     <script src="{$BASE_URL}js/main.js"></script>
     <!-- Animals graphic by -->
     <!--a href="http://www.flaticon.com/authors/zlatko-najdenovski">Zlatko Najdenovski</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>-->
     <!-- Optional Bootstrap theme -->
     <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+    <span class="base_url" id="base_url" hidden>{$BASE_URL}</span>
 </head>
 
 <body>
+
    <div class="jumbotron">
             <a href="{$BASE_URL}pages/search/frontpage.php">
             <img class="img-responsive" src="{$BASE_URL}images/assets/logo_navigation.png" alt"logo">
@@ -57,7 +60,8 @@
                     {else}
                     <li><a href="{$BASE_URL}pages/admin/sysadmin.php">Admin Panel</a></li>
                      {/if}
-                     {/if} 
+                     {/if}
+                        <li><i class="fa fa-envelope-o fa-fw"></i><span class="label label-info pull-right inbox-notification" id="unreadMessages"></span></li>
                     {else}
                      <li><a data-toggle="modal" data-target="#myModal" href="">Login</a></li>     
                      <li><a href="{$BASE_URL}pages/users/register.php">Register</a></li>

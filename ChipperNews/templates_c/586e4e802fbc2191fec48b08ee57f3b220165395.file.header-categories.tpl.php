@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 13:27:08
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 20:11:26
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\common\header-categories.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:12356592ad02c13de87-63374967%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '586e4e802fbc2191fec48b08ee57f3b220165395' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\header-categories.tpl',
-      1 => 1495937134,
+      1 => 1495997175,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_592ad02c306434_55435546',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -26,8 +28,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'success' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_592ad02c306434_55435546',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_592ad02c306434_55435546')) {function content_592ad02c306434_55435546($_smarty_tpl) {?><!DOCTYPE html>
 <html>
@@ -104,9 +104,10 @@ pages/users/register.php">Register</a></li>
             </div>
             <div class="navbar-right">
                 
-               <form class="navbar-form navbar-right">
-                        <div class="form-group has-feedback">
-                            <input type="text" style="border-radius:16px;color:#C5C9A4" class="form-control" placeholder="Search">
+               <form class="navbar-form navbar-right" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/search/results.php" enctype="multipart/form-data" method="post" data-lang="en_GB">
+                        <div class="form-group has-feedback" >
+                            <input type="text" style="border-radius:16px;color:#C5C9A4" class="form-control" placeholder="Search" name="query">
                             <span class="glyphicon glyphicon-search form-control-feedback"></span>
                         </div>
 
