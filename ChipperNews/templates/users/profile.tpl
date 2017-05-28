@@ -37,7 +37,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{$BASE_URL}pages/users/posthistory.php"><i class="fa fa-book fa-fw"></i> Comment History </a>
+                        <a href="{$BASE_URL}pages/users/posthistory.php?id={$smarty.session.user_id}"><i class="fa fa-book fa-fw"></i> Comment History </a>
                     </li>
                     <li>
                         <a href="{$BASE_URL}pages/users/friendlist.php">

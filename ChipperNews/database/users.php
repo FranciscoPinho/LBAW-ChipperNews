@@ -207,8 +207,8 @@
   function setPostHPrivacy($user_id, $value)
   {
     global $conn;
-	  $stmt = $conn->prepare("UPDATE users SET hide_birthdate=:hide_birthdate WHERE user_id=:user_id");
-    $stmt->bindParam(':hide_birthdate', $value, PDO::PARAM_BOOL);
+	  $stmt = $conn->prepare("UPDATE users SET hide_posthistory=:hide_posthistory WHERE user_id=:user_id");
+    $stmt->bindParam(':hide_posthistory', $value, PDO::PARAM_BOOL);
     $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $stmt->execute();
     return $stmt->fetchAll();

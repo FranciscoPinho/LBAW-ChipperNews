@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 17:35:31
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 20:11:35
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:619859077a3c36c607-44707552%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c8d6591f9982a20c0a4639a77cda3c75ca4b89a3' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
-      1 => 1495985786,
+      1 => 1496002280,
       2 => 'file',
     ),
   ),
@@ -76,7 +76,8 @@ pages/users/chatbox.php">
                     </li>
                     <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/posthistory.php"><i class="fa fa-book fa-fw"></i> Comment History </a>
+pages/users/posthistory.php?id=<?php echo $_SESSION['user_id'];?>
+"><i class="fa fa-book fa-fw"></i> Comment History </a>
                     </li>
                     <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
