@@ -7,9 +7,8 @@
   $operation = $_POST['operation'];
   $reports = $_POST['reports'];
   foreach ($reports as $report) {
-    debug_to_console($report);
-    $reported = getReported($report);
-    $reportedID = $reported[0];
+    $rep = getReport($report);
+    $reportedID = $rep[0]['reported'];
     debug_to_console($reportedID);
     switch($operation)
     {
