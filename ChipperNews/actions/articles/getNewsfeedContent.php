@@ -10,17 +10,11 @@
   $type= $_POST['type'];
   switch($type)
   {
-    case 'newest':
-    $articles = getMyArticlesRecent($_SESSION['user_id']);
+    case 'me':
 		break;
-    case "oldest":
-    $articles = getMyArticlesOldest($_SESSION['user_id']);
+    case "friends":
     break;
-    case 'popular':
-    $articles = getMyArticlesPopular($_SESSION['user_id']);
-		break;
-		case 'controversial':
-    $articles = getMyArticlesControversial($_SESSION['user_id']);
+    case 'mixed':
 		break;
   }  
    function fetchSubcategories($article_id)
@@ -30,6 +24,6 @@
    } 
 
   $smarty->assign('articles', $articles);
-  $output = $smarty->fetch('ajax/my-articles-sorted.tpl');
+  $output = $smarty->fetch('ajax/newsfeed-articles.tpl');
   echo $output;
 ?>

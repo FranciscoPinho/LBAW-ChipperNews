@@ -3,10 +3,13 @@ function changeDropdown(option) {
 	$('span.droptext').append(option);
 	switch (option) {
 		case 'Me':
+			getNewsfeed("me");
 			break;
 		case 'Mixed':
+			getNewsfeed("mixed");
 			break;
 		case 'Friends':
+			getNewsfeed("friends");
 			break;
 		case 'Newest':
 			sortArticles("newest");
@@ -22,13 +25,22 @@ function changeDropdown(option) {
 			break;
 	}
 }
+function getNewsfeed(type){
+    var base_url = $("#base_url").text();
+    return $.ajax({
+        type: "POST",
+        url: base_url + "/actions/articles/getNewsfeedContent.php",
+        data:  "type=" + encodeURI(type),
+        success: renderArticles
+    });
+}
 function sortArticles(type)
 {
     var base_url = $("#base_url").text();
     return $.ajax({
         type: "POST",
         url: base_url + "/actions/articles/getSortedArticles.php",
-        data:  "&type=" + encodeURI(type),
+        data:  "type=" + encodeURI(type),
         success: renderArticles
     });
 }

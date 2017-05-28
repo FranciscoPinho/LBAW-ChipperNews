@@ -19,6 +19,18 @@
 	$stmt = $conn->prepare("INSERT INTO collaborator_application(user_id, status, motivation, achievements, reference, associations) VALUES (?, ?, ?, ?, ?, ?)");
 	$stmt->execute(array($userID, $status, $motivation, $description, $refs, $assoc));
 	}
+	
+  function deleteApp($user_id){
+    global $conn;
+    $stmt = $conn->prepare("DELETE FROM collaborator_application WHERE user_id=?");
+    return $stmt->execute(array($user_id));
+  }
+  
+  function acceptApp($user_id){
+    global $conn;
+    $stmt = $conn->prepare("UPDATE users SET permission_level = 2 WHERE user_id=?");
+    return $stmt->execute(array($user_id));
+  }
   
   function getApplicationList()
   {
@@ -379,6 +391,21 @@
        $stmt->execute(array($user_id));
       return $stmt->fetchAll();
   }
+
+  function getMeNewsfeed($user_id){
+      global $conn;
+      $stmt = $conn->prepare("SELECT article.*,users.name AS authorname,user_interests.*,article_category.* FROM article
+                            LEFT JOIN article_category ON article.article_id=article_category.article_id
+                            LEFT JOIN user_interests ON article_category.sub_id=user_interests.sub_id 
+                            LEFT JOIN users ON users.user_id=article.author
+                            WHERE user_interests.user_id=?
+                            GROUP BY article.article_id,user_interests.user_id,user_interests.sub_id,article_category.sub_id,article_category.artcat_id,users.name
+                            ORDER BY article.published_date DESC;");
+      $stmt->execute(array($user_id));
+      return $stmt->fetchAll();   
+  }
+
+
   //useful for debugging
   function debug_to_console( $data ) {
     $output = $data;

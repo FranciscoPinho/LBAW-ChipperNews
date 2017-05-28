@@ -243,4 +243,11 @@
       $stmt = $conn->prepare("UPDATE article SET title=?, lead=?, content=? WHERE article_id=?");
       return $stmt->execute(array($title,$lead,$content,$article_id));
   }
+
+  function dateDiffDays($mydate){
+          $now = time(); // or your date as well
+          $mydate = strtotime($mydate);
+          $datediff = $now - $mydate;
+          return floor($datediff / (60 * 60 * 24));
+         }
 ?>

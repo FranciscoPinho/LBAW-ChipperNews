@@ -30,6 +30,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cogs"></i>Admin Options <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{$BASE_URL}pages/admin/syscategories.php">Category Management</a></li>
+                            <li><a href="{$BASE_URL}pages/admin/reportPanel.php">Report Management</a></li>
                             <li><a href="#">Shut down for maintenance</a></li>
                         </ul>
                     </li>

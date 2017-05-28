@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-26 22:02:28
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 16:23:31
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\common\header.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1750558f72594d9ddc0-53438670%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:123655929a8037f16e3-70212577%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'b5a5a73a7d10ec74d9ed6ec26547bf287184f7c2' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\header.tpl',
-      1 => 1495836093,
+      1 => 1495902174,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1750558f72594d9ddc0-53438670',
+  'nocache_hash' => '123655929a8037f16e3-70212577',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_58f72594df9575_74919065',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -24,11 +22,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'profile' => 0,
     'feed' => 0,
     'apps' => 0,
+    'reportcenter' => 0,
     'adminpanel' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_5929a8038ffea2_21275944',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_58f72594df9575_74919065')) {function content_58f72594df9575_74919065($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_5929a8038ffea2_21275944')) {function content_5929a8038ffea2_21275944($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 
 <head>
@@ -46,8 +47,6 @@ css/styles-header.css">
 js/bootstrap.min.js"></script>
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/main.js"></script>
-    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-js/articleScripts.js"></script>
     <!-- Animals graphic by -->
     <!--a href="http://www.flaticon.com/authors/zlatko-najdenovski">Zlatko Najdenovski</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>-->
     <!-- Optional Bootstrap theme -->
@@ -61,7 +60,8 @@ pages/search/frontpage.php">
             <img class="img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/logo_navigation.png" alt"logo">
 		    </a>
-           <ul class="nav navbar-nav">
+            <br>
+           <ul class="nav navbar-nav nabvar-left">
                     <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value) {?>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 actions/users/logout.php">Logout</a></li>
@@ -77,17 +77,25 @@ pages/users/profile.php">Profile</a></li>
 pages/articles/newsfeed.php">Feed</a></li>
                     <?php } else { ?>
                        <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/articles/newsfeed.php">Feed</a></li>
+pages/users/newsfeed.php">Feed</a></li>
                      <?php }?>
                   
-					<?php if ($_SESSION['permission']==2) {?>
+					<?php if ($_SESSION['permission']>=2) {?>
                     <?php if (isset($_smarty_tpl->tpl_vars['apps']->value)) {?>
                      <li style="background:white"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/reviewapps.php">Review Applications</a></li>
                     <?php } else { ?>
                      <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/reviewapps.php">Review Applications</a></li>
+                     <?php if (isset($_smarty_tpl->tpl_vars['reportcenter']->value)) {?>
+                     <li style="background:white"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/admin/reportPanel.php">Report Center</a></li>
+                    <?php } else { ?>
+                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/admin/reportPanel.php">Report Center</a></li>
                      <?php }?>
+                     <?php }?> 
+                    
 					<?php }?>
                      <?php if ($_SESSION['permission']==3) {?>
                      <?php if (isset($_smarty_tpl->tpl_vars['adminpanel']->value)) {?>
@@ -97,22 +105,22 @@ pages/admin/sysadmin.php">Admin Panel</a></li>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/admin/sysadmin.php">Admin Panel</a></li>
                      <?php }?>
-                     <?php }?>
+                     <?php }?> 
                     <?php } else { ?>
                      <li><a data-toggle="modal" data-target="#myModal" href="">Login</a></li>     
                      <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/register.php">Register</a></li>
-                    <?php }?>          
+                    <?php }?>    
                 </ul> 
-                 <nav class="navbar navbar-default headernav">
-                    <form class="navbar-form navbar-center">
+                <ul class="nav navbar-nav navbar-center">
+                <form class="navbar-form navbar-right">
                         <div class="form-group has-feedback">
                             <input type="text" style="border-radius:16px;color:#C5C9A4" class="form-control" placeholder="Search">
                             <span class="glyphicon glyphicon-search form-control-feedback"></span>
                         </div>
-
-                 </form>
-                 </nav>
+                 </form>  
+                 </ul>
+               
     </div>
     <br>
     <br>

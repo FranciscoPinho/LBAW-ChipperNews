@@ -10,6 +10,8 @@
     if(rateComment($_POST['comment_id'],$_SESSION['user_id'],$_POST['score'])){
         $updated_comments=getArticleComments($_POST['article_id']);
         $comment_ratings=getAllMyCommentRatings($_SESSION['user_id'],$_POST['article_id']);
+        $article = getArticle($_POST['article_id']);
+        $smarty->assign('article', $article);
         $smarty->assign('comments', $updated_comments);
         $smarty->assign('ratings', $comment_ratings);
         $output = $smarty->fetch('ajax/article-comments-updated.tpl');

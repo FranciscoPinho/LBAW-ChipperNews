@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 12:49:41
-         compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\myarticles.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:11009592884e9312a63-63249867%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 16:35:23
+         compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\newsfeed.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:10975929a82c33e901-45923234%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    'fc1e381678ee33b1979ca0f8dbb371e09e93973c' => 
+    '54d19bfc484b2f03860ab2ff687fcf5e304d1d44' => 
     array (
-      0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\myarticles.tpl',
-      1 => 1495889368,
+      0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\newsfeed.tpl',
+      1 => 1495902911,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '11009592884e9312a63-63249867',
+  'nocache_hash' => '10975929a82c33e901-45923234',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_592884e9521d61_32400297',
+  'unifunc' => 'content_5929a82c58a4a5_62556707',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -27,7 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_592884e9521d61_32400297')) {function content_592884e9521d61_32400297($_smarty_tpl) {?><head>
+<?php if ($_valid && !is_callable('content_5929a82c58a4a5_62556707')) {function content_5929a82c58a4a5_62556707($_smarty_tpl) {?><head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,16 +56,15 @@ js/newsfeedJS.js"></script>
 /images/assets/circuit.jpg" alt="">
 		</div>
 		<div class="container-fluid" id="feedheader">
-			<h1 class="nf">My Articles</h1>
+			<h1 class="nf">Newsfeed</h1>
 			<div class="dropdown">
-				<button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton" aria-expanded="false"><span class="droptext">Newest</span>
+				<button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton" aria-expanded="false"><span class="droptext">Mixed</span>
 		<span class="caret caret-reversed"></span> 
 		</button>
 				<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">
-					<li><a href="#" onclick="changeDropdown('Newest')">Newest</a></li>
-					<li><a href="#" onclick="changeDropdown('Oldest')">Oldest</a></li>
-					<li><a href="#" onclick="changeDropdown('Popular')">Popular</a></li>
-					<li><a href="#" onclick="changeDropdown('Controversial')">Controversial</a></li>
+					<li><a href="#" onclick="changeDropdown('Me')">Me</a></li>
+					<li><a href="#" onclick="changeDropdown('Mixed')">Mixed</a></li>
+					<li><a href="#" onclick="changeDropdown('Friends')">Friends</a></li>
 				</ul>
 			</div>
 		</div>
@@ -78,9 +77,6 @@ $_smarty_tpl->tpl_vars['article']->_loop = true;
 		<div class="container article-snip friend" id="article-snip-<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
 ">
 			<br>
-			<a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/articles/edit.php?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
-"><button class="btn btn-primary pull-right edit_article" type="default">Edit Article</button></a>
 			<?php if (dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100&&$_smarty_tpl->tpl_vars['article']->value['archived']==false) {?>
             <h2 id="headline"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/articles/article.php?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>

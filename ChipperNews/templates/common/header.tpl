@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-header.css">
     <script src="{$BASE_URL}js/bootstrap.min.js"></script>
     <script src="{$BASE_URL}js/main.js"></script>
-    <script src="{$BASE_URL}js/articleScripts.js"></script>
     <!-- Animals graphic by -->
     <!--a href="http://www.flaticon.com/authors/zlatko-najdenovski">Zlatko Najdenovski</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>-->
     <!-- Optional Bootstrap theme -->
@@ -36,7 +35,7 @@
                     {if isset($feed)}
                        <li style="background:white"><a href="{$BASE_URL}pages/articles/newsfeed.php">Feed</a></li>
                     {else}
-                       <li><a href="{$BASE_URL}pages/articles/newsfeed.php">Feed</a></li>
+                       <li><a href="{$BASE_URL}pages/users/newsfeed.php">Feed</a></li>
                      {/if}
                   
 					{if $smarty.session.permission gte 2}
@@ -44,7 +43,13 @@
                      <li style="background:white"><a href="{$BASE_URL}pages/users/reviewapps.php">Review Applications</a></li>
                     {else}
                      <li><a href="{$BASE_URL}pages/users/reviewapps.php">Review Applications</a></li>
+                     {if isset($reportcenter)}
+                     <li style="background:white"><a href="{$BASE_URL}pages/admin/reportPanel.php">Report Center</a></li>
+                    {else}
+                     <li><a href="{$BASE_URL}pages/admin/reportPanel.php">Report Center</a></li>
                      {/if}
+                     {/if} 
+                    
 					{/if}
                      {if $smarty.session.permission==3}
                      {if isset($adminpanel)}
