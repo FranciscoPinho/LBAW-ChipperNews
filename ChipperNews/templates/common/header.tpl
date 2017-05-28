@@ -43,14 +43,14 @@
                      <li style="background:white"><a href="{$BASE_URL}pages/users/reviewapps.php">Review Applications</a></li>
                     {else}
                      <li><a href="{$BASE_URL}pages/users/reviewapps.php">Review Applications</a></li>
+                     {/if}
                      {if isset($reportcenter)}
                      <li style="background:white"><a href="{$BASE_URL}pages/admin/reportPanel.php">Report Center</a></li>
                     {else}
                      <li><a href="{$BASE_URL}pages/admin/reportPanel.php">Report Center</a></li>
                      {/if}
                      {/if} 
-                    
-					{/if}
+                
                      {if $smarty.session.permission==3}
                      {if isset($adminpanel)}
                      <li style="background:white"><a href="{$BASE_URL}pages/admin/sysadmin.php">Admin Panel</a></li>

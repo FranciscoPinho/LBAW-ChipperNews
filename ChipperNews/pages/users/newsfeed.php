@@ -30,6 +30,7 @@
     header('Location: ' . $BASE_URL);
     exit;
   }
+  $smarty->assign('feed',0);
   $smarty->assign('articles',$articles);
   $smarty->assign('user', $_SESSION['username']);
   $smarty->display('common/header.tpl');

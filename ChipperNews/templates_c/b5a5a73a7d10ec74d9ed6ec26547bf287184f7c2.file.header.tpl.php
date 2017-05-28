@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 10:47:47
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 12:42:41
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\common\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:123655929a8037f16e3-70212577%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b5a5a73a7d10ec74d9ed6ec26547bf287184f7c2' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\header.tpl',
-      1 => 1495968435,
+      1 => 1495975360,
       2 => 'file',
     ),
   ),
@@ -87,6 +87,7 @@ pages/users/reviewapps.php">Review Applications</a></li>
                     <?php } else { ?>
                      <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/reviewapps.php">Review Applications</a></li>
+                     <?php }?>
                      <?php if (isset($_smarty_tpl->tpl_vars['reportcenter']->value)) {?>
                      <li style="background:white"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/admin/reportPanel.php">Report Center</a></li>
@@ -95,8 +96,7 @@ pages/admin/reportPanel.php">Report Center</a></li>
 pages/admin/reportPanel.php">Report Center</a></li>
                      <?php }?>
                      <?php }?> 
-                    
-					<?php }?>
+                
                      <?php if ($_SESSION['permission']==3) {?>
                      <?php if (isset($_smarty_tpl->tpl_vars['adminpanel']->value)) {?>
                      <li style="background:white"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>

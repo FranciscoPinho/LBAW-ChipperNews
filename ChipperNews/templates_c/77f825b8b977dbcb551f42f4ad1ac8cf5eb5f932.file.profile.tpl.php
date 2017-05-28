@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 12:05:37
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 12:42:49
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:151825929a86b5a05c4-10120109%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '77f825b8b977dbcb551f42f4ad1ac8cf5eb5f932' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
-      1 => 1495973121,
+      1 => 1495973262,
       2 => 'file',
     ),
   ),
@@ -209,7 +209,7 @@ $_smarty_tpl->tpl_vars['interest']->_loop = true;
                                         </div>
                                         <div class="tab-pane fade" id="settings">
                                             <ul class="list-group">     
-                                                <li class="list-group-item"><b>Hide email from anyone who visits my profile </b><input type="checkbox" onchange="change('email_hide')" id="email_hide" name="email_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
+                                                <li class="list-group-item"><b>Hide email from anyone who visits my profile </b><input type="checkbox" onchange="()" id="email_hide" name="email_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
                                                 <li class="list-group-item"><b>Hide location from anyone who visits my profile </b><input type="checkbox" id="local_hide" name="local_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
                                                 <li class="list-group-item"><b>Hide age from anyone who visits my profile </b><input type="checkbox" id="age_hide" name="age_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
                                                 <li class="list-group-item"><b>Hide post history from anyone who visits my profile </b><input type="checkbox" id="post_hide" name="post_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
@@ -241,10 +241,8 @@ $_smarty_tpl->tpl_vars['interest']->_loop = true;
                                                 $('#post_hide').prop('checked', true).change()
                                             }
 
-                                            function change(what) {
-                                                console.log(what)
-                                                var string = "#"+what;
-                                                console.log("here" + $(string).prop('checked'));
+                                            $(function() {
+                                                console.log("here" + $(this).prop('checked'));
                                                 $('#email_hide').change(function() 
                                                 {
                                                     console.log("checked" + $(this).prop('checked'));
@@ -265,7 +263,7 @@ $_smarty_tpl->tpl_vars['interest']->_loop = true;
                                                 {
                                                     setPostHPrivacy($user_id,$(this).prop('checked'))
                                                 })
-                                            }
+                                            })
 
                                             /*function checkEmail()
                                             {
