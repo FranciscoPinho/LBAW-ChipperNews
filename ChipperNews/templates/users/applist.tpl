@@ -40,7 +40,7 @@
                         <p>Achievements: {$app.achievements}</p>
 						<p>Motivation: {$app.motivation}</p>
 						<p>References: {$app.reference}</p>
-						<button type="button" class="btn btn-default" onclick="deleteApp('{$app.user_id}')">Delete</button>
+						<button type="button" class="btn btn-default" onclick="deleteApp('{$app.app_id}')">Delete</button>
 						<button type="button" class="btn btn-primary" onclick="acceptApp('{$app.user_id}')">Accept</button> 
                     </div>
                 </div>
@@ -49,12 +49,12 @@
     </div>
 	
 <script>
-function deleteApp(user_id){
+function deleteApp(app_id){
                 var base_url = $("#base_url").text();
                 return $.ajax({
                     type: "POST",
                     url: base_url + "actions/users/delete_collabapp.php",
-                    data: "user_id=" + encodeURI(user_id),
+                    data: "app_id=" + encodeURI(app_id),
                     success: reload
                 });
 		}

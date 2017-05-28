@@ -42,15 +42,15 @@
 	$stmt->execute(array($userID, $status, $motivation, $description, $refs, $assoc));
 	}
 	
-  function deleteApp($user_id){
+  function deleteApp($app_id){
     global $conn;
-    $stmt = $conn->prepare("DELETE FROM collaborator_application WHERE user_id=?");
-    return $stmt->execute(array($user_id));
+    $stmt = $conn->prepare("DELETE FROM collaborator_application WHERE app_id=?");
+    return $stmt->execute(array($app_id));
   }
   
   function acceptApp($user_id){
     global $conn;
-    $stmt = $conn->prepare("UPDATE users SET permission_level = 2 WHERE user_id=?");
+    $stmt = $conn->prepare("UPDATE users SET permission_level = 1 WHERE user_id=?");
     return $stmt->execute(array($user_id));
   }
   
