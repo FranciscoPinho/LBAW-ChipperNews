@@ -145,6 +145,7 @@
                                         </div>
                                         <div class="tab-pane fade" id="settings">
                                             <ul class="list-group">     
+                                                <li class="list-group-item"><b>Hide email from anyone who visits my profile </b><input type="checkbox" onchange="()" id="email_hide" name="email_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
                                                 <li class="list-group-item"><b>Hide location from anyone who visits my profile </b><input type="checkbox" id="local_hide" name="local_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
                                                 <li class="list-group-item"><b>Hide age from anyone who visits my profile </b><input type="checkbox" id="age_hide" name="age_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
                                                 <li class="list-group-item"><b>Hide post history from anyone who visits my profile </b><input type="checkbox" id="post_hide" name="post_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
@@ -171,6 +172,7 @@
                                                 $('#post_hide').prop('checked', true).change()
                                             }
 
+                                            $(function() {
                                                 console.log("here" + $(this).prop('checked'));
                                                 $('#email_hide').change(function() 
                                                 {
@@ -192,10 +194,17 @@
                                                 {
                                                     setPostHPrivacy($user_id,$(this).prop('checked'))
                                                 })
+                                            })
 
+                                            /*function checkEmail()
                                             {
+                                                var c_box = document.getElementById('#email_hide')
+                                                if(c_box.checked == true)
                                                 {
+                                                    setEmailPrivacy($user_id,'true')
                                                 }
+                                                else setEmailPrivacy($user_id,'false')
+                                            }*/
                                             </script>
                                         </div>
                                         <div class="tab-pane fade" id="security">
