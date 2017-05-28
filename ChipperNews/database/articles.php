@@ -224,7 +224,6 @@
       foreach($tags as &$tag){
             $stmt = $conn->prepare("INSERT INTO article_category(article_id,sub_id) 
             VALUES (?, ?)");
-            print($tag);
             $stmt->execute(array($res[0]['id'],$tag));
       }
       

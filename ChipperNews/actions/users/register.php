@@ -17,13 +17,13 @@
   $email = strip_tags($_POST['email']);
   $bio = strip_tags($_POST['bio']);
   $birthdate = $_POST['birthdate'];
-
+  $tags = $_POST['tags'];
 
   $photo = $_FILES['pic'];
   $extension = end(explode(".", $photo["name"]));
 
   try {
-    createUser($username, $name, $password, $local_id, $email, $bio, $birthdate);
+    createUserTransaction($username, $name, $password, $local_id, $email, $bio, $birthdate,$tags);
     move_uploaded_file($photo["tmp_name"], $BASE_DIR . "images/users/" . $username . '.' . $extension); // this is dangerous
     chmod($BASE_DIR . "images/users/" . $username . '.' . $extension, 0644);
   } catch (PDOException $e) {

@@ -4,11 +4,11 @@
  
 	if($_SESSION['permission'] != 0){
 		header('Location: '.$BASE_DIR);
+		exit;
 	}
-	else {
-		$apps=0;
+
 		$smarty->assign('title', 'Apply Collaborator');
-		$smarty->assign('apps',$apps)
+		$smarty->assign('apps',0);
 		$smarty->display('users/applycollab.tpl');
-	}
+	
 ?>

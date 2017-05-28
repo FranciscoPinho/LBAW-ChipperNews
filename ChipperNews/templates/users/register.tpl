@@ -9,6 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://www.w3schools.com/lib/w3data.js"></script>
   <script src="{$BASE_URL}js/bootstrap.min.js"></script>
+  <script src="{$BASE_URL}js/newarticle.js"></script>
    <script src="{$BASE_URL}js/main.js"></script>
   <!-- Optional Bootstrap theme -->
   <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->

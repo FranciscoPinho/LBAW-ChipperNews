@@ -4,13 +4,35 @@
       $stmt = $conn->prepare("INSERT INTO report(reportee,reported,description) VALUES (?,?,?)");
       return $stmt->execute(array($reportee,$reported,$description));
   }
-  function createUser($username, $name, $password, $local_id, $email, $bio, $birthdate) 
+  function createUserTransaction($username, $name, $password, $local_id, $email, $bio, $birthdate,$interests) 
   {
-
-    global $conn;
-    $stmt = $conn->prepare("INSERT INTO users(username,name,password,local_id,email,permission_level, bio, birthdate) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->execute(array($username, $name, password_hash($password,PASSWORD_DEFAULT), $local_id, $email, '0', $bio, $birthdate));
+    
+    try{
+        global $conn;
+        $conn->beginTransaction();
+        $stmt = $conn->prepare("INSERT INTO users(username,name,password,local_id,email,permission_level, bio, birthdate) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING user_id AS id");
+        if($local_id=="null" && $birthdate=="")
+        $stmt->execute(array($username, $name, password_hash($password,PASSWORD_DEFAULT), NULL, $email, '0', $bio, NULL));
+        else if($local_id=="null" && $birthdate!="")
+        $stmt->execute(array($username, $name, password_hash($password,PASSWORD_DEFAULT), NULL, $email, '0', $bio, $birthdate));
+        else if($local_id!="null" && $birthdate=="")
+        $stmt->execute(array($username, $name, password_hash($password,PASSWORD_DEFAULT), $local_id, $email, '0', $bio, NULL));
+        else
+        $stmt->execute(array($username, $name, password_hash($password,PASSWORD_DEFAULT), $local_id, $email, '0', $bio, $birthdate));
+        $res=$stmt->fetchAll();
+        foreach($interests as &$interest){
+            $stmt = $conn->prepare("INSERT INTO user_interests(user_id,sub_id) 
+            VALUES (?, ?)");
+            $stmt->execute(array($res[0]['id'],$interest));
+       }
+      $conn->commit();
+      return $res[0]['id'];
+     }
+    catch (PDOException $e) {
+      $conn->rollBack();
+      throw $e;
+    }
   }
   
   function createCollabApplication($userID, $status, $motivation, $description, $refs, $assoc)
@@ -479,6 +501,7 @@
       $stmt->execute(array($user_id,$user_id,$user_id,$user_id,$user_id));
       return $stmt->fetchAll();   
   }
+
   //useful for debugging
   function debug_to_console( $data ) {
     $output = $data;

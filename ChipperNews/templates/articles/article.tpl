@@ -166,7 +166,6 @@
             });
 
             function updateScores(data) {
-                console.log(JSON.stringify(data));
                 var result=JSON.parse(data);
                 if (result == "-1") {
                     console.log('stored procedure failed');
