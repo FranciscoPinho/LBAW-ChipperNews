@@ -8,7 +8,7 @@
     $sender_id = $_POST['sender_id'];
 
  
-    $counts = countMessages($sender_id,$receive_id);
+    $counts = countUnreadMessages($receive_id);
     $count = $counts[0]['count'];
     echo $count;
 ?>

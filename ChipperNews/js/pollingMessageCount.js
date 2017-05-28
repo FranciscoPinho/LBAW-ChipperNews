@@ -11,5 +11,5 @@
 })();
 
 function mycallback(data){
-    console.log(data);
+    $('#unreadMessages').html(data);
 }
