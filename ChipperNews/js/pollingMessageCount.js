@@ -1,13 +1,15 @@
-var BASEURL = $("#base_url").text();
+// REPLACE 9 WITH REAL VALUE
 (function poll() {
-    return $.ajax({
-        url: BASEURL +"/LBAW-ChipperNews/ChipperNews/actions/users/countMessages.php",
-        type: "POST",
-        data: "sender_id=" + encodeURI(9),
-        success: function(data) {
-            console.log(data);
-        },
-        complete: setTimeout(function() {poll()}, 5000),
-        timeout: 2000
-    })
+   setTimeout(function() {
+       $.ajax({ 
+           url: $("#base_url").text() + "actions/users/count_messages.php", 
+           type: 'POST',
+           data:"sender_id=" + encodeURI(9),
+           complete:poll,
+           success: mycallback });
+    }, 1000);
 })();
+
+function mycallback(data){
+    console.log(data);
+}
