@@ -23,7 +23,7 @@ function renderArticles(data)
     var result=data;
     //$('#articlecheese').empty();
     //$('#articlecheese').html(result);
-    console.log(data);
+    //console.log(data);
     $('#appendArticles').append(result); 
 }
 var classname = $(".categorySearch");
