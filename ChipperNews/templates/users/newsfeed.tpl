@@ -36,7 +36,30 @@
 	<div class="allcontent">
         {foreach $articles as $article}
 		<div class="container article-snip friend" id="article-snip-{$article.article_id}">
-			<br>
+            {$likedarray = null} 
+            {$wholiked = fetchWhoLiked($smarty.session.user_id,$article.article_id)}
+            {if sizeof($wholiked)>0}
+            <br>
+                {foreach $wholiked as $liked}
+                    {if $liked.user_id1!=$smarty.session.user_id}
+                    {$likedarray = appendFriend($liked.user2_name,$likedarray)}
+                    {else}
+                    {$likedarray = appendFriend($liked.user1_name,$likedarray)}
+                    {/if}
+                {/foreach}
+           
+            <p>
+            {foreach $likedarray as $friend name=foo}
+            
+            {if $smarty.foreach.foo.last}
+            <span style="color:#357266;font-weight:bold;">{$friend} </span> find this article just chipper!
+            {else}
+            <span style="color:#357266;font-weight:bold;">{$friend},</span>
+            {/if} 
+          
+            {/foreach}
+             </p>
+            {/if}
 			{if dateDiffDays($article.published_date)<100 && $article.archived==false}
             <h2 id="headline"><a href="{$BASE_URL}pages/articles/article.php?id={$article.article_id}" style="color:black" id="articleAnchor">{$article.title}</a></h2>
             {else}

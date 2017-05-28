@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 10:58:14
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 12:33:28
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\ajax\newsfeed-articles.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:16548592aad460477c5-14107212%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c09a00c0ad5c366f65b69a680803122f5e05ba7f' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\ajax\\newsfeed-articles.tpl',
-      1 => 1495902921,
+      1 => 1495974789,
       2 => 'file',
     ),
   ),
@@ -15,17 +15,21 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_592aad461ae090_17990068',
   'variables' => 
   array (
     'articles' => 0,
     'article' => 0,
+    'wholiked' => 0,
+    'liked' => 0,
+    'likedarray' => 0,
+    'friend' => 0,
     'BASE_URL' => 0,
     'subcategories' => 0,
     'subart' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_592aad461ae090_17990068',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_592aad461ae090_17990068')) {function content_592aad461ae090_17990068($_smarty_tpl) {?><?php  $_smarty_tpl->tpl_vars['article'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['article']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['articles']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -34,7 +38,45 @@ $_smarty_tpl->tpl_vars['article']->_loop = true;
 ?>
 		<div class="container article-snip friend" id="article-snip-<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
 ">
-			<br>
+            <?php $_smarty_tpl->tpl_vars['likedarray'] = new Smarty_variable(null, null, 0);?> 
+            <?php $_smarty_tpl->tpl_vars['wholiked'] = new Smarty_variable(fetchWhoLiked($_SESSION['user_id'],$_smarty_tpl->tpl_vars['article']->value['article_id']), null, 0);?>
+            <?php if (sizeof($_smarty_tpl->tpl_vars['wholiked']->value)>0) {?>
+            <br>
+                <?php  $_smarty_tpl->tpl_vars['liked'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['liked']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['wholiked']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['liked']->key => $_smarty_tpl->tpl_vars['liked']->value) {
+$_smarty_tpl->tpl_vars['liked']->_loop = true;
+?>
+                    <?php if ($_smarty_tpl->tpl_vars['liked']->value['user_id1']!=$_SESSION['user_id']) {?>
+                    <?php $_smarty_tpl->tpl_vars['likedarray'] = new Smarty_variable(appendFriend($_smarty_tpl->tpl_vars['liked']->value['user2_name'],$_smarty_tpl->tpl_vars['likedarray']->value), null, 0);?>
+                    <?php } else { ?>
+                    <?php $_smarty_tpl->tpl_vars['likedarray'] = new Smarty_variable(appendFriend($_smarty_tpl->tpl_vars['liked']->value['user1_name'],$_smarty_tpl->tpl_vars['likedarray']->value), null, 0);?>
+                    <?php }?>
+                <?php } ?>
+           
+            <p>
+            <?php  $_smarty_tpl->tpl_vars['friend'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['friend']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['likedarray']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_smarty_tpl->tpl_vars['friend']->total= $_smarty_tpl->_count($_from);
+ $_smarty_tpl->tpl_vars['friend']->iteration=0;
+foreach ($_from as $_smarty_tpl->tpl_vars['friend']->key => $_smarty_tpl->tpl_vars['friend']->value) {
+$_smarty_tpl->tpl_vars['friend']->_loop = true;
+ $_smarty_tpl->tpl_vars['friend']->iteration++;
+ $_smarty_tpl->tpl_vars['friend']->last = $_smarty_tpl->tpl_vars['friend']->iteration === $_smarty_tpl->tpl_vars['friend']->total;
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['foo']['last'] = $_smarty_tpl->tpl_vars['friend']->last;
+?>
+            
+            <?php if ($_smarty_tpl->getVariable('smarty')->value['foreach']['foo']['last']) {?>
+            <span style="color:#357266;font-weight:bold;"><?php echo $_smarty_tpl->tpl_vars['friend']->value;?>
+ </span> find this article just chipper!
+            <?php } else { ?>
+            <span style="color:#357266;font-weight:bold;"><?php echo $_smarty_tpl->tpl_vars['friend']->value;?>
+,</span>
+            <?php }?> 
+          
+            <?php } ?>
+             </p>
+            <?php }?>
 			<?php if (dateDiffDays($_smarty_tpl->tpl_vars['article']->value['published_date'])<100&&$_smarty_tpl->tpl_vars['article']->value['archived']==false) {?>
             <h2 id="headline"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/articles/article.php?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>

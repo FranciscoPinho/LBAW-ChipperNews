@@ -15,6 +15,16 @@
      $subcatories = getArticleSubcategories($article_id);
      return $subcatories;
    }
+    function fetchWhoLiked($user_id,$article_id)
+   {
+     $liked = friendsWhoLiked($user_id,$article_id);
+     return $liked;
+   }
+   function appendFriend($string,$array)
+   {
+      $array[]=$string;
+      return $array;
+   }
   if(sizeof($articles)==0){
     $_SESSION['error_messages'][] = 'Sorry '. $_SESSION['username'] . ', but your newsfeed is empty, add more user interests and make friends to fill your feed';
     header('Location: ' . $BASE_URL);

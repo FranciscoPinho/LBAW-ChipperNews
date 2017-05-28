@@ -414,7 +414,7 @@
 
   function getFriendsNewsfeed($user_id){
     global $conn;
-    $stmt = $conn->prepare("SELECT article.*,user_id1,user_id2,users.name AS authorname,
+    $stmt = $conn->prepare("SELECT DISTINCT article.*,users.name AS authorname,
                               (SELECT COUNT(rating_article.score) 
                               FROM rating_article
                               WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
@@ -433,21 +433,16 @@
   }
   function friendsWhoLiked($user_id,$article_id){
     global $conn;
-    $stmt = $conn->prepare("SELECT article.*,user_id1,user_id2,users.name AS authorname,
-                              (SELECT COUNT(rating_article.score) 
-                              FROM rating_article
-                              WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
-                              (SELECT COUNT(rating_article.score) 
-                              FROM rating_article
-                              WHERE rating_article.score=-1 AND rating_article.article_id = article.article_id) AS negratings 
+    $stmt = $conn->prepare("SELECT article.article_id,user_id1,user_id2,rating_article.score,
+                              (SELECT username FROM users WHERE users.user_id=user_id2) as user1_name,
+                              (SELECT username FROM users WHERE users.user_id=user_id1) as user2_name
                               FROM article
                               LEFT JOIN rating_article ON article.article_id=rating_article.article_id
                               LEFT JOIN friendship ON (user_id1=? AND user_id2=rating_article.user_id) OR (user_id2=? AND user_id1=rating_article.user_id)  
-                              LEFT JOIN users ON users.user_id=article.author
-                              WHERE rating_article.score=1 AND (user_id1=? OR user_id2=?) 
-                              GROUP BY article.article_id,rating_article.score,friendship.user_id1,friendship.user_id2,users.name
+                              WHERE rating_article.score=1 AND (user_id1=? OR user_id2=?)  AND article.article_id=?
+                              GROUP BY article.article_id,rating_article.score,friendship.user_id1,friendship.user_id2
                               ORDER BY article.published_date DESC; ");
-      $stmt->execute(array($user_id,$user_id,$user_id,$user_id));
+      $stmt->execute(array($user_id,$user_id,$user_id,$user_id,$article_id));
       return $stmt->fetchAll();
   }
   function getMixedNewsfeed($user_id){

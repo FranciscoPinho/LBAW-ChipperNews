@@ -20,6 +20,16 @@
     $articles = getMixedNewsfeed($_SESSION['user_id']);
     break;
   }  
+     function fetchWhoLiked($user_id,$article_id)
+   {
+     $liked = friendsWhoLiked($user_id,$article_id);
+     return $liked;
+   }
+   function appendFriend($string,$array)
+   {
+      $array[]=$string;
+      return $array;
+   }
    function fetchSubcategories($article_id)
    {
      $subcatories = getArticleSubcategories($article_id);
