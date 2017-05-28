@@ -1,75 +1,33 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 10:58:11
-         compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\newsfeed.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:10975929a82c33e901-45923234%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 10:58:14
+         compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\ajax\newsfeed-articles.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:16548592aad460477c5-14107212%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '54d19bfc484b2f03860ab2ff687fcf5e304d1d44' => 
+    'c09a00c0ad5c366f65b69a680803122f5e05ba7f' => 
     array (
-      0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\newsfeed.tpl',
-      1 => 1495969090,
+      0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\ajax\\newsfeed-articles.tpl',
+      1 => 1495902921,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '10975929a82c33e901-45923234',
+  'nocache_hash' => '16548592aad460477c5-14107212',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_5929a82c58a4a5_62556707',
   'variables' => 
   array (
-    'BASE_URL' => 0,
     'articles' => 0,
     'article' => 0,
+    'BASE_URL' => 0,
     'subcategories' => 0,
     'subart' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_592aad461ae090_17990068',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5929a82c58a4a5_62556707')) {function content_5929a82c58a4a5_62556707($_smarty_tpl) {?><head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>My Articles</title>
-	<link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-css/styles-newsfeed-myarticles.css">
-	<link href="https://fonts.googleapis.com/css?family=Lato|Lora|Playfair+Display:700" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	<script src="https://www.w3schools.com/lib/w3data.js"></script>
-	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-js/bootstrap.min.js"></script>
-	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-js/newsfeedJS.js"></script>
-    <span class="base_url" id="base_url" hidden><?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-</span>
-	<!-- Optional Bootstrap theme -->
-	<!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
-</head>
-
-<body>
-	<div id="bg">
-			<img class="bg" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-/images/assets/circuit.jpg" alt="">
-		</div>
-		<div class="container-fluid" id="feedheader">
-			<h1 class="nf">Newsfeed</h1>
-			<div class="dropdown">
-				<button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton" aria-expanded="false"><span class="droptext">Me</span>
-		<span class="caret caret-reversed"></span> 
-		</button>
-				<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">
-					<li><a href="#" onclick="changeDropdown('Me')">Me</a></li>
-					<li><a href="#" onclick="changeDropdown('Mixed')">Mixed</a></li>
-					<li><a href="#" onclick="changeDropdown('Friends')">Friends</a></li>
-				</ul>
-			</div>
-		</div>
-	<div class="allcontent">
-        <?php  $_smarty_tpl->tpl_vars['article'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['article']->_loop = false;
+<?php if ($_valid && !is_callable('content_592aad461ae090_17990068')) {function content_592aad461ae090_17990068($_smarty_tpl) {?><?php  $_smarty_tpl->tpl_vars['article'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['article']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['articles']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['article']->key => $_smarty_tpl->tpl_vars['article']->value) {
 $_smarty_tpl->tpl_vars['article']->_loop = true;
@@ -154,6 +112,4 @@ images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rota
         <br>
     </div>
     <br>
-    <?php } ?>
-    </div>
-</body><?php }} ?>
+<?php } ?><?php }} ?>

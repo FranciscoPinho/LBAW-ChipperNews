@@ -23,7 +23,7 @@
 		<div class="container-fluid" id="feedheader">
 			<h1 class="nf">Newsfeed</h1>
 			<div class="dropdown">
-				<button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton" aria-expanded="false"><span class="droptext">Mixed</span>
+				<button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton" aria-expanded="false"><span class="droptext">Me</span>
 		<span class="caret caret-reversed"></span> 
 		</button>
 				<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">

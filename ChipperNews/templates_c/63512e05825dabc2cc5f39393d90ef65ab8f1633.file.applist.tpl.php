@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 16:23:38
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 10:47:51
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\applist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:143555929a80a3c9db6-08763611%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '63512e05825dabc2cc5f39393d90ef65ab8f1633' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\applist.tpl',
-      1 => 1495484674,
+      1 => 1495968435,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_5929a80a47fcc8_38061217',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -22,8 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'app' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_5929a80a47fcc8_38061217',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5929a80a47fcc8_38061217')) {function content_5929a80a47fcc8_38061217($_smarty_tpl) {?><!DOCTYPE html>
 <html>
@@ -43,6 +43,8 @@ css/styles-header.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://www.w3schools.com/lib/w3data.js"></script>
+	<span class="base_url" id="base_url" hidden><?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+</span>
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/bootstrap.min.js"></script>
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -80,13 +82,41 @@ $_smarty_tpl->tpl_vars['app']->_loop = true;
 </p>
 						<p>References: <?php echo $_smarty_tpl->tpl_vars['app']->value['reference'];?>
 </p>
-						<button type="button" class="btn btn-default">Delete</button>
-						<button type="button" class="btn btn-primary">Accept</button> 
+						<button type="button" class="btn btn-default" onclick="deleteApp('<?php echo $_smarty_tpl->tpl_vars['app']->value['user_id'];?>
+')">Delete</button>
+						<button type="button" class="btn btn-primary" onclick="acceptApp('<?php echo $_smarty_tpl->tpl_vars['app']->value['user_id'];?>
+')">Accept</button> 
                     </div>
                 </div>
             </div>
          <?php } ?>
     </div>
+	
+<script>
+function deleteApp(user_id){
+                var base_url = $("#base_url").text();
+                return $.ajax({
+                    type: "POST",
+                    url: base_url + "actions/users/delete_collabapp.php",
+                    data: "user_id=" + encodeURI(user_id),
+                    success: reload
+                });
+		}
+		
+function acceptApp(user_id){
+                var base_url = $("#base_url").text();
+                return $.ajax({
+                    type: "POST",
+                    url: base_url + "actions/users/accept_collabapp.php",
+                    data: "user_id=" + encodeURI(user_id),
+                    success: reload
+                });
+		}
+		
+function reload(data){
+			location.reload();
+		}
+</script>
 </body>
 
 

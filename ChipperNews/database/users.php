@@ -394,7 +394,14 @@
 
   function getMeNewsfeed($user_id){
       global $conn;
-      $stmt = $conn->prepare("SELECT article.*,users.name AS authorname,user_interests.*,article_category.* FROM article
+      $stmt = $conn->prepare("SELECT article.*,users.name AS authorname,user_interests.*,article_category.*,
+                            (SELECT COUNT(rating_article.score) 
+                              FROM rating_article
+                              WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
+                              (SELECT COUNT(rating_article.score) 
+                              FROM rating_article
+                              WHERE rating_article.score=-1 AND rating_article.article_id = article.article_id) AS negratings  
+                            FROM article
                             LEFT JOIN article_category ON article.article_id=article_category.article_id
                             LEFT JOIN user_interests ON article_category.sub_id=user_interests.sub_id 
                             LEFT JOIN users ON users.user_id=article.author
@@ -405,7 +412,78 @@
       return $stmt->fetchAll();   
   }
 
-
+  function getFriendsNewsfeed($user_id){
+    global $conn;
+    $stmt = $conn->prepare("SELECT article.*,user_id1,user_id2,users.name AS authorname,
+                              (SELECT COUNT(rating_article.score) 
+                              FROM rating_article
+                              WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
+                              (SELECT COUNT(rating_article.score) 
+                              FROM rating_article
+                              WHERE rating_article.score=-1 AND rating_article.article_id = article.article_id) AS negratings 
+                              FROM article
+                              LEFT JOIN rating_article ON article.article_id=rating_article.article_id
+                              LEFT JOIN friendship ON (user_id1=? AND user_id2=rating_article.user_id) OR (user_id2=? AND user_id1=rating_article.user_id)  
+                              LEFT JOIN users ON users.user_id=article.author
+                              WHERE rating_article.score=1 AND (user_id1=? OR user_id2=?) 
+                              GROUP BY article.article_id,rating_article.score,friendship.user_id1,friendship.user_id2,users.name
+                              ORDER BY article.published_date DESC; ");
+      $stmt->execute(array($user_id,$user_id,$user_id,$user_id));
+      return $stmt->fetchAll();            
+  }
+  function friendsWhoLiked($user_id,$article_id){
+    global $conn;
+    $stmt = $conn->prepare("SELECT article.*,user_id1,user_id2,users.name AS authorname,
+                              (SELECT COUNT(rating_article.score) 
+                              FROM rating_article
+                              WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
+                              (SELECT COUNT(rating_article.score) 
+                              FROM rating_article
+                              WHERE rating_article.score=-1 AND rating_article.article_id = article.article_id) AS negratings 
+                              FROM article
+                              LEFT JOIN rating_article ON article.article_id=rating_article.article_id
+                              LEFT JOIN friendship ON (user_id1=? AND user_id2=rating_article.user_id) OR (user_id2=? AND user_id1=rating_article.user_id)  
+                              LEFT JOIN users ON users.user_id=article.author
+                              WHERE rating_article.score=1 AND (user_id1=? OR user_id2=?) 
+                              GROUP BY article.article_id,rating_article.score,friendship.user_id1,friendship.user_id2,users.name
+                              ORDER BY article.published_date DESC; ");
+      $stmt->execute(array($user_id,$user_id,$user_id,$user_id));
+      return $stmt->fetchAll();
+  }
+  function getMixedNewsfeed($user_id){
+       global $conn;
+    $stmt = $conn->prepare("(SELECT article.*,users.name AS authorname,
+                            (SELECT COUNT(rating_article.score) 
+                              FROM rating_article
+                              WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
+                              (SELECT COUNT(rating_article.score) 
+                              FROM rating_article
+                              WHERE rating_article.score=-1 AND rating_article.article_id = article.article_id) AS negratings  
+                            FROM article
+                            LEFT JOIN article_category ON article.article_id=article_category.article_id
+                            LEFT JOIN user_interests ON article_category.sub_id=user_interests.sub_id 
+                            LEFT JOIN users ON users.user_id=article.author
+                            WHERE user_interests.user_id=?
+                            GROUP BY article.article_id,user_interests.user_id,user_interests.sub_id,article_category.sub_id,article_category.artcat_id,users.name
+                            ORDER BY article.published_date DESC)
+                              UNION
+                              (SELECT article.*,users.name AS authorname,
+                              (SELECT COUNT(rating_article.score) 
+                              FROM rating_article
+                              WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
+                              (SELECT COUNT(rating_article.score) 
+                              FROM rating_article
+                              WHERE rating_article.score=-1 AND rating_article.article_id = article.article_id) AS negratings 
+                              FROM article
+                              LEFT JOIN rating_article ON article.article_id=rating_article.article_id
+                              LEFT JOIN friendship ON (user_id1=? AND user_id2=rating_article.user_id) OR (user_id2=? AND user_id1=rating_article.user_id)  
+                              LEFT JOIN users ON users.user_id=article.author
+                              WHERE rating_article.score=1 AND (user_id1=? OR user_id2=?) 
+                              GROUP BY article.article_id,rating_article.score,friendship.user_id1,friendship.user_id2,users.name
+                              ORDER BY article.published_date DESC); ");
+      $stmt->execute(array($user_id,$user_id,$user_id,$user_id,$user_id));
+      return $stmt->fetchAll();   
+  }
   //useful for debugging
   function debug_to_console( $data ) {
     $output = $data;

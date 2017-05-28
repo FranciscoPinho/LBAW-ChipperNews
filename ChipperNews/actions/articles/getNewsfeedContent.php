@@ -11,11 +11,14 @@
   switch($type)
   {
     case 'me':
-		break;
+    $articles = getMeNewsfeed($_SESSION['user_id']);
+	break;
     case "friends":
+    $articles = getFriendsNewsfeed($_SESSION['user_id']);
     break;
     case 'mixed':
-		break;
+    $articles = getMixedNewsfeed($_SESSION['user_id']);
+    break;
   }  
    function fetchSubcategories($article_id)
    {

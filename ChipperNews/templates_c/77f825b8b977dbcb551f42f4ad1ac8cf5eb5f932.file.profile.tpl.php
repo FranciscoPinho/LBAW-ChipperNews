@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 16:25:15
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 10:47:56
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:151825929a86b5a05c4-10120109%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '77f825b8b977dbcb551f42f4ad1ac8cf5eb5f932' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
-      1 => 1495897609,
+      1 => 1495968435,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_5929a86b875052_66857259',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -22,12 +24,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'username' => 0,
     'interests' => 0,
     'interest' => 0,
-    'countries' => 0,
     'article' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_5929a86b875052_66857259',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5929a86b875052_66857259')) {function content_5929a86b875052_66857259($_smarty_tpl) {?><!DOCTYPE html>
 <html>
@@ -56,9 +55,6 @@ js/bootstrap.min.js"></script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <span class="base_url" id="base_url" hidden><?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 </span>
-    <link href="select2/select2.css" rel="stylesheet" type="text/css"></link>  
-<script src="select2/select2.js"></script>  
-<link href="select2-bootstrap.css" rel="stylesheet" type="text/css"></link>    
     <!-- Optional Bootstrap theme -->
     <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
 </head>
@@ -131,7 +127,7 @@ pages/users/myarticles.php">
                                     </figure>
                                     <div class="text-content">
                                         <div class="col-lg-12">
-                                            <div class="col-xs-12 col-sm-8">
+                                            <div class="col-xs-12 col-sm-12">
                                                 <p>
                                                     <ul class="list-unstyled">
                                                     <li><i class="fa fa-certificate fa-fw" aria-hidden="false"></i>
@@ -140,13 +136,13 @@ pages/users/myarticles.php">
                                                     <?php } elseif ($_smarty_tpl->tpl_vars['user']->value['permission_level']=='2') {?>Moderator
                                                     <?php } else { ?>Administrator
                                                     <?php }?>
-                                                        <li><i class="fa fa-envelope fa-fw" aria-hidden="false"></i> <?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
+                                                    <li><i class="fa fa-envelope fa-fw" aria-hidden="false"></i> <?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
 </li>
-                                                        <li><i class="fa fa-map-marker fa-fw" aria-hidden="false"></i> <?php echo $_smarty_tpl->tpl_vars['user']->value['local'];?>
+                                                    <li><i class="fa fa-map-marker fa-fw" aria-hidden="false"></i> <?php echo $_smarty_tpl->tpl_vars['user']->value['local'];?>
 </li>
-                                                        <?php if (((ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate'])!=0)&&!($_smarty_tpl->tpl_vars['user']->value['hide_birthdate']))) {?>
-                                                            <li><i class="fa fa-birthday-cake fa-fw" aria-hidden="false"></i>
-                                                            <?php echo ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate']);?>
+                                                    <?php if (((ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate'])!=0)&&!($_smarty_tpl->tpl_vars['user']->value['hide_birthdate']))) {?>
+                                                        <li><i class="fa fa-birthday-cake fa-fw" aria-hidden="false"></i>
+                                                        <?php echo ageCalc($_smarty_tpl->tpl_vars['user']->value['birthdate']);?>
  years old
                                                     <?php }?></li>
                                                     </ul>
@@ -212,16 +208,73 @@ $_smarty_tpl->tpl_vars['interest']->_loop = true;
                                             </p>
                                         </div>
                                         <div class="tab-pane fade" id="settings">
-                                            <ul class="list-group">
-                                                <li class="list-group-item"><b>Email visible to anyone who visits my profile </b><input type="checkbox" checked data-toggle="toggle" data-size="small" data-onstyle="success"></li>
-                                                <li class="list-group-item"><b>Location visible to anyone who visits my profile </b><input type="checkbox" checked data-toggle="toggle" data-size="small" data-onstyle="success"></li>
-                                                <li class="list-group-item"><b>Email visible to anyone who visits my profile </b><input type="checkbox" checked data-toggle="toggle" data-size="small" data-onstyle="success"></li>
-                                                <li class="list-group-item"><b>Update location </b><a href="#" id="local" data-name="local" data-type="select2" data-pk="1" data-title="Current localisation " data-source="<?php echo $_smarty_tpl->tpl_vars['countries']->value;?>
-"><?php echo $_smarty_tpl->tpl_vars['user']->value['local'];?>
-  </a><i id="pencil" class="fa fa-pencil"></i></li>
+                                            <ul class="list-group">     
+                                                <li class="list-group-item"><b>Hide email from anyone who visits my profile </b><input type="checkbox" onchange="()" id="email_hide" name="email_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
+                                                <li class="list-group-item"><b>Hide location from anyone who visits my profile </b><input type="checkbox" id="local_hide" name="local_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
+                                                <li class="list-group-item"><b>Hide age from anyone who visits my profile </b><input type="checkbox" id="age_hide" name="age_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
+                                                <li class="list-group-item"><b>Hide post history from anyone who visits my profile </b><input type="checkbox" id="post_hide" name="post_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
                                                 <li class="list-group-item"><b>Update email </b><a href="#" id="email" data-name="email" data-type="email" data-pk="1" data-title="Email "><?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
   </a><i id="pencil" class="fa fa-pencil"></i></li>
                                             </ul>
+                                            <script>
+                                            if('<?php echo $_smarty_tpl->tpl_vars['user']->value['hide_email'];?>
+' == true)
+                                            {
+                                                $('#email_hide').prop('checked', true).change()
+                                            }
+
+                                            if('<?php echo $_smarty_tpl->tpl_vars['user']->value['hide_local'];?>
+' == true)
+                                            {
+                                                $('#local_hide').prop('checked', true).change()
+                                            }
+
+                                            if('<?php echo $_smarty_tpl->tpl_vars['user']->value['hide_birthdate'];?>
+' == true)
+                                            {
+                                                $('#age_hide').prop('checked', true).change()
+                                            }
+
+                                            if('<?php echo $_smarty_tpl->tpl_vars['user']->value['hide_posthistory'];?>
+' == true)
+                                            {
+                                                $('#post_hide').prop('checked', true).change()
+                                            }
+
+                                            $(function() {
+                                                console.log("here" + $(this).prop('checked'));
+                                                $('#email_hide').change(function() 
+                                                {
+                                                    console.log("checked" + $(this).prop('checked'));
+                                                    setEmailPrivacy($user_id,$(this).prop('checked'))
+                                                })
+
+                                                $("#local_hide").change(function()
+                                                {
+                                                    setLocalPrivacy($user_id,$(this).prop('checked'))
+                                                })
+
+                                                $("#age_hide").change(function()
+                                                {
+                                                    setAgePrivacy($user_id,$(this).prop('checked'))
+                                                })
+
+                                                $("#post_hide").change(function()
+                                                {
+                                                    setPostHPrivacy($user_id,$(this).prop('checked'))
+                                                })
+                                            })
+
+                                            /*function checkEmail()
+                                            {
+                                                var c_box = document.getElementById('#email_hide')
+                                                if(c_box.checked == true)
+                                                {
+                                                    setEmailPrivacy($user_id,'true')
+                                                }
+                                                else setEmailPrivacy($user_id,'false')
+                                            }*/
+                                            </script>
                                         </div>
                                         <div class="tab-pane fade" id="security">
                                             <form class="form-horizontal" id="fpassw" method="post">
