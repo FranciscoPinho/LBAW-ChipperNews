@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 12:42:41
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 15:14:04
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\common\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:123655929a8037f16e3-70212577%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b5a5a73a7d10ec74d9ed6ec26547bf287184f7c2' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\header.tpl',
-      1 => 1495975360,
+      1 => 1495984409,
       2 => 'file',
     ),
   ),
@@ -113,9 +113,10 @@ pages/users/register.php">Register</a></li>
                     <?php }?>    
                 </ul> 
                 <ul class="nav navbar-nav navbar-center">
-                <form class="navbar-form navbar-right">
+               <form class="navbar-form navbar-right" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/search/results.php" enctype="multipart/form-data" method="post" data-lang="en_GB">
                         <div class="form-group has-feedback">
-                            <input type="text" style="border-radius:16px;color:#C5C9A4" class="form-control" placeholder="Search">
+                            <input type="text" style="border-radius:16px;color:#C5C9A4" class="form-control" placeholder="Search" name="query">
                             <span class="glyphicon glyphicon-search form-control-feedback"></span>
                         </div>
                  </form>  

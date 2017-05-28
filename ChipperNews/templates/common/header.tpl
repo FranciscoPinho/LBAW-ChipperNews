@@ -64,9 +64,9 @@
                     {/if}    
                 </ul> 
                 <ul class="nav navbar-nav navbar-center">
-                <form class="navbar-form navbar-right">
+               <form class="navbar-form navbar-right" action="{$BASE_URL}pages/search/results.php" enctype="multipart/form-data" method="post" data-lang="en_GB">
                         <div class="form-group has-feedback">
-                            <input type="text" style="border-radius:16px;color:#C5C9A4" class="form-control" placeholder="Search">
+                            <input type="text" style="border-radius:16px;color:#C5C9A4" class="form-control" placeholder="Search" name="query">
                             <span class="glyphicon glyphicon-search form-control-feedback"></span>
                         </div>
                  </form>  

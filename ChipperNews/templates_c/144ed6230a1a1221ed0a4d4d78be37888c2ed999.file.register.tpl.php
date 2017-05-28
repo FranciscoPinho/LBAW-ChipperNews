@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 14:55:15
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 15:03:03
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\register.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:4389592ada363cf3a1-95680699%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '144ed6230a1a1221ed0a4d4d78be37888c2ed999' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\register.tpl',
-      1 => 1495982647,
+      1 => 1495983412,
       2 => 'file',
     ),
     '547abb3a0737a1926ccc648725a920a95d1f086a' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\register-form.tpl',
-      1 => 1495983314,
+      1 => 1495983412,
       2 => 'file',
     ),
   ),
@@ -69,7 +69,7 @@ actions/users/register.php" class="ink-form ink-formvalidator xlarge-60 large-70
       <?php /*  Call merged included template "users/register-form.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate('users/register-form.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '4389592ada363cf3a1-95680699');
-content_592ae4d38eb3c1_17029434($_smarty_tpl);
+content_592ae6a72e7628_95112364($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "users/register-form.tpl" */?>
     </form>
@@ -95,9 +95,9 @@ $_smarty_tpl->tpl_vars['success']->_loop = true;
                             <?php } ?>
                             </div>
   <?php }} ?>
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 14:55:15
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 15:03:03
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\register-form.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_592ae4d38eb3c1_17029434')) {function content_592ae4d38eb3c1_17029434($_smarty_tpl) {?><div class="container form-div" id="register">
+<?php if ($_valid && !is_callable('content_592ae6a72e7628_95112364')) {function content_592ae6a72e7628_95112364($_smarty_tpl) {?><div class="container form-div" id="register">
 <br>
 	<div class="logo">
 		<a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>

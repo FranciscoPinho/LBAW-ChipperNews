@@ -1,5 +1,24 @@
 <?php
- 
+  function articles_fulltextsearch($query,$order){
+      global $conn;
+      $stmt = $conn->prepare("SELECT search_article.author AS author,search_article.published_date AS published_date,
+      search_article.title AS title,search_article.lead AS lead,search_article.article_id AS article_id,
+      search_article.content AS content,users.name AS authorname,COALESCE(SUM(rating_article.score),0) AS sum_score,
+       (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE  rating_article.score=1 AND rating_article.article_id = search_article.article_id) AS posratings,
+        (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE rating_article.score=-1 AND rating_article.article_id = search_article.article_id) AS negratings 
+        FROM search_article
+        LEFT JOIN users ON search_article.author=users.user_id
+        LEFT JOIN rating_article ON rating_article.article_id=search_article.article_id
+        WHERE art_search @@ to_tsquery('english', ?)
+        GROUP BY users.user_id,search_article.article_id,rating_article.article_id,search_article.author,search_article.published_date,search_article.title,search_article.lead,search_article.content
+        ORDER BY ".$order.";");
+       $stmt->execute(array($query));
+      return $stmt->fetchAll();
+  }
   function newComment($article_id,$user_id,$content){
       global $conn; 
       $stmt = $conn->prepare("INSERT INTO comment(article_id,user_id,content) VALUES (?,?,?)");

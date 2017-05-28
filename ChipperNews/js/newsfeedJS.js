@@ -46,7 +46,6 @@ function sortArticles(type)
 }
 function renderArticles(data)
 {
-	console.log(data);
     $('.allcontent').empty();
     $('.allcontent').append(data); 
 }

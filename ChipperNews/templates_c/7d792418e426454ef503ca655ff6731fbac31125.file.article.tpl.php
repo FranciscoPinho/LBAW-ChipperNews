@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 13:14:41
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 17:01:56
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\article.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:51185929b3c11e5712-01404143%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7d792418e426454ef503ca655ff6731fbac31125' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article.tpl',
-      1 => 1495977027,
+      1 => 1495983412,
       2 => 'file',
     ),
   ),
@@ -241,7 +241,6 @@ images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rota
             });
 
             function updateScores(data) {
-                console.log(JSON.stringify(data));
                 var result=JSON.parse(data);
                 if (result == "-1") {
                     console.log('stored procedure failed');

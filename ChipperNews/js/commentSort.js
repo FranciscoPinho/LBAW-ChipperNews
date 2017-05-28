@@ -31,7 +31,6 @@ function sortComments(type)
 
   function updateCommentSection2(data) {
                         
-                        console.log(data);
                         if (data == "-1") {
                             console.log('Unset variables sent through request');
                             return;
