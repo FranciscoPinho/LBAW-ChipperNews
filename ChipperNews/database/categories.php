@@ -13,6 +13,12 @@
         $stmt->execute(array($sub_id));
         return $stmt->fetchAll();
     }
+    function search_subCategories($query){
+        global $conn;
+        $stmt = $conn->prepare("SELECT * FROM subcategory WHERE name LIKE ?");
+        $stmt->execute(array("%".$query."%"));
+        return $stmt->fetchAll();
+    }
     function getArticleSubcategories($article_id)
     {
         global $conn;
