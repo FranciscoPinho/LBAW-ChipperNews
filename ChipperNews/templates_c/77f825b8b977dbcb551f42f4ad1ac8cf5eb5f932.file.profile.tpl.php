@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 20:59:33
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 21:21:58
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:151825929a86b5a05c4-10120109%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '77f825b8b977dbcb551f42f4ad1ac8cf5eb5f932' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
-      1 => 1496091571,
+      1 => 1496092618,
       2 => 'file',
     ),
   ),
@@ -272,7 +272,6 @@ $_smarty_tpl->tpl_vars['interest']->_loop = true;
                                                         type: "POST",
                                                         url: base_url + 'actions/users/profile.php',
                                                         data: " email_hide="+c_box.checked,
-                                                        dataType: "json",
                                                     });
                                                     break;
 
@@ -281,7 +280,6 @@ $_smarty_tpl->tpl_vars['interest']->_loop = true;
                                                         type: "POST",
                                                         url: base_url + 'actions/users/profile.php',
                                                         data: " local_hide="+c_box.checked,
-                                                        dataType: "json",
                                                     });
                                                     break;
 
@@ -290,7 +288,6 @@ $_smarty_tpl->tpl_vars['interest']->_loop = true;
                                                         type: "POST",
                                                         url: base_url + 'actions/users/profile.php',
                                                         data: " age_hide="+c_box.checked,
-                                                        dataType: "json",
                                                     });
                                                     break;
 
@@ -299,7 +296,6 @@ $_smarty_tpl->tpl_vars['interest']->_loop = true;
                                                         type: "POST",
                                                         url: base_url + 'actions/users/profile.php',
                                                         data: " post_hide="+c_box.checked,
-                                                        dataType: "json",
                                                     });
                                                     break;
                                                  }

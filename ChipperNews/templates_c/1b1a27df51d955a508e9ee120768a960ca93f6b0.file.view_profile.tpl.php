@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 16:57:22
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 21:21:51
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\view_profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13363592c52f2701891-34886733%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1b1a27df51d955a508e9ee120768a960ca93f6b0' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\view_profile.tpl',
-      1 => 1496072777,
+      1 => 1496091627,
       2 => 'file',
     ),
   ),
@@ -15,24 +15,29 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_592c52f2936b47_75463813',
   'variables' => 
   array (
     'BASE_URL' => 0,
     'username' => 0,
     'user' => 0,
+    'USERNAME' => 0,
+    'result' => 0,
+    'top_id' => 0,
+    'score' => 0,
     'interests' => 0,
     'interest' => 0,
     'article' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_592c52f2936b47_75463813',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_592c52f2936b47_75463813')) {function content_592c52f2936b47_75463813($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
+    <title>View Profile</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -54,6 +59,34 @@ js/bootstrap.min.js"></script>
 
 <body>
     <div class="container">
+    <script>
+
+    var base_url = $("#base_url").text();
+    function sendRequest(userid) 
+    {
+        $.ajax({
+            type: "POST",
+            url: base_url + 'actions/users/friendrequest.php',
+            data: "user_add="+userid,
+            success: reload
+        });
+    }
+
+    function delFriend(userid) 
+    {
+        $.ajax({
+            type: "POST",
+            url: base_url + 'actions/users/unfriend_deny.php',
+            data: " user_del="+userid,
+            success:reload
+        });
+    }
+    
+    function reload(data)
+    {
+			location.reload();
+	}
+    </script>
         <div id="bg">
             <img class="bg" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/circuit.jpg" alt="">
@@ -68,34 +101,46 @@ pages/users/posthistory.php?id=<?php echo $_smarty_tpl->tpl_vars['user']->value[
 "><i class="fa fa-book fa-fw"></i> See comment history </a>
                     </li>
                 <?php }?>
+                <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value) {?>
+                <?php $_smarty_tpl->tpl_vars['result'] = new Smarty_variable(friendshipExists($_smarty_tpl->tpl_vars['user']->value['user_id'],$_SESSION['user_id']), null, 0);?>
+                <?php if ($_smarty_tpl->tpl_vars['result']->value==0) {?>
                  <li>
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/posthistory.php?id=<?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
-"><i class="fa fa-user-plus fa-fw"></i> Add <b><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+                    <a onclick="sendRequest(<?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
+)"><i class="fa fa-user-plus fa-fw"></i> Add <b><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
 </b> as friend</a>
                 </li>
-                <li>
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/posthistory.php?id=<?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
-"><i class="fa fa-user-times fa-fw"></i> Cancel friend request for <b><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
-</b></a>
-                </li>
+                <?php }?>
+                <?php if ($_smarty_tpl->tpl_vars['result']->value===true) {?>
                  <li>
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/posthistory.php?id=<?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
-"><i class="fa fa-eraser fa-fw"></i> Unfriend <b><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
-</b></a>
+                    <a onclick="delFriend(<?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
+)"><i class="fa fa-user-times fa-fw"></i> Unfriend <b><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+</b></button></a>
                 </li>
+                <?php }?>
+                <?php }?>
                 </ul>
             </div>
             <div class="col-sm-9">
                 <div class="panel panel-default">
                     <div class="panel-heading resume-heading">
                         <div class="col-lg-12">
+                            <?php $_smarty_tpl->tpl_vars['top_id'] = new Smarty_variable(whoTopCollaborator(), null, 0);?>
+                            <?php if (($_smarty_tpl->tpl_vars['top_id']->value==$_smarty_tpl->tpl_vars['user']->value['user_id'])) {?>
+                            <h3> <?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+ <i class="fa fa-trophy fa-fw"></i></h3>
+                            <?php } else { ?>
                             <h3> <?php echo $_smarty_tpl->tpl_vars['username']->value;?>
  </h3>
+                            <?php }?>
+                            <?php $_smarty_tpl->tpl_vars['score'] = new Smarty_variable(calculateUserScore($_smarty_tpl->tpl_vars['user']->value['user_id']), null, 0);?>
+                            <?php if (($_smarty_tpl->tpl_vars['score']->value==0)) {?>
                             <h5> <?php echo $_smarty_tpl->tpl_vars['user']->value['name'];?>
- <small> some rep points? </small> </h5>
+ <small> no contribution points </small> </h5>
+                            <?php } else { ?>
+                            <h5> <?php echo $_smarty_tpl->tpl_vars['user']->value['name'];?>
+ <small> <?php echo $_smarty_tpl->tpl_vars['score']->value;?>
+ contribution points </small> </h5>
+                            <?php }?>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">

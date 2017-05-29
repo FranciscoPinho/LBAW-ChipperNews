@@ -82,6 +82,7 @@
         {/if}
         {$counter=1}
             {foreach $pending as $pend}
+            {if $pend.who_sent neq $smarty.session.user_id}
             {if $counter eq 1}
             <div class="row">
              {$first = 0} 
@@ -142,8 +143,9 @@
                 {if $first eq 0}
                 {$first=1}
                 {/if}
+                {/if}
+                {$counter=$counter+1}
             {/if}
-            {$counter=$counter+1}
             {/foreach}
              </div>
          </div>
