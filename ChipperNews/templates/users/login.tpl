@@ -17,9 +17,6 @@
                         <button class="btn btn-lg btn-success btn-block" type="submit" value="submit">Sign in</button>
                     </form>
                     <br>
-                       <a class="btn btn-block btn-social btn-facebook ">
-                            <span class="fa fa-facebook "></span> Sign in with Facebook
-                        </a> 
                 </div>    
             </div>
         </div>

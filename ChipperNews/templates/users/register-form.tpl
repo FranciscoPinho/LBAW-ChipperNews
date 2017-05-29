@@ -13,14 +13,9 @@
 				<label> Username <i class="fa fa-asterisk" aria-hidden="false"></i></label>
 				<div class="container col-sm-12">
 					<div class="input-group">
-						<div class="input-group-btn">
-							<button class="btn btn-default"><i class="fa fa-user"></i></button>
-						</div>
-						{if $FORM_VALUES.username}
+						<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
 						<input type="text" class="form-control" id="username" placeholder="Please input a unique, valid username" name="username"
-						    value="{$FORM_VALUES.username}" required> {else}
-						<input type="text" class="form-control" id="username" placeholder="Please input a unique, valid username" name="username"
-						    required> {/if}
+						    required>
 					</div>
 				</div>
 			</div>
@@ -28,14 +23,8 @@
 				<label>Name <i class="fa fa-asterisk" aria-hidden="false"></i></label>
 				<div class="col-sm-12">
 					<div class="input-group">
-						<div class="input-group-btn">
-							<button class="btn btn-default"><i class="fa fa-id-card-o"></i></button>
-						</div>
-						{if $FORM_VALUES.name}
-						<input type="text" class="form-control" id="name" placeholder="Jane Doe" name="name" value="{$FORM_VALUES.name}"
-						    required> 
-							{else}
-						<input type="text" class="form-control" id="name" placeholder="Jane Doe" name="name" required>						{/if}
+					<span class="input-group-addon"><i class="fa fa-id-card-o fa-fw"></i></span>
+						<input type="text" class="form-control" id="name" placeholder="Jane Doe" name="name" required>
 					</div>
 				</div>
 			</div>
@@ -43,14 +32,8 @@
 				<label>Email <i class="fa fa-asterisk" aria-hidden="false"></i></label>
 				<div class="col-sm-12">
 					<div class="input-group">
-						<div class="input-group-btn">
-							<button class="btn btn-default"><i class="fa fa-envelope-o"></i></button>
-						</div>
-						{if $FORM_VALUES.email}
-						<input type="email" class="form-control" id="email" placeholder="your@email.com" name="email" value="{$FORM_VALUES.email}"
-						    required> {else}
+					<span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
 						<input type="email" class="form-control" id="email" placeholder="your@email.com" name="email" required>
-						{/if}
 					</div>
 				</div>
 			</div>
@@ -58,9 +41,7 @@
 				<label>Password <i class="fa fa-asterisk" aria-hidden="false"></i></label>
 				<div class="col-sm-12">
 					<div class="input-group">
-						<div class="input-group-btn">
-							<button class="btn btn-default"><i class="fa fa-unlock-alt"></i></button>
-						</div>
+					<span class="input-group-addon"><i class="fa fa-unlock-alt fa-fw"></i></span>
 						<input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
 					</div>
 					<div class="col-sm-12">
@@ -72,9 +53,7 @@
 				<label> Confirm Password <i class="fa fa-asterisk" aria-hidden="false"></i></label>
 				<div class="col-sm-12">
 					<div class="input-group">
-						<div class="input-group-btn">
-							<button class="btn btn-default"><i class="fa fa-unlock-alt"></i></button>
-						</div>
+						<span class="input-group-addon"><i class="fa fa-unlock-alt fa-fw"></i></span>
 						<input type="password" class="form-control" id="passw2" placeholder="Confirm password" name="password2" required>
 					</div>
 				</div>
@@ -83,10 +62,8 @@
 				<label> Date of birth </label>
 				<div class="col-sm-12">
 					<div class="input-group">
-						<div class="input-group-btn">
-							<button class="btn btn-default"><i class="fa fa-calendar"></i></button>
-						</div>
-						<input type="date" class="form-control" id="birthdate" placeholder="Date of birth" name="birthdate">
+					<span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+					<input type="date" class="form-control" id="birthdate" placeholder="Date of birth" name="birthdate">
 					</div>
 				</div>
 			</div>
