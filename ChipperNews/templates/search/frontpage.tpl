@@ -14,10 +14,9 @@
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/bootstrap-social.css">
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-frontpage.css">
     <link href="https://fonts.googleapis.com/css?family=Lato|Lora|Playfair+Display:700" rel="stylesheet">
-<span class="base_url" id="base_url" hidden>{$BASE_URL}</span>
 </head>
 <body>
-   
+   <span class="base_url" id="base_url" hidden>{$BASE_URL}</span>
    <div id="featuredBar">
     <nav class="navbar navbar-default ">
         <h1 class="text-center "> Featured </h1>
@@ -29,16 +28,16 @@
             {$subcategories = fetchSubcategories($art.article_id)}
             <div class="col-sm-6 col-md-4 ">
                 <a class="thumbnail " href="{$BASE_URL}pages/articles/article.php?id={$art.article_id}" style="text-decoration:none ">
-                    <img src="{$BASE_URL}images\articles\{$art.article_id}" alt="... ">
+                    <img src="{$BASE_URL}images/articles/{$art.article_id}" alt="... ">
                     <div id="ratings">
                         <span id="postext4" style="color:#357266">{$art.posratings}</span>
-                        <button type="button" class="btn btn-default btn-circle btnlike">
+                        <span class="btn btn-default btn-circle btnlike">
                         <img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
-                        </button>
+                        </span>
                         <span id="negtext4" style="color:#f11066">{$art.negratings}</span>
-                        <button type="button" class="btn btn-default btn-circle btndislike">
+                        <span class="btn btn-default btn-circle btndislike">
                         <img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
-                        </button>
+                        </span>
                         
 			        </div>
                     
@@ -73,12 +72,10 @@
     </div>
 
     <nav class="navbar navbar-default ">
-        <h1 class="text-center " href="# "> News </h1>
+        <h1 class="text-center " > News </h1>
     </nav>
     <div class="row " style="padding-left:4%;padding-right:4% " id="appendArticles">
        
-    </div>
-
     </div>
     <br><br>
 </body>

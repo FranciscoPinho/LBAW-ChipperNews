@@ -26,7 +26,7 @@
 				<button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton" aria-expanded="false"><span class="droptext">Me</span>
 		<span class="caret caret-reversed"></span> 
 		</button>
-				<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">
+				<ul class="dropdown-menu dropdown-menu-right" role="menu">
 					<li><a href="#" onclick="changeDropdown('Me')">Me</a></li>
 					<li><a href="#" onclick="changeDropdown('Mixed')">Mixed</a></li>
 					<li><a href="#" onclick="changeDropdown('Friends')">Friends</a></li>

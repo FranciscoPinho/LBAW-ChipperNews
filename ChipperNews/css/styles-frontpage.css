@@ -35,7 +35,7 @@ body {
 .btn-primary.active,
 .open>.dropdown-toggle.btn-primary {
     background-color: #C5C9A4;
-    border-color: #C5C9A4
+    border-color: #C5C9A5;
 }
 
 h2 {
@@ -69,7 +69,6 @@ h1 {
 
 .list-group-item {
     cursor: pointer;
-    cursor: hand;
 }
 
 .btn.btn-default.btn-circle.btndislike {

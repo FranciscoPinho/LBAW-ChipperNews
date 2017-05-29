@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 12:40:20
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 12:35:00
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\newsfeed.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:10975929a82c33e901-45923234%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '54d19bfc484b2f03860ab2ff687fcf5e304d1d44' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\newsfeed.tpl',
-      1 => 1495974891,
+      1 => 1496061299,
       2 => 'file',
     ),
   ),
@@ -65,7 +65,7 @@ js/newsfeedJS.js"></script>
 				<button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton" aria-expanded="false"><span class="droptext">Me</span>
 		<span class="caret caret-reversed"></span> 
 		</button>
-				<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">
+				<ul class="dropdown-menu dropdown-menu-right" role="menu">
 					<li><a href="#" onclick="changeDropdown('Me')">Me</a></li>
 					<li><a href="#" onclick="changeDropdown('Mixed')">Mixed</a></li>
 					<li><a href="#" onclick="changeDropdown('Friends')">Friends</a></li>

@@ -8,13 +8,13 @@
              <img src="{$BASE_URL}images\articles\{$art.article_id}" alt="... " style="width:70%;height:70%;">
              <div id="ratings">
                         <span id="postext4" style="color:#357266">{$art.posratings}</span>
-                        <button type="button" class="btn btn-default btn-circle btnlike">
+                        <span class="btn btn-default btn-circle btnlike">
                         <img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
-                        </button>
+                        </span>
                         <span id="negtext4" style="color:#f11066">{$art.negratings}</span>
-                        <button type="button" class="btn btn-default btn-circle btndislike">
+                        <span class="btn btn-default btn-circle btndislike">
                         <img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
-                        </button>
+                        </span>
 			</div>
             <h6>By <a href={$BASE_URL}pages/users/viewprofile?id={$art.author} style="color:black; font-style:italic">{$art.authorname}</a> {$art.published_date}</h6>
             <p>{$art.lead}</p>
