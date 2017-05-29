@@ -548,7 +548,7 @@
       $stmt->execute(array($user_id,$user_id,$user_id,$user_id,$user_id));
       return $stmt->fetchAll();   
   }
-  
+ 
   function search_users($query){
     global $conn;
     $stmt = $conn->prepare("SELECT * FROM users WHERE username LIKE ? OR name LIKE ?;");

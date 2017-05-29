@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>My Articles</title>
+	<title>Newsfeed</title>
 	<link rel="stylesheet" type="text/css" href="{$BASE_URL}css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-newsfeed-myarticles.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato|Lora|Playfair+Display:700" rel="stylesheet">
@@ -11,12 +12,11 @@
 	<script src="https://www.w3schools.com/lib/w3data.js"></script>
 	<script src="{$BASE_URL}js/bootstrap.min.js"></script>
 	<script src="{$BASE_URL}js/newsfeedJS.js"></script>
-    <span class="base_url" id="base_url" hidden>{$BASE_URL}</span>
-	<!-- Optional Bootstrap theme -->
-	<!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+ 
 </head>
 
 <body>
+   <span class="base_url" id="base_url" hidden>{$BASE_URL}</span>
 	<div id="bg">
 			<img class="bg" src="{$BASE_URL}/images/assets/circuit.jpg" alt="">
 		</div>
@@ -65,7 +65,7 @@
             {else}
             <h2 id="headline" ><a href="{$BASE_URL}pages/articles/article.php?id={$article.article_id}" style="color:grey" id="articleAnchor">Archived:{$article.title}</a></h2>
             {/if}
-			<h6>By <a href={$BASE_URL}pages/users/viewprofile?id={$article.author} style="color:black; font-style:italic">{$article.authorname}</a> {$article.published_date}</h6>
+			<h6>By <a href="{$BASE_URL}pages/users/view_profile?id={$article.authorusername}" style="color:black; font-style:italic">{$article.authorname}</a> {$article.published_date}</h6>
             {$subcategories = fetchSubcategories($article.article_id)}
 			 {foreach $subcategories as $subart}
                             {if $subart.category==1}

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 12:35:00
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 15:41:27
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\newsfeed.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:10975929a82c33e901-45923234%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '54d19bfc484b2f03860ab2ff687fcf5e304d1d44' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\newsfeed.tpl',
-      1 => 1496061299,
+      1 => 1496066780,
       2 => 'file',
     ),
   ),
@@ -31,11 +31,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5929a82c58a4a5_62556707')) {function content_5929a82c58a4a5_62556707($_smarty_tpl) {?><head>
+<?php if ($_valid && !is_callable('content_5929a82c58a4a5_62556707')) {function content_5929a82c58a4a5_62556707($_smarty_tpl) {?><!DOCTYPE html>
+<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>My Articles</title>
+	<title>Newsfeed</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -48,13 +49,12 @@ css/styles-newsfeed-myarticles.css">
 js/bootstrap.min.js"></script>
 	<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/newsfeedJS.js"></script>
-    <span class="base_url" id="base_url" hidden><?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-</span>
-	<!-- Optional Bootstrap theme -->
-	<!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+ 
 </head>
 
 <body>
+   <span class="base_url" id="base_url" hidden><?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+</span>
 	<div id="bg">
 			<img class="bg" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 /images/assets/circuit.jpg" alt="">
@@ -130,9 +130,9 @@ pages/articles/article.php?id=<?php echo $_smarty_tpl->tpl_vars['article']->valu
 " style="color:grey" id="articleAnchor">Archived:<?php echo $_smarty_tpl->tpl_vars['article']->value['title'];?>
 </a></h2>
             <?php }?>
-			<h6>By <a href=<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/viewprofile?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['author'];?>
- style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['article']->value['authorname'];?>
+			<h6>By <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/view_profile?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['authorusername'];?>
+" style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['article']->value['authorname'];?>
 </a> <?php echo $_smarty_tpl->tpl_vars['article']->value['published_date'];?>
 </h6>
             <?php $_smarty_tpl->tpl_vars['subcategories'] = new Smarty_variable(fetchSubcategories($_smarty_tpl->tpl_vars['article']->value['article_id']), null, 0);?>
