@@ -61,7 +61,7 @@
                 {/if}
                 {if $USERNAME}
                 {$result=friendshipExists($user.user_id, $smarty.session.user_id)}
-                {if $result === 3}
+                {if $result == 0}
                  <li>
                     <a onclick="sendRequest({$user.user_id})"><i class="fa fa-user-plus fa-fw"></i> Add <b>{$username}</b> as friend</a>
                 </li>

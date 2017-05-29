@@ -221,8 +221,8 @@
     $stmt = $conn->prepare("SELECT accepted FROM friendship WHERE (user_id1=? AND user_id2=?) OR (user_id1=? AND user_id2=?);");
     $stmt->execute(array($user_id1,$user_id2,$user_id2,$user_id1));
     $res=$stmt->fetchColumn();
-    if($res==null){
-      return 3;
+    if($res==false){
+      return $stmt->rowCount();
     }
     else return $res;
   }
