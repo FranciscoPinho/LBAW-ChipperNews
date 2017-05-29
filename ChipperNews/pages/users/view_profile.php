@@ -4,7 +4,7 @@
 
   if ($_SESSION['username'] == $_GET['usr']) 
   {
-    header('Location: ' . $BASE_URL/pages/users/profile.php);
+    header('Location: ' . $BASE_URL .  'pages/users/profile.php');
     exit;
   }
   

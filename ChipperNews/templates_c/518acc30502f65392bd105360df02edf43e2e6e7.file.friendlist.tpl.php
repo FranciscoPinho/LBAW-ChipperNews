@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 16:43:14
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 17:06:02
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\friendlist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14996592a347ce8b080-93510921%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '518acc30502f65392bd105360df02edf43e2e6e7' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\friendlist.tpl',
-      1 => 1496075377,
+      1 => 1496077561,
       2 => 'file',
     ),
   ),
@@ -66,10 +66,13 @@ css/styles-friendlist.css">
         <!-- /.container-fluid -->
     </nav>
     <div class="col-md-12 text-center">
-    <ul class="nav nav-pills center-pills">
-        <li class="active"><a href="#pendingdiv">Pending Requests</a></li>
-        <li><a href="#friendsdiv">Friends</a></li>
-    </ul>
+        <ul class="nav nav-pills nav-justified center-pills">
+            <li class="active"><a href="#pendingdiv">Pending Requests</a></li>
+            <li><a href="#friendsdiv">Friends</a></li>
+        </ul>
+        <br>
+        <br>
+        <br>
     </div>
     
     <script>
