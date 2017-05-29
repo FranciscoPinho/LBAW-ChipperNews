@@ -22,7 +22,7 @@
 					{/if}
 					{/if}
                     <li><a href="{$BASE_URL}pages/users/help.php">Help</a></li>
-                    <li><a href="#">Contact Info</a></li>
+                    <li><a href="{$BASE_URL}pages/admin/contactinfo.php">Contact Info</a></li>
                 </ul>
     </div>
 </body>
