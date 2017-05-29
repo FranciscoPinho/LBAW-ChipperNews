@@ -27,19 +27,28 @@
             <img class="bg" src="{$BASE_URL}images/assets/circuit.jpg" alt="">
         </div>
 
-
         <div class="container-fluid" id="postheader">
             <h1 class="nf"> Inbox </h1>
         </div>
+
+        {foreach $messages as $msg}
+            <div class="container comment-snip" style="width:60%;min-height:50px;">
+                    <div class="mycomment ">
+                    <p class="text-center">From: {$msg.username} </p>
+                    <div class="caption text-center" style="word-wrap: break-word;"> {$msg.content}</div>
+                    </div>
+            </div>
+         {/foreach}
+
         <div class="container" style="width:60%">
         <form class="form-horizontal" id="fpassw" method="post" action="{$BASE_URL}actions/users/send.php">
          <fieldset class="responsive-fieldset">
-        <div class="form-group">
+            <div class="form-group">
                <label for="to"> To: <br>  </label>
 				<div class="col-sm-12">
                 <input type="text" id="receiver" class="form-control"  name="receiver" required>
                 </div>
-        </div>
+            </div>
          <div class="form-group">
 				<label for="from"> From: <br>  </label>
 				<div class="col-sm-12">
@@ -56,24 +65,18 @@
                          </div>
           </div>
                 <button class="btn btn-lg btn-success btn-block center-block" style="width:50%"type="submit" value="submit" >Send Message</button>
+                <br>
             </fieldset>
         </form>
       
         </div>
-          <br><br><br>
-         {foreach $messages as $msg}
-            <div class="container comment-snip" style="width:50%;min-height:50px;">
-                    <div class="mycomment ">
-                    <p class="text-center">From: {$msg.username} </p>
-                    <div class="caption text-center" style="word-wrap: break-word;"> {$msg.content}</div>
-                    </div>
-            </div>
-         {/foreach}
+          <br>
     </div>
 	
 <script>
 
-function markRead(user_id){
+function markRead(user_id)
+{
                 var base_url = $("#base_url").text();
                 return $.ajax({
                     type: "POST",

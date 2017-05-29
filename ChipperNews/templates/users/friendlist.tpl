@@ -154,7 +154,6 @@
         <p> Forever alone TT_TT </p>
     {/if}
         {$counter=1}
-         
             {foreach $friends as $friend}
             {if $counter eq 1}
             <div class="row">

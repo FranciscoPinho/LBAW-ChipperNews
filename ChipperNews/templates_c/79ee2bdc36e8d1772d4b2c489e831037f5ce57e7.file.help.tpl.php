@@ -1,4 +1,30 @@
-  <nav class="navbar navbar-default ">
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 22:24:04
+         compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\help.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:25869592c9cf3c543c4-19294340%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '79ee2bdc36e8d1772d4b2c489e831037f5ce57e7' => 
+    array (
+      0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\help.tpl',
+      1 => 1496096643,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '25869592c9cf3c543c4-19294340',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_592c9cf3d569a2_25696961',
+  'variables' => 
+  array (
+    'BASE_URL' => 0,
+    'USERNAME' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_592c9cf3d569a2_25696961')) {function content_592c9cf3d569a2_25696961($_smarty_tpl) {?>  <nav class="navbar navbar-default ">
         <h1 class="text-center " href="# "> Help </h1>
     </nav>
 <div class="container">
@@ -19,9 +45,10 @@
 
 <h4><b>If any question or problem remains or arises, you can always send a private message to the administration through here </b></h4>
 <br><br>
-{if isset($smarty.session.user_id)}
+<?php if (isset($_SESSION['user_id'])) {?>
 <div class="container" style="width:60%">
-        <form class="form-horizontal" id="fpassw" method="post" action="{$BASE_URL}actions/users/send.php">
+        <form class="form-horizontal" id="fpassw" method="post" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/users/send.php">
          <fieldset class="responsive-fieldset">
             <div class="form-group">
                <label for="to"> To: <br>  </label>
@@ -32,7 +59,8 @@
          <div class="form-group">
 				<label for="from"> From: <br>  </label>
 				<div class="col-sm-12">
-					<input type="text" id="sender" class="form-control"  name="sender" value="{$USERNAME}" disabled>
+					<input type="text" id="sender" class="form-control"  name="sender" value="<?php echo $_smarty_tpl->tpl_vars['USERNAME']->value;?>
+" disabled>
 				</div>
 		</div>
         <div class="form-group">
@@ -50,9 +78,9 @@
         </form>
       
         </div>
-{else}
+<?php } else { ?>
 <h3>If you wish to contact the administration, create an account first by clicking on the register link in the header</h3
-{/if}
+<?php }?>
 </div>
 <br>
-<br>
+<br><?php }} ?>

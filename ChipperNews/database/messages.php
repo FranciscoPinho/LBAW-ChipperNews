@@ -13,6 +13,14 @@
     return $stmt->fetchAll();
 }
 
+  function markAllRead($user_id)
+  {
+    global $conn; 
+    $stmt = $conn->prepare("UPDATE message SET is_read='true' WHERE receiver_id=?");
+    return $stmt->execute(array($user_id));
+
+  }
+
 
   function getReceivedMessages($user_id,$type)
   {
