@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 00:46:22
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 12:05:42
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\friendlist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14996592a347ce8b080-93510921%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '518acc30502f65392bd105360df02edf43e2e6e7' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\friendlist.tpl',
-      1 => 1496018777,
+      1 => 1496059541,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'BASE_URL' => 0,
+    'pending' => 0,
+    'pend' => 0,
+    'friends' => 0,
+    'friend' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -59,30 +63,151 @@ css/styles-friendlist.css">
         </div>
         <!-- /.container-fluid -->
     </nav>
-        <div>
-           <div class="container">
+    <div>
+        <div class="container">
             <div class="row">
+             <?php  $_smarty_tpl->tpl_vars['pend'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['pend']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['pending']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['pend']->key => $_smarty_tpl->tpl_vars['pend']->value) {
+$_smarty_tpl->tpl_vars['pend']->_loop = true;
+?>
+              <?php if ($_smarty_tpl->tpl_vars['pend']->value['user1_username']!=$_SESSION['username']) {?>
                 <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['pend']->value['user1_username'];?>
+" style="color:black; text-decoration:none" >
                     <div class="card">
-                        <img class="card-img-top" src="http://success-at-work.com/wp-content/uploads/2015/04/free-stock-photos.gif">
+                        <img class="card-img-top" id="profilepic" alt="<?php echo $_smarty_tpl->tpl_vars['pend']->value['user1_username'];?>
+" src="<?php echo getImage($_smarty_tpl->tpl_vars['pend']->value['user1_username']);?>
+">
                         <div class="card-block">
-                            <h4 class="card-title">Tawshif Ahsan Khan</h4>
+                            <h4 class="card-title"><?php echo $_smarty_tpl->tpl_vars['pend']->value['user1_name'];?>
+</h4>
                             <div class="meta">
-                                <a href="#">Friends</a>
+                                Pending Approval
                             </div>
                             <div class="card-text">
-                                Tawshif is a web designer living in Bangladesh.
+                                <?php echo $_smarty_tpl->tpl_vars['pend']->value['user1_bio'];?>
+
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button class="btn btn-secondary float-right btn-sm">Unfriend</button>
+                            <button class="btn btn-secondary float-right btn-sm">Accept</button>
+                            <button class="btn btn-secondary float-left btn-sm">Reject</button>
                         </div>
-                        </div>
+                    </div>
                     <br>
+                    <br>
+                </a>
+            </div>
+            <?php } else { ?>
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                    <div class="card">
+                    <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['pend']->value['user2_username'];?>
+" style="color:black; text-decoration:none">
+                        <img class="card-img-top" id="profilepic" alt="<?php echo $_smarty_tpl->tpl_vars['pend']->value['user2_username'];?>
+" src="<?php echo getImage($_smarty_tpl->tpl_vars['pend']->value['user2_username']);?>
+">
+                        <div class="card-block">
+                            <h4 class="card-title"><?php echo $_smarty_tpl->tpl_vars['pend']->value['user2_name'];?>
+</h4>
+                            <div class="meta">
+                                Pending Approval
+                            </div>
+                            <div class="card-text">
+                                <?php echo $_smarty_tpl->tpl_vars['pend']->value['user2_bio'];?>
+
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-secondary float-right btn-sm">Accept</button>
+                            <button class="btn btn-secondary float-left btn-sm">Reject</button>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    </a>
+                </div>
+            <?php }?>
+            <?php } ?>
                 </div>
             </div>
         </div>
     </div>
+
+
+<div>
+    <div class="container">
+        <div class="row">
+            <?php  $_smarty_tpl->tpl_vars['friend'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['friend']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['friends']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['friend']->key => $_smarty_tpl->tpl_vars['friend']->value) {
+$_smarty_tpl->tpl_vars['friend']->_loop = true;
+?>
+            <?php if ($_smarty_tpl->tpl_vars['friend']->value['user1_username']!=$_SESSION['username']) {?>
+            <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+            <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['friend']->value['user1_username'];?>
+" style="color:black; text-decoration:none" >
+                <div class="card">
+                    <img class="card-img-top" id="profilepic" alt="<?php echo $_smarty_tpl->tpl_vars['friend']->value['user1_username'];?>
+" src="<?php echo getImage($_smarty_tpl->tpl_vars['friend']->value['user1_username']);?>
+">
+                    <div class="card-block">
+                        <h4 class="card-title"><?php echo $_smarty_tpl->tpl_vars['friend']->value['user1_name'];?>
+</h4>
+                        <div class="meta">
+                            Friends
+                        </div>
+                        <div class="card-text">
+                            <?php echo $_smarty_tpl->tpl_vars['friend']->value['user1_bio'];?>
+
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-secondary float-right btn-sm">Unfriend</button>
+                    </div>
+                </div>
+             <br>
+            <br>
+            </a>
+            </div>
+        <?php } else { ?>
+            <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                <div class="card">
+                <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['friend']->value['user2_username'];?>
+" style="color:black; text-decoration:none">
+                    <img class="card-img-top" id="profilepic" alt="<?php echo $_smarty_tpl->tpl_vars['friend']->value['user2_username'];?>
+" src="<?php echo getImage($_smarty_tpl->tpl_vars['friend']->value['user2_username']);?>
+">
+                    <div class="card-block">
+                        <h4 class="card-title"><?php echo $_smarty_tpl->tpl_vars['friend']->value['user2_name'];?>
+</h4>
+                        <div class="meta">
+                            <a href="#">Friends</a>
+                        </div>
+                        <div class="card-text">
+                            <?php echo $_smarty_tpl->tpl_vars['friend']->value['user2_bio'];?>
+
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-secondary float-right btn-sm">Unfriend</button>
+                    </div>
+                </div>
+                <br>
+                <br>
+                </a>
+                </div>
+        <?php }?>
+        <?php } ?>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
 </html><?php }} ?>

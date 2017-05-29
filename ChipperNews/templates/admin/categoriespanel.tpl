@@ -22,6 +22,7 @@
             </div>
             <button type="submit" class="btn btn-default">Add Category</button>
         </form>
+        <br>
         <form class="form-inline" action="{$BASE_URL}actions/administration/addSubcategory.php" method="post">
             <div class="form-group">
                 <label for="text">Create Subcategory: </label>
@@ -34,7 +35,6 @@
         </form>
         <div>
             <form action="{$BASE_URL}actions/administration/categoriesAction.php" method="post">
-                 <button type="submit" class="btn btn-default">Delete Subcategories</button>
                 <table class="table table-hover">
                 <thead>
                     <tr>
@@ -57,9 +57,10 @@
                     </td>                
                 </tbody>
                 {/foreach}
-                   
                 </table>
+                <button type="submit" class="btn btn-default">Delete Subcategories</button>
             </form>
+            <br>
         </div>
 </body>
 

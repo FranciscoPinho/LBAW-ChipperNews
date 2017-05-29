@@ -31,30 +31,119 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-        <div>
-           <div class="container">
+    <div>
+        <div class="container">
             <div class="row">
+             {foreach $pending as $pend}
+              {if $pend.user1_username!=$smarty.session.username}
                 <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                <a href="{$BASE_URL}pages/users/view_profile.php?usr={$pend.user1_username}" style="color:black; text-decoration:none" >
                     <div class="card">
-                        <img class="card-img-top" src="http://success-at-work.com/wp-content/uploads/2015/04/free-stock-photos.gif">
+                        <img class="card-img-top" id="profilepic" alt="{$pend.user1_username}" src="{$pend.user1_username|getImage}">
                         <div class="card-block">
-                            <h4 class="card-title">Tawshif Ahsan Khan</h4>
+                            <h4 class="card-title">{$pend.user1_name}</h4>
                             <div class="meta">
-                                <a href="#">Friends</a>
+                                Pending Approval
                             </div>
                             <div class="card-text">
-                                Tawshif is a web designer living in Bangladesh.
+                                {$pend.user1_bio}
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button class="btn btn-secondary float-right btn-sm">Unfriend</button>
+                            <button class="btn btn-secondary float-right btn-sm">Accept</button>
+                            <button class="btn btn-secondary float-left btn-sm">Reject</button>
                         </div>
-                        </div>
+                    </div>
                     <br>
+                    <br>
+                </a>
+            </div>
+            {else}
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                    <div class="card">
+                    <a href="{$BASE_URL}pages/users/view_profile.php?usr={$pend.user2_username}" style="color:black; text-decoration:none">
+                        <img class="card-img-top" id="profilepic" alt="{$pend.user2_username}" src="{$pend.user2_username|getImage}">
+                        <div class="card-block">
+                            <h4 class="card-title">{$pend.user2_name}</h4>
+                            <div class="meta">
+                                Pending Approval
+                            </div>
+                            <div class="card-text">
+                                {$pend.user2_bio}
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-secondary float-right btn-sm">Accept</button>
+                            <button class="btn btn-secondary float-left btn-sm">Reject</button>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    </a>
+                </div>
+            {/if}
+            {/foreach}
                 </div>
             </div>
         </div>
     </div>
+
+
+<div>
+    <div class="container">
+        <div class="row">
+            {foreach $friends as $friend}
+            {if $friend.user1_username!=$smarty.session.username}
+            <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+            <a href="{$BASE_URL}pages/users/view_profile.php?usr={$friend.user1_username}" style="color:black; text-decoration:none" >
+                <div class="card">
+                    <img class="card-img-top" id="profilepic" alt="{$friend.user1_username}" src="{$friend.user1_username|getImage}">
+                    <div class="card-block">
+                        <h4 class="card-title">{$friend.user1_name}</h4>
+                        <div class="meta">
+                            Friends
+                        </div>
+                        <div class="card-text">
+                            {$friend.user1_bio}
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-secondary float-right btn-sm">Unfriend</button>
+                    </div>
+                </div>
+             <br>
+            <br>
+            </a>
+            </div>
+        {else}
+            <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                <div class="card">
+                <a href="{$BASE_URL}pages/users/view_profile.php?usr={$friend.user2_username}" style="color:black; text-decoration:none">
+                    <img class="card-img-top" id="profilepic" alt="{$friend.user2_username}" src="{$friend.user2_username|getImage}">
+                    <div class="card-block">
+                        <h4 class="card-title">{$friend.user2_name}</h4>
+                        <div class="meta">
+                            <a href="#">Friends</a>
+                        </div>
+                        <div class="card-text">
+                            {$friend.user2_bio}
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-secondary float-right btn-sm">Unfriend</button>
+                    </div>
+                </div>
+                <br>
+                <br>
+                </a>
+                </div>
+        {/if}
+        {/foreach}
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>

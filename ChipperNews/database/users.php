@@ -241,17 +241,43 @@
     return $stmt->rowCount();
   }
 
-  function getAllUserFriends($user_id)
+  function getFriendshipsWithDetails($user_id,$type)
   {
     global $conn;
-    $stmt = $conn->prepare("SELECT * from friendship 
-    WHERE user_id1=:user_id1 OR user_id2=:user_id2 AND accepted=TRUE");
-    $stmt->bindParam(':user_id1', $user_id, PDO::PARAM_INT);
-    $stmt->bindParam(':user_id2', $user_id, PDO::PARAM_INT);
-    $stmt->execute();
+    $stmt = $conn->prepare("SELECT *,
+    (SELECT username FROM users WHERE users.user_id=user_id2) as user1_username,
+    (SELECT username FROM users WHERE users.user_id=user_id1) as user2_username,
+    (SELECT name FROM users WHERE users.user_id=user_id2) as user1_bio,
+    (SELECT name FROM users WHERE users.user_id=user_id1) as user2_bio,
+    (SELECT bio FROM users WHERE users.user_id=user_id2) as user1_name,
+    (SELECT bio FROM users WHERE users.user_id=user_id1) as user2_name
+    FROM friendship 
+    WHERE (user_id1=? OR user_id2=?) AND accepted=".$type.";");
+    $stmt->execute(array($user_id,$user_id));
     return $stmt->fetchAll();
   }
 
+  function getReceivedMessages($user_id,$type)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT message.*,users.username as username
+    FROM message
+    LEFT JOIN users ON message.sender_id=users.user_id
+    WHERE receiver_id=? AND is_read=".$type.";");
+    $stmt->execute(array($user_id));
+    return $stmt->fetchAll(); 
+  }
+
+  function getSentMessages($user_id,$type)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT message.*,users.username as username
+    FROM message
+    LEFT JOIN users ON message.receiver_id=users.user_id
+    WHERE sender_id=? AND is_read=".$type.";");
+    $stmt->execute(array($user_id));
+    return $stmt->fetchAll(); 
+  }
 
    function getMostPopularArticle($user_id)
   {
