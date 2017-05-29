@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="{$BASE_URL}js/bootstrap.min.js"></script>
+    <script src="{$BASE_URL}js/searchUsersAdmin.js"></script>
     
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-frontpage.css">
 </head>
@@ -32,9 +33,9 @@
                 </ul>
                 <form class="navbar-form navbar-right">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search user">
+                        <input id="search_text" type="text" class="form-control" placeholder="Search user">
                     </div>
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="false"></i></button>
+                    <button onclick = "return searchUser()" class="btn btn-default"><i class="fa fa-search" aria-hidden="false"></i></button>
                 </form>
 
                 <ul class="nav navbar-nav navbar-right">
@@ -43,7 +44,7 @@
             <!-- /.navbar-collapse -->
         <!-- /.container-fluid -->
     </nav>
-        <div>
+        <div id="usersTable">
             <h1> Users </h1>
             <form action="{$BASE_URL}actions/administration/operation.php" method="post">
                 <div class="radio">
@@ -98,7 +99,7 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
         </div>
-        <div>
+        <div id="colaboratorsTable" >
             <h1> Collaborators </h1>
             <form action="{$BASE_URL}actions/administration/operation.php" method="post">
                 <div class="radio">
@@ -154,7 +155,7 @@
             </form>
         </div>
 
-        <div>
+        <div id="moderatorsTable">
             <h1> Moderators </h1>
             <form action="{$BASE_URL}actions/administration/operation.php" method="post">
                 <div class="radio">
@@ -208,6 +209,8 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <br>
+        </div>
+        <div id="searchTable">    
         </div>
 </body>
 

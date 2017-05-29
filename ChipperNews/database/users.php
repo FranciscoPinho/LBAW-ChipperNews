@@ -542,7 +542,7 @@
   
   function search_users($query){
     global $conn;
-    $stmt = $conn->prepare("SELECT username,name,bio,permission_level FROM users WHERE username LIKE ? OR name LIKE ?;");
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username LIKE ? OR name LIKE ?;");
     $stmt->execute(array("%".$query."%","%".$query."%"));
     return $stmt->fetchAll();
   }

@@ -18,7 +18,7 @@
   if($indexB > sizeof($articles)) $indexB = sizeof($articles);
 
   $smarty->assign('articles', $articles);
-   $smarty->assign('indexA', $indexA);
+  $smarty->assign('indexA', $indexA);
   $smarty->assign('indexB', $indexB);
   $output = $smarty->fetch('ajax/articles-ajax.tpl');
   echo $output;
