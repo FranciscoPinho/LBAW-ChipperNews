@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 14:59:51
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 16:40:32
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\view_profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3948592c2b39380ee4-36626652%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c82b8e02a8fc9f249f5207eaaa19f520d15c4d9f' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\view_profile.tpl',
-      1 => 1496069984,
+      1 => 1496076029,
       2 => 'file',
     ),
   ),
@@ -22,6 +22,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'BASE_URL' => 0,
     'username' => 0,
     'user' => 0,
+    'USERNAME' => 0,
+    'result' => 0,
     'interests' => 0,
     'interest' => 0,
     'article' => 0,
@@ -33,6 +35,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 <head>
     <meta charset="utf-8">
+    <title>View Profile</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -68,24 +71,33 @@ pages/users/posthistory.php?id=<?php echo $_smarty_tpl->tpl_vars['user']->value[
 "><i class="fa fa-book fa-fw"></i> See comment history </a>
                     </li>
                 <?php }?>
+                <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value) {?>
+                <?php $_smarty_tpl->tpl_vars['result'] = new Smarty_variable(friendshipExists($_smarty_tpl->tpl_vars['user']->value['user_id'],$_SESSION['user_id']), null, 0);?>
+                <?php if ($_smarty_tpl->tpl_vars['result']->value===3) {?>
                  <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/posthistory.php?id=<?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
 "><i class="fa fa-user-plus fa-fw"></i> Add <b><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
 </b> as friend</a>
                 </li>
+                <?php }?>
+                <?php if ($_smarty_tpl->tpl_vars['result']->value==false) {?>
                 <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/posthistory.php?id=<?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
 "><i class="fa fa-user-times fa-fw"></i> Cancel friend request for <b><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
 </b></a>
                 </li>
+                <?php }?>
+                <?php if ($_smarty_tpl->tpl_vars['result']->value==true) {?>
                  <li>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/posthistory.php?id=<?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
-"><i class="fa fa-eraser fa-fw"></i> Unfriend <b><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+"><i class="fa fa-user-times fa-fw"></i> Unfriend <b><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
 </b></a>
                 </li>
+                <?php }?>
+                <?php }?>
                 </ul>
             </div>
             <div class="col-sm-9">

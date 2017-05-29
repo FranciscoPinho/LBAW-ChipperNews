@@ -4,7 +4,7 @@
 
   if ($_SESSION['username'] == $_GET['usr']) 
   {
-    header('Location: ' . $BASE_URL/pages/users/profile.php);
+    header('Location: ' . $BASE_URL .  'pages/users/profile.php');
     exit;
   }
   
@@ -19,13 +19,16 @@
      return $subcategories;
   }
 
- function fetchMostPopularArticle($user_id){
+ function fetchMostPopularArticle($user_id)
+ {
     $popular=getMostPopularArticle($user_id);
     return $popular;
  }
+
   $smarty->assign('title', 'Profile');
   $smarty->assign('countries',$countries);
   $smarty->display('common/header.tpl');
+  $smarty->display('users/login.tpl');
   $smarty->display('users/view_profile.tpl');
   $smarty->display('common/footer.tpl');
 ?>

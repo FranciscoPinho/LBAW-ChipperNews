@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 15:41:20
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 16:27:07
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\ajax\articles-ajax.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:29997592ad02d4f5196-27186791%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '845ff9ee5cf13e3e59a2fd5bd54107ff27ef1b26' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\ajax\\articles-ajax.tpl',
-      1 => 1495985781,
+      1 => 1496070676,
       2 => 'file',
     ),
   ),
@@ -45,16 +45,16 @@ images\articles\<?php echo $_smarty_tpl->tpl_vars['art']->value['article_id'];?>
              <div id="ratings">
                         <span id="postext4" style="color:#357266"><?php echo $_smarty_tpl->tpl_vars['art']->value['posratings'];?>
 </span>
-                        <button type="button" class="btn btn-default btn-circle btnlike">
+                        <span class="btn btn-default btn-circle btnlike">
                         <img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
-                        </button>
+                        </span>
                         <span id="negtext4" style="color:#f11066"><?php echo $_smarty_tpl->tpl_vars['art']->value['negratings'];?>
 </span>
-                        <button type="button" class="btn btn-default btn-circle btndislike">
+                        <span class="btn btn-default btn-circle btndislike">
                         <img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
-                        </button>
+                        </span>
 			</div>
             <h6>By <a href=<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/users/viewprofile?id=<?php echo $_smarty_tpl->tpl_vars['art']->value['author'];?>

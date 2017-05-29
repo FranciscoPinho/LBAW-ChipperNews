@@ -32,10 +32,13 @@
         <!-- /.container-fluid -->
     </nav>
     <div class="col-md-12 text-center">
-    <ul class="nav nav-pills center-pills">
-        <li class="active"><a href="#pendingdiv">Pending Requests</a></li>
-        <li><a href="#friendsdiv">Friends</a></li>
-    </ul>
+        <ul class="nav nav-pills nav-justified center-pills">
+            <li class="active"><a href="#pendingdiv">Pending Requests</a></li>
+            <li><a href="#friendsdiv">Friends</a></li>
+        </ul>
+        <br>
+        <br>
+        <br>
     </div>
     
     <script>

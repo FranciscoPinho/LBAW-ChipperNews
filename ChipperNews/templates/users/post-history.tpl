@@ -28,7 +28,7 @@
 
 
         <div class="container-fluid" id="postheader">
-            <h1 class="nf"> My Comment History </h1>
+            <h1 class="nf"> {$user.username}'s Comment History </h1>
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton"><span class="droptext">Newest</span>
 		<span class="caret caret-reversed"></span> 
@@ -51,7 +51,7 @@
                 </div>
                 <div class="comment">
                     <div class="mycomment">
-                        <h6>By <a style="color:black; font-style:italic">{$user}</a> {$comment.posted_date}</h6>
+                        <h6>By <a style="color:black; font-style:italic">{$user.username}</a> {$comment.posted_date}</h6>
                         <p>{$comment.content}</p>
                         {if $comment.sum_score >= 0}
                             <h5>Votes: <span class="posrating" style="font-weight:bold;color:#357266">+{$comment.sum_score}</span></h5>

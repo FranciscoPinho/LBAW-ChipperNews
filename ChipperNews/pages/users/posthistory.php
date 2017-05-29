@@ -22,7 +22,7 @@
   {
     $comments = getCommentHistory($user_id);
     $smarty->assign('comments', $comments);
-    $smarty->assign('user', $_SESSION['username']);
+    $smarty->assign('user', $user[0]);
     $smarty->display('common/header.tpl');
     $smarty->display('users/post-history.tpl');
     $smarty->display('common/footer.tpl');
