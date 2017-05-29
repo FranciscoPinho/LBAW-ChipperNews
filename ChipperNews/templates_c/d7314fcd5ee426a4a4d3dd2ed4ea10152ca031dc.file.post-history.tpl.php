@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 20:11:07
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 16:51:12
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\post-history.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:7239592b2edbd2da97-06608057%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd7314fcd5ee426a4a4d3dd2ed4ea10152ca031dc' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\post-history.tpl',
-      1 => 1494979578,
+      1 => 1496076670,
       2 => 'file',
     ),
   ),
@@ -15,16 +15,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_592b2edbdfd890_72673321',
   'variables' => 
   array (
     'BASE_URL' => 0,
+    'user' => 0,
     'comments' => 0,
     'comment' => 0,
-    'user' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_592b2edbdfd890_72673321',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_592b2edbdfd890_72673321')) {function content_592b2edbdfd890_72673321($_smarty_tpl) {?><!DOCTYPE html>
 <html>
@@ -62,7 +62,8 @@ images/assets/circuit.jpg" alt="">
 
 
         <div class="container-fluid" id="postheader">
-            <h1 class="nf"> My Comment History </h1>
+            <h1 class="nf"> <?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
+'s Comment History </h1>
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="dropdownbutton"><span class="droptext">Newest</span>
 		<span class="caret caret-reversed"></span> 
@@ -94,7 +95,7 @@ pages\articles\article.php?id=<?php echo $_smarty_tpl->tpl_vars['comment']->valu
                 </div>
                 <div class="comment">
                     <div class="mycomment">
-                        <h6>By <a style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['user']->value;?>
+                        <h6>By <a style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
 </a> <?php echo $_smarty_tpl->tpl_vars['comment']->value['posted_date'];?>
 </h6>
                         <p><?php echo $_smarty_tpl->tpl_vars['comment']->value['content'];?>
