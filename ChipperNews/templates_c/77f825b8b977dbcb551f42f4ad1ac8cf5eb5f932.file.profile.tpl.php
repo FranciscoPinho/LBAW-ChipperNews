@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 12:42:49
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 18:58:12
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:151825929a86b5a05c4-10120109%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '77f825b8b977dbcb551f42f4ad1ac8cf5eb5f932' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
-      1 => 1495973262,
+      1 => 1495995653,
       2 => 'file',
     ),
   ),
@@ -209,10 +209,10 @@ $_smarty_tpl->tpl_vars['interest']->_loop = true;
                                         </div>
                                         <div class="tab-pane fade" id="settings">
                                             <ul class="list-group">     
-                                                <li class="list-group-item"><b>Hide email from anyone who visits my profile </b><input type="checkbox" onchange="()" id="email_hide" name="email_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
-                                                <li class="list-group-item"><b>Hide location from anyone who visits my profile </b><input type="checkbox" id="local_hide" name="local_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
-                                                <li class="list-group-item"><b>Hide age from anyone who visits my profile </b><input type="checkbox" id="age_hide" name="age_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
-                                                <li class="list-group-item"><b>Hide post history from anyone who visits my profile </b><input type="checkbox" id="post_hide" name="post_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
+                                                <li class="list-group-item"><b>Hide email from anyone who visits my profile </b><input type="checkbox" id="email_hide" onchange="checkThis('email_hide')" name="email_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
+                                                <li class="list-group-item"><b>Hide location from anyone who visits my profile </b><input type="checkbox" id="local_hide" onchange="checkThis('local_hide')" name="local_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
+                                                <li class="list-group-item"><b>Hide age from anyone who visits my profile </b><input type="checkbox" id="age_hide" onchange="checkThis('age_hide')" name="age_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
+                                                <li class="list-group-item"><b>Hide post history from anyone who visits my profile </b><input type="checkbox" id="post_hide" onchange="checkThis('post_hide')" name="post_hide" data-toggle="toggle" data-size="small" data-onstyle="success"></li>
                                                 <li class="list-group-item"><b>Update email </b><a href="#" id="email" data-name="email" data-type="email" data-pk="1" data-title="Email "><?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
   </a><i id="pencil" class="fa fa-pencil"></i></li>
                                             </ul>
@@ -241,39 +241,51 @@ $_smarty_tpl->tpl_vars['interest']->_loop = true;
                                                 $('#post_hide').prop('checked', true).change()
                                             }
 
-                                            $(function() {
-                                                console.log("here" + $(this).prop('checked'));
-                                                $('#email_hide').change(function() 
-                                                {
-                                                    console.log("checked" + $(this).prop('checked'));
-                                                    setEmailPrivacy($user_id,$(this).prop('checked'))
-                                                })
-
-                                                $("#local_hide").change(function()
-                                                {
-                                                    setLocalPrivacy($user_id,$(this).prop('checked'))
-                                                })
-
-                                                $("#age_hide").change(function()
-                                                {
-                                                    setAgePrivacy($user_id,$(this).prop('checked'))
-                                                })
-
-                                                $("#post_hide").change(function()
-                                                {
-                                                    setPostHPrivacy($user_id,$(this).prop('checked'))
-                                                })
-                                            })
-
-                                            /*function checkEmail()
+                                            function checkThis(checkbox) 
                                             {
-                                                var c_box = document.getElementById('#email_hide')
-                                                if(c_box.checked == true)
+                                                var c_box = document.getElementById(checkbox);
+                                                var base_url = $("#base_url").text();
+
+                                                switch (c_box.name)
                                                 {
-                                                    setEmailPrivacy($user_id,'true')
-                                                }
-                                                else setEmailPrivacy($user_id,'false')
-                                            }*/
+                                                    case "email_hide":
+                                                    console.log(c_box.checked);
+                                                    $.ajax({
+                                                        type: "POST",
+                                                        url: base_url + 'actions/users/profile.php',
+                                                        data: " email_hide="+c_box.checked,
+                                                        dataType: "json",
+                                                    });
+                                                    break;
+
+                                                    case "local_hide":
+                                                    $.ajax({
+                                                        type: "POST",
+                                                        url: base_url + 'actions/users/profile.php',
+                                                        data: " local_hide="+c_box.checked,
+                                                        dataType: "json",
+                                                    });
+                                                    break;
+
+                                                    case "age_hide":
+                                                    $.ajax({
+                                                        type: "POST",
+                                                        url: base_url + 'actions/users/profile.php',
+                                                        data: " age_hide="+c_box.checked,
+                                                        dataType: "json",
+                                                    });
+                                                    break;
+
+                                                    case "post_hide":
+                                                    $.ajax({
+                                                        type: "POST",
+                                                        url: base_url + 'actions/users/profile.php',
+                                                        data: " post_hide="+c_box.checked,
+                                                        dataType: "json",
+                                                    });
+                                                    break;
+                                                 }
+                                            }
                                             </script>
                                         </div>
                                         <div class="tab-pane fade" id="security">
@@ -349,8 +361,6 @@ $_smarty_tpl->tpl_vars['interest']->_loop = true;
                             {
                             type:'post'
                            },
-                            success: debug
-
                             });
                         $('#assoc').editable({
                             type: 'textarea',

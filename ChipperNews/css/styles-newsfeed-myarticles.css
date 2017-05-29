@@ -65,7 +65,6 @@ img.bg {
 .container {
   border: none;
   background: #f8f8ff;
-  min-height:400px;
   border-radius: 9px;
   z-index: 3;
 }

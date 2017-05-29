@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 12:35:18
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 18:59:19
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\admin\categoriespanel.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13806592ac4062d7ac4-13183386%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ae6e3f7f3efb1ac4056c8bfd10618f0fe9b9aa90' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\admin\\categoriespanel.tpl',
-      1 => 1493825892,
+      1 => 1495995653,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_592ac40639f330_81784864',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -23,8 +25,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'parentCategory' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_592ac40639f330_81784864',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_592ac40639f330_81784864')) {function content_592ac40639f330_81784864($_smarty_tpl) {?><!DOCTYPE html>
 <html>
@@ -41,7 +41,7 @@ css/bootstrap.min.css">
 js/bootstrap.min.js"></script>
     
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-css/styles-ricardo.css">
+css/styles-frontpage.css">
 </head>
 
 <body>

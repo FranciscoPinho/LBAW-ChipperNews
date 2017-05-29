@@ -104,6 +104,7 @@
         </div>
         {else}
         <p> No results found... </p>
+         <br><br><br>
         {/if}
     </div>
     
@@ -122,6 +123,7 @@
         {/foreach} 
         {else}
         <p> No results found... </p>
+        <br><br><br>
         {/if}
         </div>                                                         
   </div>
