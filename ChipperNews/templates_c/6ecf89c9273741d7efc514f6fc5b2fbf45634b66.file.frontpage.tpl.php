@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 14:30:11
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 16:27:06
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\search\frontpage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2899658f7c78152d6e8-89439176%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6ecf89c9273741d7efc514f6fc5b2fbf45634b66' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\search\\frontpage.tpl',
-      1 => 1495895360,
+      1 => 1496070676,
       2 => 'file',
     ),
   ),
@@ -49,11 +49,10 @@ css/bootstrap-social.css">
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 css/styles-frontpage.css">
     <link href="https://fonts.googleapis.com/css?family=Lato|Lora|Playfair+Display:700" rel="stylesheet">
-<span class="base_url" id="base_url" hidden><?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-</span>
 </head>
 <body>
-   
+   <span class="base_url" id="base_url" hidden><?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+</span>
    <div id="featuredBar">
     <nav class="navbar navbar-default ">
         <h1 class="text-center "> Featured </h1>
@@ -71,21 +70,21 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 pages/articles/article.php?id=<?php echo $_smarty_tpl->tpl_vars['art']->value['article_id'];?>
 " style="text-decoration:none ">
                     <img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-images\articles\<?php echo $_smarty_tpl->tpl_vars['art']->value['article_id'];?>
+images/articles/<?php echo $_smarty_tpl->tpl_vars['art']->value['article_id'];?>
 " alt="... ">
                     <div id="ratings">
                         <span id="postext4" style="color:#357266"><?php echo $_smarty_tpl->tpl_vars['art']->value['posratings'];?>
 </span>
-                        <button type="button" class="btn btn-default btn-circle btnlike">
+                        <span class="btn btn-default btn-circle btnlike">
                         <img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;"> 
-                        </button>
+                        </span>
                         <span id="negtext4" style="color:#f11066"><?php echo $_smarty_tpl->tpl_vars['art']->value['negratings'];?>
 </span>
-                        <button type="button" class="btn btn-default btn-circle btndislike">
+                        <span class="btn btn-default btn-circle btndislike">
                         <img src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
-                        </button>
+                        </span>
                         
 			        </div>
                     
@@ -134,12 +133,10 @@ $_smarty_tpl->tpl_vars['subart']->_loop = true;
     </div>
 
     <nav class="navbar navbar-default ">
-        <h1 class="text-center " href="# "> News </h1>
+        <h1 class="text-center " > News </h1>
     </nav>
     <div class="row " style="padding-left:4%;padding-right:4% " id="appendArticles">
        
-    </div>
-
     </div>
     <br><br>
 </body>

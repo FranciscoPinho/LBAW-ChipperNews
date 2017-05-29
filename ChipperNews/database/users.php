@@ -216,11 +216,11 @@
 
   function friendshipExists($user_id1,$user_id2){
     global $conn;
-    $stmt = $conn->prepare("SELECT accepted FROM friendship WHERE (user_id1=? AND user_id2=?) OR (user_id1=5 AND user_id2=?);");
-    $stmt->execute(array($user_id1,$user_id2,$user_id1,$user_id2));
-    if($stmt->rowCount()>0)
-      return $stmt->fetchAll()[0];
-    else return NULL;
+    $stmt = $conn->prepare("SELECT accepted FROM friendship WHERE (user_id1=? AND user_id2=?) OR (user_id1=? AND user_id2=?);");
+    $res=$stmt->execute(array($user_id1,$user_id2,$user_id2,$user_id1));
+    if($res)
+      return $stmt->fetchColumn();
+    else return 3;
   }
 
   function getAllUsers()
@@ -243,7 +243,7 @@
   {
     global $conn;
     $stmt = $conn->prepare("SELECT * from friendship 
-    WHERE user_id1=:user_id1 OR user_id2=:user_id2 AND accepted=TRUE");
+    WHERE (user_id1=:user_id1 OR user_id2=:user_id2) AND accepted='true'");
     $stmt->bindParam(':user_id1', $user_id, PDO::PARAM_INT);
     $stmt->bindParam(':user_id2', $user_id, PDO::PARAM_INT);
     $stmt->execute();

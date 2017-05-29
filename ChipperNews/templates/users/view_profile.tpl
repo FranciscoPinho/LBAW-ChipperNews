@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <title>View Profile</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/bootstrap.min.css">
@@ -30,15 +31,24 @@
                         <a href="{$BASE_URL}pages/users/posthistory.php?id={$user.user_id}"><i class="fa fa-book fa-fw"></i> See comment history </a>
                     </li>
                 {/if}
+                {if $USERNAME}
+                {$result=friendshipExists($user.user_id, $smarty.session.user_id)}
+                {if $result === 3}
                  <li>
                         <a href="{$BASE_URL}pages/users/posthistory.php?id={$user.user_id}"><i class="fa fa-user-plus fa-fw"></i> Add <b>{$username}</b> as friend</a>
                 </li>
+                {/if}
+                {if $result == false}
                 <li>
                         <a href="{$BASE_URL}pages/users/posthistory.php?id={$user.user_id}"><i class="fa fa-user-times fa-fw"></i> Cancel friend request for <b>{$username}</b></a>
                 </li>
+                {/if}
+                {if $result == true}
                  <li>
-                        <a href="{$BASE_URL}pages/users/posthistory.php?id={$user.user_id}"><i class="fa fa-eraser fa-fw"></i> Unfriend <b>{$username}</b></a>
+                        <a href="{$BASE_URL}pages/users/posthistory.php?id={$user.user_id}"><i class="fa fa-user-times fa-fw"></i> Unfriend <b>{$username}</b></a>
                 </li>
+                {/if}
+                {/if}
                 </ul>
             </div>
             <div class="col-sm-9">
