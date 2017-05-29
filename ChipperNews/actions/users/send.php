@@ -15,7 +15,8 @@
     exit;
   } catch (PDOException $e) {
       $_SESSION['error_messages'][] = $e->getMessage();
-      debug_to_console($e->getMessage());
+          header('Location: ' . $_SERVER['HTTP_REFERER']);
+      exit;
        
     }
 ?>
