@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 20:11:01
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 20:50:38
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\common\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1317158f68e1116e296-06793157%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd31bb9597b48e9ec9848a08c66041a329c58b45f' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\header.tpl',
-      1 => 1495997175,
+      1 => 1496004478,
       2 => 'file',
     ),
   ),
@@ -46,14 +46,19 @@ css/styles-header.css">
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/bootstrap.min.js"></script>
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/pollingMessageCount.js"></script>
+    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/main.js"></script>
     <!-- Animals graphic by -->
     <!--a href="http://www.flaticon.com/authors/zlatko-najdenovski">Zlatko Najdenovski</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>-->
     <!-- Optional Bootstrap theme -->
     <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+    <span class="base_url" id="base_url" hidden><?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+</span>
 </head>
 
 <body>
+
    <div class="jumbotron">
             <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/search/frontpage.php">

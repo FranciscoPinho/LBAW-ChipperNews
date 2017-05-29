@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 20:10:59
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 00:46:22
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\friendlist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14996592a347ce8b080-93510921%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '518acc30502f65392bd105360df02edf43e2e6e7' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\friendlist.tpl',
-      1 => 1495997175,
+      1 => 1496018777,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'BASE_URL' => 0,
-    'users' => 0,
-    'user' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -41,232 +39,50 @@ css/bootstrap.min.css">
 js/bootstrap.min.js"></script>
     
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-css/styles-frontpage.css">
+css/styles-friendlist.css">
 </head>
 
 <body>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-
-                <a class="navbar-brand" href="#">My Friends</a>
-            </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <form class="navbar-form navbar-left">
+                <a class="navbar-brand" href="#">My Friends</a>
+                <form class="navbar-form navbar-right">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" placeholder="Friend search">
                     </div>
-                    <button type="submit" class="btn btn-default">Search User</button>
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="false"></i></button>
                 </form>
-
-                <ul class="nav navbar-nav navbar-right">
-
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
         <div>
-            <h1> Users </h1>
-            <form action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-actions/administration/operation.php" method="post">
-             <button type="submit" class="btn btn-default">Submit</button>
-                <div class="radio">
-                    <label class="radio-inline"><input type="radio" name="operation" value="ban" >Ban</label>
-                    <label class="radio-inline"><input type="radio" name="operation" value="delete">Delete</label>
-                    <label class="radio-inline"><input type="radio" name="operation" value="colaborator">Promote</label>
-                    <label class="radio-inline"><input type="radio" name="operation" value="unban">Unban</label>
+           <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                    <div class="card">
+                        <img class="card-img-top" src="http://success-at-work.com/wp-content/uploads/2015/04/free-stock-photos.gif">
+                        <div class="card-block">
+                            <h4 class="card-title">Tawshif Ahsan Khan</h4>
+                            <div class="meta">
+                                <a href="#">Friends</a>
+                            </div>
+                            <div class="card-text">
+                                Tawshif is a web designer living in Bangladesh.
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-secondary float-right btn-sm">Unfriend</button>
+                        </div>
+                        </div>
+                    <br>
                 </div>
-                <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Icon</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Banned?</th>
-                        <th>Deleted?</th>
-                        <th>Last Login</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php  $_smarty_tpl->tpl_vars['user'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['user']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['users']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['user']->key => $_smarty_tpl->tpl_vars['user']->value) {
-$_smarty_tpl->tpl_vars['user']->_loop = true;
-?>
-                    <?php if ($_smarty_tpl->tpl_vars['user']->value['permission_level']==0) {?>
-                    <tr>
-                        <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
-</td>
-                        <td><img class="media-object" src="<?php echo getImage($_smarty_tpl->tpl_vars['user']->value['username']);?>
-" alt="..." style="height:30px;width:30px"></td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
-</td>
-                        <td> <?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
-</td>
-                        <td>
-                            <?php if ($_smarty_tpl->tpl_vars['user']->value['is_banned']==true) {?>
-                                TRUE
-                            <?php } else { ?>
-                                FALSE
-                            <?php }?>
-                        </td>
-                        <td> 
-                            <?php if ($_smarty_tpl->tpl_vars['user']->value['is_deleted']==true) {?>
-                                TRUE
-                            <?php } else { ?>
-                                FALSE
-                            <?php }?>
-                        </td>
-                        <td> <?php echo $_smarty_tpl->tpl_vars['user']->value['last_login'];?>
-</td>
-                        <td>
-                            <input type="checkbox" name="users[]" value=<?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
-><br>
-                        </td>  
-                    </tr>
-                    <?php }?>
-                    <?php } ?>
-                </tbody>
-                </table>
-            </form>
+            </div>
         </div>
-        <div>
-            <h1> Collaborators </h1>
-            <form action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-actions/administration/operation.php" method="post">
-             <button type="submit" class="btn btn-default">Submit</button>
-                <div class="radio">
-                    <label class="radio-inline"><input type="radio" name="operation" value="ban" >Ban</label>
-                    <label class="radio-inline"><input type="radio" name="operation" value="delete">Delete</label>
-                    <label class="radio-inline"><input type="radio" name="operation" value="moderator">Promote</label>
-                    <label class="radio-inline"><input type="radio" name="operation" value="user">Demote</label>
-                </div>
-                <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Icon</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Banned?</th>
-                        <th>Deleted?</th>
-                        <th>Last Login</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php  $_smarty_tpl->tpl_vars['user'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['user']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['users']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['user']->key => $_smarty_tpl->tpl_vars['user']->value) {
-$_smarty_tpl->tpl_vars['user']->_loop = true;
-?>
-                    <?php if ($_smarty_tpl->tpl_vars['user']->value['permission_level']==1) {?>
-                    <tr>
-                        <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
-</td>
-                        <td><img class="media-object" src="<?php echo getImage($_smarty_tpl->tpl_vars['user']->value['username']);?>
-" alt="..." style="height:30px;width:30px"></td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
-</td>
-                        <td> <?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
-</td>
-                        <td>
-                            <?php if ($_smarty_tpl->tpl_vars['user']->value['is_banned']==true) {?>
-                                TRUE
-                            <?php } else { ?>
-                                FALSE
-                            <?php }?>
-                        </td>
-                        <td> 
-                            <?php if ($_smarty_tpl->tpl_vars['user']->value['is_deleted']==true) {?>
-                                TRUE
-                            <?php } else { ?>
-                                FALSE
-                            <?php }?>
-                        </td>
-                        <td> <?php echo $_smarty_tpl->tpl_vars['user']->value['last_login'];?>
-</td>
-                        <td>
-                            <input type="checkbox" name="users[]" value=<?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
-><br>
-                        </td>    
-                    </tr>
-                    <?php }?>
-                    <?php } ?>
-                </tbody>
-                </table>
-            </form>
-        </div>
-
-        <div>
-            <h1> Moderators </h1>
-            <form action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-actions/administration/operation.php" method="post">
-             <button type="submit" class="btn btn-default">Submit</button>
-                <div class="radio">
-                    <label class="radio-inline"><input type="radio" name="operation" value="ban" >Ban</label>
-                    <label class="radio-inline"><input type="radio" name="operation" value="delete">Delete</label>
-                    <label class="radio-inline"><input type="radio" name="operation" value="colaborator">Demote</label>
-                </div>
-                <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Icon</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Banned?</th>
-                        <th>Deleted?</th>
-                        <th>Last Login</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php  $_smarty_tpl->tpl_vars['user'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['user']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['users']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['user']->key => $_smarty_tpl->tpl_vars['user']->value) {
-$_smarty_tpl->tpl_vars['user']->_loop = true;
-?>
-                    <?php if ($_smarty_tpl->tpl_vars['user']->value['permission_level']==2) {?>
-                    <tr>
-                        <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
-</td>
-                        <td><img class="media-object" src="<?php echo getImage($_smarty_tpl->tpl_vars['user']->value['username']);?>
-" alt="..." style="height:30px;width:30px"></td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
-</td>
-                        <td> <?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
-</td>
-                        <td>
-                            <?php if ($_smarty_tpl->tpl_vars['user']->value['is_banned']==true) {?>
-                                TRUE
-                            <?php } else { ?>
-                                FALSE
-                            <?php }?>
-                        </td>
-                        <td> 
-                            <?php if ($_smarty_tpl->tpl_vars['user']->value['is_deleted']==true) {?>
-                                TRUE
-                            <?php } else { ?>
-                                FALSE
-                            <?php }?>
-                        </td>
-                        <td> <?php echo $_smarty_tpl->tpl_vars['user']->value['last_login'];?>
-</td>
-                        <td>
-                            <input type="checkbox" name="users[]" value=<?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
-><br>
-                        </td>  
-                    </tr>
-                    <?php }?>
-                    <?php } ?>
-                </tbody>
-                </table>
-            </form>
-        </div>
+    </div>
 </body>
 
 </html><?php }} ?>

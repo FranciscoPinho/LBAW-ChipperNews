@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 18:42:43
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 01:00:44
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\admin\adminpanel.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2300859079185ed15a4-18378822%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f27475417aa3675f653bf2a04dcae10cf6eea992' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\admin\\adminpanel.tpl',
-      1 => 1495993013,
+      1 => 1496019642,
       2 => 'file',
     ),
   ),
@@ -49,7 +49,7 @@ css/styles-frontpage.css">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+            <div class="navbar" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cogs"></i> Admin Options <span class="caret"></span></a>

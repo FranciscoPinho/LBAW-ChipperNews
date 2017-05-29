@@ -7,7 +7,8 @@
     exit;
   }
 
-  
+  $users = getAllUsers();
+  $smarty->assign('users', $users);
 
   $smarty->display('common/header-no-search.tpl');
   $smarty->display('users/friendlist.tpl');

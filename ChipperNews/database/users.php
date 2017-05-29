@@ -239,8 +239,20 @@
     $stmt->bindParam(':user_id2', $user_id, PDO::PARAM_INT);
     $stmt->execute();
     return $stmt->rowCount();
-
   }
+
+  function getAllUserFriends($user_id)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT * from friendship 
+    WHERE user_id1=:user_id1 OR user_id2=:user_id2 AND accepted=TRUE");
+    $stmt->bindParam(':user_id1', $user_id, PDO::PARAM_INT);
+    $stmt->bindParam(':user_id2', $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll();
+  }
+
+
    function getMostPopularArticle($user_id)
   {
       global $conn;
