@@ -25,6 +25,16 @@
     return $stmt->fetchAll(); 
   }
 
+   function getAllReceivedMessages($user_id)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT message.*,users.username as username
+    FROM message
+    LEFT JOIN users ON message.sender_id=users.user_id
+    WHERE receiver_id=?;");
+    $stmt->execute(array($user_id));
+    return $stmt->fetchAll(); 
+  }
   function getSentMessages($user_id,$type)
   {
     global $conn;

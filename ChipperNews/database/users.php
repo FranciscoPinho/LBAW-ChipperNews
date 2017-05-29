@@ -317,7 +317,6 @@
       $stmt = $conn->prepare("INSERT INTO friendship VALUES (?,?,'false',?)");
       return $stmt->execute(array($user_id,$user_id2,$user_id));
   }
-
   function unfriendDeny($user_id,$user_id2)
   {
       global $conn; 
