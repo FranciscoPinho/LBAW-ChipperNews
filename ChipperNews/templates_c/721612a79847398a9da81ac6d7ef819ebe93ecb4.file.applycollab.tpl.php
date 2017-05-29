@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 14:09:09
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 20:18:05
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\applycollab.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:10895592ada050fea01-41967014%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '721612a79847398a9da81ac6d7ef819ebe93ecb4' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\applycollab.tpl',
-      1 => 1493664803,
+      1 => 1496089024,
       2 => 'file',
     ),
     '4ded6cb95573457e45c0f510609f3c11dc700eb4' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\applycollab-form.tpl',
-      1 => 1495092739,
+      1 => 1496088088,
       2 => 'file',
     ),
   ),
@@ -21,6 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_592ada05246061_18868445',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -30,14 +32,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'success' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_592ada05246061_18868445',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_592ada05246061_18868445')) {function content_592ada05246061_18868445($_smarty_tpl) {?><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Apply Collaborator Page</title>
+  <title>Apply for Collaborator</title>
   <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -47,8 +47,12 @@ css/styles-forms.css">
   <script src="https://www.w3schools.com/lib/w3data.js"></script>
   <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/bootstrap.min.js"></script>
+  <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/newarticle.js"></script>
    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/additional-methods.js"></script>
   <!-- Optional Bootstrap theme -->
   <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
 </head>
@@ -62,12 +66,12 @@ images/assets/circuit.jpg" alt="">
   
   <div class="ink-grid content-drawer">
     <form action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-actions/users/applycollab.php" class="ink-form ink-formvalidator xlarge-60 large-70 medium-90 all-100 push-center quarter-vertical-padding"
+actions/users/applycollab.php" id="apply_collab" class="ink-form ink-formvalidator xlarge-60 large-70 medium-90 all-100 push-center quarter-vertical-padding"
       enctype="multipart/form-data" method="post" data-lang="en_GB">
       <?php /*  Call merged included template "users/applycollab-form.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate('users/applycollab-form.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '10895592ada050fea01-41967014');
-content_592ada051fc023_80292853($_smarty_tpl);
+content_592c81fd750059_38837346($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "users/applycollab-form.tpl" */?>
     </form>
@@ -93,9 +97,9 @@ $_smarty_tpl->tpl_vars['success']->_loop = true;
                             <?php } ?>
                             </div>
   <?php }} ?>
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 14:09:09
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 20:18:05
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\applycollab-form.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_592ada051fc023_80292853')) {function content_592ada051fc023_80292853($_smarty_tpl) {?><div class="container form-div" id="applycollab">
+<?php if ($_valid && !is_callable('content_592c81fd750059_38837346')) {function content_592c81fd750059_38837346($_smarty_tpl) {?><div class="container form-div" id="applycollab">
         <div class="logo">
            	<a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/search/frontpage.php">
@@ -107,26 +111,26 @@ images/assets/logo_navigation.png" alt="Chipper News" align="middle">
             <fieldset class="responsive-fieldset">
                 <legend>Apply for Collaborator</legend>                
                 <div class="form-group">
-                    <label> Describe yourself and your achievements briefly <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+                    <label for="description"> Describe yourself and your achievements briefly <i class="fa fa-asterisk" aria-hidden="false"></i></label>
                     <div class="col-sm-12">
                         <textarea class="form-control" rows="8" cols="50" id="description" name="description" required></textarea>
                         <span class="help-block">Please do your best to summarise.</span>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label> What is your motivation for applying to this position <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+                    <label for="motivation"> What is your motivation for applying to this position <i class="fa fa-asterisk" aria-hidden="false"></i></label>
                     <div class="col-sm-12">
                         <textarea class="form-control" rows="8" cols="50" id="motivation" placeholder="Your motivation" name="motivation" required></textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label> References from previous employers </label>
+                    <label for="refs"> References from previous employers </label>
                     <div class="col-sm-12">
                         <textarea class="form-control" rows="8" cols="50" id="refs" placeholder="Your references" name="refs"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label> News outlets you're currently associated with </label>
+                    <label for="assoc"> News outlets you're currently associated with </label>
                     <div class="col-sm-12">
                         <textarea class="form-control" rows="8" cols="50" id="assoc" placeholder="Associated outlets" name="assoc"></textarea>
                     </div>

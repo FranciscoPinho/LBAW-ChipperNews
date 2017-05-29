@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 17:32:35
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 20:31:34
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\applist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:143555929a80a3c9db6-08763611%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '63512e05825dabc2cc5f39393d90ef65ab8f1633' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\applist.tpl',
-      1 => 1496078088,
+      1 => 1496089893,
       2 => 'file',
     ),
   ),
@@ -70,18 +70,20 @@ images/assets/circuit.jpg" alt="">
 foreach ($_from as $_smarty_tpl->tpl_vars['app']->key => $_smarty_tpl->tpl_vars['app']->value) {
 $_smarty_tpl->tpl_vars['app']->_loop = true;
 ?>
-            <div class="container comment-snip" id="">
+            <div class="container comment-snip" style=" height:auto">
                 <div class="app">
-                    <div class="mycomment">
-						
+                    <div class="mycomment ">
                         <h6> By <a style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['app']->value['name'];?>
 </a></h6>
-                        <p>Achievements: <?php echo $_smarty_tpl->tpl_vars['app']->value['achievements'];?>
-</p>
-						<p>Motivation: <?php echo $_smarty_tpl->tpl_vars['app']->value['motivation'];?>
-</p>
-						<p>References: <?php echo $_smarty_tpl->tpl_vars['app']->value['reference'];?>
-</p>
+                        <p >Achievements:</p>
+                        <div class="caption" style="word-wrap: break-word;"> <?php echo $_smarty_tpl->tpl_vars['app']->value['achievements'];?>
+</div>
+						<p>Motivation:  </p>
+                        <div class="caption" style="word-wrap: break-word;"> <?php echo $_smarty_tpl->tpl_vars['app']->value['motivation'];?>
+</div>
+						<p>References:</p>
+                          <div class="caption" style="word-wrap: break-word;"> <?php echo $_smarty_tpl->tpl_vars['app']->value['reference'];?>
+</div>
 						<button type="button" class="btn btn-default" onclick="deleteApp('<?php echo $_smarty_tpl->tpl_vars['app']->value['app_id'];?>
 ')">Delete</button>
 						<button type="button" class="btn btn-primary" onclick="acceptApp('<?php echo $_smarty_tpl->tpl_vars['app']->value['user_id'];?>

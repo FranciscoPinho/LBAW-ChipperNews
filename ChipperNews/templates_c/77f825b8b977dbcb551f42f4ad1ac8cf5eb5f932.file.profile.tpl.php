@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 18:24:26
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 20:59:33
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:151825929a86b5a05c4-10120109%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '77f825b8b977dbcb551f42f4ad1ac8cf5eb5f932' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
-      1 => 1496082265,
+      1 => 1496091571,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'BASE_URL' => 0,
     'user' => 0,
+    'top_id' => 0,
     'username' => 0,
+    'score' => 0,
     'interests' => 0,
     'interest' => 0,
     'article' => 0,
@@ -46,14 +48,15 @@ css/styles-profile.css">
     <script src="https://www.w3schools.com/lib/w3data.js"></script>
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/bootstrap.min.js"></script>
-    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> 
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <link href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+     <link href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 /css/bootstrap-editable.css" rel="stylesheet">
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 /js/bootstrap-editable.js"></script>
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/additional-methods.js"></script>
+    
     <span class="base_url" id="base_url" hidden><?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 </span>
     <!-- Optional Bootstrap theme -->
@@ -114,10 +117,23 @@ pages/users/myarticles.php">
                 <div class="panel panel-default">
                     <div class="panel-heading resume-heading">
                         <div class="col-lg-12">
+                            <?php $_smarty_tpl->tpl_vars['top_id'] = new Smarty_variable(whoTopCollaborator(), null, 0);?>
+                            <?php if (($_smarty_tpl->tpl_vars['top_id']->value==$_smarty_tpl->tpl_vars['user']->value['user_id'])) {?>
+                            <h3> <?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+ <i class="fa fa-trophy fa-fw"></i></h3>
+                            <?php } else { ?>
                             <h3> <?php echo $_smarty_tpl->tpl_vars['username']->value;?>
  </h3>
+                            <?php }?>
+                            <?php $_smarty_tpl->tpl_vars['score'] = new Smarty_variable(calculateUserScore($_smarty_tpl->tpl_vars['user']->value['user_id']), null, 0);?>
+                            <?php if (($_smarty_tpl->tpl_vars['score']->value==0)) {?>
                             <h5> <?php echo $_smarty_tpl->tpl_vars['user']->value['name'];?>
- <small> some rep points? </small> </h5>
+ <small> no contribution points </small> </h5>
+                            <?php } else { ?>
+                            <h5> <?php echo $_smarty_tpl->tpl_vars['user']->value['name'];?>
+ <small> <?php echo $_smarty_tpl->tpl_vars['score']->value;?>
+ contribution points </small> </h5>
+                            <?php }?>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
@@ -291,38 +307,38 @@ $_smarty_tpl->tpl_vars['interest']->_loop = true;
                                             </script>
                                         </div>
                                         <div class="tab-pane fade" id="security">
-                                            <form class="form-horizontal" id="fpassw" method="post">
+                                            <form class="form-horizontal" id="fpassw" method="post" action="bla">
                                             <fieldset class="responsive-fieldset">
                                             <div class="form-group">
-                                                <label> Current password </label>
+                                                <label for="old_pw"> Current password </label>
                                                 <div class="container col-sm-12">
                                                     <div class="input-group">
                                                         <div class="input-group-btn">
                                                             <button class="btn btn-default"><i class="fa fa-unlock-alt"></i></button>
                                                         </div>
-                                                        <input type="password" class="form-control" id="old_pw" placeholder="Please input your current password" name="old_psw" required> 
+                                                        <input type="password" class="form-control" id="old_pw" placeholder="Please input your current password" name="old_pw" required> 
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label> New password </label>
+                                                <label for="new_pw"> New password </label>
                                                 <div class="container col-sm-12">
                                                     <div class="input-group">
                                                         <div class="input-group-btn">
                                                             <button class="btn btn-default"><i class="fa fa-lock"></i></button>
                                                         </div>
-                                                        <input type="password" class="form-control" id="new_pw" placeholder="Please input the new desired password" name="new_psw" required> 
+                                                        <input type="password" class="form-control" id="new_pw" placeholder="Please input the new desired password" name="new_pw" required> 
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label> Confirm new password </label>
+                                                <label for="c_new_pw"> Confirm new password </label>
                                                 <div class="container col-sm-12">
                                                     <div class="input-group">
                                                         <div class="input-group-btn">
                                                             <button class="btn btn-default"><i class="fa fa-lock"></i></button>
                                                         </div>
-                                                        <input type="password" class="form-control" id="c_new_pw" placeholder="Confirm the new password" name="c_new_psw" required> 
+                                                        <input type="password" class="form-control" id="c_new_pw" placeholder="Confirm the new password" name="c_new_pw" required> 
                                                     </div>
                                                 </div>
                                             </div>
@@ -340,7 +356,31 @@ $_smarty_tpl->tpl_vars['interest']->_loop = true;
                     </div>
                 </div>
                 <script>
+            $("#fpassw").validate({
+				rules:{
+					new_pw: {
+						required: true,
+						minlength: 4
+					},
+					c_new_pw: {
+					    required:true,
+						minlength: 4,
+						equalTo: "#new_pw"
+					}
+				 },
+				messages: {
+					new_pw: {
+						required: "Enter new password",
+						minlength: "At least 4 chars"
+					},
+					c_new_pw: {
+					    required:"Confirm password",
+						minlength: "At least 4 chars",
+						equalTo: "Must be same as above"
+					}
+				}
 
+			});
                 function debug(data)
                 {
                     console.log(data);

@@ -32,14 +32,16 @@
             <h1 class="nf"> Applications Review </h1>
         </div>
          {foreach $apps as $app}
-            <div class="container comment-snip" id="">
+            <div class="container comment-snip" style=" height:auto">
                 <div class="app">
-                    <div class="mycomment">
-						
+                    <div class="mycomment ">
                         <h6> By <a style="color:black; font-style:italic">{$app.name}</a></h6>
-                        <p>Achievements: {$app.achievements}</p>
-						<p>Motivation: {$app.motivation}</p>
-						<p>References: {$app.reference}</p>
+                        <p >Achievements:</p>
+                        <div class="caption" style="word-wrap: break-word;"> {$app.achievements}</div>
+						<p>Motivation:  </p>
+                        <div class="caption" style="word-wrap: break-word;"> {$app.motivation}</div>
+						<p>References:</p>
+                          <div class="caption" style="word-wrap: break-word;"> {$app.reference}</div>
 						<button type="button" class="btn btn-default" onclick="deleteApp('{$app.app_id}')">Delete</button>
 						<button type="button" class="btn btn-primary" onclick="acceptApp('{$app.user_id}')">Accept</button> 
                     </div>

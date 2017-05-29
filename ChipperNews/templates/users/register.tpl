@@ -7,7 +7,10 @@
   <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-forms.css">
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://www.w3schools.com/lib/w3data.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/additional-methods.js"></script>
+
+ 
   <script src="{$BASE_URL}js/bootstrap.min.js"></script>
   <script src="{$BASE_URL}js/newarticle.js"></script>
    <script src="{$BASE_URL}js/main.js"></script>
@@ -22,7 +25,7 @@
 
   {block name=content}
   <div class="ink-grid content-drawer">
-    <form action="{$BASE_URL}actions/users/register.php" class="ink-form ink-formvalidator xlarge-60 large-70 medium-90 all-100 push-center quarter-vertical-padding"
+    <form action="{$BASE_URL}actions/users/register.php" id="form_register" class="ink-form ink-formvalidator xlarge-60 large-70 medium-90 all-100 push-center quarter-vertical-padding"
       enctype="multipart/form-data" method="post" data-lang="en_GB">
       {include file='users/register-form.tpl'}
     </form>

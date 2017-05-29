@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 16:15:59
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 19:30:53
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:221015929a63f9a99e3-97394940%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'aa0f1a5595983c8bb14465e5cbeb61b4d2b5d7b5' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\login.tpl',
-      1 => 1495897609,
+      1 => 1496085279,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_5929a63f9c04b6_44658489',
   'variables' => 
   array (
     'BASE_URL' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_5929a63f9c04b6_44658489',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5929a63f9c04b6_44658489')) {function content_5929a63f9c04b6_44658489($_smarty_tpl) {?>    <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-sm">
@@ -43,9 +43,6 @@ actions/users/login.php" method="post">
                         <button class="btn btn-lg btn-success btn-block" type="submit" value="submit">Sign in</button>
                     </form>
                     <br>
-                       <a class="btn btn-block btn-social btn-facebook ">
-                            <span class="fa fa-facebook "></span> Sign in with Facebook
-                        </a> 
                 </div>    
             </div>
         </div>

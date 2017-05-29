@@ -1,4 +1,4 @@
-<div class="container form-div" id="register">
+<div class="container form-div">
 <br>
 	<div class="logo">
 		<a href="{$BASE_URL}pages/search/frontpage.php">
@@ -10,7 +10,7 @@
 		<fieldset class="responsive-fieldset">
 			<legend>Register Page</legend>
 			<div class="form-group">
-				<label> Username <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+				<label for="username"> Username <i class="fa fa-asterisk" aria-hidden="false"></i></label>
 				<div class="container col-sm-12">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
@@ -20,7 +20,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label>Name <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+				<label for="name">Name <i class="fa fa-asterisk" aria-hidden="false"></i></label>
 				<div class="col-sm-12">
 					<div class="input-group">
 					<span class="input-group-addon"><i class="fa fa-id-card-o fa-fw"></i></span>
@@ -29,7 +29,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label>Email <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+				<label for="email">Email <i class="fa fa-asterisk" aria-hidden="false"></i></label>
 				<div class="col-sm-12">
 					<div class="input-group">
 					<span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
@@ -38,28 +38,28 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label>Password <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+				<label for="password">Password <i class="fa fa-asterisk" aria-hidden="false"></i></label>
 				<div class="col-sm-12">
 					<div class="input-group">
 					<span class="input-group-addon"><i class="fa fa-unlock-alt fa-fw"></i></span>
 						<input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
 					</div>
 					<div class="col-sm-12">
-						<p class="help-block">Should be at least 8 characters long.</p>
+						<p class="help-block">Should be at least 4 characters long.</p>
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<label> Confirm Password <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+				<label for="password2"> Confirm Password <i class="fa fa-asterisk" aria-hidden="false"></i></label>
 				<div class="col-sm-12">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-unlock-alt fa-fw"></i></span>
-						<input type="password" class="form-control" id="passw2" placeholder="Confirm password" name="password2" required>
+						<input type="password" class="form-control" id="password2" placeholder="Confirm password" name="password2" required>
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<label> Date of birth </label>
+				<label for="birthdate"> Date of birth </label>
 				<div class="col-sm-12">
 					<div class="input-group">
 					<span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
@@ -68,14 +68,14 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label> Short Bio </label>
+				<label for="bio"> Short Bio </label>
 				<div class="col-sm-12">
 					<textarea class="form-control" rows="10" cols="30" id="bio" name="bio"></textarea>
 					<p class="help-block">Tell everyone a bit about yourself!</p>
 				</div>
 			</div>
 			<div class="form-group">
-				<label> Select your country <br>  </label>
+				<label for="local"> Select your country <br>  </label>
 				<div class="col-sm-12">
 					<select class="form-control" name="local_id" id="local">
 						<option label="(none)" value="null">Pick one...</option>

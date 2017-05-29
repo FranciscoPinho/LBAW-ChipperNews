@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 15:03:03
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 19:44:15
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\register.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:4389592ada363cf3a1-95680699%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '144ed6230a1a1221ed0a4d4d78be37888c2ed999' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\register.tpl',
-      1 => 1495983412,
+      1 => 1496086842,
       2 => 'file',
     ),
     '547abb3a0737a1926ccc648725a920a95d1f086a' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\register-form.tpl',
-      1 => 1495983412,
+      1 => 1496087054,
       2 => 'file',
     ),
   ),
@@ -44,7 +44,10 @@ css/bootstrap.min.css">
 css/styles-forms.css">
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://www.w3schools.com/lib/w3data.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/additional-methods.js"></script>
+
+ 
   <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/bootstrap.min.js"></script>
   <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -64,12 +67,12 @@ images/assets/circuit.jpg" alt="">
   
   <div class="ink-grid content-drawer">
     <form action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-actions/users/register.php" class="ink-form ink-formvalidator xlarge-60 large-70 medium-90 all-100 push-center quarter-vertical-padding"
+actions/users/register.php" id="form_register" class="ink-form ink-formvalidator xlarge-60 large-70 medium-90 all-100 push-center quarter-vertical-padding"
       enctype="multipart/form-data" method="post" data-lang="en_GB">
       <?php /*  Call merged included template "users/register-form.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate('users/register-form.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '4389592ada363cf3a1-95680699');
-content_592ae6a72e7628_95112364($_smarty_tpl);
+content_592c7a0f62e0d6_95694910($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "users/register-form.tpl" */?>
     </form>
@@ -95,9 +98,9 @@ $_smarty_tpl->tpl_vars['success']->_loop = true;
                             <?php } ?>
                             </div>
   <?php }} ?>
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 15:03:03
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 19:44:15
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\register-form.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_592ae6a72e7628_95112364')) {function content_592ae6a72e7628_95112364($_smarty_tpl) {?><div class="container form-div" id="register">
+<?php if ($_valid && !is_callable('content_592c7a0f62e0d6_95694910')) {function content_592c7a0f62e0d6_95694910($_smarty_tpl) {?><div class="container form-div">
 <br>
 	<div class="logo">
 		<a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -111,98 +114,72 @@ images/assets/logo_navigation.png" alt="Chipper News" align="middle">
 		<fieldset class="responsive-fieldset">
 			<legend>Register Page</legend>
 			<div class="form-group">
-				<label> Username <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+				<label for="username"> Username <i class="fa fa-asterisk" aria-hidden="false"></i></label>
 				<div class="container col-sm-12">
 					<div class="input-group">
-						<div class="input-group-btn">
-							<button class="btn btn-default"><i class="fa fa-user"></i></button>
-						</div>
-						<?php if ($_smarty_tpl->tpl_vars['FORM_VALUES']->value['username']) {?>
+						<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
 						<input type="text" class="form-control" id="username" placeholder="Please input a unique, valid username" name="username"
-						    value="<?php echo $_smarty_tpl->tpl_vars['FORM_VALUES']->value['username'];?>
-" required> <?php } else { ?>
-						<input type="text" class="form-control" id="username" placeholder="Please input a unique, valid username" name="username"
-						    required> <?php }?>
+						    required>
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<label>Name <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+				<label for="name">Name <i class="fa fa-asterisk" aria-hidden="false"></i></label>
 				<div class="col-sm-12">
 					<div class="input-group">
-						<div class="input-group-btn">
-							<button class="btn btn-default"><i class="fa fa-id-card-o"></i></button>
-						</div>
-						<?php if ($_smarty_tpl->tpl_vars['FORM_VALUES']->value['name']) {?>
-						<input type="text" class="form-control" id="name" placeholder="Jane Doe" name="name" value="<?php echo $_smarty_tpl->tpl_vars['FORM_VALUES']->value['name'];?>
-"
-						    required> 
-							<?php } else { ?>
-						<input type="text" class="form-control" id="name" placeholder="Jane Doe" name="name" required>						<?php }?>
+					<span class="input-group-addon"><i class="fa fa-id-card-o fa-fw"></i></span>
+						<input type="text" class="form-control" id="name" placeholder="Jane Doe" name="name" required>
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<label>Email <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+				<label for="email">Email <i class="fa fa-asterisk" aria-hidden="false"></i></label>
 				<div class="col-sm-12">
 					<div class="input-group">
-						<div class="input-group-btn">
-							<button class="btn btn-default"><i class="fa fa-envelope-o"></i></button>
-						</div>
-						<?php if ($_smarty_tpl->tpl_vars['FORM_VALUES']->value['email']) {?>
-						<input type="email" class="form-control" id="email" placeholder="your@email.com" name="email" value="<?php echo $_smarty_tpl->tpl_vars['FORM_VALUES']->value['email'];?>
-"
-						    required> <?php } else { ?>
+					<span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
 						<input type="email" class="form-control" id="email" placeholder="your@email.com" name="email" required>
-						<?php }?>
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<label>Password <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+				<label for="password">Password <i class="fa fa-asterisk" aria-hidden="false"></i></label>
 				<div class="col-sm-12">
 					<div class="input-group">
-						<div class="input-group-btn">
-							<button class="btn btn-default"><i class="fa fa-unlock-alt"></i></button>
-						</div>
+					<span class="input-group-addon"><i class="fa fa-unlock-alt fa-fw"></i></span>
 						<input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
 					</div>
 					<div class="col-sm-12">
-						<p class="help-block">Should be at least 8 characters long.</p>
+						<p class="help-block">Should be at least 4 characters long.</p>
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<label> Confirm Password <i class="fa fa-asterisk" aria-hidden="false"></i></label>
+				<label for="password2"> Confirm Password <i class="fa fa-asterisk" aria-hidden="false"></i></label>
 				<div class="col-sm-12">
 					<div class="input-group">
-						<div class="input-group-btn">
-							<button class="btn btn-default"><i class="fa fa-unlock-alt"></i></button>
-						</div>
-						<input type="password" class="form-control" id="passw2" placeholder="Confirm password" name="password2" required>
+						<span class="input-group-addon"><i class="fa fa-unlock-alt fa-fw"></i></span>
+						<input type="password" class="form-control" id="password2" placeholder="Confirm password" name="password2" required>
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<label> Date of birth </label>
+				<label for="birthdate"> Date of birth </label>
 				<div class="col-sm-12">
 					<div class="input-group">
-						<div class="input-group-btn">
-							<button class="btn btn-default"><i class="fa fa-calendar"></i></button>
-						</div>
-						<input type="date" class="form-control" id="birthdate" placeholder="Date of birth" name="birthdate">
+					<span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+					<input type="date" class="form-control" id="birthdate" placeholder="Date of birth" name="birthdate">
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<label> Short Bio </label>
+				<label for="bio"> Short Bio </label>
 				<div class="col-sm-12">
 					<textarea class="form-control" rows="10" cols="30" id="bio" name="bio"></textarea>
 					<p class="help-block">Tell everyone a bit about yourself!</p>
 				</div>
 			</div>
 			<div class="form-group">
-				<label> Select your country <br>  </label>
+				<label for="local"> Select your country <br>  </label>
 				<div class="col-sm-12">
 					<select class="form-control" name="local_id" id="local">
 						<option label="(none)" value="null">Pick one...</option>
@@ -347,8 +324,6 @@ $_smarty_tpl->tpl_vars['othercat']->_loop = true;
 					</table>
 					</div>
 				</div>
-
-
 			<div class="form-group">
 				<label for="inputFile">Upload an avatar</label>
 				<div class="col-sm-8">
