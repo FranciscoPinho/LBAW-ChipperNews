@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 20:40:17
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 21:57:03
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\friendlist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14996592a347ce8b080-93510921%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '518acc30502f65392bd105360df02edf43e2e6e7' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\friendlist.tpl',
-      1 => 1496090386,
+      1 => 1496095022,
       2 => 'file',
     ),
   ),
@@ -21,9 +21,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'BASE_URL' => 0,
     'pending' => 0,
+    'pend' => 0,
     'counter' => 0,
     'first' => 0,
-    'pend' => 0,
     'friends' => 0,
     'friend' => 0,
   ),
@@ -55,12 +55,6 @@ css/styles-friendlist.css">
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <a class="navbar-brand" href="#">My Friends</a>
-                <form class="navbar-form navbar-right">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Friend search">
-                    </div>
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="false"></i></button>
-                </form>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -113,7 +107,7 @@ css/styles-friendlist.css">
     <div id="pendingdiv">
         <div class="container">
         <?php if (sizeof($_smarty_tpl->tpl_vars['pending']->value)==0) {?>
-        <p> No current pending requests ;_;</p>
+        <h4> No current pending requests :(</h4>
         <?php }?>
         <?php $_smarty_tpl->tpl_vars['counter'] = new Smarty_variable(1, null, 0);?>
             <?php  $_smarty_tpl->tpl_vars['pend'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['pend']->_loop = false;
@@ -121,6 +115,7 @@ css/styles-friendlist.css">
 foreach ($_from as $_smarty_tpl->tpl_vars['pend']->key => $_smarty_tpl->tpl_vars['pend']->value) {
 $_smarty_tpl->tpl_vars['pend']->_loop = true;
 ?>
+            <?php if ($_smarty_tpl->tpl_vars['pend']->value['who_sent']!=$_SESSION['user_id']) {?>
             <?php if ($_smarty_tpl->tpl_vars['counter']->value==1) {?>
             <div class="row">
              <?php $_smarty_tpl->tpl_vars['first'] = new Smarty_variable(0, null, 0);?> 
@@ -197,8 +192,9 @@ pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['pend']->valu
                 <?php if ($_smarty_tpl->tpl_vars['first']->value==0) {?>
                 <?php $_smarty_tpl->tpl_vars['first'] = new Smarty_variable(1, null, 0);?>
                 <?php }?>
+                <?php }?>
+                <?php $_smarty_tpl->tpl_vars['counter'] = new Smarty_variable($_smarty_tpl->tpl_vars['counter']->value+1, null, 0);?>
             <?php }?>
-            <?php $_smarty_tpl->tpl_vars['counter'] = new Smarty_variable($_smarty_tpl->tpl_vars['counter']->value+1, null, 0);?>
             <?php } ?>
              </div>
          </div>
@@ -210,7 +206,7 @@ pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['pend']->valu
     </div>
     <div class="container">
     <?php if (sizeof($_smarty_tpl->tpl_vars['friends']->value)==0) {?>
-        <p> Forever alone ... </p>
+        <p> Forever alone TT_TT </p>
     <?php }?>
         <?php $_smarty_tpl->tpl_vars['counter'] = new Smarty_variable(1, null, 0);?>
          

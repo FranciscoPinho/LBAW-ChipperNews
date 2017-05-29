@@ -20,12 +20,6 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <a class="navbar-brand" href="#">My Friends</a>
-                <form class="navbar-form navbar-right">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Friend search">
-                    </div>
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="false"></i></button>
-                </form>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -78,7 +72,7 @@
     <div id="pendingdiv">
         <div class="container">
         {if sizeof($pending)==0}
-        <p> No current pending requests ;_;</p>
+        <h4> No current pending requests :(</h4>
         {/if}
         {$counter=1}
             {foreach $pending as $pend}
@@ -157,7 +151,7 @@
     </div>
     <div class="container">
     {if sizeof($friends)==0}
-        <p> Forever alone ... </p>
+        <p> Forever alone TT_TT </p>
     {/if}
         {$counter=1}
          
