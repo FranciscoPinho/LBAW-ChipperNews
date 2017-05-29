@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 17:06:02
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 18:08:10
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\friendlist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14996592a347ce8b080-93510921%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '518acc30502f65392bd105360df02edf43e2e6e7' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\friendlist.tpl',
-      1 => 1496077561,
+      1 => 1496081284,
       2 => 'file',
     ),
   ),
@@ -119,8 +119,8 @@ pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['pend']->valu
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button class="btn btn-secondary btn-success float-right btn-sm">Accept</button>
-                            <button class="btn btn-secondary btn-danger float-left btn-sm">Reject</button>
+                            <button class="btn btn-secondary btn-success float-right btn-sm" onclick="acceptFriend()"><i class="fa fa-plus"></i> Accept</button>
+                            <button class="btn btn-secondary btn-danger float-left btn-sm" onclick="rejectFriend()"><i class="fa fa-times"></i> Reject</button>
                         </div>
                     </div>
                     <br>
@@ -148,8 +148,8 @@ pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['pend']->valu
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button class="btn btn-secondary btn-success float-right btn-sm">Accept</button>
-                            <button class="btn btn-secondary btn-danger float-left btn-sm">Reject</button>
+                            <button class="btn btn-secondary btn-success float-right btn-sm" onclick="acceptFriend()"><i class="fa fa-plus"></i> Accept</button>
+                            <button class="btn btn-secondary btn-danger float-left btn-sm" onclick="rejectFriend()"><i class="fa fa-times"></i> Reject</button>
                         </div>
                     </div>
                     <br>
@@ -206,7 +206,7 @@ pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['friend']->va
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-secondary float-right btn-sm">Unfriend</button>
+                        <button class="btn btn-secondary float-right btn-sm"><i class="fa fa-minus"></i> Unfriend</button>
                     </div>
                 </div>
              <br>
@@ -234,7 +234,7 @@ pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['friend']->va
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-secondary float-right btn-sm">Unfriend</button>
+                        <button class="btn btn-secondary float-right btn-sm"><i class="fa fa-minus"></i> Unfriend</button>
                     </div>
                 </div>
                 <br>

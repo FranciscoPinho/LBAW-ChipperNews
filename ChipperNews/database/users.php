@@ -225,6 +225,47 @@
     else return 3;
   }
 
+  function calculateUserScore($user_id)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT results.collaborator,SUM(results.sum_score) as total_sum FROM 
+                          (SELECT  SUM(rating_article.score) AS sum_score,article.author as collaborator
+                                    FROM rating_article  
+                                    LEFT JOIN article ON article.article_id=rating_article.article_id
+                                    LEFT JOIN users ON article.author=users.user_id
+                                    WHERE article.author=?
+                                    GROUP BY article.author,users.name,article.article_id,users.username) as results
+                          GROUP BY collaborator
+                          ORDER BY total_sum DESC;");
+ 
+    if($stmt->execute(array($user_id)))
+    {
+      $results = $stmt->fetchAll();
+      return $results[0]['total_sum'];
+    }
+    return 0;
+  }
+
+  function whoTopCollaborator()
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT results.collaborator,SUM(results.sum_score) as total_sum FROM 
+                          (SELECT  SUM(rating_article.score) AS sum_score,article.author as collaborator
+                                    FROM rating_article  
+                                    LEFT JOIN article ON article.article_id=rating_article.article_id
+                                    LEFT JOIN users ON article.author=users.user_id
+                                    GROUP BY article.author,users.name,article.article_id,users.username) as results
+                          GROUP BY collaborator
+                          ORDER BY total_sum DESC;");
+   
+    if($stmt->execute())
+    {
+      $results = $stmt->fetchAll();
+      return $results[0]['collaborator'];
+    }
+    return NULL;
+  }
+
   function getAllUsers()
   {
     global $conn;

@@ -75,8 +75,8 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button class="btn btn-secondary btn-success float-right btn-sm">Accept</button>
-                            <button class="btn btn-secondary btn-danger float-left btn-sm">Reject</button>
+                            <button class="btn btn-secondary btn-success float-right btn-sm" onclick="acceptFriend()"><i class="fa fa-plus"></i> Accept</button>
+                            <button class="btn btn-secondary btn-danger float-left btn-sm" onclick="rejectFriend()"><i class="fa fa-times"></i> Reject</button>
                         </div>
                     </div>
                     <br>
@@ -98,8 +98,8 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button class="btn btn-secondary btn-success float-right btn-sm">Accept</button>
-                            <button class="btn btn-secondary btn-danger float-left btn-sm">Reject</button>
+                            <button class="btn btn-secondary btn-success float-right btn-sm" onclick="acceptFriend()"><i class="fa fa-plus"></i> Accept</button>
+                            <button class="btn btn-secondary btn-danger float-left btn-sm" onclick="rejectFriend()"><i class="fa fa-times"></i> Reject</button>
                         </div>
                     </div>
                     <br>
@@ -146,7 +146,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-secondary float-right btn-sm">Unfriend</button>
+                        <button class="btn btn-secondary float-right btn-sm"><i class="fa fa-minus"></i> Unfriend</button>
                     </div>
                 </div>
              <br>
@@ -168,7 +168,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-secondary float-right btn-sm">Unfriend</button>
+                        <button class="btn btn-secondary float-right btn-sm"><i class="fa fa-minus"></i> Unfriend</button>
                     </div>
                 </div>
                 <br>

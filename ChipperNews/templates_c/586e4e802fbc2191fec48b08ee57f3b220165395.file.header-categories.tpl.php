@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 16:43:20
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 18:15:16
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\common\header-categories.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:12356592ad02c13de87-63374967%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '586e4e802fbc2191fec48b08ee57f3b220165395' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\common\\header-categories.tpl',
-      1 => 1496075377,
+      1 => 1496080425,
       2 => 'file',
     ),
   ),
@@ -98,7 +98,8 @@ pages/admin/reportPanel.php">Report Center</a></li>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/admin/sysadmin.php">Admin Panel</a></li>
                      <?php }?>
-                     <li><i class="fa fa-envelope-o fa-fw"></i><span class="label label-info pull-right inbox-notification" id="unreadMessages"></span></li>
+                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/inbox.php"><i class="fa fa-envelope-o fa-fw"></i><span class="label label-info pull-right inbox-notification" id="unreadMessages"></span></a></li>
                     <?php } else { ?>
                      <li><a data-toggle="modal" data-target="#myModal" href="">Login</a></li>     
                      <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -107,7 +108,14 @@ pages/users/register.php">Register</a></li>
                 </ul>          
             </div>
             <div class="navbar-right">
-                
+                 <form class="navbar-form navbar-right" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/search/results.php" enctype="multipart/form-data" method="post" data-lang="en_GB">
+                        <div class="form-group has-feedback" >
+                            <input type="text" style="border-radius:16px;color:#C5C9A4" class="form-control" placeholder="Search" name="query">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+
+                 </form>
             </div>
             </div>     <!-- /.container-fluid -->
                             <div id="error_messages">

@@ -38,11 +38,6 @@
                         <a href="{$BASE_URL}pages/users/posthistory.php?id={$user.user_id}"><i class="fa fa-user-plus fa-fw"></i> Add <b>{$username}</b> as friend</a>
                 </li>
                 {/if}
-                {if $result == false}
-                <li>
-                        <a href="{$BASE_URL}pages/users/posthistory.php?id={$user.user_id}"><i class="fa fa-user-times fa-fw"></i> Cancel friend request for <b>{$username}</b></a>
-                </li>
-                {/if}
                 {if $result == true}
                  <li>
                         <a href="{$BASE_URL}pages/users/posthistory.php?id={$user.user_id}"><i class="fa fa-user-times fa-fw"></i> Unfriend <b>{$username}</b></a>
@@ -55,8 +50,18 @@
                 <div class="panel panel-default">
                     <div class="panel-heading resume-heading">
                         <div class="col-lg-12">
+                            {$top_id = whoTopCollaborator()}
+                            {if ($top_id eq $user.user_id)}
+                            <h3> {$username} <i class="fa fa-trophy fa-fw"></i></h3>
+                            {else}
                             <h3> {$username} </h3>
-                            <h5> {$user.name} <small> some rep points? </small> </h5>
+                            {/if}
+                            {$score = calculateUserScore($user.user_id)}
+                            {if ($score == 0)}
+                            <h5> {$user.name} <small> no contribution points </small> </h5>
+                            {else}
+                            <h5> {$user.name} <small> {$score} contribution points </small> </h5>
+                            {/if}
                         </div>
                         <div class="row">
                             <div class="col-lg-12">

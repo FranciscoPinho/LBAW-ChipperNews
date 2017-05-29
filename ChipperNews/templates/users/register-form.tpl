@@ -172,8 +172,6 @@
 					</table>
 					</div>
 				</div>
-
-
 			<div class="form-group">
 				<label for="inputFile">Upload an avatar</label>
 				<div class="col-sm-8">

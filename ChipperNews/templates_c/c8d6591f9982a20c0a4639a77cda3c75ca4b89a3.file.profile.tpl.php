@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 16:43:15
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 18:39:09
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:619859077a3c36c607-44707552%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c8d6591f9982a20c0a4639a77cda3c75ca4b89a3' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\profile.tpl',
-      1 => 1496075377,
+      1 => 1496083106,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'BASE_URL' => 0,
     'user' => 0,
+    'top_id' => 0,
     'username' => 0,
+    'score' => 0,
     'interests' => 0,
     'interest' => 0,
     'article' => 0,
@@ -114,10 +116,23 @@ pages/users/myarticles.php">
                 <div class="panel panel-default">
                     <div class="panel-heading resume-heading">
                         <div class="col-lg-12">
+                            <?php $_smarty_tpl->tpl_vars['top_id'] = new Smarty_variable(whoTopCollaborator(), null, 0);?>
+                            <?php if (($_smarty_tpl->tpl_vars['top_id']->value==$_smarty_tpl->tpl_vars['user']->value['user_id'])) {?>
+                            <h3> <?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+ <i class="fa fa-trophy fa-fw"></i></h3>
+                            <?php } else { ?>
                             <h3> <?php echo $_smarty_tpl->tpl_vars['username']->value;?>
  </h3>
+                            <?php }?>
+                            <?php $_smarty_tpl->tpl_vars['score'] = new Smarty_variable(calculateUserScore($_smarty_tpl->tpl_vars['user']->value['user_id']), null, 0);?>
+                            <?php if (($_smarty_tpl->tpl_vars['score']->value==0)) {?>
                             <h5> <?php echo $_smarty_tpl->tpl_vars['user']->value['name'];?>
- <small> some rep points? </small> </h5>
+ <small> no contribution points </small> </h5>
+                            <?php } else { ?>
+                            <h5> <?php echo $_smarty_tpl->tpl_vars['user']->value['name'];?>
+ <small> <?php echo $_smarty_tpl->tpl_vars['score']->value;?>
+ contribution points </small> </h5>
+                            <?php }?>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
