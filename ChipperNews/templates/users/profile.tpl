@@ -34,7 +34,7 @@
             <div class="col-sm-3">
                 <ul class="nav nav-pills nav-stacked nav-email shadow mb-20">
                     <li>
-                        <a href="{$BASE_URL}pages/users/chatbox.php">
+                        <a href="{$BASE_URL}pages/users/inbox.php">
                             <i class="fa fa-envelope-o fa-fw"></i> Inbox <span class="label label-info pull-right inbox-notification"></span>
                         </a>
                     </li>

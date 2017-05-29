@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 22:12:31
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 22:42:18
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\inbox.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:20756592c9b0ddf25d2-79078105%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '758d532862590d95e5368ef491fc8dd5256b6850' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\inbox.tpl',
-      1 => 1496095948,
+      1 => 1496097705,
       2 => 'file',
     ),
   ),
@@ -82,7 +82,7 @@ $_smarty_tpl->tpl_vars['msg']->_loop = true;
          <?php } ?>
 
         <div class="container" style="width:60%">
-        <form class="form-horizontal" id="fpassw" method="post" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+        <form class="form-horizontal" id="msg" method="post" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 actions/users/send.php">
          <fieldset class="responsive-fieldset">
             <div class="form-group">
@@ -117,7 +117,6 @@ actions/users/send.php">
     </div>
 	
 <script>
-
 function markRead(user_id)
 {
                 var base_url = $("#base_url").text();

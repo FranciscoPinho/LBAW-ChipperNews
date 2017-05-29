@@ -21,7 +21,6 @@
 
   }
 
-
   function getReceivedMessages($user_id,$type)
   {
     global $conn;

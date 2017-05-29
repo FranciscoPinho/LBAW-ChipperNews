@@ -41,7 +41,7 @@
          {/foreach}
 
         <div class="container" style="width:60%">
-        <form class="form-horizontal" id="fpassw" method="post" action="{$BASE_URL}actions/users/send.php">
+        <form class="form-horizontal" id="msg" method="post" action="{$BASE_URL}actions/users/send.php">
          <fieldset class="responsive-fieldset">
             <div class="form-group">
                <label for="to"> To: <br>  </label>
@@ -74,7 +74,6 @@
     </div>
 	
 <script>
-
 function markRead(user_id)
 {
                 var base_url = $("#base_url").text();
