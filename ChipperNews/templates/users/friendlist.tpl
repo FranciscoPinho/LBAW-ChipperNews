@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="{$BASE_URL}js/bootstrap.min.js"></script>
-    
+    <span class="base_url" id="base_url" hidden>{$BASE_URL}</span>
     <link rel="stylesheet" type="text/css" href="{$BASE_URL}css/styles-friendlist.css">
 </head>
 
@@ -46,10 +46,40 @@
     {           
         $(this).parent().addClass('active').siblings().removeClass('active');           
     });
+
+    var base_url = $("#base_url").text();
+    function acceptFriend(userid) 
+    {
+        $.ajax({
+            type: "POST",
+            url: base_url + 'actions/users/accept.php',
+            data: "user_accept="+userid,
+            success: reload
+        });
+    }
+
+    function delFriend(userid) 
+    {
+        $.ajax({
+            type: "POST",
+            url: base_url + 'actions/users/unfriend_deny.php',
+            data: " user_del="+userid,
+            success:reload
+        });
+    }
+    
+    function reload(data)
+    {
+			location.reload();
+	}
     </script>
+
 
     <div id="pendingdiv">
         <div class="container">
+        {if sizeof($pending)==0}
+        <p> No current pending requests ;_;</p>
+        {/if}
         {$counter=1}
             {foreach $pending as $pend}
             {if $counter eq 1}
@@ -74,14 +104,14 @@
                                 {$pend.user1_bio}
                             </div>
                         </div>
+                        </a>
                         <div class="card-footer">
-                            <button class="btn btn-secondary btn-success float-right btn-sm" onclick="acceptFriend()"><i class="fa fa-plus"></i> Accept</button>
-                            <button class="btn btn-secondary btn-danger float-left btn-sm" onclick="rejectFriend()"><i class="fa fa-times"></i> Reject</button>
+                            <button class="btn btn-secondary btn-success float-right btn-sm" onclick="acceptFriend({$pend.user_id1})"><i class="fa fa-plus"></i> Accept</button>
+                            <button class="btn btn-secondary btn-danger float-left btn-sm" onclick="delFriend({$pend.user_id1})"><i class="fa fa-times"></i> Reject</button>
                         </div>
                     </div>
                     <br>
                     <br>
-                </a>
             </div>
             {else}
                 <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
@@ -97,14 +127,14 @@
                                 {$pend.user2_bio}
                             </div>
                         </div>
+                        </a>
                         <div class="card-footer">
-                            <button class="btn btn-secondary btn-success float-right btn-sm" onclick="acceptFriend()"><i class="fa fa-plus"></i> Accept</button>
-                            <button class="btn btn-secondary btn-danger float-left btn-sm" onclick="rejectFriend()"><i class="fa fa-times"></i> Reject</button>
+                            <button class="btn btn-secondary btn-success float-right btn-sm" onclick="acceptFriend({$pend.user_id2})"><i class="fa fa-plus"></i> Accept</button>
+                            <button class="btn btn-secondary btn-danger float-left btn-sm" onclick="delFriend({$pend.user_id2})"><i class="fa fa-times"></i> Reject</button>
                         </div>
                     </div>
                     <br>
                     <br>
-                    </a>
                 </div>
             {/if}
                 {if $counter mod 4==0}
@@ -120,7 +150,13 @@
     </div>
 
 <div id="friendsdiv">
+    <div class="progress progress-striped active">
+        <div class="progress-bar progress-bar-success" style="width: 100%"></div>
+    </div>
     <div class="container">
+    {if sizeof($friends)==0}
+        <p> Forever alone ... </p>
+    {/if}
         {$counter=1}
          
             {foreach $friends as $friend}
@@ -145,13 +181,13 @@
                             {$friend.user1_bio}
                         </div>
                     </div>
+                    </a>
                     <div class="card-footer">
-                        <button class="btn btn-secondary float-right btn-sm"><i class="fa fa-minus"></i> Unfriend</button>
+                        <button class="btn btn-secondary float-right btn-sm" onclick="delFriend({$friend.user_id1})"><i class="fa fa-minus"></i> Unfriend</button>
                     </div>
                 </div>
              <br>
             <br>
-            </a>
             </div>
         {else}
             <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
@@ -167,16 +203,14 @@
                             {$friend.user2_bio}
                         </div>
                     </div>
+                    </a>
                     <div class="card-footer">
-                        <button class="btn btn-secondary float-right btn-sm"><i class="fa fa-minus"></i> Unfriend</button>
+                        <button class="btn btn-secondary float-right btn-sm" onclick="delFriend({$friend.user_id2})"><i class="fa fa-minus"></i> Unfriend</button>
                     </div>
                 </div>
                 <br>
                 <br>
-                </a>
-                </div>
-
-
+             </div>
         {/if}
         {if $counter mod 4==0}
                 </div>

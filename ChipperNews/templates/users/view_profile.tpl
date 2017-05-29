@@ -20,6 +20,34 @@
 
 <body>
     <div class="container">
+    <script>
+
+    var base_url = $("#base_url").text();
+    function sendRequest(userid) 
+    {
+        $.ajax({
+            type: "POST",
+            url: base_url + 'actions/users/friendrequest.php',
+            data: "user_add="+userid,
+            success: reload
+        });
+    }
+
+    function delFriend(userid) 
+    {
+        $.ajax({
+            type: "POST",
+            url: base_url + 'actions/users/unfriend_deny.php',
+            data: " user_del="+userid,
+            success:reload
+        });
+    }
+    
+    function reload(data)
+    {
+			location.reload();
+	}
+    </script>
         <div id="bg">
             <img class="bg" src="{$BASE_URL}images/assets/circuit.jpg" alt="">
         </div>
@@ -35,12 +63,12 @@
                 {$result=friendshipExists($user.user_id, $smarty.session.user_id)}
                 {if $result === 3}
                  <li>
-                        <a href="{$BASE_URL}pages/users/posthistory.php?id={$user.user_id}"><i class="fa fa-user-plus fa-fw"></i> Add <b>{$username}</b> as friend</a>
+                    <a onclick="sendRequest({$user.user_id})"><i class="fa fa-user-plus fa-fw"></i> Add <b>{$username}</b> as friend</a>
                 </li>
                 {/if}
-                {if $result == true}
+                {if $result === true}
                  <li>
-                        <a href="{$BASE_URL}pages/users/posthistory.php?id={$user.user_id}"><i class="fa fa-user-times fa-fw"></i> Unfriend <b>{$username}</b></a>
+                    <a onclick="delFriend({$user.user_id})"><i class="fa fa-user-times fa-fw"></i> Unfriend <b>{$username}</b></button></a>
                 </li>
                 {/if}
                 {/if}

@@ -219,10 +219,12 @@
   function friendshipExists($user_id1,$user_id2){
     global $conn;
     $stmt = $conn->prepare("SELECT accepted FROM friendship WHERE (user_id1=? AND user_id2=?) OR (user_id1=? AND user_id2=?);");
-    $res=$stmt->execute(array($user_id1,$user_id2,$user_id2,$user_id1));
-    if($res)
-      return $stmt->fetchColumn();
-    else return 3;
+    $stmt->execute(array($user_id1,$user_id2,$user_id2,$user_id1));
+    $res=$stmt->fetchColumn();
+    if($res==null){
+      return 3;
+    }
+    else return $res;
   }
 
   function calculateUserScore($user_id)
@@ -297,12 +299,12 @@
   {
     global $conn;
     $stmt = $conn->prepare("SELECT *,
-    (SELECT username FROM users WHERE users.user_id=user_id2) as user1_username,
-    (SELECT username FROM users WHERE users.user_id=user_id1) as user2_username,
-    (SELECT name FROM users WHERE users.user_id=user_id2) as user1_bio,
-    (SELECT name FROM users WHERE users.user_id=user_id1) as user2_bio,
-    (SELECT bio FROM users WHERE users.user_id=user_id2) as user1_name,
-    (SELECT bio FROM users WHERE users.user_id=user_id1) as user2_name
+    (SELECT username FROM users WHERE users.user_id=user_id1) as user1_username,
+    (SELECT username FROM users WHERE users.user_id=user_id2) as user2_username,
+    (SELECT name FROM users WHERE users.user_id=user_id1) as user1_bio,
+    (SELECT name FROM users WHERE users.user_id=user_id2) as user2_bio,
+    (SELECT bio FROM users WHERE users.user_id=user_id1) as user1_name,
+    (SELECT bio FROM users WHERE users.user_id=user_id2) as user2_name
     FROM friendship 
     WHERE (user_id1=? OR user_id2=?) AND accepted=".$type.";");
     $stmt->execute(array($user_id,$user_id));
@@ -330,8 +332,29 @@
     $stmt->execute(array($user_id));
     return $stmt->fetchAll(); 
   }
+  
+  function friendRequest($user_id,$user_id2)
+  {
+      global $conn; 
+      $stmt = $conn->prepare("INSERT INTO friendship VALUES (?,?,'false')");
+      return $stmt->execute(array($user_id,$user_id2));
+  }
 
-   function getMostPopularArticle($user_id)
+  function unfriendDeny($user_id,$user_id2)
+  {
+      global $conn; 
+      $stmt = $conn->prepare("DELETE FROM friendship WHERE (user_id1=? AND user_id2=?) OR (user_id1=? AND user_id2=?)");
+      return $stmt->execute(array($user_id,$user_id2,$user_id2,$user_id));
+  }
+  
+  function acceptFriendship($user_id,$user_id2)
+  {
+      global $conn; 
+      $stmt = $conn->prepare("UPDATE friendship SET accepted='true' WHERE (user_id1=? AND user_id2=?) OR (user_id1=? AND user_id2=?)");
+      return $stmt->execute(array($user_id,$user_id2,$user_id2,$user_id));
+  }
+  
+  function getMostPopularArticle($user_id)
   {
       global $conn;
       $stmt = $conn->prepare("SELECT article.*, COALESCE(SUM(rating_article.score),0) AS sum_score,

@@ -196,7 +196,6 @@
                                                         type: "POST",
                                                         url: base_url + 'actions/users/profile.php',
                                                         data: " email_hide="+c_box.checked,
-                                                        dataType: "json",
                                                     });
                                                     break;
 
@@ -205,7 +204,6 @@
                                                         type: "POST",
                                                         url: base_url + 'actions/users/profile.php',
                                                         data: " local_hide="+c_box.checked,
-                                                        dataType: "json",
                                                     });
                                                     break;
 
@@ -214,7 +212,6 @@
                                                         type: "POST",
                                                         url: base_url + 'actions/users/profile.php',
                                                         data: " age_hide="+c_box.checked,
-                                                        dataType: "json",
                                                     });
                                                     break;
 
@@ -223,7 +220,6 @@
                                                         type: "POST",
                                                         url: base_url + 'actions/users/profile.php',
                                                         data: " post_hide="+c_box.checked,
-                                                        dataType: "json",
                                                     });
                                                     break;
                                                  }

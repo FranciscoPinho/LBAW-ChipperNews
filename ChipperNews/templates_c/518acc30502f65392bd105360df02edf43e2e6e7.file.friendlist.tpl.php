@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 18:08:10
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 20:28:41
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\friendlist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14996592a347ce8b080-93510921%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '518acc30502f65392bd105360df02edf43e2e6e7' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\friendlist.tpl',
-      1 => 1496081284,
+      1 => 1496089702,
       2 => 'file',
     ),
   ),
@@ -43,7 +43,8 @@ css/bootstrap.min.css">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/bootstrap.min.js"></script>
-    
+    <span class="base_url" id="base_url" hidden><?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+</span>
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 css/styles-friendlist.css">
 </head>
@@ -80,10 +81,40 @@ css/styles-friendlist.css">
     {           
         $(this).parent().addClass('active').siblings().removeClass('active');           
     });
+
+    var base_url = $("#base_url").text();
+    function acceptFriend(userid) 
+    {
+        $.ajax({
+            type: "POST",
+            url: base_url + 'actions/users/accept.php',
+            data: "user_accept="+userid,
+            success: reload
+        });
+    }
+
+    function delFriend(userid) 
+    {
+        $.ajax({
+            type: "POST",
+            url: base_url + 'actions/users/unfriend_deny.php',
+            data: " user_del="+userid,
+            success:reload
+        });
+    }
+    
+    function reload(data)
+    {
+			location.reload();
+	}
     </script>
+
 
     <div id="pendingdiv">
         <div class="container">
+        <?php if (sizeof($_smarty_tpl->tpl_vars['pending']->value)==0) {?>
+        <p> No current pending requests ;_;</p>
+        <?php }?>
         <?php $_smarty_tpl->tpl_vars['counter'] = new Smarty_variable(1, null, 0);?>
             <?php  $_smarty_tpl->tpl_vars['pend'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['pend']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['pending']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -118,14 +149,16 @@ pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['pend']->valu
 
                             </div>
                         </div>
+                        </a>
                         <div class="card-footer">
-                            <button class="btn btn-secondary btn-success float-right btn-sm" onclick="acceptFriend()"><i class="fa fa-plus"></i> Accept</button>
-                            <button class="btn btn-secondary btn-danger float-left btn-sm" onclick="rejectFriend()"><i class="fa fa-times"></i> Reject</button>
+                            <button class="btn btn-secondary btn-success float-right btn-sm" onclick="acceptFriend(<?php echo $_smarty_tpl->tpl_vars['pend']->value['user_id1'];?>
+)"><i class="fa fa-plus"></i> Accept</button>
+                            <button class="btn btn-secondary btn-danger float-left btn-sm" onclick="delFriend(<?php echo $_smarty_tpl->tpl_vars['pend']->value['user_id1'];?>
+)"><i class="fa fa-times"></i> Reject</button>
                         </div>
                     </div>
                     <br>
                     <br>
-                </a>
             </div>
             <?php } else { ?>
                 <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
@@ -147,14 +180,16 @@ pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['pend']->valu
 
                             </div>
                         </div>
+                        </a>
                         <div class="card-footer">
-                            <button class="btn btn-secondary btn-success float-right btn-sm" onclick="acceptFriend()"><i class="fa fa-plus"></i> Accept</button>
-                            <button class="btn btn-secondary btn-danger float-left btn-sm" onclick="rejectFriend()"><i class="fa fa-times"></i> Reject</button>
+                            <button class="btn btn-secondary btn-success float-right btn-sm" onclick="acceptFriend(<?php echo $_smarty_tpl->tpl_vars['pend']->value['user_id2'];?>
+)"><i class="fa fa-plus"></i> Accept</button>
+                            <button class="btn btn-secondary btn-danger float-left btn-sm" onclick="delFriend(<?php echo $_smarty_tpl->tpl_vars['pend']->value['user_id2'];?>
+)"><i class="fa fa-times"></i> Reject</button>
                         </div>
                     </div>
                     <br>
                     <br>
-                    </a>
                 </div>
             <?php }?>
                 <?php if ($_smarty_tpl->tpl_vars['counter']->value%4==0) {?>
@@ -170,7 +205,13 @@ pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['pend']->valu
     </div>
 
 <div id="friendsdiv">
+    <div class="progress progress-striped active">
+        <div class="progress-bar progress-bar-success" style="width: 100%"></div>
+    </div>
     <div class="container">
+    <?php if (sizeof($_smarty_tpl->tpl_vars['friends']->value)==0) {?>
+        <p> Forever alone ... </p>
+    <?php }?>
         <?php $_smarty_tpl->tpl_vars['counter'] = new Smarty_variable(1, null, 0);?>
          
             <?php  $_smarty_tpl->tpl_vars['friend'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['friend']->_loop = false;
@@ -205,13 +246,14 @@ pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['friend']->va
 
                         </div>
                     </div>
+                    </a>
                     <div class="card-footer">
-                        <button class="btn btn-secondary float-right btn-sm"><i class="fa fa-minus"></i> Unfriend</button>
+                        <button class="btn btn-secondary float-right btn-sm" onclick="delFriend(<?php echo $_smarty_tpl->tpl_vars['friend']->value['user_id1'];?>
+)"><i class="fa fa-minus"></i> Unfriend</button>
                     </div>
                 </div>
              <br>
             <br>
-            </a>
             </div>
         <?php } else { ?>
             <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
@@ -233,16 +275,15 @@ pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['friend']->va
 
                         </div>
                     </div>
+                    </a>
                     <div class="card-footer">
-                        <button class="btn btn-secondary float-right btn-sm"><i class="fa fa-minus"></i> Unfriend</button>
+                        <button class="btn btn-secondary float-right btn-sm" onclick="delFriend(<?php echo $_smarty_tpl->tpl_vars['friend']->value['user_id2'];?>
+)"><i class="fa fa-minus"></i> Unfriend</button>
                     </div>
                 </div>
                 <br>
                 <br>
-                </a>
-                </div>
-
-
+             </div>
         <?php }?>
         <?php if ($_smarty_tpl->tpl_vars['counter']->value%4==0) {?>
                 </div>

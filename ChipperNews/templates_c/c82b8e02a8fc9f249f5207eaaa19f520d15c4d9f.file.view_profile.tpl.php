@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 18:44:26
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 20:36:41
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\view_profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3948592c2b39380ee4-36626652%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c82b8e02a8fc9f249f5207eaaa19f520d15c4d9f' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\view_profile.tpl',
-      1 => 1496083462,
+      1 => 1496090190,
       2 => 'file',
     ),
   ),
@@ -59,6 +59,34 @@ js/bootstrap.min.js"></script>
 
 <body>
     <div class="container">
+    <script>
+
+    var base_url = $("#base_url").text();
+    function sendRequest(userid) 
+    {
+        $.ajax({
+            type: "POST",
+            url: base_url + 'actions/users/friendrequest.php',
+            data: "user_add="+userid,
+            success: reload
+        });
+    }
+
+    function delFriend(userid) 
+    {
+        $.ajax({
+            type: "POST",
+            url: base_url + 'actions/users/unfriend_deny.php',
+            data: " user_del="+userid,
+            success:reload
+        });
+    }
+    
+    function reload(data)
+    {
+			location.reload();
+	}
+    </script>
         <div id="bg">
             <img class="bg" src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 images/assets/circuit.jpg" alt="">
@@ -77,18 +105,16 @@ pages/users/posthistory.php?id=<?php echo $_smarty_tpl->tpl_vars['user']->value[
                 <?php $_smarty_tpl->tpl_vars['result'] = new Smarty_variable(friendshipExists($_smarty_tpl->tpl_vars['user']->value['user_id'],$_SESSION['user_id']), null, 0);?>
                 <?php if ($_smarty_tpl->tpl_vars['result']->value===3) {?>
                  <li>
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/posthistory.php?id=<?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
-"><i class="fa fa-user-plus fa-fw"></i> Add <b><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+                    <a onclick="sendRequest(<?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
+)"><i class="fa fa-user-plus fa-fw"></i> Add <b><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
 </b> as friend</a>
                 </li>
                 <?php }?>
-                <?php if ($_smarty_tpl->tpl_vars['result']->value==true) {?>
+                <?php if ($_smarty_tpl->tpl_vars['result']->value===true) {?>
                  <li>
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/posthistory.php?id=<?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
-"><i class="fa fa-user-times fa-fw"></i> Unfriend <b><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
-</b></a>
+                    <a onclick="delFriend(<?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
+)"><i class="fa fa-user-times fa-fw"></i> Unfriend <b><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+</b></button></a>
                 </li>
                 <?php }?>
                 <?php }?>
