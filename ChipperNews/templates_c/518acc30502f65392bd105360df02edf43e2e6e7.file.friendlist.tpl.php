@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 12:05:42
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 13:48:50
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\friendlist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14996592a347ce8b080-93510921%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '518acc30502f65392bd105360df02edf43e2e6e7' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\friendlist.tpl',
-      1 => 1496059541,
+      1 => 1496065728,
       2 => 'file',
     ),
   ),
@@ -21,6 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'BASE_URL' => 0,
     'pending' => 0,
+    'counter' => 0,
+    'first' => 0,
     'pend' => 0,
     'friends' => 0,
     'friend' => 0,
@@ -63,14 +65,36 @@ css/styles-friendlist.css">
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <div>
+    <div class="col-md-12 text-center">
+    <ul class="nav nav-pills center-pills">
+        <li class="active"><a href="#pendingdiv">Pending Requests</a></li>
+        <li><a href="#friendsdiv">Friends</a></li>
+    </ul>
+    </div>
+    
+    <script>
+    $('ul.nav.nav-pills li a').click(function() 
+    {           
+        $(this).parent().addClass('active').siblings().removeClass('active');           
+    });
+    </script>
+
+    <div id="pendingdiv">
         <div class="container">
-            <div class="row">
-             <?php  $_smarty_tpl->tpl_vars['pend'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['pend']->_loop = false;
+        <?php $_smarty_tpl->tpl_vars['counter'] = new Smarty_variable(1, null, 0);?>
+            <?php  $_smarty_tpl->tpl_vars['pend'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['pend']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['pending']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['pend']->key => $_smarty_tpl->tpl_vars['pend']->value) {
 $_smarty_tpl->tpl_vars['pend']->_loop = true;
 ?>
+            <?php if ($_smarty_tpl->tpl_vars['counter']->value==1) {?>
+            <div class="row">
+             <?php $_smarty_tpl->tpl_vars['first'] = new Smarty_variable(0, null, 0);?> 
+             <?php }?>
+             <?php if ($_smarty_tpl->tpl_vars['counter']->value%4==0&&$_smarty_tpl->tpl_vars['first']->value!=0) {?>
+             <div class="row mb-5">
+             <?php }?>
+           
               <?php if ($_smarty_tpl->tpl_vars['pend']->value['user1_username']!=$_SESSION['username']) {?>
                 <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
                 <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -92,8 +116,8 @@ pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['pend']->valu
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button class="btn btn-secondary float-right btn-sm">Accept</button>
-                            <button class="btn btn-secondary float-left btn-sm">Reject</button>
+                            <button class="btn btn-secondary btn-success float-right btn-sm">Accept</button>
+                            <button class="btn btn-secondary btn-danger float-left btn-sm">Reject</button>
                         </div>
                     </div>
                     <br>
@@ -121,8 +145,8 @@ pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['pend']->valu
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button class="btn btn-secondary float-right btn-sm">Accept</button>
-                            <button class="btn btn-secondary float-left btn-sm">Reject</button>
+                            <button class="btn btn-secondary btn-success float-right btn-sm">Accept</button>
+                            <button class="btn btn-secondary btn-danger float-left btn-sm">Reject</button>
                         </div>
                     </div>
                     <br>
@@ -130,21 +154,34 @@ pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['pend']->valu
                     </a>
                 </div>
             <?php }?>
-            <?php } ?>
+                <?php if ($_smarty_tpl->tpl_vars['counter']->value%4==0) {?>
                 </div>
-            </div>
-        </div>
+                <?php if ($_smarty_tpl->tpl_vars['first']->value==0) {?>
+                <?php $_smarty_tpl->tpl_vars['first'] = new Smarty_variable(1, null, 0);?>
+                <?php }?>
+            <?php }?>
+            <?php $_smarty_tpl->tpl_vars['counter'] = new Smarty_variable($_smarty_tpl->tpl_vars['counter']->value+1, null, 0);?>
+            <?php } ?>
+             </div>
+         </div>
     </div>
 
-
-<div>
+<div id="friendsdiv">
     <div class="container">
-        <div class="row">
+        <?php $_smarty_tpl->tpl_vars['counter'] = new Smarty_variable(1, null, 0);?>
+         
             <?php  $_smarty_tpl->tpl_vars['friend'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['friend']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['friends']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['friend']->key => $_smarty_tpl->tpl_vars['friend']->value) {
 $_smarty_tpl->tpl_vars['friend']->_loop = true;
 ?>
+            <?php if ($_smarty_tpl->tpl_vars['counter']->value==1) {?>
+            <div class="row">
+             <?php $_smarty_tpl->tpl_vars['first'] = new Smarty_variable(0, null, 0);?> 
+             <?php }?>
+             <?php if ($_smarty_tpl->tpl_vars['counter']->value%4==0&&$_smarty_tpl->tpl_vars['first']->value!=0) {?>
+             <div class="row mb-5">
+             <?php }?>
             <?php if ($_smarty_tpl->tpl_vars['friend']->value['user1_username']!=$_SESSION['username']) {?>
             <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
             <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -201,11 +238,18 @@ pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['friend']->va
                 <br>
                 </a>
                 </div>
+
+
         <?php }?>
+        <?php if ($_smarty_tpl->tpl_vars['counter']->value%4==0) {?>
+                </div>
+                <?php if ($_smarty_tpl->tpl_vars['first']->value==0) {?>
+                <?php $_smarty_tpl->tpl_vars['first'] = new Smarty_variable(1, null, 0);?>
+                <?php }?>
+        <?php }?>           
+        <?php $_smarty_tpl->tpl_vars['counter'] = new Smarty_variable($_smarty_tpl->tpl_vars['counter']->value+1, null, 0);?>
         <?php } ?>
-                <br>
-            </div>
-        </div>
+        <br>
     </div>
 </div>
 </body>

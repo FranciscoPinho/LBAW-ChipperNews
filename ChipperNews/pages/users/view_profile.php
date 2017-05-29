@@ -2,16 +2,16 @@
   include_once('../../config/init.php');
   include_once($BASE_DIR .'database/users.php'); 
 
-  if (!$_SESSION['user'] || !$_SESSION['user_id']) {
+  if ($_SESSION['username'] == $_GET['usr']) 
+  {
     header('Location: ' . $BASE_URL/pages/users/profile.php);
     exit;
   }
   
   $countries=getAllCountries();
-  $user=getUserInfo($_SESSION['username'])[0];
-  $smarty->assign('profile', 0);
+  $user=getUserInfo($_GET['usr'])[0];
   $smarty->assign('user', $user);
-  $smarty->assign('username', $_SESSION['username']);
+  $smarty->assign('username', $_GET['usr']);
 
   function fetchInterests($user_id)
   {

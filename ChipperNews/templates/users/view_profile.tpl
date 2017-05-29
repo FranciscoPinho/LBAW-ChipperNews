@@ -13,15 +13,8 @@
     <script src="https://www.w3schools.com/lib/w3data.js"></script>
     <script src="{$BASE_URL}js/bootstrap.min.js"></script>
     <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> 
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <link href="{$BASE_URL}/css/bootstrap-editable.css" rel="stylesheet">
-    <script src="{$BASE_URL}/js/bootstrap-editable.js"></script>
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <span class="base_url" id="base_url" hidden>{$BASE_URL}</span>
     <span id="username" hidden>{$username}</span>
-    <!-- Optional Bootstrap theme -->
-    <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
 </head>
 
 <body>
@@ -32,40 +25,22 @@
         <div class="row">
             <div class="col-sm-3">
                 <ul class="nav nav-pills nav-stacked nav-email shadow mb-20">
+                {if !($user.hide_posthistory)}
                     <li>
-                        <a href="{$BASE_URL}pages/users/chatbox.php">
-                            <i class="fa fa-envelope-o fa-fw"></i> Inbox <span class="label label-info pull-right inbox-notification"></span>
-                        </a>
+                        <a href="{$BASE_URL}pages/users/posthistory.php?id={$user.user_id}"><i class="fa fa-book fa-fw"></i> See comment history </a>
                     </li>
-                    <li>
-                        <a href="{$BASE_URL}pages/users/posthistory.php"><i class="fa fa-book fa-fw"></i> Comment History </a>
-                    </li>
-                    <li>
-                        <a href="{$BASE_URL}pages/users/friendlist.php">
-                            <i class="fa fa-users fa-fw"></i> Friends <span class="label label-info pull-right inbox-notification">{$user.user_id|getNumberFriends}</span>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.nav -->
-
-                {if $user.permission_level >= '1'}
-                <h5 class="nav-email-subtitle" style="color:black"><b>More Actions</b></h5>
-                <ul class="nav nav-pills nav-stacked nav-email mb-20 rounded shadow">
-                    <li>
-                        <a href="{$BASE_URL}pages/articles/newarticle.php">
-                            <i class="fa fa-file-text-o fa-fw"></i> Write New Article
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{$BASE_URL}pages/users/myarticles.php">
-                            <i class="fa fa-file-text-o fa-fw"></i> Article History <span class="label label-info pull-right inbox-notification"></span>
-                        </a>
-                    </li>
-                </ul>
                 {/if}
-                <!-- /.nav -->
+                 <li>
+                        <a href="{$BASE_URL}pages/users/posthistory.php?id={$user.user_id}"><i class="fa fa-user-plus fa-fw"></i> Add <b>{$username}</b> as friend</a>
+                </li>
+                <li>
+                        <a href="{$BASE_URL}pages/users/posthistory.php?id={$user.user_id}"><i class="fa fa-user-times fa-fw"></i> Cancel friend request for <b>{$username}</b></a>
+                </li>
+                 <li>
+                        <a href="{$BASE_URL}pages/users/posthistory.php?id={$user.user_id}"><i class="fa fa-eraser fa-fw"></i> Unfriend <b>{$username}</b></a>
+                </li>
+                </ul>
             </div>
-
             <div class="col-sm-9">
                 <div class="panel panel-default">
                     <div class="panel-heading resume-heading">
@@ -90,8 +65,12 @@
                                                     {elseif $user.permission_level eq '2'}Moderator
                                                     {else}Administrator
                                                     {/if}
+                                                    {if !($user.hide_email)}
                                                     <li><i class="fa fa-envelope fa-fw" aria-hidden="false"></i> {$user.email}</li>
+                                                    {/if}
+                                                    {if !($user.hide_local)}
                                                     <li><i class="fa fa-map-marker fa-fw" aria-hidden="false"></i> {$user.local}</li>
+                                                    {/if}
                                                     {if ((ageCalc($user.birthdate) neq 0) && !($user.hide_birthdate))}
                                                         <li><i class="fa fa-birthday-cake fa-fw" aria-hidden="false"></i>
                                                         {ageCalc($user.birthdate)} years old
@@ -107,16 +86,14 @@
                                     <ul class="nav nav-tabs">
                                         <li class="active"><a href="#info" data-toggle="tab">Info</a></li>
                                         <li><a href="#interests" data-toggle="tab">Interests</a></li>
-                                        <li><a href="#settings" data-toggle="tab">Settings <i class="fa fa-cogs"></i></a></li>
-                                        <li><a href="#security" data-toggle="tab">Security <i class="fa fa-key"></i></a></li>
                                     </ul>
                                     <div id="myTabContent" class="tab-content">
                                         <div class="tab-pane fade active in" id="info">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><b>Full name </b><a href="#" data-name="fname" id="fullname" data-type="text" data-pk="1" data-title="Full name ">{$user.name}  </a><i class="fa fa-pencil"></i></li>
-                                                <li class="list-group-item"><b>Bio </b><a href="#" id="bio" data-name="bio" data-type="textarea" data-pk="1" data-title="Bio " title="Edit">{$user.bio} </a><i class="fa fa-pencil"></i></li>
+                                                <li class="list-group-item"><b>Full name </b>{$user.name}</li>
+                                                <li class="list-group-item"><b>Bio </b>{$user.bio} </li>
                                                 <li class="list-group-item"><b>Last logged in </b> {$user.last_login}</li>
-                                                <li class="list-group-item"><b>Associated newspapers or publications </b><a href="#" id="assoc" data-name="assocpub" data-type="textarea" data-pk="1" data-title="Associated newspapers or publications" title="Edit">{$user.assoc_publications} </a><i id="pencil" class="fa fa-pencil"></i></li>
+                                                <li class="list-group-item"><b>Associated newspapers or publications </b>{$user.assoc_publications} </a></li>
                                             </ul>
                                         </div>
                                         <div class="tab-pane fade" id="interests">
@@ -150,7 +127,6 @@
                         </div>
                     </div>
                 </div>
-                <script>
                 <div class="bs-callout bs-callout-danger">
                     {$article = fetchMostPopularArticle($user.user_id)}
                     {if $article neq null}

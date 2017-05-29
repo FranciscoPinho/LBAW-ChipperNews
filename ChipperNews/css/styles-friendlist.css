@@ -5,6 +5,15 @@ h5 {
     margin: 0;
 }
 
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  color: #7EB09B !important;
+  background-color: #1E352F !important; 
+}
+
+.center-pills { display: inline-block; }
+
 .card {
     font-size: 1em;
     overflow: hidden;

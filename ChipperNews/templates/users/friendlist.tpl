@@ -31,10 +31,32 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <div>
+    <div class="col-md-12 text-center">
+    <ul class="nav nav-pills center-pills">
+        <li class="active"><a href="#pendingdiv">Pending Requests</a></li>
+        <li><a href="#friendsdiv">Friends</a></li>
+    </ul>
+    </div>
+    
+    <script>
+    $('ul.nav.nav-pills li a').click(function() 
+    {           
+        $(this).parent().addClass('active').siblings().removeClass('active');           
+    });
+    </script>
+
+    <div id="pendingdiv">
         <div class="container">
+        {$counter=1}
+            {foreach $pending as $pend}
+            {if $counter eq 1}
             <div class="row">
-             {foreach $pending as $pend}
+             {$first = 0} 
+             {/if}
+             {if $counter mod 4==0 && $first neq 0}
+             <div class="row mb-5">
+             {/if}
+           
               {if $pend.user1_username!=$smarty.session.username}
                 <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
                 <a href="{$BASE_URL}pages/users/view_profile.php?usr={$pend.user1_username}" style="color:black; text-decoration:none" >
@@ -50,8 +72,8 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button class="btn btn-secondary float-right btn-sm">Accept</button>
-                            <button class="btn btn-secondary float-left btn-sm">Reject</button>
+                            <button class="btn btn-secondary btn-success float-right btn-sm">Accept</button>
+                            <button class="btn btn-secondary btn-danger float-left btn-sm">Reject</button>
                         </div>
                     </div>
                     <br>
@@ -73,8 +95,8 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button class="btn btn-secondary float-right btn-sm">Accept</button>
-                            <button class="btn btn-secondary float-left btn-sm">Reject</button>
+                            <button class="btn btn-secondary btn-success float-right btn-sm">Accept</button>
+                            <button class="btn btn-secondary btn-danger float-left btn-sm">Reject</button>
                         </div>
                     </div>
                     <br>
@@ -82,17 +104,30 @@
                     </a>
                 </div>
             {/if}
-            {/foreach}
+                {if $counter mod 4==0}
                 </div>
-            </div>
-        </div>
+                {if $first eq 0}
+                {$first=1}
+                {/if}
+            {/if}
+            {$counter=$counter+1}
+            {/foreach}
+             </div>
+         </div>
     </div>
 
-
-<div>
+<div id="friendsdiv">
     <div class="container">
-        <div class="row">
+        {$counter=1}
+         
             {foreach $friends as $friend}
+            {if $counter eq 1}
+            <div class="row">
+             {$first = 0} 
+             {/if}
+             {if $counter mod 4==0 && $first neq 0}
+             <div class="row mb-5">
+             {/if}
             {if $friend.user1_username!=$smarty.session.username}
             <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
             <a href="{$BASE_URL}pages/users/view_profile.php?usr={$friend.user1_username}" style="color:black; text-decoration:none" >
@@ -137,11 +172,18 @@
                 <br>
                 </a>
                 </div>
+
+
         {/if}
+        {if $counter mod 4==0}
+                </div>
+                {if $first eq 0}
+                {$first=1}
+                {/if}
+        {/if}           
+        {$counter=$counter+1}
         {/foreach}
-                <br>
-            </div>
-        </div>
+        <br>
     </div>
 </div>
 </body>
