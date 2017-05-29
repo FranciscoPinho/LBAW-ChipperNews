@@ -308,29 +308,7 @@
     $stmt->execute(array($user_id,$user_id));
     return $stmt->fetchAll();
   }
-
-  function getReceivedMessages($user_id,$type)
-  {
-    global $conn;
-    $stmt = $conn->prepare("SELECT message.*,users.username as username
-    FROM message
-    LEFT JOIN users ON message.sender_id=users.user_id
-    WHERE receiver_id=? AND is_read=".$type.";");
-    $stmt->execute(array($user_id));
-    return $stmt->fetchAll(); 
-  }
-
-  function getSentMessages($user_id,$type)
-  {
-    global $conn;
-    $stmt = $conn->prepare("SELECT message.*,users.username as username
-    FROM message
-    LEFT JOIN users ON message.receiver_id=users.user_id
-    WHERE sender_id=? AND is_read=".$type.";");
-    $stmt->execute(array($user_id));
-    return $stmt->fetchAll(); 
-  }
-
+  
    function getMostPopularArticle($user_id)
   {
       global $conn;
