@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 20:50:04
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 21:24:47
          compiled from "C:\wamp64\www\LBAW\LBAW-ChipperNews\ChipperNews\templates\users\view_profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3948592c2b39380ee4-36626652%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c82b8e02a8fc9f249f5207eaaa19f520d15c4d9f' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\view_profile.tpl',
-      1 => 1496090993,
+      1 => 1496092979,
       2 => 'file',
     ),
   ),
@@ -103,7 +103,6 @@ pages/users/posthistory.php?id=<?php echo $_smarty_tpl->tpl_vars['user']->value[
                 <?php }?>
                 <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value) {?>
                 <?php $_smarty_tpl->tpl_vars['result'] = new Smarty_variable(friendshipExists($_smarty_tpl->tpl_vars['user']->value['user_id'],$_SESSION['user_id']), null, 0);?>
-            
                 <?php if ($_smarty_tpl->tpl_vars['result']->value==0) {?>
                  <li>
                     <a onclick="sendRequest(<?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
@@ -152,7 +151,7 @@ pages/users/posthistory.php?id=<?php echo $_smarty_tpl->tpl_vars['user']->value[
 ">
                                     </figure>
                                     <div class="text-content">
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-15">
                                             <div class="col-xs-12 col-sm-12">
                                                 <p>
                                                     <ul class="list-unstyled">

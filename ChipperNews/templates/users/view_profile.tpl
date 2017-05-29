@@ -98,7 +98,7 @@
                                         <img class="img-responsive" id="profilepic" alt="{$username}" src="{$username|getImage}">
                                     </figure>
                                     <div class="text-content">
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-15">
                                             <div class="col-xs-12 col-sm-12">
                                                 <p>
                                                     <ul class="list-unstyled">
