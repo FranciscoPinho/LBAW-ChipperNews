@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 10:51:57
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 17:11:07
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\search\results.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:30637592ae93d1a3710-48440214%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8563c40e50fee03926e7639c4a6d89212e6447fa' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\search\\results.tpl',
-      1 => 1496048177,
+      1 => 1496076223,
       2 => 'file',
     ),
   ),
@@ -34,6 +34,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search Results</title>
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -112,9 +113,9 @@ pages/articles/article.php?id=<?php echo $_smarty_tpl->tpl_vars['article']->valu
 " style="color:grey" id="articleAnchor">Archived:<?php echo $_smarty_tpl->tpl_vars['article']->value['title'];?>
 </a></h2>
             <?php }?>
-			<h6>By <a href=<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/viewprofile?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['author'];?>
- style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['article']->value['authorname'];?>
+			<h6>By <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/view_profile?usr=<?php echo $_smarty_tpl->tpl_vars['article']->value['authorusername'];?>
+" style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['article']->value['authorname'];?>
 </a> <?php echo $_smarty_tpl->tpl_vars['article']->value['published_date'];?>
 </h6>
             <?php $_smarty_tpl->tpl_vars['subcategories'] = new Smarty_variable(fetchSubcategories($_smarty_tpl->tpl_vars['article']->value['article_id']), null, 0);?>

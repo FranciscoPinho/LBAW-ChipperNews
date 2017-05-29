@@ -52,7 +52,7 @@
                      {if $smarty.session.permission==3}
                     <li><a href="{$BASE_URL}pages/admin/sysadmin.php">Admin Panel</a></li>
                      {/if}
-                     <li><i class="fa fa-envelope-o fa-fw"></i><span class="label label-info pull-right inbox-notification" id="unreadMessages"></span></li>
+                     <li><a href="{$BASE_URL}pages/users/inbox.php"><i class="fa fa-envelope-o fa-fw"></i><span class="label label-info pull-right inbox-notification" id="unreadMessages"></span></a></li>
                     {else}
                      <li><a data-toggle="modal" data-target="#myModal" href="">Login</a></li>     
                      <li><a href="{$BASE_URL}pages/users/register.php">Register</a></li>
@@ -60,7 +60,13 @@
                 </ul>          
             </div>
             <div class="navbar-right">
-                
+                 <form class="navbar-form navbar-right" action="{$BASE_URL}pages/search/results.php" enctype="multipart/form-data" method="post" data-lang="en_GB">
+                        <div class="form-group has-feedback" >
+                            <input type="text" style="border-radius:16px;color:#C5C9A4" class="form-control" placeholder="Search" name="query">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+
+                 </form>
             </div>
             </div>     <!-- /.container-fluid -->
                             <div id="error_messages">

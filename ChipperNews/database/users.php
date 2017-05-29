@@ -51,13 +51,15 @@
   function acceptApp($user_id){
     global $conn;
     $stmt = $conn->prepare("UPDATE users SET permission_level = 1 WHERE user_id=?");
-    return $stmt->execute(array($user_id));
+    $stmt->execute(array($user_id));
+    $stmt2 = $conn->prepare("UPDATE collaborator_application SET status = 'true' WHERE user_id=?");
+    return $stmt2->execute(array($user_id));
   }
   
   function getApplicationList()
   {
 	global $conn;
-    $stmt = $conn->prepare("SELECT * FROM collaborator_application");
+    $stmt = $conn->prepare("SELECT *,users.name as name FROM collaborator_application LEFT JOIN users ON users.user_id=collaborator_application.user_id WHERE status='false' ");
     $stmt->execute();
     return $stmt->fetchAll();
   }
@@ -388,7 +390,7 @@
   }
   function getMyArticlesRecent($user_id){
        global $conn;
-      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname,COALESCE(SUM(rating_article.score),0) AS sum_score,
+      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname,users.username AS authorusername,COALESCE(SUM(rating_article.score),0) AS sum_score,
        (SELECT COUNT(rating_article.score) 
         FROM rating_article
         WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
@@ -399,14 +401,14 @@
         LEFT JOIN rating_article ON article.article_id=rating_article.article_id
         LEFT JOIN users ON users.user_id=article.author
         WHERE article.author=?
-        GROUP BY article.author,article.article_id,users.name
+        GROUP BY article.author,article.article_id,users.name,users.username
         ORDER BY article.published_date DESC;  ");
       $stmt->execute(array($user_id));
       return $stmt->fetchAll();
   }
   function getMyArticlesOldest($user_id){
        global $conn;
-      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname,COALESCE(SUM(rating_article.score),0) AS sum_score,
+      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname,users.username AS authorusername,COALESCE(SUM(rating_article.score),0) AS sum_score,
        (SELECT COUNT(rating_article.score) 
         FROM rating_article
         WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
@@ -417,7 +419,7 @@
         LEFT JOIN rating_article ON article.article_id=rating_article.article_id
         LEFT JOIN users ON users.user_id=article.author
         WHERE article.author=?
-        GROUP BY article.author,article.article_id,users.name
+        GROUP BY article.author,article.article_id,users.name,users.username
         ORDER BY article.published_date ASC;  ");
       $stmt->execute(array($user_id));
       return $stmt->fetchAll();
@@ -425,7 +427,7 @@
   function getMyArticlesControversial($user_id)
   {
       global $conn;
-      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname, COALESCE(SUM(rating_article.score),0) AS sum_score,
+      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname,users.username AS authorusername, COALESCE(SUM(rating_article.score),0) AS sum_score,
       (SELECT COUNT(rating_article.score) 
         FROM rating_article
         WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
@@ -436,7 +438,7 @@
         LEFT JOIN rating_article ON article.article_id=rating_article.article_id
         LEFT JOIN users ON users.user_id=article.author
         WHERE article.author=?        
-        GROUP BY article.author,article.article_id,users.name
+        GROUP BY article.author,article.article_id,users.name,users.username
         ORDER BY sum_score ASC;  ");
       $stmt->execute(array($user_id));
       return $stmt->fetchAll();
@@ -444,7 +446,7 @@
   function getMyArticlesPopular($user_id)
   {
       global $conn;
-      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname, COALESCE(SUM(rating_article.score),0) AS sum_score,
+      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname,users.username AS authorusername, COALESCE(SUM(rating_article.score),0) AS sum_score,
       (SELECT COUNT(rating_article.score) 
         FROM rating_article
         WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
@@ -455,7 +457,7 @@
         LEFT JOIN rating_article ON article.article_id=rating_article.article_id
         LEFT JOIN users ON users.user_id=article.author
         WHERE article.author=?        
-        GROUP BY article.author,article.article_id,users.name
+        GROUP BY article.author,article.article_id,users.name,users.username
         ORDER BY sum_score DESC;  ");
        $stmt->execute(array($user_id));
       return $stmt->fetchAll();
@@ -463,7 +465,7 @@
 
   function getMeNewsfeed($user_id){
       global $conn;
-      $stmt = $conn->prepare("SELECT article.*,users.name AS authorname,user_interests.*,article_category.*,
+      $stmt = $conn->prepare("SELECT article.*,users.name AS authorname,user_interests.*,article_category.*,users.username AS authorusername,
                             (SELECT COUNT(rating_article.score) 
                               FROM rating_article
                               WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
@@ -475,7 +477,7 @@
                             LEFT JOIN user_interests ON article_category.sub_id=user_interests.sub_id 
                             LEFT JOIN users ON users.user_id=article.author
                             WHERE user_interests.user_id=?
-                            GROUP BY article.article_id,user_interests.user_id,user_interests.sub_id,article_category.sub_id,article_category.artcat_id,users.name
+                            GROUP BY article.article_id,user_interests.user_id,user_interests.sub_id,article_category.sub_id,article_category.artcat_id,users.name,users.username
                             ORDER BY article.published_date DESC;");
       $stmt->execute(array($user_id));
       return $stmt->fetchAll();   
@@ -483,7 +485,7 @@
 
   function getFriendsNewsfeed($user_id){
     global $conn;
-    $stmt = $conn->prepare("SELECT DISTINCT article.*,users.name AS authorname,
+    $stmt = $conn->prepare("SELECT DISTINCT article.*,users.name AS authorname,users.username AS authorusername,
                               (SELECT COUNT(rating_article.score) 
                               FROM rating_article
                               WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
@@ -495,7 +497,7 @@
                               LEFT JOIN friendship ON (user_id1=? AND user_id2=rating_article.user_id) OR (user_id2=? AND user_id1=rating_article.user_id)  
                               LEFT JOIN users ON users.user_id=article.author
                               WHERE rating_article.score=1 AND (user_id1=? OR user_id2=?) 
-                              GROUP BY article.article_id,rating_article.score,friendship.user_id1,friendship.user_id2,users.name
+                              GROUP BY article.article_id,rating_article.score,friendship.user_id1,friendship.user_id2,users.name,users.username
                               ORDER BY article.published_date DESC; ");
       $stmt->execute(array($user_id,$user_id,$user_id,$user_id));
       return $stmt->fetchAll();            
@@ -516,7 +518,7 @@
   }
   function getMixedNewsfeed($user_id){
        global $conn;
-    $stmt = $conn->prepare("(SELECT article.*,users.name AS authorname,
+    $stmt = $conn->prepare("(SELECT article.*,users.name AS authorname,users.username AS authorusername,
                             (SELECT COUNT(rating_article.score) 
                               FROM rating_article
                               WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
@@ -531,7 +533,7 @@
                             GROUP BY article.article_id,user_interests.user_id,user_interests.sub_id,article_category.sub_id,article_category.artcat_id,users.name
                             ORDER BY article.published_date DESC)
                               UNION
-                              (SELECT article.*,users.name AS authorname,
+                              (SELECT article.*,users.name AS authorname,users.username AS authorusername,
                               (SELECT COUNT(rating_article.score) 
                               FROM rating_article
                               WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
@@ -543,7 +545,7 @@
                               LEFT JOIN friendship ON (user_id1=? AND user_id2=rating_article.user_id) OR (user_id2=? AND user_id1=rating_article.user_id)  
                               LEFT JOIN users ON users.user_id=article.author
                               WHERE rating_article.score=1 AND (user_id1=? OR user_id2=?) 
-                              GROUP BY article.article_id,rating_article.score,friendship.user_id1,friendship.user_id2,users.name
+                              GROUP BY article.article_id,rating_article.score,friendship.user_id1,friendship.user_id2,users.name,users.username
                               ORDER BY article.published_date DESC); ");
       $stmt->execute(array($user_id,$user_id,$user_id,$user_id,$user_id));
       return $stmt->fetchAll();   

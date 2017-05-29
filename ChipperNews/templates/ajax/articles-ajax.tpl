@@ -16,7 +16,7 @@
                         <img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
                         </span>
 			</div>
-            <h6>By <a href={$BASE_URL}pages/users/viewprofile?id={$art.author} style="color:black; font-style:italic">{$art.authorname}</a> {$art.published_date}</h6>
+            <h6>By <a href="{$BASE_URL}pages/users/view_profile?usr={$art.authorusername}" style="color:black; font-style:italic">{$art.authorname}</a> {$art.published_date}</h6>
             <p>{$art.lead}</p>
             {foreach $subcategories as $sub}
                {if $sub.category==1}
@@ -57,7 +57,7 @@
                         <img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
                         </button>
 			</div>
-            	<h6>By <a href={$BASE_URL}pages/users/viewprofile?id={$art.author} style="color:black; font-style:italic">{$art.authorname}</a> {$art.published_date}</h6>
+            	<h6>By <a href="{$BASE_URL}pages/users/view_profile?usr={$article.authorusername}" style="color:black; font-style:italic">{$art.authorname}</a> {$art.published_date}</h6>
             <p>{$art.lead}</p>
             {foreach $subcategories as $sub}
                {if $sub.category==1}
@@ -98,7 +98,7 @@
                         <img src="{$BASE_URL}images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
                         </button>
 			</div>
-            	<h6>By <a href={$BASE_URL}pages/users/viewprofile?id={$art.author} style="color:black; font-style:italic">{$art.authorname}</a> {$art.published_date}</h6>
+            	<h6>By <a href="{$BASE_URL}pages/users/view_profile?usr={$article.authorusername}" style="color:black; font-style:italic">{$art.authorname}</a> {$art.published_date}</h6>
             <p>{$art.lead}</p>
             {foreach $subcategories as $sub}
                {if $sub.category==1}

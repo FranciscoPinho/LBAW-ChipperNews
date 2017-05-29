@@ -8,19 +8,19 @@
 							<h6 class="comment-name by-author" ><a style="color:blue;text-decoration:none" href="{$BASE_URL}pages/users/profile.php">{$comment.commenter}</a> </h6>
 							<span>Myself&nbsp</span>
 							{elseif $comment.commenter_id==$article.author}
-							<h6 class="comment-name by-author"><a style="color:darkblue;text-decoration:none" href="{$BASE_URL}pages/users/view_profile.php?id={$comment.commenter_id}">{$comment.commenter}</a> </h6>
+							<h6 class="comment-name by-author"><a style="color:darkblue;text-decoration:none" href="{$BASE_URL}pages/users/view_profile.php?usr={$comment.commenter}">{$comment.commenter}</a> </h6>
 							<span>Author&nbsp</span>
 							{elseif $comment.commenter_permission==1}
-							<h6 class="comment-name by-author"><a style="color:darkgreen;text-decoration:none" href="{$BASE_URL}pages/users/view_profile.php?id={$comment.commenter_id}">{$comment.commenter}</a> </h6>
+							<h6 class="comment-name by-author"><a style="color:darkgreen;text-decoration:none" href="{$BASE_URL}pages/users/view_profile.php?usr={$comment.commenter}">{$comment.commenter}</a> </h6>
 							<span>Collaborator&nbsp</span>
 							{elseif $comment.commenter_permission==2}
-							<h6 class="comment-name by-author"><a style="color:red;text-decoration:none" href="{$BASE_URL}pages/users/view_profile.php?id={$comment.commenter_id}">{$comment.commenter}</a> </h6>
+							<h6 class="comment-name by-author"><a style="color:red;text-decoration:none" href="{$BASE_URL}pages/users/view_profile.php?usr={$comment.commenter}">{$comment.commenter}</a> </h6>
 							<span>Moderator&nbsp</span>
 							{elseif $comment.commenter_permission==3}
-							<h6 class="comment-name by-author"><a style="color:yellow;text-decoration:none" href="{$BASE_URL}pages/users/view_profile.php?id={$comment.commenter_id}">{$comment.commenter}</a> </h6>
+							<h6 class="comment-name by-author"><a style="color:yellow;text-decoration:none" href="{$BASE_URL}pages/users/view_profile.php?usr={$comment.commenter}">{$comment.commenter}</a> </h6>
 							<span>Admin&nbsp</span>
 							{else}
-							<h6 class="comment-name by-author"><a style="text-decoration:none" href="{$BASE_URL}pages/users/view_profile.php?id={$comment.commenter_id}">{$comment.commenter}</a> </h6>
+							<h6 class="comment-name by-author"><a style="text-decoration:none" href="{$BASE_URL}pages/users/view_profile.php?usr={$comment.commenter}">{$comment.commenter}</a> </h6>
 							<span>Reader&nbsp</span>
 					   {/if}
 							<span> {$comment.posted_date}&nbsp&nbsp&nbsp</span>

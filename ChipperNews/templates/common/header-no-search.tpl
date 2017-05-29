@@ -59,7 +59,7 @@
                     <li><a href="{$BASE_URL}pages/admin/sysadmin.php">Admin Panel</a></li>
                      {/if}
                      {/if}
-                     <li><i class="fa fa-envelope-o fa-fw"></i><span class="label label-info pull-right inbox-notification" id="unreadMessages"></span></li>
+                     <li><a href="{$BASE_URL}pages/users/inbox.php"><i class="fa fa-envelope-o fa-fw"></i><span class="label label-info pull-right inbox-notification" id="unreadMessages"></span></a></li>
                     {else}
                      <li><a data-toggle="modal" data-target="#myModal" href="">Login</a></li>     
                      <li><a href="{$BASE_URL}pages/users/register.php">Register</a></li>

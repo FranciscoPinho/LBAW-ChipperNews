@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 15:09:27
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 17:13:47
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\ajax\articles-ajax.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:195605929a640363b15-82786282%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'eff79eb74aa86920902bfcecbabf933e4ed3f982' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\ajax\\articles-ajax.tpl',
-      1 => 1496061973,
+      1 => 1496077954,
       2 => 'file',
     ),
   ),
@@ -26,6 +26,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'BASE_URL' => 0,
     'subcategories' => 0,
     'sub' => 0,
+    'article' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -56,9 +57,9 @@ images/assets/chipart1.png" alt="" style="width:100%;height:100%;">
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
                         </span>
 			</div>
-            <h6>By <a href=<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/viewprofile?id=<?php echo $_smarty_tpl->tpl_vars['art']->value['author'];?>
- style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['art']->value['authorname'];?>
+            <h6>By <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/view_profile?usr=<?php echo $_smarty_tpl->tpl_vars['art']->value['authorusername'];?>
+" style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['art']->value['authorname'];?>
 </a> <?php echo $_smarty_tpl->tpl_vars['art']->value['published_date'];?>
 </h6>
             <p><?php echo $_smarty_tpl->tpl_vars['art']->value['lead'];?>
@@ -121,9 +122,9 @@ images/assets/chipart1.png" alt="" style="width:100%;height:100%;">
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
                         </button>
 			</div>
-            	<h6>By <a href=<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/viewprofile?id=<?php echo $_smarty_tpl->tpl_vars['art']->value['author'];?>
- style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['art']->value['authorname'];?>
+            	<h6>By <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/view_profile?usr=<?php echo $_smarty_tpl->tpl_vars['article']->value['authorusername'];?>
+" style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['art']->value['authorname'];?>
 </a> <?php echo $_smarty_tpl->tpl_vars['art']->value['published_date'];?>
 </h6>
             <p><?php echo $_smarty_tpl->tpl_vars['art']->value['lead'];?>
@@ -186,9 +187,9 @@ images/assets/chipart1.png" alt="" style="width:100%;height:100%;">
 images/assets/chipart1.png" alt="" style="width:100%;height:100%;filter:hue-rotate(198deg);"> 
                         </button>
 			</div>
-            	<h6>By <a href=<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/viewprofile?id=<?php echo $_smarty_tpl->tpl_vars['art']->value['author'];?>
- style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['art']->value['authorname'];?>
+            	<h6>By <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/view_profile?usr=<?php echo $_smarty_tpl->tpl_vars['article']->value['authorusername'];?>
+" style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['art']->value['authorname'];?>
 </a> <?php echo $_smarty_tpl->tpl_vars['art']->value['published_date'];?>
 </h6>
             <p><?php echo $_smarty_tpl->tpl_vars['art']->value['lead'];?>

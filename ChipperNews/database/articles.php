@@ -3,7 +3,7 @@
       global $conn;
       $stmt = $conn->prepare("SELECT search_article.author AS author,search_article.published_date AS published_date,
       search_article.title AS title,search_article.lead AS lead,search_article.article_id AS article_id,
-      search_article.content AS content,users.name AS authorname,COALESCE(SUM(rating_article.score),0) AS sum_score,
+      search_article.content AS content,users.name AS authorname,users.username AS authorusername,COALESCE(SUM(rating_article.score),0) AS sum_score,
        (SELECT COUNT(rating_article.score) 
         FROM rating_article
         WHERE  rating_article.score=1 AND rating_article.article_id = search_article.article_id) AS posratings,
@@ -14,7 +14,7 @@
         LEFT JOIN users ON search_article.author=users.user_id
         LEFT JOIN rating_article ON rating_article.article_id=search_article.article_id
         WHERE art_search @@ to_tsquery('english', ?)
-        GROUP BY users.user_id,search_article.article_id,rating_article.article_id,search_article.author,search_article.published_date,search_article.title,search_article.lead,search_article.content
+        GROUP BY users.user_id,search_article.article_id,users.username,rating_article.article_id,search_article.author,search_article.published_date,search_article.title,search_article.lead,search_article.content
         ORDER BY ".$order.";");
        $stmt->execute(array($query));
       return $stmt->fetchAll();
@@ -51,7 +51,7 @@
   function getArticle($article_id)
   {
     global $conn;
-    $stmt = $conn->prepare("SELECT article.*,users.name AS authorname, COALESCE(SUM(rating_article.score),0) AS sum_score,
+    $stmt = $conn->prepare("SELECT article.*,users.name AS authorname,users.username AS authorusername, COALESCE(SUM(rating_article.score),0) AS sum_score,
           (SELECT COUNT(rating_article.score) 
            FROM rating_article
            WHERE  rating_article.score=1 AND rating_article.article_id = ?) AS posratings,
@@ -62,7 +62,7 @@
           LEFT JOIN rating_article ON article.article_id=rating_article.article_id
           LEFT JOIN users ON article.author=users.user_id
           WHERE article.article_id = ?  
-          GROUP BY article.author,users.name,article.article_id 
+          GROUP BY article.author,users.name,article.article_id,users.username 
         ");
     $stmt->execute(array($article_id,$article_id,$article_id));
     $article= $stmt->fetchAll();
@@ -158,7 +158,7 @@
   function getRecentArticles()
   {
       global $conn;
-      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname,COALESCE(SUM(rating_article.score),0) AS sum_score,
+      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname,users.username AS authorusername,COALESCE(SUM(rating_article.score),0) AS sum_score,
        (SELECT COUNT(rating_article.score) 
         FROM rating_article
         WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
@@ -169,7 +169,7 @@
         LEFT JOIN rating_article ON article.article_id=rating_article.article_id
         LEFT JOIN users ON users.user_id=article.author
         WHERE (current_date-article.published_date) < 100 
-        GROUP BY article.author,article.article_id,users.name
+        GROUP BY article.author,article.article_id,users.name,users.username
         ORDER BY article.published_date DESC;  ");
       $stmt->execute();
       return $stmt->fetchAll();
@@ -179,13 +179,23 @@
   function getRecentArticlesByCategory($category)
   {
       global $conn;
-      $stmt = $conn->prepare("SELECT article.* FROM article
+      $stmt = $conn->prepare("SELECT article.*,users.username AS authorusername,users.name AS authorname,
+       (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
+        (SELECT COUNT(rating_article.score) 
+        FROM rating_article
+        WHERE rating_article.score=-1 AND rating_article.article_id = article.article_id) AS negratings  
+      FROM article
       LEFT JOIN article_category 
       ON article.article_id = article_category.article_id
       LEFT JOIN subcategory
       ON article_category.sub_id = subcategory.sub_id
+      LEFT JOIN users
+      ON users.user_id=article.author
+      LEFT JOIN rating_article ON article.article_id=rating_article.article_id
       WHERE subcategory.category = ?
-      GROUP BY article.article_id
+      GROUP BY article.article_id,users.username,users.name
       ORDER BY article.published_date DESC;
       ");
       $stmt->execute(array($category));
@@ -194,7 +204,7 @@
   function getControversialArticles()
   {
       global $conn;
-      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname, COALESCE(SUM(rating_article.score),0) AS sum_score,
+      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname,users.username AS authorusername, COALESCE(SUM(rating_article.score),0) AS sum_score,
       (SELECT COUNT(rating_article.score) 
         FROM rating_article
         WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
@@ -205,7 +215,7 @@
         LEFT JOIN rating_article ON article.article_id=rating_article.article_id
         LEFT JOIN users ON users.user_id=article.author
         WHERE (current_date-article.published_date) < 100  AND article.archived='false' 
-        GROUP BY article.author,article.article_id,users.name
+        GROUP BY article.author,article.article_id,users.name,users.username
         ORDER BY article.sum_score DESC;  ");
       $stmt->execute();
       return $stmt->fetchAll();
@@ -213,7 +223,7 @@
     function getPopularArticles()
   {
       global $conn;
-      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname, COALESCE(SUM(rating_article.score),0) AS sum_score,
+      $stmt = $conn->prepare(" SELECT article.*,users.name AS authorname,users.username AS authorusername, COALESCE(SUM(rating_article.score),0) AS sum_score,
        (SELECT COUNT(rating_article.score) 
         FROM rating_article
         WHERE  rating_article.score=1 AND rating_article.article_id = article.article_id) AS posratings,
@@ -224,7 +234,7 @@
         LEFT JOIN rating_article ON article.article_id=rating_article.article_id
         LEFT JOIN users ON users.user_id=article.author
         WHERE (current_date-article.published_date) < 100  AND article.archived='false' 
-        GROUP BY article.author,article.article_id,users.name
+        GROUP BY article.author,article.article_id,users.name,users.username
         ORDER BY article.sum_score ASC;  ");
       $stmt->execute();
       return $stmt->fetchAll();

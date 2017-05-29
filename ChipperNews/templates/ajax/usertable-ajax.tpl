@@ -22,7 +22,7 @@
         {foreach $users as $user}
         <tr>
             <td>{$user.user_id}</td>
-            <td><img class="media-object" src="{$user.username|getImage}" alt="..." style="height:30px;width:30px"></td>
+            <td><a href="{$BASE_URL}pages/users/view_profile?usr={$user.username}""><img class="media-object" src="{$user.username|getImage}" alt="..." style="height:30px;width:30px"></a></td>
             <td>{$user.username}</td>
             <td> {$user.email}</td>
             <td>

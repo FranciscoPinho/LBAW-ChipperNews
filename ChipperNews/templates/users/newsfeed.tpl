@@ -65,7 +65,7 @@
             {else}
             <h2 id="headline" ><a href="{$BASE_URL}pages/articles/article.php?id={$article.article_id}" style="color:grey" id="articleAnchor">Archived:{$article.title}</a></h2>
             {/if}
-			<h6>By <a href="{$BASE_URL}pages/users/view_profile?id={$article.authorusername}" style="color:black; font-style:italic">{$article.authorname}</a> {$article.published_date}</h6>
+			<h6>By <a href="{$BASE_URL}pages/users/view_profile?usr={$article.authorusername}" style="color:black; font-style:italic">{$article.authorname}</a> {$article.published_date}</h6>
             {$subcategories = fetchSubcategories($article.article_id)}
 			 {foreach $subcategories as $subart}
                             {if $subart.category==1}

@@ -12,7 +12,7 @@
      return $category[0];
   }
   $smarty->assign('adminpanel', 0);
-  $smarty->display('common/header-categories.tpl');
+  $smarty->display('common/header-no-search.tpl');
   $smarty->display('admin/categoriespanel.tpl');
   $smarty->display('common/footer.tpl');
 ?>

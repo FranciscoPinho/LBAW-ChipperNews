@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 17:13:37
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 17:02:36
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\article-comments.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:59835929b3c17fae29-89666777%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '03240d0d0b54748aaf652b284f5c27eb8237b74f' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\article-comments.tpl',
-      1 => 1495897605,
+      1 => 1496077345,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_5929b3c1cb1be9_75574789',
   'variables' => 
   array (
     'article' => 0,
@@ -27,8 +29,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'rating' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_5929b3c1cb1be9_75574789',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5929b3c1cb1be9_75574789')) {function content_5929b3c1cb1be9_75574789($_smarty_tpl) {?><?php $_smarty_tpl->tpl_vars['comments'] = new Smarty_variable(fetchComments($_smarty_tpl->tpl_vars['article']->value['article_id']), null, 0);?>
 
@@ -68,31 +68,31 @@ pages/users/profile.php"><?php echo $_smarty_tpl->tpl_vars['comment']->value['co
 							<span>Myself&nbsp</span>
 							<?php } elseif ($_smarty_tpl->tpl_vars['comment']->value['commenter_id']==$_smarty_tpl->tpl_vars['article']->value['author']) {?>
 							<h6 class="comment-name by-author"><a style="color:darkblue;text-decoration:none" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/view_profile.php?id=<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter_id'];?>
+pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
 "><?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
 </a> </h6>
 							<span>Author&nbsp</span>
 							<?php } elseif ($_smarty_tpl->tpl_vars['comment']->value['commenter_permission']==1) {?>
 							<h6 class="comment-name by-author"><a style="color:darkgreen;text-decoration:none" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/view_profile.php?id=<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter_id'];?>
+pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
 "><?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
 </a> </h6>
 							<span>Collaborator&nbsp</span>
 							<?php } elseif ($_smarty_tpl->tpl_vars['comment']->value['commenter_permission']==2) {?>
 							<h6 class="comment-name by-author"><a style="color:red;text-decoration:none" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/view_profile.php?id=<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter_id'];?>
+pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
 "><?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
 </a> </h6>
 							<span>Moderator&nbsp</span>
 							<?php } elseif ($_smarty_tpl->tpl_vars['comment']->value['commenter_permission']==3) {?>
 							<h6 class="comment-name by-author"><a style="color:yellow;text-decoration:none" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/view_profile.php?id=<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter_id'];?>
+pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
 "><?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
 </a> </h6>
 							<span>Admin&nbsp</span>
 							<?php } else { ?>
 							<h6 class="comment-name by-author"><a style="text-decoration:none" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/view_profile.php?id=<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter_id'];?>
+pages/users/view_profile.php?usr=<?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
 "><?php echo $_smarty_tpl->tpl_vars['comment']->value['commenter'];?>
 </a> </h6>
 							<span>Reader&nbsp</span>

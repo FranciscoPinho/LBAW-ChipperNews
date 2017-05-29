@@ -36,7 +36,7 @@
                 <div class="app">
                     <div class="mycomment">
 						
-                        <h6>(here will appeat the name but for now ID) By <a style="color:black; font-style:italic">{$app.user_id}</a></h6>
+                        <h6> By <a style="color:black; font-style:italic">{$app.name}</a></h6>
                         <p>Achievements: {$app.achievements}</p>
 						<p>Motivation: {$app.motivation}</p>
 						<p>References: {$app.reference}</p>
