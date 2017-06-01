@@ -70,7 +70,7 @@
                     {if $user.permission_level == 0}
                     <tr>
                         <td>{$user.user_id}</td>
-                        <td><a href="{$BASE_URL}pages/users/view_profile?usr={$user.username}" style="color:black; font-style:italic"><img class="media-object" src="{$user.username|getImage}" alt="..." style="height:30px;width:30px"></a></td>
+                        <td><a href="{$BASE_URL}pages/users/view_profile.php?usr={$user.username}" style="color:black; font-style:italic"><img class="media-object" src="{$user.username|getImage}" alt="..." style="height:30px;width:30px"></a></td>
                         <td>{$user.username}</td>
                         <td> {$user.email}</td>
                         <td>
@@ -125,7 +125,7 @@
                     {if $user.permission_level == 1}
                     <tr>
                         <td>{$user.user_id}</td>
-                        <td><a href="{$BASE_URL}pages/users/view_profile?usr={$user.username}" style="color:black; font-style:italic"><img class="media-object" src="{$user.username|getImage}" alt="..." style="height:30px;width:30px"></a></td>
+                        <td><a href="{$BASE_URL}pages/users/view_profile.php?usr={$user.username}" style="color:black; font-style:italic"><img class="media-object" src="{$user.username|getImage}" alt="..." style="height:30px;width:30px"></a></td>
                         <td>{$user.username}</td>
                         <td> {$user.email}</td>
                         <td>
@@ -180,7 +180,7 @@
                     {if $user.permission_level == 2}
                     <tr>
                         <td>{$user.user_id}</td>
-                        <td><a href="{$BASE_URL}pages/users/view_profile?usr={$user.username}" style="color:black; font-style:italic"><img class="media-object" src="{$user.username|getImage}" alt="..." style="height:30px;width:30px"></a></td>
+                        <td><a href="{$BASE_URL}pages/users/view_profile.php?usr={$user.username}" style="color:black; font-style:italic"><img class="media-object" src="{$user.username|getImage}" alt="..." style="height:30px;width:30px"></a></td>
                         <td>{$user.username}</td>
                         <td> {$user.email}</td>
                         <td>

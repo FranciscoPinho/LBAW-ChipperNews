@@ -59,7 +59,7 @@
             {else}
             <h2 id="headline" ><a href="{$BASE_URL}pages/articles/article.php?id={$article.article_id}" style="color:grey" id="articleAnchor">Archived:{$article.title}</a></h2>
             {/if}
-			<h6>By <a href="{$BASE_URL}pages/users/view_profile?usr={$article.authorusername}" style="color:black; font-style:italic">{$article.authorname}</a> {$article.published_date}</h6>
+			<h6>By <a href="{$BASE_URL}pages/users/view_profile.php?usr={$article.authorusername}" style="color:black; font-style:italic">{$article.authorname}</a> {$article.published_date}</h6>
             {$subcategories = fetchSubcategories($article.article_id)}
 			 {foreach $subcategories as $subart}
                             {if $subart.category==1}
@@ -117,7 +117,7 @@
          {if sizeof($users)>0}
         {foreach $users as $user}
             <img class="img-responsive pull-left" id="profilepic" alt="{$user.username}" src="{$user.username|getImage}">
-            <h2> <a style="text-decoration:none; padding-left:30px; color:black" href="{$BASE_URL}/pages/users/view_profile.php?username={$user.username}">{$user.username}</a></h2>
+            <h2> <a style="text-decoration:none; padding-left:30px; color:black" href="{$BASE_URL}/pages/users/view_profile.php?usr={$user.username}">{$user.username}</a></h2>
             <p><span style="padding-left:30px">{$user.name}</span></p>
             <p><span style="padding-left:30px">{$user.bio}</span></p>
             <br><br>  
