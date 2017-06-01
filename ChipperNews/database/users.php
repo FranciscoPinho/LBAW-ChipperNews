@@ -573,7 +573,7 @@
                             LEFT JOIN user_interests ON article_category.sub_id=user_interests.sub_id 
                             LEFT JOIN users ON users.user_id=article.author
                             WHERE user_interests.user_id=?
-                            GROUP BY article.article_id,user_interests.user_id,user_interests.sub_id,article_category.sub_id,article_category.artcat_id,users.name
+                            GROUP BY article.article_id,user_interests.user_id,user_interests.sub_id,article_category.sub_id,article_category.artcat_id,users.name,users.username
                             ORDER BY article.published_date DESC)
                               UNION
                               (SELECT article.*,users.name AS authorname,users.username AS authorusername,

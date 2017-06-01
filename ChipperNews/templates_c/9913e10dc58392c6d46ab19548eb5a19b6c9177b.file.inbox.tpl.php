@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 21:59:02
+<?php /* Smarty version Smarty-3.1.15, created on 2017-06-01 16:52:00
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\users\inbox.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:8245592c96d0445608-53009050%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9913e10dc58392c6d46ab19548eb5a19b6c9177b' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\users\\inbox.tpl',
-      1 => 1496095141,
+      1 => 1496098688,
       2 => 'file',
     ),
   ),
@@ -20,9 +20,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'BASE_URL' => 0,
-    'USERNAME' => 0,
     'messages' => 0,
     'msg' => 0,
+    'USERNAME' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -62,20 +62,35 @@ js/main.js"></script>
 images/assets/circuit.jpg" alt="">
         </div>
 
-
         <div class="container-fluid" id="postheader">
             <h1 class="nf"> Inbox </h1>
         </div>
+
+        <?php  $_smarty_tpl->tpl_vars['msg'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['msg']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['messages']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['msg']->key => $_smarty_tpl->tpl_vars['msg']->value) {
+$_smarty_tpl->tpl_vars['msg']->_loop = true;
+?>
+            <div class="container comment-snip" style="width:60%;min-height:50px;">
+                    <div class="mycomment ">
+                    <p class="text-center">From: <?php echo $_smarty_tpl->tpl_vars['msg']->value['username'];?>
+ </p>
+                    <div class="caption text-center" style="word-wrap: break-word;"> <?php echo $_smarty_tpl->tpl_vars['msg']->value['content'];?>
+</div>
+                    </div>
+            </div>
+         <?php } ?>
+
         <div class="container" style="width:60%">
-        <form class="form-horizontal" id="fpassw" method="post" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+        <form class="form-horizontal" id="msg" method="post" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 actions/users/send.php">
          <fieldset class="responsive-fieldset">
-        <div class="form-group">
+            <div class="form-group">
                <label for="to"> To: <br>  </label>
 				<div class="col-sm-12">
                 <input type="text" id="receiver" class="form-control"  name="receiver" required>
                 </div>
-        </div>
+            </div>
          <div class="form-group">
 				<label for="from"> From: <br>  </label>
 				<div class="col-sm-12">
@@ -93,30 +108,17 @@ actions/users/send.php">
                          </div>
           </div>
                 <button class="btn btn-lg btn-success btn-block center-block" style="width:50%"type="submit" value="submit" >Send Message</button>
+                <br>
             </fieldset>
         </form>
       
         </div>
-          <br><br><br>
-         <?php  $_smarty_tpl->tpl_vars['msg'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['msg']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['messages']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['msg']->key => $_smarty_tpl->tpl_vars['msg']->value) {
-$_smarty_tpl->tpl_vars['msg']->_loop = true;
-?>
-            <div class="container comment-snip" style="width:50%;min-height:50px;">
-                    <div class="mycomment ">
-                    <p class="text-center">From: <?php echo $_smarty_tpl->tpl_vars['msg']->value['username'];?>
- </p>
-                    <div class="caption text-center" style="word-wrap: break-word;"> <?php echo $_smarty_tpl->tpl_vars['msg']->value['content'];?>
-</div>
-                    </div>
-            </div>
-         <?php } ?>
+          <br>
     </div>
 	
 <script>
-
-function markRead(user_id){
+function markRead(user_id)
+{
                 var base_url = $("#base_url").text();
                 return $.ajax({
                     type: "POST",

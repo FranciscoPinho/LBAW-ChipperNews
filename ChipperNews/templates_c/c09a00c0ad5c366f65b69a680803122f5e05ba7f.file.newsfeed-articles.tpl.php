@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-28 12:48:01
+<?php /* Smarty version Smarty-3.1.15, created on 2017-06-01 16:52:06
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\ajax\newsfeed-articles.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:16548592aad460477c5-14107212%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c09a00c0ad5c366f65b69a680803122f5e05ba7f' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\ajax\\newsfeed-articles.tpl',
-      1 => 1495974891,
+      1 => 1496061971,
       2 => 'file',
     ),
   ),
@@ -88,9 +88,9 @@ pages/articles/article.php?id=<?php echo $_smarty_tpl->tpl_vars['article']->valu
 " style="color:grey" id="articleAnchor">Archived:<?php echo $_smarty_tpl->tpl_vars['article']->value['title'];?>
 </a></h2>
             <?php }?>
-			<h6>By <a href=<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/users/viewprofile?id=<?php echo $_smarty_tpl->tpl_vars['article']->value['author'];?>
- style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['article']->value['authorname'];?>
+			<h6>By <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/view_profile?usr=<?php echo $_smarty_tpl->tpl_vars['article']->value['authorusername'];?>
+" style="color:black; font-style:italic"><?php echo $_smarty_tpl->tpl_vars['article']->value['authorname'];?>
 </a> <?php echo $_smarty_tpl->tpl_vars['article']->value['published_date'];?>
 </h6>
             <?php $_smarty_tpl->tpl_vars['subcategories'] = new Smarty_variable(fetchSubcategories($_smarty_tpl->tpl_vars['article']->value['article_id']), null, 0);?>

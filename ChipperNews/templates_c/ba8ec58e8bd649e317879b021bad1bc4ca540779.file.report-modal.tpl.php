@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-05-27 17:13:38
+<?php /* Smarty version Smarty-3.1.15, created on 2017-05-29 22:32:05
          compiled from "C:\wamp64\www\LBAW-ChipperNews\ChipperNews\templates\articles\report-modal.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:55485929b3c2091c03-05312895%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ba8ec58e8bd649e317879b021bad1bc4ca540779' => 
     array (
       0 => 'C:\\wamp64\\www\\LBAW-ChipperNews\\ChipperNews\\templates\\articles\\report-modal.tpl',
-      1 => 1495889691,
+      1 => 1496097120,
       2 => 'file',
     ),
   ),
@@ -15,16 +15,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.15',
   'unifunc' => 'content_5929b3c20d5f60_72531733',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5929b3c20d5f60_72531733')) {function content_5929b3c20d5f60_72531733($_smarty_tpl) {?><div id="reportModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close " data-dismiss="modal">&times;</button>
+                <button type="button" class="btn btn-default btn-sm" style="float: right;" data-dismiss="modal"><i class="fa fa-times fa-lg" aria-hidden="false"></i></button>
                     <h4 class="modal-title">Report User</h4>
                 </div>
                 <div class="modal-body" id="report_body">
