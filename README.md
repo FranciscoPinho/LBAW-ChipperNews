@@ -1,6 +1,7 @@
 # LBAW-ChipperNews
-Collaborative news platform about tech.
-Used Technologies:
+Collaborative news platform about tech.    
+
+Used technologies:
 - HTML5/CSS/Bootstrap
 - PHP/Smarty Template Engine
 - PostgreSQL database
